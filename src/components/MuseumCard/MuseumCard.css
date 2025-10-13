@@ -203,7 +203,8 @@
 }
 
 .museum-card__gallery-interior .gallery-interior {
-  height: 100%;
+  height: 100%; /* Override full viewport height in MuseumCard context */
+  min-height: auto; /* Remove min-height constraint */
 }
 
 .museum-card__gallery-interior .gallery-interior__overlay {

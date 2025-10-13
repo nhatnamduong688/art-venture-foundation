@@ -2,7 +2,8 @@
 .gallery-interior {
   position: relative;
   width: 100%;
-  height: 827px; /* Match Figma frame height */
+  height: 100vh; /* Full viewport height like Figma */
+  min-height: 827px; /* Minimum height from Figma */
   overflow: hidden;
 }
 
@@ -10,20 +11,20 @@
 .gallery-interior__overlay {
   position: absolute;
   background-color: #d9d9d9;
-  height: 851px;
+  height: 103%; /* Slightly larger than container */
   left: 0;
-  top: -24px;
-  width: 995px;
+  top: -3%;
+  width: 100%;
   z-index: 1;
 }
 
 /* Main image container */
 .gallery-interior__image-container {
   position: absolute;
-  height: 1968px;
+  height: 200vh; /* Scale with viewport height */
   left: 0;
-  top: -532px;
-  width: 1311px;
+  top: -50vh; /* Center vertically */
+  width: 120%;
   z-index: 2;
 }
 
@@ -42,18 +43,19 @@
 /* Responsive Design */
 @media (max-width: 1024px) {
   .gallery-interior {
-    height: 600px;
+    height: 100vh; /* Keep full height on tablet */
+    min-height: 600px;
   }
   
   .gallery-interior__overlay {
-    height: 620px;
+    height: 103%;
     width: 100%;
   }
   
   .gallery-interior__image-container {
-    height: 1400px;
-    width: 100%;
-    top: -300px;
+    height: 180vh;
+    width: 110%;
+    top: -40vh;
   }
   
   .gallery-interior__image {
@@ -64,16 +66,17 @@
 
 @media (max-width: 768px) {
   .gallery-interior {
-    height: 400px;
+    height: 100vh; /* Keep full height on mobile */
+    min-height: 400px;
   }
   
   .gallery-interior__overlay {
-    height: 420px;
+    height: 103%;
   }
   
   .gallery-interior__image-container {
-    height: 1000px;
-    top: -200px;
+    height: 150vh;
+    top: -25vh;
   }
   
   .gallery-interior__image {
@@ -84,16 +87,17 @@
 
 @media (max-width: 480px) {
   .gallery-interior {
-    height: 300px;
+    height: 100vh; /* Keep full height on small mobile */
+    min-height: 300px;
   }
   
   .gallery-interior__overlay {
-    height: 320px;
+    height: 103%;
   }
   
   .gallery-interior__image-container {
-    height: 800px;
-    top: -150px;
+    height: 130vh;
+    top: -15vh;
   }
   
   .gallery-interior__image {
