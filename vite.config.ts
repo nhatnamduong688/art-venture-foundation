@@ -18,6 +18,7 @@ export default defineConfig({
   build: {
     outDir: 'build',
     sourcemap: true,
+    minify: false, // Disable minification for easier debugging
     rollupOptions: {
       output: {
         manualChunks: {
