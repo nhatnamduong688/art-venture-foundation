@@ -13,6 +13,7 @@
 Art & Venture Foundation is a museum website showcasing art collections, community support programs, partnerships, and cultural events. The website features a modern design with smooth animations, responsive layout, and intuitive navigation.
 
 ### **Design**
+
 Based on Figma design: [Art & Venture Foundation](https://www.figma.com/design/Qkya9H3MyyVlsqXyMumWXF/Art---Venture-Foundation)
 
 ---
@@ -34,15 +35,17 @@ Based on Figma design: [Art & Venture Foundation](https://www.figma.com/design/Q
 ## 🚀 **Quick Start**
 
 ### **Prerequisites**
+
 ```bash
 Node.js >= 16.x
 npm >= 8.x
 ```
 
 ### **Installation**
+
 ```bash
 # Clone repository
-git clone https://github.com/YOUR_USERNAME/art-venture-foundation.git
+git clone https://github.com/nhatnamduong688/art-venture-foundation.git
 cd art-venture-foundation
 
 # Install dependencies
@@ -55,6 +58,7 @@ npm start
 ```
 
 ### **Build for Production**
+
 ```bash
 # Create production build
 npm run build
@@ -104,18 +108,22 @@ av-frontend-test/
 ## 🎨 **Tech Stack**
 
 ### **Core**
+
 - **React** 19.2.0 - UI library
 - **TypeScript** 4.9.5 - Type safety
 - **React Router** 7.9.4 - Navigation
 
 ### **State Management**
+
 - **Zustand** 5.0.8 - Lightweight state management
 
 ### **Styling**
+
 - **CSS Modules** - Component-scoped styles
 - **Google Fonts** - Inter & Big Caslon
 
 ### **Development Tools**
+
 - **React Scripts** 5.0.1 - Build tools
 - **Testing Library** - Component testing
 - **Vercel** - Deployment platform
@@ -124,24 +132,25 @@ av-frontend-test/
 
 ## 🎯 **Available Routes**
 
-| Route | Description |
-|-------|-------------|
-| `/` | Homepage (all sections) |
-| `/test` | Component testing page |
-| `/hero` | Hero section only |
-| `/about` | About section only |
-| `/collection` | Art collection only |
-| `/community` | Community support only |
-| `/partnerships` | Partnerships only |
-| `/news` | News & events only |
-| `/content` | Content block only |
-| `/museum-card` | Museum card component |
+| Route           | Description             |
+| --------------- | ----------------------- |
+| `/`             | Homepage (all sections) |
+| `/test`         | Component testing page  |
+| `/hero`         | Hero section only       |
+| `/about`        | About section only      |
+| `/collection`   | Art collection only     |
+| `/community`    | Community support only  |
+| `/partnerships` | Partnerships only       |
+| `/news`         | News & events only      |
+| `/content`      | Content block only      |
+| `/museum-card`  | Museum card component   |
 
 ---
 
 ## 🎨 **Design System**
 
 ### **Colors**
+
 ```css
 --primary-burgundy: #732231
 --background-beige: #f2f1eb
@@ -151,12 +160,14 @@ av-frontend-test/
 ```
 
 ### **Typography**
+
 ```css
 --font-heading: 'Big Caslon', serif
 --font-body: 'Inter', sans-serif
 ```
 
 ### **Breakpoints**
+
 ```css
 Desktop: 1440px
 Tablet:  1024px
@@ -169,16 +180,21 @@ Small:   480px
 ## 🛠️ **Development**
 
 ### **Component Testing**
+
 Access individual components for testing:
+
 ```
 http://localhost:3000/test
 ```
 
 ### **Figma Overlay Tool**
+
 Press `F` to toggle Figma screenshot overlay for design comparison.
 
 ### **Code Structure**
+
 Each component follows this pattern:
+
 ```
 ComponentName/
 ├── index.tsx              # Component logic
@@ -190,6 +206,7 @@ ComponentName/
 ## 🚀 **Deployment**
 
 ### **Deploy to Vercel**
+
 ```bash
 # Install Vercel CLI
 npm install -g vercel
@@ -199,6 +216,7 @@ vercel --prod
 ```
 
 ### **Or via GitHub**
+
 1. Push code to GitHub
 2. Import repository in Vercel dashboard
 3. Click Deploy
@@ -274,18 +292,21 @@ Contributions are welcome! Please follow these steps:
 ## 📅 **Roadmap**
 
 ### **Phase 1 (Current)**
+
 - ✅ Homepage implementation
 - ✅ Component structure
 - ✅ Responsive design
 - ✅ Deployment setup
 
 ### **Phase 2 (Next)**
+
 - [ ] Collection detail page
 - [ ] Artist listing page
 - [ ] Events page
 - [ ] News article pages
 
 ### **Phase 3 (Future)**
+
 - [ ] Search functionality
 - [ ] Language switcher (EN/VI)
 - [ ] Backend API integration
@@ -302,7 +323,8 @@ This project is licensed under the MIT License.
 ## 👨‍💻 **Author**
 
 **Duong Nhat Nam**
-- GitHub: [@duongnhatnam](https://github.com/duongnhatnam)
+
+- GitHub: [@nhatnamduong688](https://github.com/nhatnamduong688)
 
 ---
 
@@ -322,4 +344,3 @@ For support, please open an issue or contact the development team.
 ---
 
 **⭐ If you like this project, please give it a star on GitHub!**
-
