@@ -195,3 +195,27 @@
     font-size: 14px;
   }
 }
+
+/* Gallery Interior integration */
+.museum-card__gallery-interior {
+  width: 100%;
+  height: 100%;
+}
+
+.museum-card__gallery-interior .gallery-interior {
+  height: 100%;
+}
+
+.museum-card__gallery-interior .gallery-interior__overlay {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.museum-card__gallery-interior .gallery-interior__image-container {
+  height: 150%;
+  width: 120%;
+  top: -25%;
+  left: -10%;
+}
