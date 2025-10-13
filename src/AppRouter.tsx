@@ -11,6 +11,7 @@ import ContentBlock from './components/ContentBlock';
 import Footer from './components/Footer';
 import TestPage from './components/TestPage';
 import MuseumCard from './components/MuseumCard';
+import GalleryInterior from './components/GalleryInterior';
 import FigmaOverlay from './components/FigmaOverlay';
 import './App.css';
 
@@ -56,14 +57,15 @@ const AppRouter: React.FC = () => {
             />
           } />
           
-          <Route path="/museum-card" element={
-            <MuseumCard 
-              title="Art & Venture Foundation"
-              description="Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien. Scelerisque porttitor iaculis in mauris elementum eu vulputate. Viverra neque sit ridiculus orci amet quisque sodales sapien sollicitudin."
-              buttonText="MORE"
-              backgroundColor="#f2f1eb"
-            />
-          } />
+              <Route path="/museum-card" element={
+                <MuseumCard
+                  title="Art & Venture Foundation"
+                  description="Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien. Scelerisque porttitor iaculis in mauris elementum eu vulputate. Viverra neque sit ridiculus orci amet quisque sodales sapien sollicitudin."
+                  buttonText="MORE"
+                  backgroundColor="#f2f1eb"
+                />
+              } />
+              <Route path="/gallery-interior" element={<GalleryInterior />} />
         </Routes>
         
         {/* Figma Overlay Tool */}
@@ -75,9 +77,10 @@ const AppRouter: React.FC = () => {
             <h4>Test Navigation:</h4>
             <div className="test-nav-links">
               <Link to="/" className="test-nav-link">Home</Link>
-              <Link to="/test" className="test-nav-link">Test Page</Link>
-              <Link to="/museum-card" className="test-nav-link">Museum Card</Link>
-              <Link to="/hero" className="test-nav-link">Hero</Link>
+                  <Link to="/test" className="test-nav-link">Test Page</Link>
+                  <Link to="/museum-card" className="test-nav-link">Museum Card</Link>
+                  <Link to="/gallery-interior" className="test-nav-link">Gallery Interior</Link>
+                  <Link to="/hero" className="test-nav-link">Hero</Link>
               <Link to="/about" className="test-nav-link">About</Link>
               <Link to="/collection" className="test-nav-link">Collection</Link>
               <Link to="/community" className="test-nav-link">Community</Link>
