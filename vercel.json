@@ -1,27 +1,23 @@
 {
-  "version": 2,
   "buildCommand": "yarn build",
   "outputDirectory": "build",
   "framework": "vite",
-  "routes": [
+  "rewrites": [
     {
-      "src": "/assets/(.*)",
-      "headers": {
-        "cache-control": "s-maxage=31536000, immutable"
-      }
-    },
-    {
-      "src": "/(.*\\.(ico|png|jpg|jpeg|svg|gif|webp|js|css|woff|woff2|ttf|eot))",
-      "headers": {
-        "cache-control": "s-maxage=86400"
-      }
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "s-maxage=31536000, immutable"
+        }
+      ]
+    },
     {
       "source": "/(.*)",
       "headers": [
@@ -32,13 +28,8 @@
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
         }
       ]
     }
   ]
 }
-
