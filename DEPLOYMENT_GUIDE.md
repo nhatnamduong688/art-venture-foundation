@@ -40,18 +40,21 @@ git push -u origin main
 ### **Method 1: Deploy via Vercel Dashboard (Recommended)**
 
 #### **2.1. Login to Vercel**
+
 1. Go to https://vercel.com/
 2. Click **"Sign Up"** or **"Login"**
 3. Choose **"Continue with GitHub"**
 4. Authorize Vercel to access your GitHub
 
 #### **2.2. Import Project**
+
 1. Click **"Add New..."** → **"Project"**
 2. Select **"Import Git Repository"**
 3. Find your `art-venture-foundation` repository
 4. Click **"Import"**
 
 #### **2.3. Configure Project**
+
 ```
 Project Name: art-venture-foundation (hoặc tùy chỉnh)
 Framework Preset: Create React App
@@ -62,13 +65,16 @@ Install Command: npm install (auto-detected)
 ```
 
 #### **2.4. Environment Variables (Optional)**
+
 Nếu có environment variables, thêm tại đây:
+
 ```
 REACT_APP_API_URL=your_api_url
 REACT_APP_FIGMA_TOKEN=your_figma_token
 ```
 
 #### **2.5. Deploy**
+
 1. Click **"Deploy"**
 2. Wait ~2-3 minutes for build
 3. ✅ Done! Your site is live at: `https://art-venture-foundation.vercel.app`
@@ -78,16 +84,19 @@ REACT_APP_FIGMA_TOKEN=your_figma_token
 ### **Method 2: Deploy via Vercel CLI**
 
 #### **2.1. Install Vercel CLI**
+
 ```bash
 npm install -g vercel
 ```
 
 #### **2.2. Login**
+
 ```bash
 vercel login
 ```
 
 #### **2.3. Deploy**
+
 ```bash
 # Test deployment (preview)
 vercel
@@ -103,6 +112,7 @@ vercel --prod
 Vercel tự động deploy khi bạn push code lên GitHub!
 
 ### **Workflow:**
+
 ```
 1. Make changes locally
 2. git add .
@@ -112,6 +122,7 @@ Vercel tự động deploy khi bạn push code lên GitHub!
 ```
 
 ### **Preview Deployments:**
+
 - Every push to **main** → Production deploy
 - Every pull request → Preview deploy (unique URL)
 
@@ -120,14 +131,17 @@ Vercel tự động deploy khi bạn push code lên GitHub!
 ## ⚙️ **Step 4: Custom Domain (Optional)**
 
 ### **4.1. Add Domain in Vercel**
+
 1. Go to your project → **"Settings"** → **"Domains"**
 2. Add your domain: `www.artventure.com`
 3. Follow DNS configuration instructions
 
 ### **4.2. Configure DNS**
+
 Add these records to your domain provider:
 
 **For www subdomain:**
+
 ```
 Type: CNAME
 Name: www
@@ -135,6 +149,7 @@ Value: cname.vercel-dns.com
 ```
 
 **For root domain:**
+
 ```
 Type: A
 Name: @
@@ -146,6 +161,7 @@ Value: 76.76.21.21
 ## 📊 **Build Settings**
 
 ### **Production Build**
+
 ```json
 {
   "scripts": {
@@ -155,7 +171,9 @@ Value: 76.76.21.21
 ```
 
 ### **Environment Variables on Vercel**
+
 Dashboard → Project → Settings → Environment Variables:
+
 ```
 REACT_APP_API_URL=https://api.yourbackend.com
 NODE_ENV=production
@@ -166,6 +184,7 @@ NODE_ENV=production
 ## 🧪 **Testing Before Deploy**
 
 ### **Test Production Build Locally:**
+
 ```bash
 # Build production version
 npm run build
@@ -177,6 +196,7 @@ npx serve -s build
 ```
 
 ### **Check for Errors:**
+
 ```bash
 # Run linter
 npm run lint (if configured)
@@ -207,11 +227,13 @@ npx tsc --noEmit
 ## 🔍 **Vercel Analytics (Optional)**
 
 Enable analytics to track:
+
 - Page views
 - Performance metrics
 - User behavior
 
 **Enable:**
+
 1. Dashboard → Project → **"Analytics"**
 2. Click **"Enable Analytics"**
 3. Free tier: 100k events/month
@@ -221,6 +243,7 @@ Enable analytics to track:
 ## 🐛 **Troubleshooting**
 
 ### **Build Fails**
+
 ```bash
 # Check build locally first
 npm run build
@@ -233,7 +256,9 @@ npm run build
 ```
 
 ### **Routing Issues (404 on refresh)**
+
 ✅ Already configured in `vercel.json`:
+
 ```json
 {
   "routes": [
@@ -246,11 +271,13 @@ npm run build
 ```
 
 ### **Environment Variables Not Working**
+
 - Make sure they start with `REACT_APP_`
 - Redeploy after adding env vars
 - Check: Settings → Environment Variables
 
 ### **Slow Build Times**
+
 - Optimize images before committing
 - Remove unused dependencies
 - Use `.vercelignore` to skip unnecessary files
@@ -260,6 +287,7 @@ npm run build
 ## 📈 **Performance Optimization**
 
 ### **Before Deploy:**
+
 ```bash
 # Optimize images
 # Use https://squoosh.app/ or similar
@@ -274,6 +302,7 @@ source-map-explorer 'build/static/js/*.js'
 ```
 
 ### **Vercel Optimizations:**
+
 - ✅ Automatic HTTPS
 - ✅ Global CDN
 - ✅ Image optimization (with Vercel Image)
@@ -285,10 +314,12 @@ source-map-explorer 'build/static/js/*.js'
 ## 🔒 **Security Best Practices**
 
 1. **Environment Variables:**
+
    - Never commit `.env` files
    - Use Vercel dashboard for secrets
 
 2. **HTTPS:**
+
    - ✅ Automatic with Vercel
 
 3. **Headers:**
@@ -358,4 +389,3 @@ git push origin main
 ---
 
 **🚀 Ready to deploy? Let's go!**
-
