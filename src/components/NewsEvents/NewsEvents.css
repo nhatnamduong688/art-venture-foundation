@@ -1,0 +1,130 @@
+.news-events {
+  background: white;
+}
+
+.news-events__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 75px;
+}
+
+.news-events__title {
+  font-family: 'Big Caslon', serif;
+  font-size: 60px;
+  font-weight: 500;
+  line-height: normal;
+  color: #000000;
+  margin: 0;
+}
+
+.news-events__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(737px, 1fr));
+  gap: 32px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.news-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.news-card__image {
+  width: 100%;
+  height: 460px;
+  overflow: hidden;
+  position: relative;
+}
+
+.news-card__img {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  object-position: center;
+  transform: translateY(-10%);
+}
+
+.news-card__content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.news-card__title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #000000;
+  margin: 0;
+}
+
+.news-card__description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 2;
+  color: #000000;
+  margin: 0;
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
+  .news-events__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .news-events__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .news-events__title {
+    font-size: 36px;
+  }
+  
+  .news-events__header {
+    margin-bottom: 40px;
+  }
+  
+  .news-card__image {
+    height: 300px;
+  }
+  
+  .news-card__content {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .news-events__title {
+    font-size: 28px;
+  }
+  
+  .news-card__image {
+    height: 250px;
+  }
+  
+  .news-card__title {
+    font-size: 18px;
+  }
+  
+  .news-card__description {
+    font-size: 14px;
+  }
+}
+
+
+

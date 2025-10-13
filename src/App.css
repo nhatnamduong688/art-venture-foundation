@@ -1,38 +1,275 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  width: 100%;
   min-height: 100vh;
+  background-color: #ffffff;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Big Caslon', serif;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.text-large {
+  font-size: 80px;
+  line-height: normal;
+}
+
+.text-medium {
+  font-size: 60px;
+  line-height: normal;
+}
+
+.text-small {
+  font-size: 30px;
+  line-height: 1.5;
+}
+
+.text-body {
+  font-size: 16px;
+  line-height: 2;
+  font-weight: 400;
+}
+
+.text-body-medium {
+  font-size: 16px;
+  line-height: 2;
+  font-weight: 500;
+}
+
+.text-caption {
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* Layout utilities */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.flex {
   display: flex;
+}
+
+.flex-col {
   flex-direction: column;
+}
+
+.items-center {
   align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.gap-4 {
+  gap: 16px;
+}
+
+.gap-6 {
+  gap: 24px;
+}
+
+.gap-8 {
+  gap: 32px;
+}
+
+.gap-12 {
+  gap: 48px;
+}
+
+.gap-16 {
+  gap: 64px;
+}
+
+.gap-20 {
+  gap: 80px;
+}
+
+/* Button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+  padding: 8px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn-white {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-black {
+  color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.btn-burgundy {
+  color: #732231;
+}
+
+.btn-arrow {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card styles */
+.card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .text-large {
+    font-size: 48px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .text-medium {
+    font-size: 36px;
+  }
+  
+  .text-small {
+    font-size: 24px;
+  }
+  
+  .section {
+    padding: 40px 0;
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-large {
+    font-size: 32px;
+  }
+  
+  .text-medium {
+    font-size: 28px;
+  }
+  
+  .text-small {
+    font-size: 20px;
+  }
+}
+
+/* Test Navigation Styles */
+.test-navigation {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-width: 300px;
+}
+
+.test-nav-container h4 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.test-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.test-nav-link {
+  display: block;
+  padding: 8px 12px;
+  background: #f8f9fa;
+  color: #333;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  border: 1px solid #e9ecef;
+}
+
+.test-nav-link:hover {
+  background: #732231;
+  color: white;
+  transform: translateX(5px);
+}
+
+.test-nav-link.active {
+  background: #732231;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .test-navigation {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    max-width: none;
+  }
+  
+  .test-nav-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
   }
 }

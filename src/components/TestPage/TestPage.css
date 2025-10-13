@@ -1,0 +1,133 @@
+.test-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 80px 0;
+}
+
+.test-page__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.test-page__title {
+  font-family: 'Big Caslon', serif;
+  font-size: 60px;
+  font-weight: 500;
+  text-align: center;
+  color: #732231;
+  margin-bottom: 20px;
+}
+
+.test-page__description {
+  font-size: 18px;
+  text-align: center;
+  color: #666;
+  margin-bottom: 60px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.test-page__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.test-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.test-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.test-card h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.test-card p {
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.test-colors {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.color-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  border: 2px solid #eee;
+}
+
+.color-primary {
+  background: #732231;
+}
+
+.color-secondary {
+  background: #f2f1eb;
+}
+
+.color-accent {
+  background: #0d0d0d;
+}
+
+.typography-test {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.typography-test h1,
+.typography-test h2,
+.typography-test h3,
+.typography-test p {
+  margin: 0;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .test-page__title {
+    font-size: 40px;
+  }
+  
+  .test-page__content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .test-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .test-page {
+    padding: 40px 0;
+  }
+  
+  .test-page__title {
+    font-size: 32px;
+  }
+  
+  .test-page__description {
+    font-size: 16px;
+  }
+}
+
+
+

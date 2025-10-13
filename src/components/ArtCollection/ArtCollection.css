@@ -1,0 +1,190 @@
+.art-collection {
+  background: #f8f9fa;
+}
+
+.art-collection__header {
+  max-width: 663px;
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+  margin-bottom: 80px;
+}
+
+.art-collection__title {
+  font-family: 'Big Caslon', serif;
+  font-size: 60px;
+  font-weight: 500;
+  line-height: normal;
+  color: #000000;
+  margin: 0;
+}
+
+.art-collection__description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 2;
+  color: #000000;
+  margin: 0;
+}
+
+.art-collection__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(564px, 1fr));
+  gap: 32px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.artwork-card {
+  background: #ffe6e6;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 577px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artwork-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.artwork-card__image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.artwork-card__image {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  object-position: center;
+  transform: translateY(-10%);
+}
+
+.artwork-card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 256px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 36px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.artwork-card:hover .artwork-card__overlay {
+  opacity: 1;
+}
+
+.artwork-card__content {
+  width: 100%;
+  color: white;
+}
+
+.artwork-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.artwork-card__avatar {
+  width: 61px;
+  height: 61px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+.artwork-card__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artwork-card__artist {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 2;
+  margin: 0;
+  flex: 1;
+}
+
+.artwork-card__icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.artwork-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.artwork-card__title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.artwork-card__description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 2;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .art-collection__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .artwork-card {
+    height: 400px;
+  }
+  
+  .art-collection__title {
+    font-size: 36px;
+  }
+  
+  .art-collection__header {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .artwork-card {
+    height: 350px;
+  }
+  
+  .art-collection__title {
+    font-size: 28px;
+  }
+  
+  .artwork-card__overlay {
+    padding: 20px;
+  }
+  
+  .artwork-card__title {
+    font-size: 20px;
+  }
+  
+  .artwork-card__description {
+    font-size: 14px;
+  }
+}
+
+
+
