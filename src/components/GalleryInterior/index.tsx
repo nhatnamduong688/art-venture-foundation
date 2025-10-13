@@ -1,5 +1,7 @@
 import React from 'react';
 import './GalleryInterior.css';
+import { getFigmaAsset } from '../../utils/figmaAssets';
+import FigmaImage from '../FigmaImage';
 
 interface GalleryInteriorProps {
   className?: string;
@@ -13,10 +15,13 @@ const GalleryInterior: React.FC<GalleryInteriorProps> = ({ className = '' }) => 
       
       {/* Main gallery image */}
       <div className="gallery-interior__image-container" data-node-id="99:284">
-        <img 
-          src="https://images.unsplash.com/photo-1578321272176-b7bbc0679853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+        <FigmaImage
+          figmaUrl={getFigmaAsset('galleryInterior')}
+          fallbackUrl="https://images.unsplash.com/photo-1578321272176-b7bbc0679853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
           alt="Museum gallery interior with classical sculptures and elegant architecture"
           className="gallery-interior__image"
+          onLoad={() => console.log('GalleryInterior image loaded')}
+          onError={() => console.log('GalleryInterior fallback to Unsplash')}
         />
       </div>
     </div>
