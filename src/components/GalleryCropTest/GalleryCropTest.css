@@ -1,0 +1,124 @@
+/* Gallery Crop Test Component */
+.gallery-crop-test {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Controls Section */
+.crop-controls {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 1000;
+}
+
+.crop-controls h2 {
+  margin: 0 0 10px 0;
+  font-family: 'Big Caslon', serif;
+  font-size: 24px;
+  color: #732231;
+}
+
+.crop-controls p {
+  margin: 0 0 15px 0;
+  font-family: 'Inter', sans-serif;
+  color: #666;
+}
+
+/* Crop Mode Buttons */
+.crop-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.crop-button {
+  padding: 8px 16px;
+  border: 2px solid #732231;
+  background: white;
+  color: #732231;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.crop-button:hover {
+  background: #f5f5f5;
+  transform: translateY(-1px);
+}
+
+.crop-button.active {
+  background: #732231;
+  color: white;
+  box-shadow: 0 2px 8px rgba(115, 34, 49, 0.3);
+}
+
+/* Current Crop Info */
+.current-crop-info {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 4px solid #732231;
+}
+
+.current-crop-info strong {
+  font-family: 'Inter', sans-serif;
+  color: #732231;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.current-crop-info p {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Gallery Preview */
+.gallery-preview {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .crop-controls {
+    padding: 15px;
+  }
+  
+  .crop-controls h2 {
+    font-size: 20px;
+  }
+  
+  .crop-buttons {
+    gap: 8px;
+  }
+  
+  .crop-button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .crop-controls {
+    padding: 12px;
+  }
+  
+  .crop-buttons {
+    flex-direction: column;
+  }
+  
+  .crop-button {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import TestPage from './components/TestPage';
 import MuseumCard from './components/MuseumCard';
 import GalleryInterior from './components/GalleryInterior';
+import GalleryCropTest from './components/GalleryCropTest';
 import FigmaOverlay from './components/FigmaOverlay';
 import './App.css';
 
@@ -67,6 +68,7 @@ const AppRouter: React.FC = () => {
                 />
               } />
               <Route path="/gallery-interior" element={<GalleryInterior />} />
+              <Route path="/gallery-crop-test" element={<GalleryCropTest />} />
         </Routes>
         
         {/* Figma Overlay Tool */}
@@ -81,6 +83,7 @@ const AppRouter: React.FC = () => {
                   <Link to="/test" className="test-nav-link">Test Page</Link>
                   <Link to="/museum-card" className="test-nav-link">Museum Card</Link>
                   <Link to="/gallery-interior" className="test-nav-link">Gallery Interior</Link>
+                  <Link to="/gallery-crop-test" className="test-nav-link">Gallery Crop Test</Link>
                   <Link to="/hero" className="test-nav-link">Hero</Link>
               <Link to="/about" className="test-nav-link">About</Link>
               <Link to="/collection" className="test-nav-link">Collection</Link>

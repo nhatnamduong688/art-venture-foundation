@@ -28,16 +28,41 @@
   z-index: 2;
 }
 
-/* Gallery image */
+/* Gallery image - Base styles */
 .gallery-interior__image {
   position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  max-width: none;
+  object-fit: cover;
+}
+
+/* Crop Mode: Figma Exact (matches original Figma positioning) */
+.gallery-interior__image--figma-exact {
   height: 77.33%;
   left: -2.52%;
   top: 2.91%;
   width: 109.24%;
-  max-width: none;
-  object-fit: cover;
   object-position: center;
+}
+
+/* Crop Mode: Center Crop (standard center focus) */
+.gallery-interior__image--center-crop {
+  object-position: center center;
+}
+
+/* Crop Mode: Top Crop (focus on upper portion) */
+.gallery-interior__image--top-crop {
+  object-position: center 20%;
+  clip-path: inset(0 0 30% 0); /* Crop bottom 30% */
+}
+
+/* Crop Mode: Middle Crop (focus on middle portion, crop top and bottom) */
+.gallery-interior__image--middle-crop {
+  object-position: center 40%;
+  clip-path: inset(10% 0 20% 0); /* Crop top 10% and bottom 20% */
 }
 
 /* Responsive Design */
