@@ -1,37 +1,43 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    }
-  ],
+  "buildCommand": "yarn build",
+  "outputDirectory": "build",
+  "framework": "vite",
   "routes": [
     {
-      "src": "/static/(.*)",
+      "src": "/assets/(.*)",
       "headers": {
         "cache-control": "s-maxage=31536000, immutable"
-      },
-      "dest": "/static/$1"
+      }
     },
     {
-      "src": "/favicon.ico",
-      "dest": "/favicon.ico"
-    },
-    {
-      "src": "/manifest.json",
-      "dest": "/manifest.json"
-    },
-    {
-      "src": "/logo(.*).png",
-      "dest": "/logo$1.png"
+      "src": "/(.*\\.(ico|png|jpg|jpeg|svg|gif|webp|js|css|woff|woff2|ttf|eot))",
+      "headers": {
+        "cache-control": "s-maxage=86400"
+      }
     },
     {
       "src": "/(.*)",
       "dest": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
     }
   ]
 }
