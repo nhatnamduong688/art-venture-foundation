@@ -116,6 +116,14 @@
   .museum-card__title {
     font-size: 70px;
   }
+  
+  /* Responsive crop cho màn hình 1440px trở xuống */
+  .museum-card__gallery-interior {
+    --crop-top: 45%;     /* Giảm crop top một chút */
+    --crop-bottom: 20%;  /* Giảm crop bottom */
+    --crop-left: 0%;     /* Tắt horizontal crop cho màn hình nhỏ */
+    --crop-right: 0%;    /* Tắt horizontal crop cho màn hình nhỏ */
+  }
 }
 
 @media (max-width: 1024px) {
@@ -140,6 +148,12 @@
   
   .museum-card__title {
     font-size: 56px;
+  }
+  
+  /* Responsive crop cho tablet */
+  .museum-card__gallery-interior {
+    --crop-top: 35%;     /* Crop ít hơn cho tablet */
+    --crop-bottom: 15%;  /* Hiển thị nhiều hơn */
   }
 }
 
@@ -171,6 +185,12 @@
   .museum-card__description {
     font-size: 14px;
     line-height: 1.8;
+  }
+  
+  /* Responsive crop cho mobile */
+  .museum-card__gallery-interior {
+    --crop-top: 25%;     /* Crop ít hơn cho mobile */
+    --crop-bottom: 10%;  /* Hiển thị nhiều hơn cho mobile */
   }
 }
 
@@ -207,6 +227,12 @@
   .museum-card__button {
     font-size: 14px;
   }
+  
+  /* Responsive crop cho small mobile */
+  .museum-card__gallery-interior {
+    --crop-top: 20%;     /* Crop tối thiểu cho small mobile */
+    --crop-bottom: 5%;   /* Hiển thị tối đa cho small mobile */
+  }
 }
 
 /* Gallery Interior integration - Manual Crop Control */
@@ -218,11 +244,17 @@
   /* CSS Variables để manual control crop */
   --crop-top: 50%;     /* Crop từ trên */
   --crop-bottom: 24%;  /* Crop từ dưới */
+  /*--crop-left: 5%;     !* Crop nhẹ từ trái *!*/
+  /*--crop-right: -10%;    !* Crop nhẹ từ phải *!*/
   
-  /* Auto-calculate focus-y dựa trên crop values */
-  --total-crop: calc(var(--crop-top) + var(--crop-bottom));
-  --visible-area: calc(100% - var(--total-crop));
-  --focus-y: calc(var(--crop-top) + var(--visible-area) / 2); /* Tự động tính focus ở giữa vùng hiển thị */
+  /* Auto-calculate focus dựa trên crop values */
+  --total-crop-y: calc(var(--crop-top) + var(--crop-bottom));
+  --visible-area-y: calc(100% - var(--total-crop-y));
+  --focus-y: calc(var(--crop-top) + var(--visible-area-y) / 2);
+  
+  --total-crop-x: calc(var(--crop-left) + var(--crop-right));
+  --visible-area-x: calc(100% - var(--total-crop-x));
+  --focus-x: calc(var(--crop-left) + var(--visible-area-x) / 2);
 }
 
 .museum-card__gallery-interior .gallery-interior {
@@ -238,15 +270,15 @@
 }
 
 .museum-card__gallery-interior .gallery-interior__image-container {
-  width: 100%;
-  height: calc(100% + var(--crop-top) + var(--crop-bottom)); /* Tăng height để có thể crop */
+  width: calc(100% + var(--crop-left) + var(--crop-right)); /* Tăng width để có thể crop horizontal */
+  height: calc(100% + var(--crop-top) + var(--crop-bottom)); /* Tăng height để có thể crop vertical */
   top: calc(0% - var(--crop-top)); /* Đẩy lên để crop top */
-  left: 0;
+  left: calc(0% - var(--crop-left)); /* Đẩy trái để crop left */
 }
 
 .museum-card__gallery-interior .gallery-interior__image--figma-exact {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center var(--focus-y); /* Sử dụng variable focus */
+  object-position: var(--focus-x) var(--focus-y); /* Sử dụng cả horizontal và vertical focus */
 }
