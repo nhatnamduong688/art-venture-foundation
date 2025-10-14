@@ -34,7 +34,7 @@
 /* Component 2: Content box ở giữa (overlay) */
 .museum-card__content-box {
   position: absolute;
-  top: 52%;
+  top: 65%;
   left: 13%;
   transform: translateY(-50%);
   width: min(638px, 44%);
@@ -95,7 +95,7 @@
 /* Responsive Design */
 @media (max-width: 1440px) {
   .museum-card {
-    min-height: 700px;
+    /*min-height: 700px;*/
   }
   
   .museum-card__content-box {
@@ -221,8 +221,8 @@
   position: relative;
   
   /* CSS Variables để manual control crop */
-  --crop-top: 50%;     /* Crop từ trên */
-  --crop-bottom: 24%;  /* Crop từ dưới */
+  --crop-top: 20%;     /* Crop từ trên */
+  --crop-bottom: -10%;  /* Crop từ dưới */
   /*--crop-left: 5%;     !* Crop nhẹ từ trái *!*/
   /*--crop-right: -10%;    !* Crop nhẹ từ phải *!*/
   
