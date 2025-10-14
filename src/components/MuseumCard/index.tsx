@@ -61,6 +61,3 @@ const MuseumCard: React.FC<MuseumCardProps> = ({
 };
 
 export default MuseumCard;
-
-
-

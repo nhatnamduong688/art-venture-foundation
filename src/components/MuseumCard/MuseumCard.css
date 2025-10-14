@@ -1,7 +1,7 @@
 .museum-card {
   position: relative;
   width: 100%;
-  height: 827px; /* Match Figma exact height */
+  height: 1827px; /* Match Figma exact height */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -13,7 +13,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 827px; /* Match Figma image height */
+  height: 1300px; /* Match Figma image height */
   overflow: hidden;
   z-index: 1;
 }
@@ -40,7 +40,7 @@
 /* Component 2: Content box ở giữa (overlay) */
 .museum-card__content-box {
   position: absolute;
-  top: 595px; /* Match Figma y position */
+  top: 50%; /* Match Figma y position */
   left: 189px; /* Match Figma x position */
   transform: none;
   width: 638px; /* Match Figma exact width */
