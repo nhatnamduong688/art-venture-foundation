@@ -28,18 +28,27 @@
 }
 
 .art-collection__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(564px, 1fr));
-  gap: 32px;
+  display: flex;
+  gap: 0;
   overflow-x: auto;
-  padding-bottom: 20px;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.art-collection__grid::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 .artwork-card {
   background: #ffe6e6;
-  border-radius: 8px;
+  border-radius: 0;
   overflow: hidden;
   height: 577px;
+  width: 564px;
+  min-width: 564px;
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -59,40 +68,84 @@
 
 .artwork-card__image {
   width: 100%;
-  height: 120%;
+  height: 798px;
   object-fit: cover;
-  object-position: center;
-  transform: translateY(-10%);
+  object-position: center 50%;
+  position: absolute;
+  top: -80px;
+  left: 0;
 }
 
 .artwork-card__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.artwork-card:hover .artwork-card__overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Top gradient overlay */
+.artwork-card__overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 133px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 85.135%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.artwork-card:hover .artwork-card__overlay::before {
+  opacity: 1;
+}
+
+/* Bottom gradient overlay */
+.artwork-card__overlay::after {
+  content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 256px;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
-  display: flex;
-  align-items: flex-end;
-  padding: 36px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 85.135%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.artwork-card:hover .artwork-card__overlay {
+.artwork-card:hover .artwork-card__overlay::after {
   opacity: 1;
 }
 
 .artwork-card__content {
   width: 100%;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .artwork-card__header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  gap: 20px;
+  padding: 27px 36px;
 }
 
 .artwork-card__avatar {
@@ -100,7 +153,7 @@
   height: 61px;
   border-radius: 50%;
   overflow: hidden;
-  margin-right: 20px;
+  flex-shrink: 0;
 }
 
 .artwork-card__avatar-img {
@@ -123,19 +176,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.artwork-card__icon:hover {
+  opacity: 0.8;
 }
 
 .artwork-card__text {
   display: flex;
   flex-direction: column;
-  gap: 17px;
+  gap: 0;
+  padding: 0 36px 36px 36px;
+  max-width: 526px;
 }
 
 .artwork-card__title {
   font-size: 24px;
   font-weight: 700;
-  line-height: 1.5;
-  margin: 0;
+  line-height: 2;
+  margin: 0 0 8px 0;
 }
 
 .artwork-card__description {
@@ -143,16 +208,19 @@
   font-weight: 400;
   line-height: 2;
   margin: 0;
+  white-space: pre-wrap;
 }
 
 @media (max-width: 768px) {
-  .art-collection__grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  .artwork-card {
+    width: 400px;
+    min-width: 400px;
+    height: 450px;
   }
   
-  .artwork-card {
-    height: 400px;
+  .artwork-card__image {
+    height: 600px;
+    top: -60px;
   }
   
   .art-collection__title {
@@ -162,19 +230,48 @@
   .art-collection__header {
     margin-bottom: 40px;
   }
+  
+  .artwork-card__header {
+    padding: 20px 24px;
+  }
+  
+  .artwork-card__text {
+    padding: 0 24px 24px 24px;
+  }
 }
 
 @media (max-width: 480px) {
   .artwork-card {
-    height: 350px;
+    width: 320px;
+    min-width: 320px;
+    height: 400px;
+  }
+  
+  .artwork-card__image {
+    height: 500px;
+    top: -50px;
   }
   
   .art-collection__title {
     font-size: 28px;
   }
   
-  .artwork-card__overlay {
-    padding: 20px;
+  .artwork-card__header {
+    padding: 16px 20px;
+    gap: 12px;
+  }
+  
+  .artwork-card__avatar {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .artwork-card__artist {
+    font-size: 14px;
+  }
+  
+  .artwork-card__text {
+    padding: 0 20px 20px 20px;
   }
   
   .artwork-card__title {
@@ -183,6 +280,7 @@
   
   .artwork-card__description {
     font-size: 14px;
+    line-height: 1.8;
   }
 }
 

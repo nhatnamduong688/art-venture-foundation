@@ -2,25 +2,83 @@
   background: white;
 }
 
+.community-support__wrapper {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+}
+
+.community-support__left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 75px;
+  padding-right: 40px;
+}
+
+.community-support__right {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.community-support__image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 126%;
+  height: 103%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(100%);
+  display: block;
+}
+
 .community-support__title {
   font-family: 'Big Caslon', serif;
   font-size: 60px;
   font-weight: 500;
   line-height: normal;
-  color: #000000;
-  margin: 0 0 75px 0;
-  text-align: left;
+  color: #732231;
+  margin: 0;
+}
+
+.community-support__content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.community-support__timeline-box {
+  background: #f4f3f1;
+  padding: 42px 42px 42px 0;
+  border-radius: 0;
 }
 
 .community-support__timeline {
   display: flex;
-  gap: 75px;
+  gap: 55px;
   overflow-x: auto;
-  padding-bottom: 20px;
+  overflow-y: hidden;
+  width: 100%;
+  max-width: 730px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.community-support__timeline::-webkit-scrollbar {
+  display: none;
 }
 
 .timeline-item {
   flex: 0 0 304px;
+  min-width: 304px;
 }
 
 .timeline-item__content {
@@ -33,7 +91,7 @@
   font-size: 30px;
   font-weight: 700;
   line-height: 1.5;
-  color: #000000;
+  color: #732231;
   margin: 0;
 }
 
@@ -41,8 +99,14 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 2;
-  color: #000000;
+  color: #0d0d0d;
   margin: 0;
+  height: 288px;
+  overflow: hidden;
+}
+
+.timeline-item:last-child .timeline-item__description {
+  height: auto;
 }
 
 .timeline-item__activities {
@@ -60,7 +124,7 @@
 }
 
 .activity-item:hover {
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .activity-item__text {
@@ -71,39 +135,82 @@
   flex: 1;
 }
 
-.activity-item__arrow {
-  width: 24px;
-  height: 24px;
+.community-support__view-all {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 25px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2;
+  color: #732231;
+  transition: opacity 0.2s ease;
+}
+
+.community-support__view-all:hover {
+  opacity: 0.7;
+}
+
+.community-support__view-all svg {
   flex-shrink: 0;
 }
 
 @media (max-width: 1024px) {
+  .community-support__wrapper {
+    flex-direction: column;
+  }
+  
+  .community-support__left {
+    padding-right: 0;
+    gap: 50px;
+  }
+  
+  .community-support__right {
+    min-height: 500px;
+  }
+  
   .community-support__timeline {
     gap: 40px;
+    max-width: 100%;
   }
   
   .timeline-item {
     flex: 0 0 280px;
+    min-width: 280px;
   }
 }
 
 @media (max-width: 768px) {
-  .community-support__timeline {
-    flex-direction: column;
-    gap: 32px;
-  }
-  
-  .timeline-item {
-    flex: none;
-    width: 100%;
+  .community-support__left {
+    gap: 40px;
   }
   
   .community-support__title {
     font-size: 36px;
-    margin-bottom: 40px;
+  }
+  
+  .community-support__right {
+    min-height: 400px;
+  }
+  
+  .community-support__timeline-box {
+    padding: 32px 32px 32px 0;
+  }
+  
+  .community-support__timeline {
+    gap: 32px;
+  }
+  
+  .timeline-item {
+    flex: 0 0 250px;
+    min-width: 250px;
+  }
+  
+  .timeline-item__description {
+    height: auto;
   }
 }
 
@@ -112,15 +219,33 @@
     font-size: 28px;
   }
   
+  .community-support__right {
+    min-height: 300px;
+  }
+  
+  .community-support__timeline-box {
+    padding: 24px 24px 24px 0;
+  }
+  
+  .timeline-item {
+    flex: 0 0 220px;
+    min-width: 220px;
+  }
+  
   .timeline-item__year {
     font-size: 24px;
   }
   
   .timeline-item__description {
     font-size: 14px;
+    line-height: 1.8;
   }
   
   .activity-item__text {
+    font-size: 14px;
+  }
+  
+  .community-support__view-all {
     font-size: 14px;
   }
 }

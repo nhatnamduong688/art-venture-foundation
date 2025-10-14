@@ -7,6 +7,7 @@ import ArtCollection from './components/ArtCollection';
 import CommunitySupport from './components/CommunitySupport';
 import Partnerships from './components/Partnerships';
 import NewsEvents from './components/NewsEvents';
+import News from './components/News';
 import ContentBlock from './components/ContentBlock';
 import Footer from './components/Footer';
 import TestPage from './components/TestPage';
@@ -49,6 +50,7 @@ const AppRouter: React.FC = () => {
           <Route path="/community" element={<CommunitySupport />} />
           <Route path="/partnerships" element={<Partnerships />} />
           <Route path="/news" element={<NewsEvents />} />
+          <Route path="/news-list" element={<News />} />
           <Route path="/content" element={
             <ContentBlock 
               title="Art & Venture Foundation"
@@ -89,7 +91,8 @@ const AppRouter: React.FC = () => {
               <Link to="/collection" className="test-nav-link">Collection</Link>
               <Link to="/community" className="test-nav-link">Community</Link>
               <Link to="/partnerships" className="test-nav-link">Partnerships</Link>
-              <Link to="/news" className="test-nav-link">News</Link>
+              <Link to="/news" className="test-nav-link">News Events</Link>
+              <Link to="/news-list" className="test-nav-link">News List</Link>
               <Link to="/content" className="test-nav-link">Content Block</Link>
             </div>
           </div>

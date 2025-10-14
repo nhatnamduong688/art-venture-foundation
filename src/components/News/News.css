@@ -1,0 +1,172 @@
+.news {
+  background: white;
+}
+
+.news__title {
+  font-family: 'Big Caslon', serif;
+  font-size: 60px;
+  font-weight: 500;
+  line-height: normal;
+  color: #732231;
+  margin: 0 0 75px 0;
+  white-space: pre-wrap;
+}
+
+.news__content {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+
+.news__row {
+  display: flex;
+  gap: 75px;
+  width: 100%;
+}
+
+.news__row:last-child {
+  gap: 75px;
+}
+
+.news-item {
+  flex: 0 0 304px;
+  width: 304px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.news-item__text {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.news-item__title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #732231;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.news-item__description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 2;
+  color: #0d0d0d;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.news-item:nth-child(1) .news-item__description {
+  /* First item has longer text */
+}
+
+.news-item:nth-child(2) .news-item__description,
+.news-item:nth-child(3) .news-item__description {
+  height: 141px;
+  overflow: hidden;
+}
+
+.news__row:last-child .news-item:first-child .news-item__description {
+  height: 104px;
+  overflow: hidden;
+}
+
+.news-item__link {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2;
+  color: #000000;
+  transition: opacity 0.2s ease;
+}
+
+.news-item__link:hover {
+  opacity: 0.7;
+}
+
+.news-item__link svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 1200px) {
+  .news__row {
+    gap: 50px;
+  }
+  
+  .news-item {
+    flex: 1;
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .news__title {
+    font-size: 48px;
+    margin-bottom: 50px;
+  }
+  
+  .news__row {
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  
+  .news-item {
+    flex: 0 0 calc(50% - 20px);
+    min-width: 280px;
+  }
+  
+  .news-item__description {
+    height: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .news__title {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+  
+  .news__content {
+    gap: 32px;
+  }
+  
+  .news__row {
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .news-item {
+    flex: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .news__title {
+    font-size: 28px;
+  }
+  
+  .news-item__title {
+    font-size: 18px;
+  }
+  
+  .news-item__description {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  
+  .news-item__link {
+    font-size: 14px;
+  }
+}
+
