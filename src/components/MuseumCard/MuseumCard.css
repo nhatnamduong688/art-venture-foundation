@@ -1,7 +1,10 @@
 .museum-card {
   position: relative;
   width: 100%;
-  height: 1827px; /* Match Figma exact height */
+  height: auto;
+  min-height: 800px;
+  max-height: 1827px; /* Match Figma max height */
+  aspect-ratio: 1440 / 1827; /* Maintain aspect ratio */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -13,7 +16,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 1300px; /* Match Figma image height */
+  height: 71%; /* ~1300/1827 = 71% */
   overflow: hidden;
   z-index: 1;
 }
@@ -22,7 +25,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
   filter: brightness(0.7);
 }
 
@@ -32,7 +35,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 223px; /* 827 - 604 (top of content box) */
+  height: 29%; /* Remaining portion */
   background: #f2f1eb;
   z-index: 2;
 }
@@ -40,11 +43,12 @@
 /* Component 2: Content box ở giữa (overlay) */
 .museum-card__content-box {
   position: absolute;
-  top: 50%; /* Match Figma y position */
-  left: 189px; /* Match Figma x position */
-  transform: none;
-  width: 638px; /* Match Figma exact width */
-  height: 545px; /* Match Figma exact height */
+  top: 52%;
+  left: 13%;
+  transform: translateY(-50%);
+  width: min(638px, 44%);
+  height: auto;
+  max-height: 545px;
   background: #f2f1eb;
   padding: 50px 60px;
   z-index: 3;
@@ -99,96 +103,105 @@
 
 /* Responsive Design */
 @media (max-width: 1440px) {
+  .museum-card {
+    min-height: 700px;
+  }
+  
   .museum-card__content-box {
-    left: 5%;
-    width: 45%;
+    left: 8%;
+    width: min(550px, 48%);
+    padding: 40px 50px;
+  }
+  
+  .museum-card__title {
+    font-size: 70px;
   }
 }
 
 @media (max-width: 1024px) {
   .museum-card {
-    height: 700px;
+    min-height: 600px;
+    aspect-ratio: 1 / 1;
   }
   
   .museum-card__image-section {
-    height: 700px;
+    height: 70%;
   }
   
   .museum-card__color-section {
-    height: 200px;
+    height: 30%;
   }
   
   .museum-card__content-box {
-    width: 50%;
-    height: auto;
-    padding: 40px 50px;
+    width: min(500px, 50%);
+    padding: 35px 45px;
     left: 5%;
-    top: 50%;
-    transform: translateY(-50%);
   }
   
   .museum-card__title {
-    font-size: 60px;
+    font-size: 56px;
   }
 }
 
 @media (max-width: 768px) {
   .museum-card {
-    height: 600px;
+    min-height: 550px;
+    aspect-ratio: 3 / 4;
   }
   
   .museum-card__image-section {
-    height: 600px;
+    height: 68%;
   }
   
   .museum-card__color-section {
-    height: 180px;
+    height: 32%;
   }
   
   .museum-card__content-box {
-    width: 90%;
-    height: auto;
-    padding: 30px 40px;
+    width: 85%;
+    padding: 28px 35px;
     left: 50%;
-    top: 50%;
     transform: translate(-50%, -50%);
   }
   
   .museum-card__title {
-    font-size: 48px;
+    font-size: 44px;
   }
   
   .museum-card__description {
     font-size: 14px;
+    line-height: 1.8;
   }
 }
 
 @media (max-width: 480px) {
   .museum-card {
-    height: 500px;
+    min-height: 500px;
+    aspect-ratio: 9 / 16;
   }
   
   .museum-card__image-section {
-    height: 500px;
+    height: 65%;
   }
   
   .museum-card__color-section {
-    height: 150px;
+    height: 35%;
   }
   
   .museum-card__content-box {
-    width: 85%;
-    padding: 20px 30px;
+    width: 88%;
+    padding: 24px 28px;
   }
   
   .museum-card__title {
-    font-size: 36px;
-    margin-bottom: 15px;
+    font-size: 32px;
+    margin-bottom: 12px;
   }
   
   .museum-card__description {
     font-size: 13px;
-    margin-bottom: 15px;
+    line-height: 1.7;
+    margin-bottom: 12px;
   }
   
   .museum-card__button {

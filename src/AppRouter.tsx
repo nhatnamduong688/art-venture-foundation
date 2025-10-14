@@ -28,7 +28,14 @@ const AppRouter: React.FC = () => {
         <Routes>
           <Route path="/" element={
             <>
-              <Hero />
+              {/*<Hero />*/}
+              <MuseumCard
+                  title="Art & Venture Foundation"
+                  description="Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien. Scelerisque porttitor iaculis in mauris elementum eu vulputate. Viverra neque sit ridiculus orci amet quisque sodales sapien sollicitudin."
+                  buttonText="MORE"
+                  backgroundColor="#f2f1eb"
+                  useGalleryInterior={true}
+              />
               <About />
               <ArtCollection />
               <CommunitySupport />
