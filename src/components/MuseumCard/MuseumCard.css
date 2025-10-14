@@ -209,40 +209,44 @@
   }
 }
 
-/* Gallery Interior integration - Smart crop for MuseumCard */
+/* Gallery Interior integration - Manual Crop Control */
 .museum-card__gallery-interior {
   width: 100%;
   height: 100%;
   position: relative;
-  overflow: hidden; /* Quan trọng để crop */
+  
+  /* CSS Variables để manual control crop */
+  --crop-top: 50%;     /* Crop từ trên */
+  --crop-bottom: 24%;  /* Crop từ dưới */
+  
+  /* Auto-calculate focus-y dựa trên crop values */
+  --total-crop: calc(var(--crop-top) + var(--crop-bottom));
+  --visible-area: calc(100% - var(--total-crop));
+  --focus-y: calc(var(--crop-top) + var(--visible-area) / 2); /* Tự động tính focus ở giữa vùng hiển thị */
 }
 
 .museum-card__gallery-interior .gallery-interior {
   height: 100%;
   min-height: auto;
-  overflow: hidden;
 }
 
 .museum-card__gallery-interior .gallery-interior__overlay {
   width: 100%;
-  height: 100%; /* Slightly larger for better coverage */
-  /*top: -10%;*/
+  height: 100%;
+  top: 0;
   left: 0;
 }
 
 .museum-card__gallery-interior .gallery-interior__image-container {
-  width: 80%;
-  height: 130%; /* Crop from 238% to 140% */
-  top: -30%; /* Center the crop */
-  /*left: 5%;*/
+  width: 100%;
+  height: calc(100% + var(--crop-top) + var(--crop-bottom)); /* Tăng height để có thể crop */
+  top: calc(0% - var(--crop-top)); /* Đẩy lên để crop top */
+  left: 0;
 }
 
 .museum-card__gallery-interior .gallery-interior__image--figma-exact {
   width: 100%;
-  height: 100%; /* Tăng height để có thể crop */
-  /*left: %;*/
-  /*top: -20%; !* Crop từ trên *!*/
-  /*bottom: -15%; - Không dùng cùng với top*/
-  /*object-fit: cover;*/
-  /*object-position: center -30%; !* Focus vào phần dưới (70% từ trên) *!*/
+  height: 100%;
+  object-fit: cover;
+  object-position: center var(--focus-y); /* Sử dụng variable focus */
 }
