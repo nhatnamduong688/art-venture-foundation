@@ -18,6 +18,14 @@ body {
   width: 100%;
   min-height: 100vh;
   background-color: #ffffff;
+  position: relative;
+}
+
+/* Main content wrapper with sidebar offset */
+@media (min-width: 1025px) {
+  .App {
+    padding-left: 100px;
+  }
 }
 
 /* Typography */

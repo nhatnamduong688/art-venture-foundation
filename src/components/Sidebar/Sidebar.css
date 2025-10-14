@@ -1,0 +1,131 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  background: linear-gradient(90deg, #faf9f6 0%, #faf9f6 100%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 0 40px 0;
+}
+
+.sidebar__content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar__top {
+  flex-shrink: 0;
+}
+
+.sidebar__logo {
+  display: block;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar__logo:hover {
+  opacity: 0.8;
+}
+
+.sidebar__logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.sidebar__progress {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  min-height: 387px;
+}
+
+.sidebar__progress-track {
+  width: 3px;
+  height: 387px;
+  background: #e6e5e4;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar__progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #732231;
+  border-radius: 5px;
+  transition: height 0.1s ease-out;
+  min-height: 0;
+}
+
+.sidebar__bottom {
+  flex-shrink: 0;
+}
+
+.sidebar__language {
+  position: relative;
+  width: 63px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 7px 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar__language-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2;
+  color: #000000;
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+.sidebar__language:hover .sidebar__language-text {
+  opacity: 0.7;
+}
+
+.sidebar__language-indicator {
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  width: 0;
+  height: 32px;
+  pointer-events: none;
+}
+
+/* Hide sidebar on mobile */
+@media (max-width: 1024px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+/* Adjust main content margin when sidebar is visible */
+@media (min-width: 1025px) {
+  body {
+    padding-left: 0;
+  }
+}
+

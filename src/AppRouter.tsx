@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Header from './components/Header';
+import Sidebar from './components/Sidebar';
 import Hero from './components/Hero';
 import About from './components/About';
 import ArtCollection from './components/ArtCollection';
@@ -21,6 +22,7 @@ const AppRouter: React.FC = () => {
   return (
     <Router>
       <div className="App">
+        <Sidebar />
         <Header />
         
         <Routes>
