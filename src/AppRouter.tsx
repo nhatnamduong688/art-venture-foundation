@@ -36,7 +36,7 @@ const AppRouter: React.FC = () => {
                   backgroundColor="#f2f1eb"
                   useGalleryInterior={true}
               />
-              <About />
+              {/*<About />*/}
               <ArtCollection />
               <CommunitySupport />
               <Partnerships />

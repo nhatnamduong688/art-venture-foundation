@@ -29,14 +29,14 @@
   /*filter: brightness(0.7);*/
 }
 
-/* Component 3: Phần màu sắc phía dưới - 20% */
+/* Component 3: Phần màu sắc phía dưới - 20% (decorative only) */
 .museum-card__color-section {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  /*height: 29%; !* Remaining portion *!*/
-  background: #f2f1eb;
+  height: 29%; /* Remaining portion after image section */
+  /* background sẽ được override bởi inline style backgroundColor */
   z-index: 2;
 }
 
