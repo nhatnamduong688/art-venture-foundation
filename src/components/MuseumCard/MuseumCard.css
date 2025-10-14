@@ -2,21 +2,21 @@
   position: relative;
   width: 100%;
   height: auto;
-  /*min-height: 800px;*/
-  /*max-height: 1827px; !* Match Figma max height *!*/
-  aspect-ratio: 1440 / 1827; /* Maintain aspect ratio */
+  min-height: 1120px; /* Total height: 827px image + 293px bottom */
+  aspect-ratio: 1440 / 1120; /* Correct ratio for 1440px width */
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  background-color: #f2f1eb; /* Default background color */
 }
 
-/* Component 1: Ảnh phía trên - 80% chiều cao */
+/* Component 1: Ảnh phía trên - 827px của 1120px total */
 .museum-card__image-section {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  /*height: 71%; !* ~1300/1827 = 71% *!*/
+  height: 73.8%; /* 827/1120 = 73.8% */
   overflow: hidden;
   z-index: 1;
 }
@@ -29,16 +29,7 @@
   /*filter: brightness(0.7);*/
 }
 
-/* Component 3: Phần màu sắc phía dưới - 20% (decorative only) */
-.museum-card__color-section {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 29%; /* Remaining portion after image section */
-  /* background sẽ được override bởi inline style backgroundColor */
-  z-index: 2;
-}
+/* Component 3: Removed - using museum-card background instead */
 
 /* Component 2: Content box ở giữa (overlay) */
 .museum-card__content-box {
@@ -136,10 +127,6 @@
     height: 70%;
   }
   
-  .museum-card__color-section {
-    height: 30%;
-  }
-  
   .museum-card__content-box {
     width: min(500px, 50%);
     padding: 35px 45px;
@@ -165,10 +152,6 @@
   
   .museum-card__image-section {
     height: 68%;
-  }
-  
-  .museum-card__color-section {
-    height: 32%;
   }
   
   .museum-card__content-box {
@@ -202,10 +185,6 @@
   
   .museum-card__image-section {
     height: 65%;
-  }
-  
-  .museum-card__color-section {
-    height: 35%;
   }
   
   .museum-card__content-box {

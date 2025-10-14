@@ -50,12 +50,6 @@ const MuseumCard: React.FC<MuseumCardProps> = ({
         <div className="museum-card__border"></div>
       </div>
 
-      {/* Component 3: Phần màu sắc phía dưới - 20% */}
-      <div 
-        className="museum-card__color-section"
-        style={{ backgroundColor }}
-      >
-      </div>
     </div>
   );
 };
