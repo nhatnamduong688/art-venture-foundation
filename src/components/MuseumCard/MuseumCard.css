@@ -209,11 +209,12 @@
   }
 }
 
-/* Gallery Interior integration - exact Figma proportions */
+/* Gallery Interior integration - Smart crop for MuseumCard */
 .museum-card__gallery-interior {
   width: 100%;
   height: 100%;
   position: relative;
+  overflow: hidden; /* Quan trọng để crop */
 }
 
 .museum-card__gallery-interior .gallery-interior {
@@ -224,14 +225,24 @@
 
 .museum-card__gallery-interior .gallery-interior__overlay {
   width: 100%;
-  height: 100%;
-  top: 0;
+  height: 100%; /* Slightly larger for better coverage */
+  /*top: -10%;*/
   left: 0;
 }
 
 .museum-card__gallery-interior .gallery-interior__image-container {
+  width: 80%;
+  height: 130%; /* Crop from 238% to 140% */
+  top: -30%; /* Center the crop */
+  /*left: 5%;*/
+}
+
+.museum-card__gallery-interior .gallery-interior__image--figma-exact {
   width: 100%;
-  height: 100%; /* Maintain Figma ratio: 1968/827 */
-  top: 0; /* Maintain Figma ratio: -532/827 */
-  left: 0;
+  height: 100%; /* Tăng height để có thể crop */
+  /*left: %;*/
+  /*top: -20%; !* Crop từ trên *!*/
+  /*bottom: -15%; - Không dùng cùng với top*/
+  /*object-fit: cover;*/
+  /*object-position: center -30%; !* Focus vào phần dưới (70% từ trên) *!*/
 }
