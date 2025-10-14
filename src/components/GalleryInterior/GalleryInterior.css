@@ -1,50 +1,52 @@
-/* Gallery Interior Component */
+/* Gallery Interior Component - Match Figma exact dimensions */
 .gallery-interior {
   position: relative;
   width: 100%;
-  height: 100vh; /* Full viewport height like Figma */
-  min-height: 827px; /* Minimum height from Figma */
+  height: 100%;
+  min-height: 1000px;
   overflow: hidden;
 }
 
-/* Background overlay */
+/* Background overlay - 995x851px at top: -24px from Figma */
 .gallery-interior__overlay {
   position: absolute;
   background-color: #d9d9d9;
-  height: 103%; /* Slightly larger than container */
+  width: 100%; /* 995/1440 = 69.1% of viewport */
+  /*max-width: 995px;*/
+  /*height: 851px;*/
   left: 0;
-  top: -3%;
-  width: 100%;
+  /*top: -24px;*/
   z-index: 1;
 }
 
-/* Main image container */
+/* Main image container - 1311x1968px at top: -532px from Figma */
 .gallery-interior__image-container {
   position: absolute;
-  height: 200vh; /* Scale with viewport height */
+  /*width: 91%; !* 1311/1440 = 91% of viewport *!*/
+  /*max-width: 1311px;*/
+  /*height: 1968px;*/
   left: 0;
-  top: -50vh; /* Center vertically */
-  width: 120%;
+  /*top: -532px;*/
   z-index: 2;
+  overflow: hidden;
 }
 
 /* Gallery image - Base styles */
 .gallery-interior__image {
   position: absolute;
-  height: 100%;
-  left: 0;
-  top: 0;
   width: 100%;
+  height: 100%;
   max-width: none;
   object-fit: cover;
+  object-position: center;
 }
 
-/* Crop Mode: Figma Exact (matches original Figma positioning) */
+/* Crop Mode: Figma Exact - 109.24% width, 77.33% height, positioned at -2.52% left, 2.91% top */
 .gallery-interior__image--figma-exact {
-  height: 77.33%;
-  left: -2.52%;
-  top: 2.91%;
-  width: 109.24%;
+  /*width: 109.24%;*/
+  /*height: 77.33%;*/
+  /*left: -2.52%;*/
+  /*top: 2.91%;*/
   object-position: center;
 }
 
@@ -55,78 +57,116 @@
 
 /* Crop Mode: Top Crop (focus on upper portion) */
 .gallery-interior__image--top-crop {
-  object-position: center 20%;
-  clip-path: inset(0 0 30% 0); /* Crop bottom 30% */
+  /*object-position: center 20%;*/
+  /*clip-path: inset(0 0 30% 0);*/
 }
 
-/* Crop Mode: Middle Crop (focus on middle portion, crop top and bottom) */
+/* Crop Mode: Middle Crop (focus on middle portion) */
 .gallery-interior__image--middle-crop {
-  object-position: center 40%;
-  clip-path: inset(10% 0 20% 0); /* Crop top 10% and bottom 20% */
+  /*object-position: center 40%;*/
+  /*clip-path: inset(10% 0 20% 0);*/
+}
+
+/* When used inside MuseumCard - scale proportionally */
+.museum-card__gallery-interior .gallery-interior {
+  height: 100%;
+  min-height: auto;
+}
+
+.museum-card__gallery-interior .gallery-interior__overlay {
+  width: 100%;
+  /*height: 103%;*/
+  /*top: -3%;*/
+}
+
+.museum-card__gallery-interior .gallery-interior__image-container {
+  width: 100%;
+  /*height: 238%; !* 1968/827 = ~238% *!*/
+  /*top: -64%; !* -532/827 = ~64% *!*/
+}
+
+.museum-card__gallery-interior .gallery-interior__image--figma-exact {
+  /*width: 109.24%;*/
+  /*height: 100%;*/
+  /*left: -2.52%;*/
+  /*top: 2.91%;*/
+
+  width: 100%;
+  height: 100%;
+  /*left: 0%;*/
+  /*top: 0%;*/
 }
 
 /* Responsive Design */
+@media (max-width: 1440px) {
+  .gallery-interior__overlay {
+    /*width: 69.1%;*/
+  }
+  
+  .gallery-interior__image-container {
+    /*width: 91%;*/
+  }
+}
+
 @media (max-width: 1024px) {
   .gallery-interior {
-    height: 100vh; /* Keep full height on tablet */
     min-height: 600px;
   }
   
   .gallery-interior__overlay {
-    height: 103%;
-    width: 100%;
+    width: 75%;
+    height: 500px;
+    top: -20px;
   }
   
   .gallery-interior__image-container {
-    height: 180vh;
-    width: 110%;
-    top: -40vh;
-  }
-  
-  .gallery-interior__image {
-    width: 120%;
-    left: -10%;
+    width: 100%;
+    height: 1400px;
+    top: -400px;
   }
 }
 
 @media (max-width: 768px) {
   .gallery-interior {
-    height: 100vh; /* Keep full height on mobile */
     min-height: 400px;
   }
   
   .gallery-interior__overlay {
-    height: 103%;
+    width: 100%;
+    height: 400px;
+    top: -15px;
   }
   
   .gallery-interior__image-container {
-    height: 150vh;
-    top: -25vh;
+    width: 120%;
+    height: 1000px;
+    top: -300px;
   }
   
-  .gallery-interior__image {
-    width: 130%;
-    left: -15%;
+  .gallery-interior__image--figma-exact {
+    width: 110%;
+    left: -5%;
   }
 }
 
 @media (max-width: 480px) {
   .gallery-interior {
-    height: 100vh; /* Keep full height on small mobile */
     min-height: 300px;
   }
   
   .gallery-interior__overlay {
-    height: 103%;
+    height: 300px;
+    top: -10px;
   }
   
   .gallery-interior__image-container {
-    height: 130vh;
-    top: -15vh;
+    width: 130%;
+    height: 700px;
+    top: -200px;
   }
   
-  .gallery-interior__image {
-    width: 140%;
-    left: -20%;
+  .gallery-interior__image--figma-exact {
+    width: 115%;
+    left: -7.5%;
   }
 }

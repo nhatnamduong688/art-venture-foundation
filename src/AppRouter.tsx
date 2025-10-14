@@ -23,7 +23,7 @@ const AppRouter: React.FC = () => {
     <Router>
       <div className="App">
         <Sidebar />
-        <Header />
+        {/*<Header />*/}
         
         <Routes>
           <Route path="/" element={
@@ -83,29 +83,29 @@ const AppRouter: React.FC = () => {
         </Routes>
         
         {/* Figma Overlay Tool */}
-        <FigmaOverlay />
+        {/*<FigmaOverlay />*/}
         
         {/* Navigation for testing */}
-        <div className="test-navigation">
-          <div className="test-nav-container">
-            <h4>Test Navigation:</h4>
-            <div className="test-nav-links">
-              <Link to="/" className="test-nav-link">Home</Link>
-                  <Link to="/test" className="test-nav-link">Test Page</Link>
-                  <Link to="/museum-card" className="test-nav-link">Museum Card</Link>
-                  <Link to="/gallery-interior" className="test-nav-link">Gallery Interior</Link>
-                  <Link to="/gallery-crop-test" className="test-nav-link">Gallery Crop Test</Link>
-                  <Link to="/hero" className="test-nav-link">Hero</Link>
-              <Link to="/about" className="test-nav-link">About</Link>
-              <Link to="/collection" className="test-nav-link">Collection</Link>
-              <Link to="/community" className="test-nav-link">Community</Link>
-              <Link to="/partnerships" className="test-nav-link">Partnerships</Link>
-              <Link to="/news" className="test-nav-link">News Events</Link>
-              <Link to="/news-list" className="test-nav-link">News List</Link>
-              <Link to="/content" className="test-nav-link">Content Block</Link>
-            </div>
-          </div>
-        </div>
+        {/*<div className="test-navigation">*/}
+        {/*  <div className="test-nav-container">*/}
+        {/*    <h4>Test Navigation:</h4>*/}
+        {/*    <div className="test-nav-links">*/}
+        {/*      <Link to="/" className="test-nav-link">Home</Link>*/}
+        {/*          <Link to="/test" className="test-nav-link">Test Page</Link>*/}
+        {/*          <Link to="/museum-card" className="test-nav-link">Museum Card</Link>*/}
+        {/*          <Link to="/gallery-interior" className="test-nav-link">Gallery Interior</Link>*/}
+        {/*          <Link to="/gallery-crop-test" className="test-nav-link">Gallery Crop Test</Link>*/}
+        {/*          <Link to="/hero" className="test-nav-link">Hero</Link>*/}
+        {/*      <Link to="/about" className="test-nav-link">About</Link>*/}
+        {/*      <Link to="/collection" className="test-nav-link">Collection</Link>*/}
+        {/*      <Link to="/community" className="test-nav-link">Community</Link>*/}
+        {/*      <Link to="/partnerships" className="test-nav-link">Partnerships</Link>*/}
+        {/*      <Link to="/news" className="test-nav-link">News Events</Link>*/}
+        {/*      <Link to="/news-list" className="test-nav-link">News List</Link>*/}
+        {/*      <Link to="/content" className="test-nav-link">Content Block</Link>*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
       </div>
     </Router>
   );
