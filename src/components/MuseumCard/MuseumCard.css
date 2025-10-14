@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background-color: #f2f1eb; /* Default background color */
+  background-color: rgba(191, 140, 45, 0.1); /* Figma color: #bf8c2d with 10% opacity */
 }
 
 /* Component 1: Ảnh phía trên - 827px của 1120px total */

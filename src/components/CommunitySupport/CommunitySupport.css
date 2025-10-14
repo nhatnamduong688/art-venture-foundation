@@ -1,5 +1,6 @@
 .community-support {
-  background: white;
+  /*background: #f4f3f1; Figma background color*/
+  padding: 120px 59px; /* Consistent với Art Collection */
 }
 
 .community-support__wrapper {
@@ -12,8 +13,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 75px;
-  padding-right: 40px;
+  gap: 80px; /* Increased gap */
+  padding-right: 60px; /* Increased padding */
 }
 
 .community-support__right {
@@ -52,13 +53,34 @@
 .community-support__content {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 30px; /* Increased gap */
+}
+
+.community-support__view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+  padding: 8px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2;
+  color: #732231; /* Burgundy color */
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.community-support__view-all:hover {
+  opacity: 0.8;
 }
 
 .community-support__timeline-box {
-  background: #f4f3f1;
-  padding: 42px 42px 42px 0;
-  border-radius: 0;
+  background: #ffffff; /* White background để contrast với section background */
+  padding: 50px 50px 50px 0; /* Increased padding */
+  border-radius: 8px; /* Subtle border radius */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Subtle shadow */
 }
 
 .community-support__timeline {
@@ -133,6 +155,50 @@
   line-height: 2;
   color: #000000;
   flex: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .community-support {
+    padding: 80px 40px;
+  }
+  
+  .community-support__wrapper {
+    flex-direction: column;
+    gap: 60px;
+  }
+  
+  .community-support__left {
+    padding-right: 0;
+    gap: 60px;
+  }
+  
+  .community-support__right {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .community-support {
+    padding: 60px 20px;
+  }
+  
+  .community-support__left {
+    gap: 40px;
+  }
+  
+  .community-support__timeline-box {
+    padding: 30px 30px 30px 0;
+  }
+  
+  .timeline-item {
+    flex: 0 0 250px;
+    min-width: 250px;
+  }
+  
+  .timeline-item__description {
+    height: 200px;
+  }
 }
 
 .community-support__view-all {

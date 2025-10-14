@@ -9,6 +9,7 @@ import CommunitySupport from './components/CommunitySupport';
 import Partnerships from './components/Partnerships';
 import NewsEvents from './components/NewsEvents';
 import News from './components/News';
+import AVNews from './components/AVNews';
 import ContentBlock from './components/ContentBlock';
 import Footer from './components/Footer';
 import TestPage from './components/TestPage';
@@ -36,17 +37,18 @@ const AppRouter: React.FC = () => {
                   backgroundColor="#f2f1eb"
                   useGalleryInterior={true}
               />
+              <AVNews />
               {/*<About />*/}
               <ArtCollection />
               <CommunitySupport />
-              <Partnerships />
+              {/*<Partnerships />*/}
               <NewsEvents />
-              <ContentBlock 
-                title="Art & Venture Foundation"
-                description="Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien. Scelerisque porttitor iaculis in mauris elementum eu vulputate. Viverra neque sit ridiculus orci amet quisque sodales sapien sollicitudin."
-                buttonText="MORE"
-                showButton={true}
-              />
+              {/*<ContentBlock */}
+              {/*  title="Art & Venture Foundation"*/}
+              {/*  description="Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien. Scelerisque porttitor iaculis in mauris elementum eu vulputate. Viverra neque sit ridiculus orci amet quisque sodales sapien sollicitudin."*/}
+              {/*  buttonText="MORE"*/}
+              {/*  showButton={true}*/}
+              {/*/>*/}
               <Footer />
             </>
           } />
@@ -56,10 +58,16 @@ const AppRouter: React.FC = () => {
           <Route path="/hero" element={<Hero />} />
           <Route path="/about" element={<About />} />
           <Route path="/collection" element={<ArtCollection />} />
-          <Route path="/community" element={<CommunitySupport />} />
+          <Route path="/community" element={
+            <>
+              <CommunitySupport />
+              <AVNews />
+            </>
+          } />
           <Route path="/partnerships" element={<Partnerships />} />
           <Route path="/news" element={<NewsEvents />} />
           <Route path="/news-list" element={<News />} />
+          <Route path="/av-news" element={<AVNews />} />
           <Route path="/content" element={
             <ContentBlock 
               title="Art & Venture Foundation"
@@ -102,6 +110,7 @@ const AppRouter: React.FC = () => {
         {/*      <Link to="/partnerships" className="test-nav-link">Partnerships</Link>*/}
         {/*      <Link to="/news" className="test-nav-link">News Events</Link>*/}
         {/*      <Link to="/news-list" className="test-nav-link">News List</Link>*/}
+            <Link to="/av-news" className="test-nav-link">A&V News</Link>
         {/*      <Link to="/content" className="test-nav-link">Content Block</Link>*/}
         {/*    </div>*/}
         {/*  </div>*/}

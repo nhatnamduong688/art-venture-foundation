@@ -1,13 +1,14 @@
 .art-collection {
-  background: #f8f9fa;
+  background: rgba(191, 140, 45, 0.1); /* Figma color: #bf8c2d with 10% opacity */
+  padding: 120px 59px; /* 120px top/bottom, 59px left/right */
 }
 
 .art-collection__header {
   max-width: 663px;
   display: flex;
   flex-direction: column;
-  gap: 33px;
-  margin-bottom: 80px;
+  gap: 40px; /* Increased gap between title, description, button */
+  margin-bottom: 100px; /* Increased space before grid */
 }
 
 .art-collection__title {
@@ -211,7 +212,28 @@
   white-space: pre-wrap;
 }
 
+/* Responsive spacing */
+@media (max-width: 1024px) {
+  .art-collection {
+    padding: 80px 40px; /* Reduced padding for tablet */
+  }
+  
+  .art-collection__header {
+    margin-bottom: 60px; /* Reduced space before grid */
+    gap: 30px; /* Reduced gap */
+  }
+}
+
 @media (max-width: 768px) {
+  .art-collection {
+    padding: 60px 20px; /* Reduced padding for mobile */
+  }
+  
+  .art-collection__header {
+    margin-bottom: 40px; /* Reduced space before grid */
+    gap: 24px; /* Reduced gap */
+  }
+  
   .artwork-card {
     width: 400px;
     min-width: 400px;
