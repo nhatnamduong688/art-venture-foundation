@@ -1,13 +1,13 @@
 .header {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
+  left: 100px; /* Start after sidebar (100px width) */
+  width: calc(100% - 100px); /* Full width minus sidebar */
+  height: 80px; /* Match Figma height */
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .header__container {
@@ -17,117 +17,179 @@
   height: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 80px;
-}
-
-.header__logo {
-  width: 60px;
-  height: 60px;
-}
-
-.header__logo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  padding: 0 60px 0 60px; /* Left: 60px, Right: 32px như Figma */
+  box-sizing: border-box;
 }
 
 .header__nav {
-  flex: 1;
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 24px; /* 24px gap between nav items */
+  flex: 1;
 }
 
 .header__nav-item {
-  position: relative;
-  width: 3px;
-  height: 387px;
-  background: #d9d9d9;
-  border-radius: 5px;
-}
-
-.header__nav-item::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 71px;
-  background: #000000;
-  border-radius: 5px;
-}
-
-.header__language {
-  font-size: 16px;
-  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80px; /* Full header height */
+  padding: 10px;
+  text-decoration: none;
   color: #000000;
-  padding: 8px 0;
   position: relative;
+  transition: color 0.2s ease;
+  box-sizing: border-box;
 }
 
-.header__language::before {
-  content: '';
+.header__nav-item:hover {
+  color: #732231;
+}
+
+.header__nav-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+/* Active state styling */
+.header__nav-item--active .header__nav-text {
+  font-weight: 700; /* Bold for active */
+  color: #732231; /* Burgundy color */
+}
+
+.header__nav-underline {
   position: absolute;
-  left: -20px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 20px;
-  background: #000000;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 4px;
+  background: #732231;
+  border-radius: 6px;
+  opacity: 0;
+  transition: all 0.2s ease;
 }
 
-.header__menu-btn {
-  background: white;
-  border: none;
-  border-radius: 30px;
-  width: 60px;
-  height: 60px;
+/* Active underline */
+.header__nav-item--active .header__nav-underline {
+  opacity: 1;
+  width: 70px; /* Wider for active state */
+}
+
+/* Hover underline */
+.header__nav-item:hover .header__nav-underline {
+  opacity: 0.5;
+  width: 40px;
+}
+
+.header__shop {
+  margin-left: auto;
+  padding-right: 32px; /* Match Figma right padding */
+}
+
+.header__shop-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  transition: transform 0.2s ease;
+  height: 40px;
+  width: 88px;
+  padding: 10px;
+  text-decoration: none;
+  color: #000000;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+  box-sizing: border-box;
 }
 
-.header__menu-btn:hover {
-  transform: scale(1.05);
+.header__shop-link:hover {
+  color: #732231;
 }
 
-.header__menu-icon {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.header__menu-line {
-  width: 100%;
-  height: 2px;
-  background: #000000;
-  border-radius: 1px;
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .header__container {
+    padding: 0 40px 0 40px;
+  }
+  
+  .header__nav {
+    gap: 16px;
+  }
+  
+  .header__nav-text {
+    font-size: 14px;
+  }
+  
+  .header__shop {
+    padding-right: 20px;
+  }
 }
 
 @media (max-width: 768px) {
+  .header {
+    left: 0; /* Full width on mobile */
+    width: 100%; /* Full width on mobile */
+    height: 60px;
+  }
+  
   .header__container {
     padding: 0 20px;
   }
   
   .header__nav {
+    gap: 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .header__nav::-webkit-scrollbar {
     display: none;
   }
   
-  .header__logo {
-    width: 50px;
-    height: 50px;
+  .header__nav-item {
+    height: 60px;
+    min-width: fit-content;
   }
   
-  .header__menu-btn {
-    width: 50px;
-    height: 50px;
+  .header__nav-text {
+    font-size: 12px;
+  }
+  
+  .header__shop {
+    padding-right: 0;
+  }
+  
+  .header__shop-link {
+    width: 60px;
+    font-size: 12px;
   }
 }
 
+@media (max-width: 480px) {
+  .header__container {
+    padding: 0 15px;
+  }
+  
+  .header__nav {
+    gap: 8px;
+  }
+  
+  .header__nav-text {
+    font-size: 11px;
+  }
+  
+  /* Hide some nav items on very small screens */
+  .header__nav-item:nth-child(n+5) {
+    display: none;
+  }
+}
 
-
+/* Ensure header doesn't interfere with page content */
+/* Note: Body padding is handled by App.css for sidebar layout */

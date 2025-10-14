@@ -24,7 +24,7 @@ const AppRouter: React.FC = () => {
     <Router>
       <div className="App">
         <Sidebar />
-        {/*<Header />*/}
+        <Header />
         
         <Routes>
           <Route path="/" element={
@@ -68,6 +68,9 @@ const AppRouter: React.FC = () => {
           <Route path="/news" element={<NewsEvents />} />
           <Route path="/news-list" element={<News />} />
           <Route path="/av-news" element={<AVNews />} />
+          <Route path="/artists" element={<div style={{padding: '120px 60px', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', color: '#732231'}}>Artists Page - Coming Soon</div>} />
+          <Route path="/knowledge" element={<div style={{padding: '120px 60px', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', color: '#732231'}}>Knowledge Page - Coming Soon</div>} />
+          <Route path="/shop" element={<div style={{padding: '120px 60px', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', color: '#732231'}}>Shop Page - Coming Soon</div>} />
           <Route path="/content" element={
             <ContentBlock 
               title="Art & Venture Foundation"
