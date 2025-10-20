@@ -1,3 +1,8 @@
+/**
+ * GalleryInterior Component - Migrated to Design System
+ * Background gallery image component
+ */
+
 import React from 'react';
 import './GalleryInterior.css';
 import { getFigmaAsset } from '../../utils/figmaAssets';
