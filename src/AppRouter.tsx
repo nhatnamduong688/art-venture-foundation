@@ -1,33 +1,58 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Header from './components/Header';
+/**
+ * App Router - Code Split Routes with Lazy Loading
+ * Implements React.lazy() for better performance
+ */
+
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Header, Footer } from './design-system/organisms';
 import Sidebar from './components/Sidebar';
-import Hero from './components/Hero';
-import About from './components/About';
-import ArtCollection from './components/ArtCollection';
-import CommunitySupport from './components/CommunitySupport';
-import Partnerships from './components/Partnerships';
-import NewsEvents from './components/NewsEvents';
-import News from './components/News';
-import AVNews from './components/AVNews';
-import ContentBlock from './components/ContentBlock';
-import Footer from './components/Footer';
-import TestPage from './components/TestPage';
-import MuseumCard from './components/MuseumCard';
-import GalleryInterior from './components/GalleryInterior';
-import GalleryCropTest from './components/GalleryCropTest';
-import FigmaOverlay from './components/FigmaOverlay';
-import CollectionPage from './pages/CollectionPage';
-import ArtistsPage from './pages/ArtistsPage';
-import EventsPage from './pages/EventsPage';
-import NewsPage from './pages/NewsPage';
-import WhoWeArePage from './pages/WhoWeArePage';
-import EventDetailPage from './pages/EventDetailPage';
-import NewsDetailPage from './pages/NewsDetailPage';
-import ArtistDetailPage from './pages/ArtistDetailPage';
-import KnowledgePage from './pages/KnowledgePage';
-import KnowledgeDetailPage from './pages/KnowledgeDetailPage';
 import './App.css';
+
+// Loading component
+const LoadingFallback: React.FC = () => (
+  <div className="loading-container" style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: '60vh',
+    fontSize: '18px',
+    color: 'var(--color-text-secondary)',
+  }}>
+    Loading...
+  </div>
+);
+
+// ===== Lazy Load Pages =====
+// Main Pages
+const HomePage = lazy(() => import('./pages/HomePage'));
+const CollectionPage = lazy(() => import('./pages/CollectionPage'));
+const ArtistsPage = lazy(() => import('./pages/ArtistsPage'));
+const EventsPage = lazy(() => import('./pages/EventsPage'));
+const NewsPage = lazy(() => import('./pages/NewsPage'));
+const WhoWeArePage = lazy(() => import('./pages/WhoWeArePage'));
+const KnowledgePage = lazy(() => import('./pages/KnowledgePage'));
+
+// Detail Pages
+const EventDetailPage = lazy(() => import('./pages/EventDetailPage'));
+const NewsDetailPage = lazy(() => import('./pages/NewsDetailPage'));
+const ArtistDetailPage = lazy(() => import('./pages/ArtistDetailPage'));
+const KnowledgeDetailPage = lazy(() => import('./pages/KnowledgeDetailPage'));
+
+// ===== Lazy Load Components (for testing routes) =====
+const Hero = lazy(() => import('./components/Hero'));
+const About = lazy(() => import('./components/About'));
+const ArtCollection = lazy(() => import('./components/ArtCollection'));
+const CommunitySupport = lazy(() => import('./components/CommunitySupport'));
+const Partnerships = lazy(() => import('./components/Partnerships'));
+const NewsEvents = lazy(() => import('./components/NewsEvents'));
+const News = lazy(() => import('./components/News'));
+const AVNews = lazy(() => import('./components/AVNews'));
+const ContentBlock = lazy(() => import('./components/ContentBlock'));
+const TestPage = lazy(() => import('./components/TestPage'));
+const MuseumCard = lazy(() => import('./components/MuseumCard'));
+const GalleryInterior = lazy(() => import('./components/GalleryInterior'));
+const GalleryCropTest = lazy(() => import('./components/GalleryCropTest'));
 
 const AppRouter: React.FC = () => {
   return (
@@ -36,106 +61,73 @@ const AppRouter: React.FC = () => {
         <Sidebar />
         <Header />
         
-        <Routes>
-          <Route path="/" element={
-            <>
-              {/*<Hero />*/}
-              <MuseumCard
-                  title="Art & Venture Foundation"
-                  description="Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien. Scelerisque porttitor iaculis in mauris elementum eu vulputate. Viverra neque sit ridiculus orci amet quisque sodales sapien sollicitudin."
-                  buttonText="MORE"
-                  backgroundColor="#F2EFE7"
-                  useGalleryInterior={true}
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes>
+            {/* Main Routes */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/collection" element={<CollectionPage />} />
+            <Route path="/artists" element={<ArtistsPage />} />
+            <Route path="/artists/:id" element={<ArtistDetailPage />} />
+            <Route path="/news" element={<EventsPage />} />
+            <Route path="/events/:id" element={<EventDetailPage />} />
+            <Route path="/av-news" element={<AVNews />} />
+            <Route path="/news/:id" element={<NewsDetailPage />} />
+            <Route path="/knowledge" element={<KnowledgePage />} />
+            <Route path="/knowledge/:id" element={<KnowledgeDetailPage />} />
+            <Route path="/who-we-are" element={<WhoWeArePage />} />
+            
+            {/* Shop Page - Placeholder */}
+            <Route path="/shop" element={
+              <div style={{
+                padding: '120px 60px',
+                minHeight: '80vh',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '24px',
+                color: 'var(--color-burgundy)'
+              }}>
+                Shop Page - Coming Soon
+              </div>
+            } />
+            
+            {/* Legacy/Test Routes */}
+            <Route path="/test" element={<TestPage />} />
+            <Route path="/hero" element={<Hero />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/collection-home" element={<ArtCollection />} />
+            <Route path="/community" element={
+              <>
+                <CommunitySupport />
+                <AVNews />
+              </>
+            } />
+            <Route path="/partnerships" element={<Partnerships />} />
+            <Route path="/events" element={<EventsPage />} />
+            <Route path="/events-home" element={<NewsEvents />} />
+            <Route path="/news-page" element={<NewsPage />} />
+            <Route path="/news-list" element={<News />} />
+            <Route path="/content" element={
+              <ContentBlock 
+                title="Art & Venture Foundation"
+                description="Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien. Scelerisque porttitor iaculis in mauris elementum eu vulputate. Viverra neque sit ridiculus orci amet quisque sodales sapien sollicitudin."
+                buttonText="MORE"
+                showButton={true}
               />
-              <AVNews />
-              {/*<About />*/}
-              <ArtCollection />
-              <CommunitySupport />
-              {/*<Partnerships />*/}
-              <NewsEvents />
-              {/*<ContentBlock */}
-              {/*  title="Art & Venture Foundation"*/}
-              {/*  description="Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien. Scelerisque porttitor iaculis in mauris elementum eu vulputate. Viverra neque sit ridiculus orci amet quisque sodales sapien sollicitudin."*/}
-              {/*  buttonText="MORE"*/}
-              {/*  showButton={true}*/}
-              {/*/>*/}
-              <Footer />
-            </>
-          } />
-          
-          <Route path="/test" element={<TestPage />} />
-          
-          <Route path="/hero" element={<Hero />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/collection" element={<CollectionPage />} />
-          <Route path="/collection-home" element={<ArtCollection />} />
-          <Route path="/artists" element={<ArtistsPage />} />
-          <Route path="/artists/:id" element={<ArtistDetailPage />} />
-          <Route path="/who-we-are" element={<WhoWeArePage />} />
-          <Route path="/community" element={
-            <>
-              <CommunitySupport />
-              <AVNews />
-            </>
-          } />
-          <Route path="/partnerships" element={<Partnerships />} />
-          <Route path="/events" element={<EventsPage />} />
-          <Route path="/events/:id" element={<EventDetailPage />} />
-          <Route path="/events-home" element={<NewsEvents />} />
-          <Route path="/news" element={<NewsPage />} />
-          <Route path="/news/:id" element={<NewsDetailPage />} />
-          <Route path="/news-list" element={<News />} />
-          <Route path="/av-news" element={<AVNews />} />
-          <Route path="/knowledge" element={<KnowledgePage />} />
-          <Route path="/knowledge/:id" element={<KnowledgeDetailPage />} />
-          <Route path="/shop" element={<div style={{padding: '120px 60px', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', color: '#6B2128'}}>Shop Page - Coming Soon</div>} />
-          <Route path="/content" element={
-            <ContentBlock 
-              title="Art & Venture Foundation"
-              description="Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien. Scelerisque porttitor iaculis in mauris elementum eu vulputate. Viverra neque sit ridiculus orci amet quisque sodales sapien sollicitudin."
-              buttonText="MORE"
-              showButton={true}
-            />
-          } />
-          
-              <Route path="/museum-card" element={
-                <MuseumCard
-                  title="Art & Venture Foundation"
-                  description="Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien. Scelerisque porttitor iaculis in mauris elementum eu vulputate. Viverra neque sit ridiculus orci amet quisque sodales sapien sollicitudin."
-                  buttonText="MORE"
-                  backgroundColor="#F2EFE7"
-                  useGalleryInterior={true}
-                />
-              } />
-              <Route path="/gallery-interior" element={<GalleryInterior />} />
-              <Route path="/gallery-crop-test" element={<GalleryCropTest />} />
-        </Routes>
-        
-        {/* Figma Overlay Tool */}
-        {/*<FigmaOverlay />*/}
-        
-        {/* Navigation for testing */}
-        {/*<div className="test-navigation">*/}
-        {/*  <div className="test-nav-container">*/}
-        {/*    <h4>Test Navigation:</h4>*/}
-        {/*    <div className="test-nav-links">*/}
-        {/*      <Link to="/" className="test-nav-link">Home</Link>*/}
-        {/*          <Link to="/test" className="test-nav-link">Test Page</Link>*/}
-        {/*          <Link to="/museum-card" className="test-nav-link">Museum Card</Link>*/}
-        {/*          <Link to="/gallery-interior" className="test-nav-link">Gallery Interior</Link>*/}
-        {/*          <Link to="/gallery-crop-test" className="test-nav-link">Gallery Crop Test</Link>*/}
-        {/*          <Link to="/hero" className="test-nav-link">Hero</Link>*/}
-        {/*      <Link to="/about" className="test-nav-link">About</Link>*/}
-        {/*      <Link to="/collection" className="test-nav-link">Collection</Link>*/}
-        {/*      <Link to="/community" className="test-nav-link">Community</Link>*/}
-        {/*      <Link to="/partnerships" className="test-nav-link">Partnerships</Link>*/}
-        {/*      <Link to="/news" className="test-nav-link">News Events</Link>*/}
-        {/*      <Link to="/news-list" className="test-nav-link">News List</Link>*/}
-            <Link to="/av-news" className="test-nav-link">A&V News</Link>
-        {/*      <Link to="/content" className="test-nav-link">Content Block</Link>*/}
-        {/*    </div>*/}
-        {/*  </div>*/}
-        {/*</div>*/}
+            } />
+            <Route path="/museum-card" element={
+              <MuseumCard
+                title="Art & Venture Foundation"
+                description="Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien. Scelerisque porttitor iaculis in mauris elementum eu vulputate. Viverra neque sit ridiculus orci amet quisque sodales sapien sollicitudin."
+                buttonText="MORE"
+                backgroundColor="#F2EFE7"
+                useGalleryInterior={true}
+              />
+            } />
+            <Route path="/gallery-interior" element={<GalleryInterior />} />
+            <Route path="/gallery-crop-test" element={<GalleryCropTest />} />
+          </Routes>
+        </Suspense>
       </div>
     </Router>
   );
