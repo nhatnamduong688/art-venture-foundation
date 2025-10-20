@@ -25,6 +25,8 @@ import WhoWeArePage from './pages/WhoWeArePage';
 import EventDetailPage from './pages/EventDetailPage';
 import NewsDetailPage from './pages/NewsDetailPage';
 import ArtistDetailPage from './pages/ArtistDetailPage';
+import KnowledgePage from './pages/KnowledgePage';
+import KnowledgeDetailPage from './pages/KnowledgeDetailPage';
 import './App.css';
 
 const AppRouter: React.FC = () => {
@@ -84,7 +86,8 @@ const AppRouter: React.FC = () => {
           <Route path="/news/:id" element={<NewsDetailPage />} />
           <Route path="/news-list" element={<News />} />
           <Route path="/av-news" element={<AVNews />} />
-          <Route path="/knowledge" element={<div style={{padding: '120px 60px', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', color: '#732231'}}>Knowledge Page - Coming Soon</div>} />
+          <Route path="/knowledge" element={<KnowledgePage />} />
+          <Route path="/knowledge/:id" element={<KnowledgeDetailPage />} />
           <Route path="/shop" element={<div style={{padding: '120px 60px', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', color: '#732231'}}>Shop Page - Coming Soon</div>} />
           <Route path="/content" element={
             <ContentBlock 
