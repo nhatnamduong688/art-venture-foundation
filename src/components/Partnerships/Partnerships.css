@@ -7,7 +7,7 @@
   font-size: 60px;
   font-weight: 500;
   line-height: normal;
-  color: #000000;
+  color: #2E2E2E;
   margin: 0 0 75px 0;
   text-align: left;
 }
@@ -54,7 +54,7 @@
   font-size: 20px;
   font-weight: 500;
   line-height: 1.5;
-  color: #000000;
+  color: #2E2E2E;
   margin: 0;
 }
 
@@ -62,7 +62,7 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 2;
-  color: #000000;
+  color: #2E2E2E;
   margin: 0;
   flex: 1;
 }
