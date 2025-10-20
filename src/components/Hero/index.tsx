@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
             Mauris in convallis interdum facilisis platea sapien. Scelerisque porttitor iaculis in mauris elementum 
             eu vulputate. Viverra neque sit ridiculus orci amet quisque sodales sapien sollicitudin.
           </p>
-          <button className="btn btn-white">
+          <button className="btn btn-burgundy">
             MORE
             <div className="btn-arrow">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

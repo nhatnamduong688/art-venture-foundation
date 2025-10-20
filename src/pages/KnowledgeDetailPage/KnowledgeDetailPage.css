@@ -22,14 +22,14 @@
   justify-content: center;
   background: #ffffff;
   border-radius: 50%;
-  color: #732231;
+  color: #6B2128;
   text-decoration: none;
   transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .knowledge-detail-back:hover {
-  background: #732231;
+  background: #6B2128;
   color: #ffffff;
   transform: translateX(-4px);
 }
@@ -71,13 +71,13 @@
 }
 
 .knowledge-detail-tab:hover {
-  border-color: #732231;
-  color: #732231;
+  border-color: #6B2128;
+  color: #6B2128;
 }
 
 .knowledge-detail-tab.active {
-  background: #732231;
-  border-color: #732231;
+  background: #6B2128;
+  border-color: #6B2128;
   color: #ffffff;
 }
 
@@ -133,7 +133,7 @@
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background: #732231;
+  background: #6B2128;
   color: #ffffff;
   display: flex;
   align-items: center;

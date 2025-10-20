@@ -9,7 +9,7 @@
 }
 
 .figma-overlay-toggle {
-  background: #732231;
+  background: #6B2128;
   color: white;
   border: none;
   padding: 12px 20px;
@@ -57,7 +57,7 @@
 
 .figma-overlay-panel input[type="text"]:focus {
   outline: none;
-  border-color: #732231;
+  border-color: #6B2128;
 }
 
 .figma-overlay-panel input[type="range"] {
@@ -75,7 +75,7 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: #732231;
+  background: #6B2128;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -95,7 +95,7 @@
 .figma-overlay-tips h4 {
   margin: 0 0 10px 0;
   font-size: 14px;
-  color: #732231;
+  color: #6B2128;
 }
 
 .figma-overlay-tips ol {

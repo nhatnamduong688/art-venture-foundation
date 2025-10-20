@@ -1,11 +1,11 @@
 .content-block {
-  background: #f2f1eb;
+  background: #F2EFE7;
   position: relative;
   width: 100%;
   min-height: 400px;
   display: flex;
   align-items: center;
-  border-top: 1px solid #732231;
+  border-top: 1px solid #6B2128;
 }
 
 .content-block__container {
@@ -27,7 +27,7 @@
   font-size: 80px;
   font-weight: 500;
   line-height: normal;
-  color: #732231;
+  color: #6B2128;
   margin: 0;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .btn-burgundy {
-  color: #732231;
+  color: #6B2128;
 }
 
 .btn-burgundy:hover {
@@ -50,7 +50,7 @@
 }
 
 .btn-burgundy .btn-arrow svg {
-  stroke: #732231;
+  stroke: #6B2128;
 }
 
 @media (max-width: 1024px) {

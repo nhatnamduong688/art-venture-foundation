@@ -1,26 +1,29 @@
 .hero {
   position: relative;
-  height: 100vh;
-  min-height: 851px;
+  height: 827px;
+  min-height: 827px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   overflow: hidden;
 }
 
 .hero__container {
-  position: relative;
+  position: absolute;
+  left: calc(8.333% + 69px); /* 189px from left edge */
+  top: 481px; /* From Figma: 595px - 114px header */
   z-index: 2;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 80px;
-  width: 100%;
+  width: 638px;
+  max-width: calc(100% - 200px);
 }
 
 .hero__content {
-  max-width: 543px;
+  background: #F2EFE7;
+  border-bottom: 1px solid #6B2128;
+  padding: 50px 60px;
   display: flex;
   flex-direction: column;
   gap: 25px;
+  border-radius: inherit;
 }
 
 .hero__title {
@@ -28,7 +31,7 @@
   font-size: 80px;
   font-weight: 500;
   line-height: normal;
-  color: white;
+  color: #6B2128;
   margin: 0;
 }
 
@@ -36,9 +39,9 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 2;
-  color: white;
+  color: #2E2E2E;
   margin: 0;
-  max-width: 543px;
+  height: 169px;
 }
 
 .hero__background {

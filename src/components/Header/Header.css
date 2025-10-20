@@ -43,7 +43,7 @@
 }
 
 .header__nav-item:hover {
-  color: #732231;
+  color: #6B2128;
 }
 
 .header__nav-text {
@@ -58,7 +58,7 @@
 /* Active state styling */
 .header__nav-item--active .header__nav-text {
   font-weight: 700; /* Bold for active */
-  color: #732231; /* Burgundy color */
+  color: #6B2128; /* Burgundy color */
 }
 
 .header__nav-underline {
@@ -68,7 +68,7 @@
   transform: translateX(-50%);
   width: 16px;
   height: 4px;
-  background: #732231;
+  background: #6B2128;
   border-radius: 6px;
   opacity: 0;
   transition: all 0.2s ease;
@@ -108,7 +108,7 @@
 }
 
 .header__search:hover {
-  color: #732231;
+  color: #6B2128;
 }
 
 .header__language {
@@ -127,7 +127,7 @@
 }
 
 .header__language:hover {
-  color: #732231;
+  color: #6B2128;
 }
 
 .header__language-divider {
@@ -136,7 +136,7 @@
 
 .header__language-active {
   font-weight: 700;
-  color: #732231;
+  color: #6B2128;
 }
 
 .header__shop-link {
@@ -157,7 +157,7 @@
 }
 
 .header__shop-link:hover {
-  color: #732231;
+  color: #6B2128;
 }
 
 /* Responsive Design */

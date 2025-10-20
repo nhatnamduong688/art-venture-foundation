@@ -16,7 +16,7 @@ const MuseumCard: React.FC<MuseumCardProps> = ({
   description = "Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien. Scelerisque porttitor iaculis in mauris elementum eu vulputate. Viverra neque sit ridiculus orci amet quisque sodales sapien sollicitudin.",
   buttonText = "MORE",
   imageUrl = "https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-  backgroundColor = "#f2f1eb",
+  backgroundColor = "#F2EFE7",
   useGalleryInterior = false
 }) => {
   return (

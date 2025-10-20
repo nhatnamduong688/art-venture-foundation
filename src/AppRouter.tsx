@@ -44,7 +44,7 @@ const AppRouter: React.FC = () => {
                   title="Art & Venture Foundation"
                   description="Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien. Scelerisque porttitor iaculis in mauris elementum eu vulputate. Viverra neque sit ridiculus orci amet quisque sodales sapien sollicitudin."
                   buttonText="MORE"
-                  backgroundColor="#f2f1eb"
+                  backgroundColor="#F2EFE7"
                   useGalleryInterior={true}
               />
               <AVNews />
@@ -88,7 +88,7 @@ const AppRouter: React.FC = () => {
           <Route path="/av-news" element={<AVNews />} />
           <Route path="/knowledge" element={<KnowledgePage />} />
           <Route path="/knowledge/:id" element={<KnowledgeDetailPage />} />
-          <Route path="/shop" element={<div style={{padding: '120px 60px', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', color: '#732231'}}>Shop Page - Coming Soon</div>} />
+          <Route path="/shop" element={<div style={{padding: '120px 60px', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', color: '#6B2128'}}>Shop Page - Coming Soon</div>} />
           <Route path="/content" element={
             <ContentBlock 
               title="Art & Venture Foundation"
@@ -103,7 +103,7 @@ const AppRouter: React.FC = () => {
                   title="Art & Venture Foundation"
                   description="Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien. Scelerisque porttitor iaculis in mauris elementum eu vulputate. Viverra neque sit ridiculus orci amet quisque sodales sapien sollicitudin."
                   buttonText="MORE"
-                  backgroundColor="#f2f1eb"
+                  backgroundColor="#F2EFE7"
                   useGalleryInterior={true}
                 />
               } />

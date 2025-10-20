@@ -7,7 +7,7 @@
   font-size: 60px;
   font-weight: 500;
   line-height: normal;
-  color: #732231;
+  color: #6B2128;
   margin: 0 0 75px 0; /* 75px gap from Figma */
 }
 
@@ -29,7 +29,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 2;
-  color: #732231; /* Burgundy color */
+  color: #6B2128; /* Burgundy color */
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
@@ -75,7 +75,7 @@
   font-size: 30px;
   font-weight: 700;
   line-height: 1.5;
-  color: #732231;
+  color: #6B2128;
   margin: 0;
 }
 
@@ -164,7 +164,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 2;
-  color: #732231;
+  color: #6B2128;
   transition: opacity 0.2s ease;
 }
 

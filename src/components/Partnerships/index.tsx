@@ -60,7 +60,7 @@ const Partnerships: React.FC = () => {
               <h3 className="partnership-card__name">{partnership.name}</h3>
               <p className="partnership-card__description">{partnership.description}</p>
               <button className="btn btn-black">
-                VIEW DETAIL
+                DETAIL
                 <div className="btn-arrow">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

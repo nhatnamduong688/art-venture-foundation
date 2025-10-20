@@ -33,7 +33,7 @@
   left: 0;
   width: 100%;
   height: 223px; /* 827 - 604 (top of content box) */
-  background: #f2f1eb;
+  background: #F2EFE7;
   z-index: 2;
 }
 
@@ -45,7 +45,7 @@
   transform: none;
   width: 638px; /* Match Figma exact width */
   height: 545px; /* Match Figma exact height */
-  background: #f2f1eb;
+  background: #F2EFE7;
   padding: 50px 60px;
   z-index: 3;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
@@ -56,7 +56,7 @@
   font-size: 80px;
   font-weight: 500;
   line-height: normal;
-  color: #732231;
+  color: #6B2128;
   margin: 0 0 25px 0;
 }
 
@@ -79,7 +79,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 2;
-  color: #732231;
+  color: #6B2128;
   transition: opacity 0.2s ease;
 }
 
@@ -94,7 +94,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: #732231;
+  background: #6B2128;
 }
 
 /* Responsive Design */

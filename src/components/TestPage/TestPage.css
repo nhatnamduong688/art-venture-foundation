@@ -15,7 +15,7 @@
   font-size: 60px;
   font-weight: 500;
   text-align: center;
-  color: #732231;
+  color: #6B2128;
   margin-bottom: 20px;
 }
 
@@ -75,11 +75,11 @@
 }
 
 .color-primary {
-  background: #732231;
+  background: #6B2128;
 }
 
 .color-secondary {
-  background: #f2f1eb;
+  background: #F2EFE7;
 }
 
 .color-accent {

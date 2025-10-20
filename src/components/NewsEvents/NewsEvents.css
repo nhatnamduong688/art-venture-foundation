@@ -8,7 +8,7 @@
   font-size: 60px;
   font-weight: 500;
   line-height: normal;
-  color: #732231;
+  color: #6B2128;
   margin: 0 0 75px 0;
 }
 
@@ -37,7 +37,7 @@
   flex-shrink: 0;
   width: 58px;
   height: 394px;
-  background: #f2f1eb;
+  background: #F2EFE7;
 }
 
 .news-card {
@@ -159,7 +159,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 2;
-  color: #732231;
+  color: #6B2128;
   transition: opacity 0.2s ease;
 }
 

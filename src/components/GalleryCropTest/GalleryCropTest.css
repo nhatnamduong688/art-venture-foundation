@@ -18,7 +18,7 @@
   margin: 0 0 10px 0;
   font-family: 'Big Caslon', serif;
   font-size: 24px;
-  color: #732231;
+  color: #6B2128;
 }
 
 .crop-controls p {
@@ -37,9 +37,9 @@
 
 .crop-button {
   padding: 8px 16px;
-  border: 2px solid #732231;
+  border: 2px solid #6B2128;
   background: white;
-  color: #732231;
+  color: #6B2128;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -54,7 +54,7 @@
 }
 
 .crop-button.active {
-  background: #732231;
+  background: #6B2128;
   color: white;
   box-shadow: 0 2px 8px rgba(115, 34, 49, 0.3);
 }
@@ -64,12 +64,12 @@
   background: #f8f9fa;
   padding: 12px;
   border-radius: 6px;
-  border-left: 4px solid #732231;
+  border-left: 4px solid #6B2128;
 }
 
 .current-crop-info strong {
   font-family: 'Inter', sans-serif;
-  color: #732231;
+  color: #6B2128;
   display: block;
   margin-bottom: 5px;
 }

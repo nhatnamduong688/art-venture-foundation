@@ -164,7 +164,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-burgundy {
-  color: #732231;
+  color: #6B2128;
 }
 
 .btn-arrow {
@@ -264,13 +264,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .test-nav-link:hover {
-  background: #732231;
+  background: #6B2128;
   color: white;
   transform: translateX(5px);
 }
 
 .test-nav-link.active {
-  background: #732231;
+  background: #6B2128;
   color: white;
 }
 
