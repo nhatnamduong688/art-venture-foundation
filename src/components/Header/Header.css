@@ -36,7 +36,7 @@
   height: 114px; /* Full header height */
   padding: 10px;
   text-decoration: none;
-  color: #000000;
+  color: #2E2E2E; /* Figma: dark gray for inactive items */
   position: relative;
   transition: color 0.2s ease;
   box-sizing: border-box;
@@ -102,7 +102,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #000000;
+  color: #2E2E2E;
   transition: color 0.2s ease;
   padding: 0;
 }
@@ -121,7 +121,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  color: #000000;
+  color: #2E2E2E;
   transition: color 0.2s ease;
   padding: 0;
 }
@@ -131,7 +131,7 @@
 }
 
 .header__language-divider {
-  color: #000000;
+  color: #2E2E2E;
 }
 
 .header__language-active {
@@ -147,7 +147,7 @@
   width: 88px;
   padding: 10px;
   text-decoration: none;
-  color: #000000;
+  color: #2E2E2E;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 500;
