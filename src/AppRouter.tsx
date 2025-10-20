@@ -19,6 +19,8 @@ import GalleryCropTest from './components/GalleryCropTest';
 import FigmaOverlay from './components/FigmaOverlay';
 import CollectionPage from './pages/CollectionPage';
 import ArtistsPage from './pages/ArtistsPage';
+import EventsPage from './pages/EventsPage';
+import NewsPage from './pages/NewsPage';
 import './App.css';
 
 const AppRouter: React.FC = () => {
@@ -69,7 +71,9 @@ const AppRouter: React.FC = () => {
             </>
           } />
           <Route path="/partnerships" element={<Partnerships />} />
-          <Route path="/news" element={<NewsEvents />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/events-home" element={<NewsEvents />} />
+          <Route path="/news" element={<NewsPage />} />
           <Route path="/news-list" element={<News />} />
           <Route path="/av-news" element={<AVNews />} />
           <Route path="/knowledge" element={<div style={{padding: '120px 60px', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', color: '#732231'}}>Knowledge Page - Coming Soon</div>} />
