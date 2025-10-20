@@ -1,5 +1,6 @@
 .news-events {
   background: white;
+  padding: 120px 188px; /* Match Figma padding */
 }
 
 .news-events__title {

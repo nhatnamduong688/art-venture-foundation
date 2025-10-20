@@ -1,14 +1,57 @@
 .art-collection {
   background: rgba(191, 140, 45, 0.1); /* Figma color: #bf8c2d with 10% opacity */
-  padding: 120px 59px; /* 120px top/bottom, 59px left/right */
+  padding: 120px 188px; /* Match Figma padding */
 }
 
 .art-collection__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 100px; /* Increased space before grid */
+}
+
+.art-collection__text {
   max-width: 663px;
   display: flex;
   flex-direction: column;
   gap: 40px; /* Increased gap between title, description, button */
-  margin-bottom: 100px; /* Increased space before grid */
+}
+
+.art-collection__navigation {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.art-collection__nav-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(31.5px);
+  -webkit-backdrop-filter: blur(31.5px);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.art-collection__nav-button:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: scale(1.05);
+}
+
+.art-collection__nav-button:active {
+  transform: scale(0.95);
+}
+
+.art-collection__nav-button svg {
+  width: 24px;
+  height: 24px;
+  color: #000000;
 }
 
 .art-collection__title {
@@ -219,8 +262,16 @@
   }
   
   .art-collection__header {
+    flex-direction: column;
     margin-bottom: 60px; /* Reduced space before grid */
+  }
+  
+  .art-collection__text {
     gap: 30px; /* Reduced gap */
+  }
+  
+  .art-collection__navigation {
+    align-self: flex-end;
   }
 }
 
@@ -231,6 +282,9 @@
   
   .art-collection__header {
     margin-bottom: 40px; /* Reduced space before grid */
+  }
+  
+  .art-collection__text {
     gap: 24px; /* Reduced gap */
   }
   
@@ -249,16 +303,17 @@
     font-size: 36px;
   }
   
-  .art-collection__header {
-    margin-bottom: 40px;
-  }
-  
   .artwork-card__header {
     padding: 20px 24px;
   }
   
   .artwork-card__text {
     padding: 0 24px 24px 24px;
+  }
+  
+  .art-collection__nav-button {
+    width: 44px;
+    height: 44px;
   }
 }
 

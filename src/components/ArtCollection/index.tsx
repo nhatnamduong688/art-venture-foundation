@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './ArtCollection.css';
 
 interface Artwork {
@@ -10,6 +10,23 @@ interface Artwork {
 }
 
 const ArtCollection: React.FC = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 564; // 564px card width
+      const currentScroll = scrollContainerRef.current.scrollLeft;
+      const newScroll = direction === 'left' 
+        ? currentScroll - scrollAmount 
+        : currentScroll + scrollAmount;
+      
+      scrollContainerRef.current.scrollTo({
+        left: newScroll,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const artworks: Artwork[] = [
     {
       id: 1,
@@ -45,21 +62,43 @@ const ArtCollection: React.FC = () => {
     <section className="art-collection section">
       <div className="container">
         <div className="art-collection__header">
-          <h2 className="art-collection__title">Art & Venture Art Collection</h2>
-          <p className="art-collection__description">
-            Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor.
-          </p>
-          <button className="btn btn-black">
-            VIEW ALL COLLECTION
-            <div className="btn-arrow">
+          <div className="art-collection__text">
+            <h2 className="art-collection__title">Art & Venture Art Collection</h2>
+            <p className="art-collection__description">
+              Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor.
+            </p>
+            <button className="btn btn-black">
+              VIEW ALL COLLECTION
+              <div className="btn-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+            </button>
+          </div>
+          <div className="art-collection__navigation">
+            <button 
+              className="art-collection__nav-button" 
+              onClick={() => scroll('left')}
+              aria-label="Previous"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <button 
+              className="art-collection__nav-button" 
+              onClick={() => scroll('right')}
+              aria-label="Next"
+            >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </div>
-          </button>
+            </button>
+          </div>
         </div>
         
-        <div className="art-collection__grid">
+        <div className="art-collection__grid" ref={scrollContainerRef}>
           {artworks.map((artwork) => (
             <div key={artwork.id} className="artwork-card">
               <div className="artwork-card__image-container">

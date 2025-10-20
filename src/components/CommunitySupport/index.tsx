@@ -29,48 +29,36 @@ const CommunitySupport: React.FC = () => {
   return (
     <section className="community-support section">
       <div className="container">
-        <div className="community-support__wrapper">
-          <div className="community-support__left">
-            <h2 className="community-support__title">Community support</h2>
-            
-            <div className="community-support__content">
-              <div className="community-support__timeline-box">
-                <div className="community-support__timeline">
-                  {timelineItems.map((item) => (
-                    <div key={item.year} className="timeline-item">
-                      <div className="timeline-item__content">
-                        <h3 className="timeline-item__year">{item.year}</h3>
-                        <p className="timeline-item__description">{item.description}</p>
-                        
-                        <div className="timeline-item__activities">
-                          {item.activities.map((activity, activityIndex) => (
-                            <div key={activityIndex} className="activity-item">
-                              <span className="activity-item__text">{activity}</span>
-                            </div>
-                          ))}
+        <h2 className="community-support__title">Community support</h2>
+        
+        <div className="community-support__content">
+          <div className="community-support__timeline-box">
+            <div className="community-support__timeline">
+              {timelineItems.map((item) => (
+                <div key={item.year} className="timeline-item">
+                  <div className="timeline-item__content">
+                    <h3 className="timeline-item__year">{item.year}</h3>
+                    <p className="timeline-item__description">{item.description}</p>
+                    
+                    <div className="timeline-item__activities">
+                      {item.activities.map((activity, activityIndex) => (
+                        <div key={activityIndex} className="activity-item">
+                          <span className="activity-item__text">{activity}</span>
                         </div>
-                      </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
                 </div>
-              </div>
-              
-              <button className="community-support__view-all">
-                <span>VIEW ALL</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
+              ))}
             </div>
           </div>
           
-          <div className="community-support__right">
-            <img 
-              src="https://www.figma.com/api/mcp/asset/47d53ea7-041a-4815-b21d-b6c4f7fb427f" 
-              alt="Classical sculpture with flowers and Art & Venture logo" 
-              className="community-support__image"
-            />
-          </div>
+          <button className="community-support__view-all">
+            <span>VIEW ALL</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
         </div>
       </div>
     </section>

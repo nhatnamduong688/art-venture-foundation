@@ -1,44 +1,5 @@
 .community-support {
-  /*background: #f4f3f1; Figma background color*/
-  padding: 120px 59px; /* Consistent với Art Collection */
-}
-
-.community-support__wrapper {
-  display: flex;
-  gap: 0;
-  align-items: stretch;
-}
-
-.community-support__left {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 80px; /* Increased gap */
-  padding-right: 60px; /* Increased padding */
-}
-
-.community-support__right {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-  min-height: 700px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.community-support__image {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 126%;
-  height: 103%;
-  max-width: none;
-  object-fit: cover;
-  object-position: center;
-  filter: grayscale(100%);
-  display: block;
+  padding: 120px 188px; /* Match Figma padding */
 }
 
 .community-support__title {
@@ -47,13 +8,14 @@
   font-weight: 500;
   line-height: normal;
   color: #732231;
-  margin: 0;
+  margin: 0 0 75px 0; /* 75px gap from Figma */
 }
 
 .community-support__content {
   display: flex;
   flex-direction: column;
-  gap: 30px; /* Increased gap */
+  gap: 18px; /* Figma gap between timeline box and VIEW ALL button */
+  max-width: 730px; /* Figma width */
 }
 
 .community-support__view-all {
@@ -77,10 +39,10 @@
 }
 
 .community-support__timeline-box {
-  background: #ffffff; /* White background để contrast với section background */
-  padding: 50px 50px 50px 0; /* Increased padding */
-  border-radius: 8px; /* Subtle border radius */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  background: #f4f3f1; /* Figma beige background */
+  padding: 42px 42px 42px 0; /* Figma padding */
+  border-radius: 0; /* No border radius in Figma */
+  box-shadow: none; /* No shadow in Figma */
 }
 
 .community-support__timeline {
@@ -163,18 +125,8 @@
     padding: 80px 40px;
   }
   
-  .community-support__wrapper {
-    flex-direction: column;
-    gap: 60px;
-  }
-  
-  .community-support__left {
-    padding-right: 0;
-    gap: 60px;
-  }
-  
-  .community-support__right {
-    min-height: 400px;
+  .community-support__title {
+    margin-bottom: 50px;
   }
 }
 
@@ -225,19 +177,6 @@
 }
 
 @media (max-width: 1024px) {
-  .community-support__wrapper {
-    flex-direction: column;
-  }
-  
-  .community-support__left {
-    padding-right: 0;
-    gap: 50px;
-  }
-  
-  .community-support__right {
-    min-height: 500px;
-  }
-  
   .community-support__timeline {
     gap: 40px;
     max-width: 100%;
@@ -250,16 +189,9 @@
 }
 
 @media (max-width: 768px) {
-  .community-support__left {
-    gap: 40px;
-  }
-  
   .community-support__title {
     font-size: 36px;
-  }
-  
-  .community-support__right {
-    min-height: 400px;
+    margin-bottom: 40px;
   }
   
   .community-support__timeline-box {
@@ -283,10 +215,7 @@
 @media (max-width: 480px) {
   .community-support__title {
     font-size: 28px;
-  }
-  
-  .community-support__right {
-    min-height: 300px;
+    margin-bottom: 30px;
   }
   
   .community-support__timeline-box {

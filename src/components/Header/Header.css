@@ -86,9 +86,57 @@
   width: 40px;
 }
 
-.header__shop {
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
   margin-left: auto;
-  padding-right: 32px; /* Match Figma right padding */
+}
+
+.header__search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #000000;
+  transition: color 0.2s ease;
+  padding: 0;
+}
+
+.header__search:hover {
+  color: #732231;
+}
+
+.header__language {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  transition: color 0.2s ease;
+  padding: 0;
+}
+
+.header__language:hover {
+  color: #732231;
+}
+
+.header__language-divider {
+  color: #000000;
+}
+
+.header__language-active {
+  font-weight: 700;
+  color: #732231;
 }
 
 .header__shop-link {
@@ -126,8 +174,12 @@
     font-size: 14px;
   }
   
-  .header__shop {
-    padding-right: 20px;
+  .header__actions {
+    gap: 16px;
+  }
+  
+  .header__language {
+    font-size: 14px;
   }
 }
 
@@ -162,8 +214,22 @@
     font-size: 12px;
   }
   
-  .header__shop {
-    padding-right: 0;
+  .header__actions {
+    gap: 12px;
+  }
+  
+  .header__search {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .header__search svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .header__language {
+    font-size: 12px;
   }
   
   .header__shop-link {

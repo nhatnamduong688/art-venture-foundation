@@ -11,6 +11,7 @@ interface NavItem {
 const Header: React.FC = () => {
   const location = useLocation();
   const [activeItem, setActiveItem] = useState<string>('Home');
+  const [language, setLanguage] = useState<'EN' | 'VI'>('EN');
 
   const navItems: NavItem[] = [
     { label: 'Home', path: '/' },
@@ -27,6 +28,10 @@ const Header: React.FC = () => {
 
   const isActiveRoute = (path: string) => {
     return location.pathname === path;
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(prev => prev === 'EN' ? 'VI' : 'EN');
   };
 
   return (
@@ -48,7 +53,19 @@ const Header: React.FC = () => {
           ))}
         </nav>
         
-        <div className="header__shop">
+        <div className="header__actions">
+          <button className="header__search" aria-label="Search">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          
+          <button className="header__language" onClick={toggleLanguage}>
+            <span className={language === 'EN' ? 'header__language-active' : ''}>EN</span>
+            <span className="header__language-divider">/</span>
+            <span className={language === 'VI' ? 'header__language-active' : ''}>VI</span>
+          </button>
+          
           <Link to="/shop" className="header__shop-link">
             <span>Shop</span>
           </Link>
