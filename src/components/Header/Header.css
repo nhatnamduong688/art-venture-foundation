@@ -4,7 +4,7 @@
   left: 129px; /* Start after sidebar (129px width) */
   width: calc(100% - 129px); /* Full width minus sidebar */
   height: 114px; /* Match Figma height */
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(242, 239, 231, 0.95); /* #F2EFE7 with 95% opacity */
   backdrop-filter: blur(10px);
   z-index: 1000;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
