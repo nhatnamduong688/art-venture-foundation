@@ -1,9 +1,9 @@
 .header {
   position: fixed;
   top: 0;
-  left: 100px; /* Start after sidebar (100px width) */
-  width: calc(100% - 100px); /* Full width minus sidebar */
-  height: 80px; /* Match Figma height */
+  left: 129px; /* Start after sidebar (129px width) */
+  width: calc(100% - 129px); /* Full width minus sidebar */
+  height: 114px; /* Match Figma height */
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   z-index: 1000;
@@ -33,7 +33,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 80px; /* Full header height */
+  height: 114px; /* Full header height */
   padding: 10px;
   text-decoration: none;
   color: #000000;

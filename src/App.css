@@ -24,8 +24,8 @@ body {
 /* Main content wrapper with sidebar offset */
 @media (min-width: 1025px) {
   .App {
-    padding-left: 100px;
-    padding-top: 80px; /* Header height */
+    padding-left: 129px;
+    padding-top: 114px; /* Header height */
   }
 }
 
