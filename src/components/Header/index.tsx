@@ -14,12 +14,12 @@ const Header: React.FC = () => {
   const [language, setLanguage] = useState<'EN' | 'VI'>('EN');
 
   const navItems: NavItem[] = [
-    { label: 'H', path: '/' },
+    { label: 'Home', path: '/' },
     { label: 'Collection', path: '/collection' },
     { label: 'Artists', path: '/artists' },
     { label: 'A&V Foundation Events', path: '/news' },
     { label: 'A&V News', path: '/av-news' },
-    { label: 'KNOWLEDGE', path: '/knowledge' }
+    { label: 'Knowledge', path: '/knowledge' }
   ];
 
   const handleNavClick = (label: string) => {
