@@ -1,4 +1,13 @@
+/**
+ * NewsEvents Component - Migrated to Design System
+ * Using Typography, Button, Icon, and Card from design system
+ */
+
 import React, { useRef } from 'react';
+import { Typography } from '../../design-system/atoms/Typography';
+import { Button } from '../../design-system/atoms/Button';
+import { Icon } from '../../design-system/atoms/Icon';
+import { Card } from '../../design-system/molecules/Card';
 import './NewsEvents.css';
 
 interface NewsItem {
@@ -44,62 +53,67 @@ const NewsEvents: React.FC = () => {
   return (
     <section className="news-events section">
       <div className="container">
-        <h2 className="news-events__title">A&V Foundation Events</h2>
-        
+        <Typography variant="display-lg" as="h2" className="news-events__title">
+          A&V Foundation Events
+        </Typography>
+
         <div className="news-events__content">
           <div className="news-events__grid" ref={scrollContainerRef}>
             {newsItems.map((item) => (
-              <div key={item.id} className="news-card">
-                <div className="news-card__image">
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
-                    className="news-card__img"
-                  />
-                </div>
+              <Card key={item.id} className="news-card" padding="none">
+                <Card.Image
+                  src={item.image}
+                  alt={item.title}
+                  aspectRatio="16/9"
+                  className="news-card__image"
+                />
                 <div className="news-card__content">
                   <div className="news-card__text">
-                    <h3 className="news-card__title">{item.title}</h3>
-                    <p className="news-card__description">{item.description}</p>
+                    <Typography variant="h3" as="h3" className="news-card__title">
+                      {item.title}
+                    </Typography>
+                    <Typography variant="body-sm" className="news-card__description">
+                      {item.description}
+                    </Typography>
                   </div>
-                  <button className="news-card__link">
-                    <span>DETAIL</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    rightIcon={<Icon name="arrow-right" size="md" />}
+                    className="news-card__link"
+                  >
+                    DETAIL
+                  </Button>
                 </div>
-              </div>
+              </Card>
             ))}
             <div className="news-events__spacer"></div>
           </div>
-          
+
           <div className="news-events__footer">
-            <button className="news-events__view-all">
-              <span>VIEW ALL</span>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-            
+            <Button
+              variant="primary"
+              size="md"
+              rightIcon={<Icon name="arrow-right" size="lg" />}
+              className="news-events__view-all"
+            >
+              VIEW ALL
+            </Button>
+
             <div className="news-events__navigation">
-              <button 
-                className="news-events__nav-button" 
+              <button
+                className="news-events__nav-button"
                 onClick={() => scroll('left')}
                 aria-label="Previous"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <Icon name="chevron-left" size="lg" />
               </button>
-              <button 
-                className="news-events__nav-button" 
+              <button
+                className="news-events__nav-button"
                 onClick={() => scroll('right')}
                 aria-label="Next"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <Icon name="chevron-right" size="lg" />
               </button>
             </div>
           </div>

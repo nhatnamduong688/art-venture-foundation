@@ -4,39 +4,20 @@
 }
 
 .community-support__title {
-  font-family: 'Big Caslon', serif;
-  font-size: 60px;
-  font-weight: 500;
-  line-height: normal;
-  color: #6B2128;
+  /* Typography component handles all styling */
   margin: 0 0 75px 0; /* 75px gap from Figma */
 }
 
 .community-support__content {
   display: flex;
   flex-direction: column;
-  gap: 18px; /* Figma gap between timeline box and VIEW ALL button */
+  gap: var(--spacing-5); /* 20px */
   max-width: 730px; /* Figma width */
 }
 
 .community-support__view-all {
-  display: inline-flex;
-  align-items: center;
-  gap: 25px;
-  padding: 8px 0;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 2;
-  color: #6B2128; /* Burgundy color */
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.community-support__view-all:hover {
-  opacity: 0.8;
+  /* Button component handles all styling */
+  align-self: flex-start;
 }
 
 .community-support__timeline-box {

@@ -1,4 +1,12 @@
+/**
+ * CommunitySupport Component - Migrated to Design System
+ * Using Typography, Button, and Icon from design system
+ */
+
 import React from 'react';
+import { Typography } from '../../design-system/atoms/Typography';
+import { Button } from '../../design-system/atoms/Button';
+import { Icon } from '../../design-system/atoms/Icon';
 import './CommunitySupport.css';
 
 interface TimelineItem {
@@ -29,21 +37,29 @@ const CommunitySupport: React.FC = () => {
   return (
     <section className="community-support section">
       <div className="container">
-        <h2 className="community-support__title">Community support</h2>
-        
+        <Typography variant="display-lg" as="h2" className="community-support__title">
+          Community support
+        </Typography>
+
         <div className="community-support__content">
           <div className="community-support__timeline-box">
             <div className="community-support__timeline">
               {timelineItems.map((item) => (
                 <div key={item.year} className="timeline-item">
                   <div className="timeline-item__content">
-                    <h3 className="timeline-item__year">{item.year}</h3>
-                    <p className="timeline-item__description">{item.description}</p>
-                    
+                    <Typography variant="h2" as="h3" className="timeline-item__year">
+                      {item.year}
+                    </Typography>
+                    <Typography variant="body-md" className="timeline-item__description">
+                      {item.description}
+                    </Typography>
+
                     <div className="timeline-item__activities">
                       {item.activities.map((activity, activityIndex) => (
                         <div key={activityIndex} className="activity-item">
-                          <span className="activity-item__text">{activity}</span>
+                          <Typography variant="body-sm" weight="medium" className="activity-item__text">
+                            {activity}
+                          </Typography>
                         </div>
                       ))}
                     </div>
@@ -52,13 +68,15 @@ const CommunitySupport: React.FC = () => {
               ))}
             </div>
           </div>
-          
-          <button className="community-support__view-all">
-            <span>VIEW ALL</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
+
+          <Button
+            variant="primary"
+            size="md"
+            rightIcon={<Icon name="arrow-right" size="lg" />}
+            className="community-support__view-all"
+          >
+            VIEW ALL
+          </Button>
         </div>
       </div>
     </section>

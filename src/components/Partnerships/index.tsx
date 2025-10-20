@@ -1,4 +1,13 @@
+/**
+ * Partnerships Component - Migrated to Design System
+ * Using Typography, Button, Icon, and Card from design system
+ */
+
 import React from 'react';
+import { Typography } from '../../design-system/atoms/Typography';
+import { Button } from '../../design-system/atoms/Button';
+import { Icon } from '../../design-system/atoms/Icon';
+import { Card } from '../../design-system/molecules/Card';
 import './Partnerships.css';
 
 interface Partnership {
@@ -45,29 +54,36 @@ const Partnerships: React.FC = () => {
   return (
     <section className="partnerships section">
       <div className="container">
-        <h2 className="partnerships__title">Partnerships</h2>
-        
+        <Typography variant="display-lg" as="h2" className="partnerships__title">
+          Partnerships
+        </Typography>
+
         <div className="partnerships__grid">
           {partnerships.map((partnership) => (
-            <div key={partnership.id} className="partnership-card">
+            <Card key={partnership.id} className="partnership-card" padding="lg">
               <div className="partnership-card__logo">
-                <img 
-                  src={partnership.logo} 
-                  alt={`${partnership.name} logo`} 
+                <img
+                  src={partnership.logo}
+                  alt={`${partnership.name} logo`}
                   className="partnership-card__logo-img"
+                  loading="lazy"
                 />
               </div>
-              <h3 className="partnership-card__name">{partnership.name}</h3>
-              <p className="partnership-card__description">{partnership.description}</p>
-              <button className="btn btn-black">
+              <Typography variant="h4" as="h3" className="partnership-card__name">
+                {partnership.name}
+              </Typography>
+              <Typography variant="body-sm" className="partnership-card__description">
+                {partnership.description}
+              </Typography>
+              <Button
+                variant="primary"
+                size="sm"
+                rightIcon={<Icon name="arrow-right" size="md" />}
+                className="partnership-card__button"
+              >
                 DETAIL
-                <div className="btn-arrow">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-              </button>
-            </div>
+              </Button>
+            </Card>
           ))}
         </div>
       </div>
