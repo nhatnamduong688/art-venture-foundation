@@ -4,12 +4,9 @@
  */
 
 import React from 'react';
-import MuseumCard from '../../components/MuseumCard';
-import AVNews from '../../components/AVNews';
-import ArtCollection from '../../components/ArtCollection';
-import CommunitySupport from '../../components/CommunitySupport';
-import NewsEvents from '../../components/NewsEvents';
-import Footer from '../../components/Footer';
+import { MuseumCard, AVNews } from '../../components/business';
+import { ArtCollection, CommunitySupport, NewsEvents } from '../../components/sections';
+import { Footer } from '../../design-system/organisms';
 
 const HomePage: React.FC = () => {
   return (

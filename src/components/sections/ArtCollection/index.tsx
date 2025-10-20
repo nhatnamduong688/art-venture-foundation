@@ -4,10 +4,10 @@
  */
 
 import React, { useRef } from 'react';
-import { Typography } from '../../design-system/atoms/Typography';
-import { Button } from '../../design-system/atoms/Button';
-import { Icon } from '../../design-system/atoms/Icon';
-import { Card } from '../../design-system/molecules/Card';
+import { Typography } from '../../../design-system/atoms/Typography';
+import { Button } from '../../../design-system/atoms/Button';
+import { Icon } from '../../../design-system/atoms/Icon';
+import { Card } from '../../../design-system/molecules/Card';
 import './ArtCollection.css';
 
 interface Artwork {

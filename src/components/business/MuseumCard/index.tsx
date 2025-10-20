@@ -1,6 +1,6 @@
 import React from 'react';
 import './MuseumCard.css';
-import GalleryInterior from '../GalleryInterior';
+import GalleryInterior from '../../sections/GalleryInterior';
 
 interface MuseumCardProps {
   title?: string;

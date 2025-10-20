@@ -5,8 +5,8 @@
 
 import React from 'react';
 import './GalleryInterior.css';
-import { getFigmaAsset } from '../../utils/figmaAssets';
-import FigmaImage from '../FigmaImage';
+import { getFigmaAsset } from '../../../utils/figmaAssets';
+import FigmaImage from '../../utils/FigmaImage';
 
 interface GalleryInteriorProps {
   className?: string;

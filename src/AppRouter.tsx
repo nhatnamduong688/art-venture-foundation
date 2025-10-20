@@ -6,7 +6,7 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header, Footer } from './design-system/organisms';
-import Sidebar from './components/Sidebar';
+import { Sidebar } from './components/business';
 import './App.css';
 
 // Loading component
@@ -40,19 +40,24 @@ const ArtistDetailPage = lazy(() => import('./pages/ArtistDetailPage'));
 const KnowledgeDetailPage = lazy(() => import('./pages/KnowledgeDetailPage'));
 
 // ===== Lazy Load Components (for testing routes) =====
-const Hero = lazy(() => import('./components/Hero'));
-const About = lazy(() => import('./components/About'));
-const ArtCollection = lazy(() => import('./components/ArtCollection'));
-const CommunitySupport = lazy(() => import('./components/CommunitySupport'));
-const Partnerships = lazy(() => import('./components/Partnerships'));
-const NewsEvents = lazy(() => import('./components/NewsEvents'));
-const News = lazy(() => import('./components/News'));
-const AVNews = lazy(() => import('./components/AVNews'));
-const ContentBlock = lazy(() => import('./components/ContentBlock'));
-const TestPage = lazy(() => import('./components/TestPage'));
-const MuseumCard = lazy(() => import('./components/MuseumCard'));
-const GalleryInterior = lazy(() => import('./components/GalleryInterior'));
-const GalleryCropTest = lazy(() => import('./components/GalleryCropTest'));
+// Section components
+const Hero = lazy(() => import('./components/sections/Hero'));
+const About = lazy(() => import('./components/sections/About'));
+const ArtCollection = lazy(() => import('./components/sections/ArtCollection'));
+const CommunitySupport = lazy(() => import('./components/sections/CommunitySupport'));
+const Partnerships = lazy(() => import('./components/sections/Partnerships'));
+const NewsEvents = lazy(() => import('./components/sections/NewsEvents'));
+const ContentBlock = lazy(() => import('./components/sections/ContentBlock'));
+const GalleryInterior = lazy(() => import('./components/sections/GalleryInterior'));
+
+// Business components
+const News = lazy(() => import('./components/business/News'));
+const AVNews = lazy(() => import('./components/business/AVNews'));
+const MuseumCard = lazy(() => import('./components/business/MuseumCard'));
+
+// Test components
+const TestPage = lazy(() => import('./components/__tests__/TestPage'));
+const GalleryCropTest = lazy(() => import('./components/__tests__/GalleryCropTest'));
 
 const AppRouter: React.FC = () => {
   return (

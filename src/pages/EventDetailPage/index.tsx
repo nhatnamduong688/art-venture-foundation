@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import Footer from '../../components/Footer';
+import { Footer } from '../../design-system/organisms';
 import './EventDetailPage.css';
 
 const EventDetailPage: React.FC = () => {

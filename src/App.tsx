@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import ArtCollection from './components/ArtCollection';
-import CommunitySupport from './components/CommunitySupport';
-import Partnerships from './components/Partnerships';
-import NewsEvents from './components/NewsEvents';
-import ContentBlock from './components/ContentBlock';
-import Footer from './components/Footer';
+import { Header, Footer } from './design-system/organisms';
+import { 
+  Hero, 
+  About, 
+  ArtCollection, 
+  CommunitySupport, 
+  Partnerships, 
+  NewsEvents, 
+  ContentBlock 
+} from './components/sections';
 
 function App() {
   return (

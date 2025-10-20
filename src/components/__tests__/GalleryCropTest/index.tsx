@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import GalleryInterior from '../GalleryInterior';
+import GalleryInterior from '../../sections/GalleryInterior';
 import './GalleryCropTest.css';
 
 type CropMode = 'figma-exact' | 'center-crop' | 'top-crop' | 'middle-crop';

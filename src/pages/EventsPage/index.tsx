@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../../components/Footer';
+import { Footer } from '../../design-system/organisms';
 import './EventsPage.css';
 
 interface Event {

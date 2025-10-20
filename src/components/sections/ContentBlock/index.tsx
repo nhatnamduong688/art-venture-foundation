@@ -4,9 +4,9 @@
  */
 
 import React from 'react';
-import { Typography } from '../../design-system/atoms/Typography';
-import { Button } from '../../design-system/atoms/Button';
-import { Icon } from '../../design-system/atoms/Icon';
+import { Typography } from '../../../design-system/atoms/Typography';
+import { Button } from '../../../design-system/atoms/Button';
+import { Icon } from '../../../design-system/atoms/Icon';
 import './ContentBlock.css';
 
 interface ContentBlockProps {

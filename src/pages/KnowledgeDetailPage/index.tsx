@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import Footer from '../../components/Footer';
+import { Footer } from '../../design-system/organisms';
 import './KnowledgeDetailPage.css';
 
 interface KnowledgeItem {
