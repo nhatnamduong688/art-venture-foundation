@@ -21,12 +21,12 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['display-xl', 'display-lg', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'body-lg', 'body-md', 'body-sm', 'body-xs', 'caption'],
+      options: ['display-xl', 'display-lg', 'display-md', 'display-sm', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'body-xl', 'body-lg', 'body-md', 'body-sm', 'body-xs'],
       description: 'Typography variant',
     },
     color: {
       control: 'select',
-      options: ['primary', 'secondary', 'tertiary', 'burgundy', 'white', 'inherit'],
+      options: ['primary', 'secondary', 'tertiary', 'burgundy', 'inverse'],
       description: 'Text color',
     },
     weight: {
@@ -104,11 +104,11 @@ export const BodySmall: Story = {
   },
 };
 
-// Caption
-export const Caption: Story = {
+// Body Extra Small
+export const BodyExtraSmall: Story = {
   args: {
-    variant: 'caption',
-    children: 'Caption - Additional information',
+    variant: 'body-xs',
+    children: 'Body Extra Small - Additional information',
   },
 };
 
@@ -137,7 +137,6 @@ export const AllVariants: Story = {
       <Typography variant="body-md">Body Medium</Typography>
       <Typography variant="body-sm">Body Small</Typography>
       <Typography variant="body-xs">Body Extra Small</Typography>
-      <Typography variant="caption">Caption</Typography>
     </div>
   ),
 };
@@ -151,7 +150,7 @@ export const AllColors: Story = {
       <Typography variant="h3" color="tertiary">Tertiary Color</Typography>
       <Typography variant="h3" color="burgundy">Burgundy Color</Typography>
       <div style={{ background: '#2E2E2E', padding: '16px' }}>
-        <Typography variant="h3" color="white">White Color</Typography>
+        <Typography variant="h3" color="inverse">Inverse Color (Light on Dark)</Typography>
       </div>
     </div>
   ),

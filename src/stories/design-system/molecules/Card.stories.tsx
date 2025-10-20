@@ -59,26 +59,28 @@ export const Default: Story = {
 // Card with composition
 export const WithComposition: Story = {
   render: () => (
-    <Card style={{ maxWidth: '400px' }}>
-      <Card.Image
-        src="https://images.unsplash.com/photo-1541961017774-22349e4a1262"
-        alt="Museum"
-        aspectRatio="16/9"
-      />
-      <Card.Header>
-        <Typography variant="h3">Museum Exhibition</Typography>
-      </Card.Header>
-      <Card.Body>
-        <Typography variant="body-md">
-          Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum.
-        </Typography>
-      </Card.Body>
-      <Card.Footer>
-        <Button variant="primary" size="sm" rightIcon={<Icon name="arrow-right" />}>
-          View Details
-        </Button>
-      </Card.Footer>
-    </Card>
+    <div style={{ maxWidth: '400px' }}>
+      <Card>
+        <Card.Image
+          src="https://images.unsplash.com/photo-1541961017774-22349e4a1262"
+          alt="Museum"
+          aspectRatio="16/9"
+        />
+        <Card.Header>
+          <Typography variant="h3">Museum Exhibition</Typography>
+        </Card.Header>
+        <Card.Body>
+          <Typography variant="body-md">
+            Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum.
+          </Typography>
+        </Card.Body>
+        <Card.Footer>
+          <Button variant="primary" size="sm" rightIcon={<Icon name="arrow-right" />}>
+            View Details
+          </Button>
+        </Card.Footer>
+      </Card>
+    </div>
   ),
 };
 
@@ -153,7 +155,7 @@ export const ImageAspectRatios: Story = {
           aspectRatio="16/9"
         />
         <div style={{ padding: '16px' }}>
-          <Typography variant="caption">16:9</Typography>
+          <Typography variant="body-xs">16:9</Typography>
         </div>
       </Card>
       <Card padding="none">
@@ -163,7 +165,7 @@ export const ImageAspectRatios: Story = {
           aspectRatio="4/3"
         />
         <div style={{ padding: '16px' }}>
-          <Typography variant="caption">4:3</Typography>
+          <Typography variant="body-xs">4:3</Typography>
         </div>
       </Card>
       <Card padding="none">
@@ -173,7 +175,7 @@ export const ImageAspectRatios: Story = {
           aspectRatio="1/1"
         />
         <div style={{ padding: '16px' }}>
-          <Typography variant="caption">1:1</Typography>
+          <Typography variant="body-xs">1:1</Typography>
         </div>
       </Card>
     </div>

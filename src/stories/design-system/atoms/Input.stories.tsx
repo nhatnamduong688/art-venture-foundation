@@ -92,8 +92,7 @@ export const WithError: Story = {
   args: {
     label: 'Email',
     placeholder: 'Enter email',
-    error: true,
-    helperText: 'Please enter a valid email address',
+    error: 'Please enter a valid email address',
   },
 };
 
@@ -107,31 +106,13 @@ export const Disabled: Story = {
   },
 };
 
-// Small size
-export const Small: Story = {
+// Full width
+export const FullWidth: Story = {
   args: {
-    size: 'sm',
-    placeholder: 'Small input',
+    label: 'Full Width Input',
+    placeholder: 'This input spans the full width',
+    fullWidth: true,
   },
-};
-
-// Large size
-export const Large: Story = {
-  args: {
-    size: 'lg',
-    placeholder: 'Large input',
-  },
-};
-
-// All sizes showcase
-export const AllSizes: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', maxWidth: '400px' }}>
-      <Input size="sm" placeholder="Small input" />
-      <Input size="md" placeholder="Medium input" />
-      <Input size="lg" placeholder="Large input" />
-    </div>
-  ),
 };
 
 // Form example

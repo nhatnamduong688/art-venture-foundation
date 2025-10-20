@@ -27,7 +27,7 @@ type Story = StoryObj<typeof meta>;
 // Default (EN selected)
 export const Default: Story = {
   args: {
-    currentLanguage: 'EN',
+    currentLanguage: 'en',
     onLanguageChange: (lang) => console.log('Language changed to:', lang),
   },
 };
@@ -35,7 +35,7 @@ export const Default: Story = {
 // Vietnamese selected
 export const VietnameseSelected: Story = {
   args: {
-    currentLanguage: 'VI',
+    currentLanguage: 'vi',
     onLanguageChange: (lang) => console.log('Language changed to:', lang),
   },
 };
@@ -43,7 +43,7 @@ export const VietnameseSelected: Story = {
 // Interactive example
 export const Interactive: Story = {
   render: () => {
-    const [language, setLanguage] = useState<'EN' | 'VI'>('EN');
+    const [language, setLanguage] = useState<'en' | 'vi'>('en');
     
     return (
       <div style={{ textAlign: 'center' }}>
@@ -52,7 +52,7 @@ export const Interactive: Story = {
           onLanguageChange={setLanguage}
         />
         <div style={{ marginTop: '16px', fontSize: '14px', color: '#666' }}>
-          Current language: <strong>{language}</strong>
+          Current language: <strong>{language.toUpperCase()}</strong>
         </div>
       </div>
     );
@@ -62,7 +62,7 @@ export const Interactive: Story = {
 // In header context
 export const InHeaderContext: Story = {
   render: () => {
-    const [language, setLanguage] = useState<'EN' | 'VI'>('EN');
+    const [language, setLanguage] = useState<'en' | 'vi'>('en');
     
     return (
       <div style={{ 

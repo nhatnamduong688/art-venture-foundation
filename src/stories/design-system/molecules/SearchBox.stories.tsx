@@ -19,13 +19,6 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-  argTypes: {
-    size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-      description: 'SearchBox size',
-    },
-  },
 } satisfies Meta<typeof SearchBox>;
 
 export default meta;
@@ -43,24 +36,6 @@ export const Default: Story = {
 export const CustomPlaceholder: Story = {
   args: {
     placeholder: 'Search artworks, artists, events...',
-    onSearch: (value) => console.log('Search:', value),
-  },
-};
-
-// Small size
-export const Small: Story = {
-  args: {
-    size: 'sm',
-    placeholder: 'Search...',
-    onSearch: (value) => console.log('Search:', value),
-  },
-};
-
-// Large size
-export const Large: Story = {
-  args: {
-    size: 'lg',
-    placeholder: 'Search...',
     onSearch: (value) => console.log('Search:', value),
   },
 };
@@ -113,23 +88,12 @@ export const Interactive: Story = {
   },
 };
 
-// All sizes showcase
-export const AllSizes: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', maxWidth: '600px' }}>
-      <div>
-        <div style={{ marginBottom: '8px', fontSize: '12px', color: '#666' }}>Small</div>
-        <SearchBox size="sm" placeholder="Search..." onSearch={console.log} />
-      </div>
-      <div>
-        <div style={{ marginBottom: '8px', fontSize: '12px', color: '#666' }}>Medium</div>
-        <SearchBox size="md" placeholder="Search..." onSearch={console.log} />
-      </div>
-      <div>
-        <div style={{ marginBottom: '8px', fontSize: '12px', color: '#666' }}>Large</div>
-        <SearchBox size="lg" placeholder="Search..." onSearch={console.log} />
-      </div>
-    </div>
-  ),
+// Full width
+export const FullWidth: Story = {
+  args: {
+    placeholder: 'Search...',
+    fullWidth: true,
+    onSearch: (value) => console.log('Search:', value),
+  },
 };
 

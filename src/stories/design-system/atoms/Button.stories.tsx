@@ -38,7 +38,7 @@ const meta = {
       control: 'boolean',
       description: 'Disable button',
     },
-    loading: {
+    isLoading: {
       control: 'boolean',
       description: 'Show loading state',
     },
@@ -120,7 +120,7 @@ export const Loading: Story = {
     children: 'Loading...',
     variant: 'primary',
     size: 'md',
-    loading: true,
+    isLoading: true,
   },
 };
 
