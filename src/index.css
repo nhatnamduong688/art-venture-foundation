@@ -141,6 +141,7 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 body {
@@ -150,6 +151,7 @@ body {
   line-height: var(--line-height-relaxed);
   color: var(--color-text-primary);
   background-color: var(--color-bg-main);
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* ===== Typography Base ===== */
