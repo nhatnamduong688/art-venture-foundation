@@ -32,13 +32,14 @@ const ArtistCollectionCard: React.FC<ArtistCollectionCardProps> = ({
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const handlePrevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? artworks.length - 1 : prev - 1));
-  };
+  // Auto-advance slider every 5 seconds
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev === artworks.length - 1 ? 0 : prev + 1));
+    }, 5000); // Change slide every 5 seconds
 
-  const handleNextSlide = () => {
-    setCurrentSlide((prev) => (prev === artworks.length - 1 ? 0 : prev + 1));
-  };
+    return () => clearInterval(timer); // Cleanup on unmount
+  }, [artworks.length]);
 
   const handleDotClick = (index: number) => {
     setCurrentSlide(index);
@@ -109,23 +110,6 @@ const ArtistCollectionCard: React.FC<ArtistCollectionCardProps> = ({
 
         {/* Navigation Controls */}
         <div className="artist-collection-card__nav">
-          {/* Navigation Buttons (Optional - can be invisible) */}
-          <button
-            className="artist-collection-card__nav-btn artist-collection-card__nav-btn--prev"
-            onClick={handlePrevSlide}
-            aria-label="Previous artwork"
-          >
-            <Icon name="chevron-left" size="md" />
-          </button>
-          
-          <button
-            className="artist-collection-card__nav-btn artist-collection-card__nav-btn--next"
-            onClick={handleNextSlide}
-            aria-label="Next artwork"
-          >
-            <Icon name="chevron-right" size="md" />
-          </button>
-
           {/* Pagination Dots */}
           <div className="artist-collection-card__dots">
             {artworks.map((_, index) => (
