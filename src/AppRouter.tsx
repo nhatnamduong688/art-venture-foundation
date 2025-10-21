@@ -76,9 +76,9 @@ const AppRouter: React.FC = () => {
             <Route path="/collection" element={<CollectionPage />} />
             <Route path="/artists" element={<ArtistsPage />} />
             <Route path="/artists/:id" element={<ArtistDetailPage />} />
-            <Route path="/news" element={<NewsPage />} />
-            <Route path="/events" element={<EventsPage />} />
+            <Route path="/news" element={<EventsPage />} />
             <Route path="/events/:id" element={<EventDetailPage />} />
+            <Route path="/av-news" element={<NewsPage />} />
             <Route path="/news/:id" element={<NewsDetailPage />} />
             <Route path="/knowledge" element={<KnowledgePage />} />
             <Route path="/knowledge/:id" element={<KnowledgeDetailPage />} />
