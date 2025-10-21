@@ -49,9 +49,9 @@ const CommunitySupport: React.FC = () => {
                 {timelineItems.map((item) => (
                   <div key={item.year} className="timeline-item">
                     <div className="timeline-item__content">
-                      <Typography variant="h2" as="h3" className="timeline-item__year">
+                      <div className="timeline-item__year">
                         {item.year}
-                      </Typography>
+                      </div>
                       <Typography variant="body-md" className="timeline-item__description">
                         {item.description}
                       </Typography>

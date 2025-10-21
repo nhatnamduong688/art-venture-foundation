@@ -79,8 +79,13 @@
 }
 
 .timeline-item__year {
-  /* Typography h2 component handles font-family (Big Caslon), font-size, font-weight, line-height */
-  color: #6B2128; /* Burgundy color from Figma */
+  /* Figma specs: Inter Bold, 30px, 700 weight, 150% line-height */
+  color: #732231;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 45px */
   margin: 0;
 }
 
@@ -263,7 +268,9 @@
     min-width: 220px;
   }
   
-  /* Typography component handles year font-size automatically */
+  .timeline-item__year {
+    font-size: 24px;
+  }
   
   .timeline-item__description {
     font-size: 14px;
