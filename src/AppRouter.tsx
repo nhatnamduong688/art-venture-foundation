@@ -39,6 +39,9 @@ const NewsDetailPage = lazy(() => import('./pages/NewsDetailPage'));
 const ArtistDetailPage = lazy(() => import('./pages/ArtistDetailPage'));
 const KnowledgeDetailPage = lazy(() => import('./pages/KnowledgeDetailPage'));
 
+// Demo Pages
+const ModalDemoPage = lazy(() => import('./pages/ModalDemoPage'));
+
 // ===== Lazy Load Components (for testing routes) =====
 // Section components
 const Hero = lazy(() => import('./components/sections/Hero'));
@@ -96,7 +99,8 @@ const AppRouter: React.FC = () => {
               </div>
             } />
             
-            {/* Legacy/Test Routes */}
+            {/* Demo/Test Routes */}
+            <Route path="/modal-demo" element={<ModalDemoPage />} />
             <Route path="/test" element={<TestPage />} />
             <Route path="/hero" element={<Hero />} />
             <Route path="/about" element={<About />} />

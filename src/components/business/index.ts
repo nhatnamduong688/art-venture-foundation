@@ -7,4 +7,6 @@ export { default as MuseumCard } from './MuseumCard';
 export { default as Sidebar } from './Sidebar';
 export { default as AVNews } from './AVNews';
 export { default as News } from './News';
+export { default as ContentModal } from './ContentModal';
+export type { ContentModalProps, ModalSize, ModalType } from './ContentModal';
 
