@@ -50,6 +50,9 @@ const ContentModal: React.FC<ContentModalProps> = ({
   showAuthorCard = false,
   authorData,
 }) => {
+  // State for author card expansion
+  const [isAuthorExpanded, setIsAuthorExpanded] = React.useState(false);
+
   // Handle ESC key
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -71,6 +74,13 @@ const ContentModal: React.FC<ContentModalProps> = ({
     return () => {
       document.body.style.overflow = "";
     };
+  }, [isOpen]);
+
+  // Reset expansion state when modal closes
+  useEffect(() => {
+    if (!isOpen) {
+      setIsAuthorExpanded(false);
+    }
   }, [isOpen]);
 
   if (!isOpen) return null;
@@ -156,10 +166,43 @@ const ContentModal: React.FC<ContentModalProps> = ({
                     </div>
                   )}
                 </div>
-                <button className="content-modal__author-more">
-                  <span>More</span>
-                  <Icon name="chevron-down" size="sm" />
+                
+                {/* More/Less Toggle Button */}
+                <button 
+                  className="content-modal__author-more"
+                  onClick={() => setIsAuthorExpanded(!isAuthorExpanded)}
+                >
+                  <span>{isAuthorExpanded ? 'Less' : 'More'}</span>
+                  <div className={`content-modal__chevron ${isAuthorExpanded ? 'content-modal__chevron--rotated' : ''}`}>
+                    <Icon name="chevron-down" size="sm" />
+                  </div>
                 </button>
+
+                {/* Expanded Content */}
+                {isAuthorExpanded && expandedContent && (
+                  <div className="content-modal__author-expanded">
+                    <div className="content-modal__author-expanded-content">
+                      <Typography variant="body-md" className="content-modal__author-expanded-title">
+                        Mauris in convallis interdum facilisis platea sapien.
+                      </Typography>
+                      <Typography variant="body-sm" className="content-modal__author-expanded-text">
+                        {expandedContent}
+                      </Typography>
+                      <Typography variant="body-sm" className="content-modal__author-expanded-text">
+                        Lorem ipsum dolor sit amet consectetur. Vitae sed iaculis urna posuere. Elit aliquam diam nulla id massa volutpat molestie vitae. Ipsum at mauris ornare dui. Tortor tincidunt at amet dictum.
+                      </Typography>
+                    </div>
+                    
+                    {/* DETAIL Button */}
+                    <button 
+                      className="content-modal__author-detail-btn"
+                      onClick={onCtaClick || onClose}
+                    >
+                      <span>DETAIL</span>
+                      <Icon name="arrow-right" size="md" />
+                    </button>
+                  </div>
+                )}
               </div>
             )}
 
