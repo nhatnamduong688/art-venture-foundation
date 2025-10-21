@@ -199,8 +199,94 @@
   padding-top: 4px;
 }
 
-/* Responsive Design */
-@media (max-width: 1440px) {
+/* ===== Responsive Design ===== */
+
+/* Extra Large Screens (>1920px) - 4K and Ultra-wide */
+@media (min-width: 1921px) {
+  .news-page__container {
+    max-width: 1600px; /* Increased for 4K */
+    margin-left: 189px; /* Fixed margin: 129px sidebar + 60px gap */
+    margin-right: auto;
+    padding: 163px 80px 120px 0; /* Top padding from Figma, right padding */
+  }
+
+  .news-page__title {
+    font-size: 96px; /* Larger for 4K */
+  }
+
+  .news-page__search {
+    width: 420px; /* Larger search box */
+  }
+
+  .news-page__filter {
+    width: 70px;
+    height: 70px;
+  }
+
+  .news-item-row {
+    grid-template-columns: 220px 1fr; /* Larger image */
+    gap: 40px; /* Increased gap */
+    padding: 40px 0; /* Increased padding */
+  }
+
+  .news-item-row__image {
+    width: 220px;
+    height: 220px;
+  }
+
+  .news-item-row__title {
+    font-size: 24px; /* Larger title */
+  }
+
+  .news-item-row__description {
+    font-size: 18px; /* Larger text */
+  }
+}
+
+/* Large Desktop (1441px - 1920px) */
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .news-page__container {
+    max-width: 1400px; /* Increased from implicit */
+    margin-left: 189px; /* Fixed margin: 129px sidebar + 60px gap */
+    margin-right: auto;
+    padding: 163px 60px 120px 0; /* Top padding from Figma */
+  }
+
+  .news-page__title {
+    font-size: 88px; /* Slightly larger */
+  }
+
+  .news-page__search {
+    width: 380px; /* Larger search box */
+  }
+
+  .news-page__filter {
+    width: 64px;
+    height: 64px;
+  }
+
+  .news-item-row {
+    grid-template-columns: 200px 1fr; /* Larger image */
+    gap: 36px; /* Increased gap */
+    padding: 36px 0; /* Increased padding */
+  }
+
+  .news-item-row__image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .news-item-row__title {
+    font-size: 22px; /* Larger title */
+  }
+
+  .news-item-row__description {
+    font-size: 17px; /* Slightly larger text */
+  }
+}
+
+/* Standard Desktop (1025px - 1440px) - Figma base */
+@media (max-width: 1440px) and (min-width: 1025px) {
   .news-page__container {
     padding: 140px 100px 120px 100px;
   }

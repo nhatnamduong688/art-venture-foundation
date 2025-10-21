@@ -114,8 +114,66 @@
   flex-shrink: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 1440px) {
+/* ===== Responsive Design ===== */
+
+/* Extra Large Screens (>1920px) - 4K and Ultra-wide */
+@media (min-width: 1921px) {
+  .events-page__container {
+    max-width: 1600px; /* Increased for 4K */
+    margin-left: 189px; /* Fixed margin: 129px sidebar + 60px gap */
+    margin-right: auto;
+    padding: 163px 80px 120px 0; /* Top padding from Figma, right padding */
+  }
+
+  .events-page__title {
+    font-size: 96px; /* Larger for 4K */
+  }
+
+  .event-card-full {
+    grid-template-columns: 600px 1fr; /* Larger image */
+    gap: 56px; /* Increased gap */
+    padding: 40px; /* Increased padding */
+  }
+
+  .event-card-full__title {
+    font-size: 36px; /* Larger title */
+  }
+
+  .event-card-full__description {
+    font-size: 18px; /* Larger text */
+  }
+}
+
+/* Large Desktop (1441px - 1920px) */
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .events-page__container {
+    max-width: 1400px; /* Increased from implicit */
+    margin-left: 189px; /* Fixed margin: 129px sidebar + 60px gap */
+    margin-right: auto;
+    padding: 163px 60px 120px 0; /* Top padding from Figma */
+  }
+
+  .events-page__title {
+    font-size: 88px; /* Slightly larger */
+  }
+
+  .event-card-full {
+    grid-template-columns: 550px 1fr; /* Larger image */
+    gap: 52px; /* Increased gap */
+    padding: 36px; /* Increased padding */
+  }
+
+  .event-card-full__title {
+    font-size: 34px; /* Larger title */
+  }
+
+  .event-card-full__description {
+    font-size: 17px; /* Slightly larger text */
+  }
+}
+
+/* Standard Desktop (1025px - 1440px) - Figma base */
+@media (max-width: 1440px) and (min-width: 1025px) {
   .events-page__container {
     padding: 140px 100px 120px 100px;
   }
