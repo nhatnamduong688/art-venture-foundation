@@ -1,6 +1,7 @@
 .art-collection {
   background: rgba(191, 140, 45, 0.1); /* Figma color: #bf8c2d with 10% opacity */
   padding: 120px 188px; /* Match Figma padding */
+  overflow-x: hidden; /* Prevent horizontal scroll on page */
 }
 
 .art-collection__header {
