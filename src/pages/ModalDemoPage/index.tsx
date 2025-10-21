@@ -125,6 +125,43 @@ const ModalDemoPage: React.FC = () => {
             </div>
           </div>
 
+          {/* Dark Variant - NEW! */}
+          <div className="modal-demo__section">
+            <Typography variant="h3" as="h2" className="modal-demo__section-title">
+              🌙 Dark Variant (Figma Design)
+            </Typography>
+
+            <div className="modal-demo__grid">
+              <div className="modal-demo__card" style={{ borderColor: '#6B2128' }}>
+                <Typography variant="h4" as="h3">
+                  Dark Modal with Author Card
+                </Typography>
+                <Typography variant="body-sm" color="secondary">
+                  Pixel-perfect Figma design (Desktop - 3)
+                </Typography>
+                <Button variant="primary" size="md" onClick={() => openModal("dark-author")}>
+                  Open Dark Modal
+                </Button>
+              </div>
+
+              <div className="modal-demo__card" style={{ borderColor: '#6B2128' }}>
+                <Typography variant="h4" as="h3">
+                  Dark Modal - Simple
+                </Typography>
+                <Typography variant="body-sm" color="secondary">
+                  Dark variant without author card
+                </Typography>
+                <Button
+                  variant="primary"
+                  size="md"
+                  onClick={() => openModal("dark-simple")}
+                >
+                  Open Dark Simple
+                </Button>
+              </div>
+            </div>
+          </div>
+
           {/* Special Cases */}
           <div className="modal-demo__section">
             <Typography variant="h3" as="h2" className="modal-demo__section-title">
@@ -291,6 +328,39 @@ const ModalDemoPage: React.FC = () => {
           alert("CTA Clicked!");
           closeModal();
         }}
+      />
+
+      {/* Dark Variant Modals - NEW! */}
+      <ContentModal
+        isOpen={activeModal === "dark-author"}
+        onClose={closeModal}
+        variant="dark"
+        size="medium"
+        imageUrl={sampleImage}
+        title="Lorem ipsum dolor sit amet consectetur."
+        description="Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien."
+        showAuthorCard={true}
+        authorData={{
+          avatar: "https://i.pravatar.cc/150?img=12",
+          name: "NGUYEN NAM ARTIST",
+          email: "namartist@gmail.com",
+          phone: "0908xxxxxxx",
+          socialLinks: {
+            facebook: "#",
+            instagram: "#",
+          },
+        }}
+      />
+
+      {/* Dark Simple Modal */}
+      <ContentModal
+        isOpen={activeModal === "dark-simple"}
+        onClose={closeModal}
+        variant="dark"
+        size="medium"
+        imageUrl={sampleImage}
+        title="Dark Variant Modal"
+        description="Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien."
       />
 
       <Footer />
