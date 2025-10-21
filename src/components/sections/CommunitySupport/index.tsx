@@ -41,42 +41,54 @@ const CommunitySupport: React.FC = () => {
           Community support
         </Typography>
 
-        <div className="community-support__content">
-          <div className="community-support__timeline-box">
-            <div className="community-support__timeline">
-              {timelineItems.map((item) => (
-                <div key={item.year} className="timeline-item">
-                  <div className="timeline-item__content">
-                    <Typography variant="h2" as="h3" className="timeline-item__year">
-                      {item.year}
-                    </Typography>
-                    <Typography variant="body-md" className="timeline-item__description">
-                      {item.description}
-                    </Typography>
+        <div className="community-support__layout">
+          {/* Left side: Timeline content */}
+          <div className="community-support__content">
+            <div className="community-support__timeline-box">
+              <div className="community-support__timeline">
+                {timelineItems.map((item) => (
+                  <div key={item.year} className="timeline-item">
+                    <div className="timeline-item__content">
+                      <Typography variant="h2" as="h3" className="timeline-item__year">
+                        {item.year}
+                      </Typography>
+                      <Typography variant="body-md" className="timeline-item__description">
+                        {item.description}
+                      </Typography>
 
-                    <div className="timeline-item__activities">
-                      {item.activities.map((activity, activityIndex) => (
-                        <div key={activityIndex} className="activity-item">
-                          <Typography variant="body-sm" weight="medium" className="activity-item__text">
-                            {activity}
-                          </Typography>
-                        </div>
-                      ))}
+                      <div className="timeline-item__activities">
+                        {item.activities.map((activity, activityIndex) => (
+                          <div key={activityIndex} className="activity-item">
+                            <Typography variant="body-sm" weight="medium" className="activity-item__text">
+                              {activity}
+                            </Typography>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
+
+            <Button
+              variant="primary"
+              size="md"
+              rightIcon={<Icon name="arrow-right" size="lg" />}
+              className="community-support__view-all"
+            >
+              VIEW ALL
+            </Button>
           </div>
 
-          <Button
-            variant="primary"
-            size="md"
-            rightIcon={<Icon name="arrow-right" size="lg" />}
-            className="community-support__view-all"
-          >
-            VIEW ALL
-          </Button>
+          {/* Right side: Decorative sculpture image */}
+          <div className="community-support__image" data-node-id="145:2253">
+            <img 
+              src="https://www.figma.com/api/mcp/asset/095c8c88-addd-493c-a59a-92eaf0a36253"
+              alt="Classical sculpture with decorative elements"
+              className="community-support__image-content"
+            />
+          </div>
         </div>
       </div>
     </section>

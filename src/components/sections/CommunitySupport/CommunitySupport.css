@@ -8,11 +8,36 @@
   margin: 0 0 75px 0; /* 75px gap from Figma */
 }
 
+/* Two-column layout: timeline left, image right */
+.community-support__layout {
+  display: flex;
+  gap: 85px; /* Gap between left content and right image from Figma */
+  align-items: flex-start;
+  position: relative;
+}
+
 .community-support__content {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-5); /* 20px */
   max-width: 730px; /* Figma width */
+  flex: 0 0 730px; /* Fixed width for left side */
+}
+
+/* Right side decorative image - Figma specs: 515x869px */
+.community-support__image {
+  flex: 0 0 515px; /* Fixed width from Figma */
+  width: 515px;
+  height: 869px;
+  position: relative;
+  overflow: hidden;
+}
+
+.community-support__image-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .community-support__view-all {
@@ -110,6 +135,21 @@
   .community-support__title {
     margin-bottom: 50px;
   }
+
+  .community-support__layout {
+    gap: 40px;
+  }
+
+  .community-support__content {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+
+  .community-support__image {
+    flex: 0 0 400px;
+    width: 400px;
+    height: 675px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -117,8 +157,13 @@
     padding: 60px 20px;
   }
   
-  .community-support__left {
+  .community-support__layout {
+    flex-direction: column;
     gap: 40px;
+  }
+
+  .community-support__content {
+    flex: 1;
   }
   
   .community-support__timeline-box {
@@ -132,6 +177,17 @@
   
   .timeline-item__description {
     height: 200px;
+  }
+
+  .community-support__image {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    flex: 0 0 auto;
+  }
+
+  .community-support__image-content {
+    object-fit: contain;
   }
 }
 
