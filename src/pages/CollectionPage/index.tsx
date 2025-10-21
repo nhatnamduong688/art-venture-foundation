@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ArtistCollectionCard } from '../../components/business';
+import type { ArtistInfo, ArtworkImage } from '../../components/business';
 import './CollectionPage.css';
 
 interface Artwork {
@@ -16,13 +18,31 @@ const CollectionPage: React.FC = () => {
   const [activeMainTab, setActiveMainTab] = useState<'new' | 'key'>('new');
   const [activeFilter, setActiveFilter] = useState<string>('all');
 
-  const featuredArtwork = {
-    id: 1,
-    title: "Đào Hải Phong",
-    subtitle: "20 Artworks",
-    description: "Lorem ipsum dolor sit amet consectetur. Pharetra tincidunt dictumst sollicitudin ac. Cras purus non sed mus lorem dictumst.",
-    image: "https://www.figma.com/api/mcp/asset/05c08f23-ee99-49b0-8395-cb4a12168a66"
+  // Artist data for ArtistCollectionCard
+  const artistInfo: ArtistInfo = {
+    name: "Đào Hải Phong",
+    avatar: "https://www.figma.com/api/mcp/asset/1b7bd1fe-54e5-430d-b9c5-ed72937f1f51",
+    artworkCount: 23,
+    description: "Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed."
   };
+
+  const artistArtworks: ArtworkImage[] = [
+    {
+      id: 1,
+      url: "https://www.figma.com/api/mcp/asset/4f38b31f-7444-40e8-823e-5664eafe8c72",
+      alt: "Artwork by Đào Hải Phong - Image 1"
+    },
+    {
+      id: 2,
+      url: "https://www.figma.com/api/mcp/asset/05c08f23-ee99-49b0-8395-cb4a12168a66",
+      alt: "Artwork by Đào Hải Phong - Image 2"
+    },
+    {
+      id: 3,
+      url: "https://www.figma.com/api/mcp/asset/840776cc-c612-4915-bd81-f72315101480",
+      alt: "Artwork by Đào Hải Phong - Image 3"
+    }
+  ];
 
   const artworks: Artwork[] = [
     {
@@ -111,39 +131,14 @@ const CollectionPage: React.FC = () => {
           <h1 className="collection-page__title">Collection</h1>
           
           <div className="collection-page__featured">
-            <div className="collection-page__featured-info">
-              <h2 className="collection-page__section-title">New creation</h2>
-              
-              <div className="collection-page__artist-info">
-                <div className="collection-page__artist-avatar">
-                  <img 
-                    src="https://www.figma.com/api/mcp/asset/4c291ca2-2bdd-4521-a5ae-ece7dcddde25" 
-                    alt={featuredArtwork.title}
-                  />
-                </div>
-                <div className="collection-page__artist-details">
-                  <h3 className="collection-page__artist-name">{featuredArtwork.title}</h3>
-                  <p className="collection-page__artist-count">{featuredArtwork.subtitle}</p>
-                </div>
-              </div>
-              
-              <p className="collection-page__featured-description">
-                {featuredArtwork.description}
-              </p>
-              
-              <button className="btn btn-burgundy">
-                DETAIL
-                <div className="btn-arrow">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-              </button>
-            </div>
+            <h2 className="collection-page__section-title">New creation</h2>
             
-            <div className="collection-page__featured-image">
-              <img src={featuredArtwork.image} alt={featuredArtwork.title} />
-            </div>
+            {/* Figma Design Artist Collection Card */}
+            <ArtistCollectionCard
+              artist={artistInfo}
+              artworks={artistArtworks}
+              onDetailClick={() => console.log('Detail clicked')}
+            />
           </div>
         </div>
       </div>

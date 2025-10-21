@@ -1,0 +1,282 @@
+/* Artist Collection Card - Figma Node 427:1643 */
+.artist-collection-card {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  width: 100%;
+  max-width: 1194px;
+  height: 644px;
+  position: relative;
+}
+
+/* ===== LEFT SIDE: Artist Info Panel ===== */
+.artist-collection-card__info {
+  flex: 0 0 276px;
+  width: 276px;
+  height: 644px;
+  background: rgba(200, 147, 44, 0.1); /* Yellow tint 10% from Figma */
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.artist-collection-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Avatar */
+.artist-collection-card__avatar {
+  width: 71px;
+  height: 71px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 4px;
+  flex-shrink: 0;
+}
+
+.artist-collection-card__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Artist Details */
+.artist-collection-card__details {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 6px 0;
+}
+
+.artist-collection-card__name {
+  color: #2E2E2E;
+  font-size: 20px;
+  font-weight: 600; /* Semi Bold */
+  line-height: 2; /* 200% */
+  margin: 0;
+}
+
+.artist-collection-card__count {
+  color: #2E2E2E;
+  font-size: 14px;
+  font-weight: 500; /* Medium */
+  line-height: 2; /* 200% */
+  margin: 0;
+}
+
+/* Description */
+.artist-collection-card__description {
+  color: #0D0D0D;
+  font-size: 16px;
+  font-weight: 400; /* Regular */
+  line-height: 2; /* 200% */
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+/* ===== RIGHT SIDE: Gallery Panel ===== */
+.artist-collection-card__gallery {
+  flex: 1;
+  min-width: 0; /* Allow flexbox to shrink */
+  height: 644px;
+  background: #BF7D2C; /* Bronze/Gold from Figma */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Image Slider */
+.artist-collection-card__slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.artist-collection-card__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.artist-collection-card__slide--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.artist-collection-card__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== Navigation Controls ===== */
+.artist-collection-card__nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 67px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+  padding: 0 29px; /* 325 - 296 = 29px offset from left */
+}
+
+/* Navigation Buttons (Hidden by default, shown on hover) */
+.artist-collection-card__nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease, background 0.2s ease;
+  z-index: 10;
+}
+
+.artist-collection-card__nav-btn--prev {
+  left: 20px;
+}
+
+.artist-collection-card__nav-btn--next {
+  right: 20px;
+}
+
+.artist-collection-card:hover .artist-collection-card__nav-btn {
+  opacity: 1;
+}
+
+.artist-collection-card__nav-btn:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.artist-collection-card__nav-btn svg {
+  color: #2E2E2E;
+}
+
+/* Pagination Dots */
+.artist-collection-card__dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  position: absolute;
+  bottom: 14px; /* 614 - 600 = 14px from bottom */
+  left: 29px; /* 325 - 296 = 29px from left */
+}
+
+.artist-collection-card__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.2); /* White 20% - Inactive */
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.artist-collection-card__dot--active {
+  width: 22px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 1); /* White 100% - Active */
+}
+
+.artist-collection-card__dot:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+  .artist-collection-card {
+    height: auto;
+    min-height: 644px;
+  }
+
+  .artist-collection-card__info {
+    flex: 0 0 250px;
+    width: 250px;
+    height: auto;
+    min-height: 500px;
+  }
+
+  .artist-collection-card__gallery {
+    height: auto;
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .artist-collection-card {
+    flex-direction: column;
+    height: auto;
+    gap: 0;
+  }
+
+  .artist-collection-card__info {
+    flex: 1;
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    padding: 32px 24px;
+  }
+
+  .artist-collection-card__gallery {
+    width: 100%;
+    height: 500px;
+    min-height: 500px;
+  }
+
+  .artist-collection-card__nav-btn--prev {
+    left: 10px;
+  }
+
+  .artist-collection-card__nav-btn--next {
+    right: 10px;
+  }
+
+  .artist-collection-card__dots {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .artist-collection-card__avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .artist-collection-card__name {
+    font-size: 18px;
+  }
+
+  .artist-collection-card__count {
+    font-size: 13px;
+  }
+
+  .artist-collection-card__description {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .artist-collection-card__gallery {
+    height: 400px;
+    min-height: 400px;
+  }
+}
+

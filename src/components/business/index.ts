@@ -15,4 +15,10 @@ export type {
   ModalVariant,
   AuthorCardData 
 } from './ContentModal';
+export { default as ArtistCollectionCard } from './ArtistCollectionCard';
+export type { 
+  ArtistCollectionCardProps, 
+  ArtistInfo, 
+  ArtworkImage 
+} from './ArtistCollectionCard';
 
