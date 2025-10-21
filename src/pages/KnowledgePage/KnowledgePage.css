@@ -283,9 +283,11 @@
 /* Extra Large Screens (>1920px) - 4K and Ultra-wide */
 @media (min-width: 1921px) {
   .knowledge-container {
-    max-width: 1400px;
-    padding-left: calc(8.333% + 100px);
-    padding-right: calc(8.333% + 100px);
+    max-width: 1600px; /* Increased from 1400px */
+    margin-left: 189px; /* Fixed margin: 129px sidebar + 60px gap */
+    margin-right: auto;
+    padding-left: 0; /* Remove extra padding */
+    padding-right: 80px; /* Standard right padding */
   }
 
   .knowledge-title {
@@ -293,7 +295,7 @@
   }
 
   .knowledge-search {
-    width: 400px;
+    width: 420px; /* Increased from 400px */
     height: 70px;
     padding: 20px 24px;
   }
@@ -309,16 +311,16 @@
   }
 
   .knowledge-category__hero {
-    height: 400px;
+    height: 450px; /* Increased from 400px */
   }
 
   .knowledge-category__left {
-    flex: 0 0 400px;
-    width: 400px;
+    flex: 0 0 480px; /* Increased from 400px */
+    width: 480px;
   }
 
   .knowledge-category__right {
-    max-width: 750px;
+    max-width: 900px; /* Increased from 750px */
   }
 
   .knowledge-category__title {
@@ -328,14 +330,20 @@
   .knowledge-category__item-title {
     font-size: 26px;
   }
+  
+  .knowledge-category__divider {
+    height: 580px; /* Taller divider for larger content */
+  }
 }
 
 /* Large Desktop (1441px - 1920px) */
 @media (min-width: 1441px) and (max-width: 1920px) {
   .knowledge-container {
-    max-width: 1200px;
-    padding-left: calc(8.333% + 80px);
-    padding-right: calc(8.333% + 80px);
+    max-width: 1400px; /* Increased from 1200px */
+    margin-left: 189px; /* Fixed margin: 129px sidebar + 60px gap */
+    margin-right: auto;
+    padding-left: 0; /* Remove extra padding */
+    padding-right: 60px; /* Standard right padding */
   }
 
   .knowledge-title {
@@ -343,7 +351,7 @@
   }
 
   .knowledge-search {
-    width: 360px;
+    width: 380px; /* Increased from 360px */
     height: 64px;
   }
 
@@ -358,16 +366,16 @@
   }
 
   .knowledge-category__hero {
-    height: 380px;
+    height: 400px; /* Increased from 380px */
   }
 
   .knowledge-category__left {
-    flex: 0 0 380px;
-    width: 380px;
+    flex: 0 0 420px; /* Increased from 380px */
+    width: 420px;
   }
 
   .knowledge-category__right {
-    max-width: 700px;
+    max-width: 780px; /* Increased from 700px */
   }
 
   .knowledge-category__title {
@@ -376,6 +384,10 @@
 
   .knowledge-category__item-title {
     font-size: 25px;
+  }
+  
+  .knowledge-category__divider {
+    height: 520px; /* Taller divider for larger content */
   }
 }
 
