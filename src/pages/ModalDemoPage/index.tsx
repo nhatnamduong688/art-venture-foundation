@@ -339,6 +339,7 @@ const ModalDemoPage: React.FC = () => {
         imageUrl={sampleImage}
         title="Lorem ipsum dolor sit amet consectetur."
         description="Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien."
+        expandedContent="Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien. Scelerisque porttitor iaculis in mauris elementum eu vulputate."
         showAuthorCard={true}
         authorData={{
           avatar: "https://i.pravatar.cc/150?img=12",
