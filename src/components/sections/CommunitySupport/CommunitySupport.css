@@ -79,10 +79,8 @@
 }
 
 .timeline-item__year {
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 1.5;
-  color: #6B2128;
+  /* Typography h2 component handles font-family (Big Caslon), font-size, font-weight, line-height */
+  color: #6B2128; /* Burgundy color from Figma */
   margin: 0;
 }
 
@@ -265,9 +263,7 @@
     min-width: 220px;
   }
   
-  .timeline-item__year {
-    font-size: 24px;
-  }
+  /* Typography component handles year font-size automatically */
   
   .timeline-item__description {
     font-size: 14px;
