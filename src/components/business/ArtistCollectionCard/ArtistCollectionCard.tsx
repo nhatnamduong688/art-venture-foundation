@@ -41,10 +41,6 @@ const ArtistCollectionCard: React.FC<ArtistCollectionCardProps> = ({
     return () => clearInterval(timer); // Cleanup on unmount
   }, [artworks.length]);
 
-  const handleDotClick = (index: number) => {
-    setCurrentSlide(index);
-  };
-
   return (
     <div 
       className={`artist-collection-card ${className}`}
@@ -110,16 +106,15 @@ const ArtistCollectionCard: React.FC<ArtistCollectionCardProps> = ({
 
         {/* Navigation Controls */}
         <div className="artist-collection-card__nav">
-          {/* Pagination Dots */}
+          {/* Pagination Dots - Display only (not clickable) */}
           <div className="artist-collection-card__dots">
             {artworks.map((_, index) => (
-              <button
+              <div
                 key={index}
                 className={`artist-collection-card__dot ${
                   index === currentSlide ? 'artist-collection-card__dot--active' : ''
                 }`}
-                onClick={() => handleDotClick(index)}
-                aria-label={`Go to slide ${index + 1}`}
+                aria-label={`Slide ${index + 1}`}
               />
             ))}
           </div>

@@ -144,9 +144,6 @@
   height: 6px;
   border-radius: 3px;
   background: rgba(255, 255, 255, 0.2); /* White 20% - Inactive */
-  border: none;
-  padding: 0;
-  cursor: pointer;
   transition: all 0.3s ease;
 }
 
@@ -155,10 +152,6 @@
   height: 6px;
   border-radius: 3px;
   background: rgba(255, 255, 255, 1); /* White 100% - Active */
-}
-
-.artist-collection-card__dot:hover {
-  background: rgba(255, 255, 255, 0.5);
 }
 
 /* ===== Responsive Design ===== */
