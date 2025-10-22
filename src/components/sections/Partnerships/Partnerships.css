@@ -1,29 +1,30 @@
+/* ==================== BASE STYLES (Mobile First) ==================== */
 .partnerships {
   background: #f8f9fa;
 }
 
 .partnerships__title {
   font-family: 'Big Caslon', serif;
-  font-size: 60px;
+  font-size: 28px;
   font-weight: 500;
   line-height: normal;
   color: #2E2E2E;
-  margin: 0 0 75px 0;
+  margin: 0 0 var(--spacing-8) 0;
   text-align: left;
 }
 
 .partnerships__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(304px, 1fr));
-  gap: 75px 75px;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-8);
 }
 
 .partnership-card {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: var(--spacing-4);
   background: white;
-  padding: 24px;
+  padding: var(--spacing-4);
   border-radius: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -34,8 +35,8 @@
 }
 
 .partnership-card__logo {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +52,7 @@
 }
 
 .partnership-card__name {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.5;
   color: #2E2E2E;
@@ -59,50 +60,100 @@
 }
 
 .partnership-card__description {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 2;
+  line-height: 1.8;
   color: #2E2E2E;
   margin: 0;
   flex: 1;
 }
 
-@media (max-width: 1024px) {
+/* ==================== TABLET (768px+) ==================== */
+@media (min-width: 768px) {
+  .partnerships__title {
+    font-size: 36px;
+    margin-bottom: var(--spacing-10);
+  }
+
+  .partnerships__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-8);
+  }
+
+  .partnership-card {
+    padding: var(--spacing-5);
+    gap: var(--spacing-5);
+  }
+
+  .partnership-card__logo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .partnership-card__name {
+    font-size: 20px;
+  }
+
+  .partnership-card__description {
+    font-size: 16px;
+    line-height: 2;
+  }
+}
+
+/* ==================== DESKTOP (1024px+) ==================== */
+@media (min-width: 1024px) {
+  .partnerships__title {
+    font-size: 48px;
+    margin-bottom: 60px;
+  }
+
   .partnerships__grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 40px;
   }
-}
 
-@media (max-width: 768px) {
-  .partnerships__grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  
-  .partnerships__title {
-    font-size: 36px;
-    margin-bottom: 40px;
-  }
-}
-
-@media (max-width: 480px) {
-  .partnerships__title {
-    font-size: 28px;
-  }
-  
   .partnership-card {
-    padding: 16px;
+    padding: 24px;
+    gap: 24px;
   }
-  
-  .partnership-card__name {
-    font-size: 18px;
-  }
-  
-  .partnership-card__description {
-    font-size: 14px;
+
+  .partnership-card__logo {
+    width: 60px;
+    height: 60px;
   }
 }
 
+/* ==================== WIDE (1440px+) ==================== */
+@media (min-width: 1440px) {
+  .partnerships__title {
+    font-size: 60px;
+    margin-bottom: 75px;
+  }
 
+  .partnerships__grid {
+    grid-template-columns: repeat(auto-fit, minmax(304px, 1fr));
+    gap: 75px 75px;
+  }
+}
 
+/* ==================== ULTRA (1920px+) ==================== */
+@media (min-width: 1920px) {
+  .partnerships__title {
+    font-size: 70px;
+    margin-bottom: 90px;
+  }
+
+  .partnerships__grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 90px;
+  }
+
+  .partnership-card {
+    padding: 32px;
+  }
+
+  .partnership-card__logo {
+    width: 70px;
+    height: 70px;
+  }
+}

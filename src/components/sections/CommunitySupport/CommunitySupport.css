@@ -1,34 +1,30 @@
+/* ==================== BASE STYLES (Mobile First) ==================== */
 .community-support {
-  background: #F4F3F1; /* Figma background for entire section */
-  padding: 120px 188px; /* Match Figma padding */
+  background: #F4F3F1;
+  padding: var(--spacing-10) var(--spacing-4);
 }
 
 .community-support__title {
-  /* Typography component handles all styling */
-  margin: 0 0 75px 0; /* 75px gap from Figma */
+  margin: 0 0 var(--spacing-8) 0;
 }
 
-/* Two-column layout: timeline left, image right */
 .community-support__layout {
   display: flex;
-  gap: 85px; /* Gap between left content and right image from Figma */
-  align-items: flex-start;
+  flex-direction: column;
+  gap: var(--spacing-8);
   position: relative;
 }
 
 .community-support__content {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-5); /* 20px */
-  max-width: 730px; /* Figma width */
-  flex: 0 0 730px; /* Fixed width for left side */
+  gap: var(--spacing-5);
 }
 
-/* Right side decorative image - Figma specs: 515x869px */
 .community-support__image {
-  flex: 0 0 515px; /* Fixed width from Figma */
-  width: 515px;
-  height: 869px;
+  width: 100%;
+  height: auto;
+  max-height: 500px;
   position: relative;
   overflow: hidden;
 }
@@ -36,29 +32,27 @@
 .community-support__image-content {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
 .community-support__view-all {
-  /* Button component handles all styling */
   align-self: flex-start;
 }
 
 .community-support__timeline-box {
-  background: #f4f3f1; /* Figma beige background */
-  padding: 42px 42px 42px 0; /* Figma padding */
-  border-radius: 0; /* No border radius in Figma */
-  box-shadow: none; /* No shadow in Figma */
+  background: #f4f3f1;
+  padding: var(--spacing-6) var(--spacing-6) var(--spacing-6) 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .community-support__timeline {
   display: flex;
-  gap: 55px;
+  gap: var(--spacing-8);
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
-  max-width: 730px;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -68,51 +62,44 @@
 }
 
 .timeline-item {
-  flex: 0 0 304px;
-  min-width: 304px;
+  flex: 0 0 220px;
+  min-width: 220px;
 }
 
 .timeline-item__content {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: var(--spacing-6);
 }
 
 .timeline-item__year {
-  /* Figma specs: Inter Bold, 30px, 700 weight, 150% line-height */
   color: #732231;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 30px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 700;
-  line-height: 150%; /* 45px */
+  line-height: 150%;
   margin: 0;
 }
 
 .timeline-item__description {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 2;
+  line-height: 1.8;
   color: #2E2E2E;
   margin: 0;
-  height: 288px;
-  overflow: hidden;
-}
-
-.timeline-item:last-child .timeline-item__description {
-  height: auto;
 }
 
 .timeline-item__activities {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: var(--spacing-4);
 }
 
 .activity-item {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: var(--spacing-6);
   cursor: pointer;
   transition: opacity 0.2s ease;
 }
@@ -122,76 +109,11 @@
 }
 
 .activity-item__text {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 2;
+  line-height: 1.8;
   color: #2E2E2E;
   flex: 1;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .community-support {
-    padding: 80px 40px;
-  }
-  
-  .community-support__title {
-    margin-bottom: 50px;
-  }
-
-  .community-support__layout {
-    gap: 40px;
-  }
-
-  .community-support__content {
-    flex: 0 0 auto;
-    max-width: 100%;
-  }
-
-  .community-support__image {
-    flex: 0 0 400px;
-    width: 400px;
-    height: 675px;
-  }
-}
-
-@media (max-width: 768px) {
-  .community-support {
-    padding: 60px 20px;
-  }
-  
-  .community-support__layout {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .community-support__content {
-    flex: 1;
-  }
-  
-  .community-support__timeline-box {
-    padding: 30px 30px 30px 0;
-  }
-  
-  .timeline-item {
-    flex: 0 0 250px;
-    min-width: 250px;
-  }
-  
-  .timeline-item__description {
-    height: 200px;
-  }
-
-  .community-support__image {
-    width: 100%;
-    height: auto;
-    max-height: 500px;
-    flex: 0 0 auto;
-  }
-
-  .community-support__image-content {
-    object-fit: contain;
-  }
 }
 
 .community-support__view-all {
@@ -202,7 +124,7 @@
   border: none;
   padding: 0;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 2;
   color: #6B2128;
@@ -217,74 +139,191 @@
   flex-shrink: 0;
 }
 
-@media (max-width: 1024px) {
-  .community-support__timeline {
-    gap: 40px;
-    max-width: 100%;
+/* ==================== TABLET (768px+) ==================== */
+@media (min-width: 768px) {
+  .community-support {
+    padding: 60px var(--spacing-10);
   }
-  
-  .timeline-item {
-    flex: 0 0 280px;
-    min-width: 280px;
-  }
-}
 
-@media (max-width: 768px) {
   .community-support__title {
-    font-size: 36px;
-    margin-bottom: 40px;
+    margin-bottom: var(--spacing-10);
   }
-  
+
+  .community-support__layout {
+    flex-direction: row;
+    gap: var(--spacing-10);
+    align-items: flex-start;
+  }
+
+  .community-support__content {
+    flex: 1;
+  }
+
+  .community-support__image {
+    flex: 0 0 350px;
+    width: 350px;
+    height: 600px;
+    max-height: none;
+  }
+
+  .community-support__image-content {
+    object-fit: cover;
+  }
+
   .community-support__timeline-box {
-    padding: 32px 32px 32px 0;
+    padding: 30px 30px 30px 0;
   }
-  
-  .community-support__timeline {
-    gap: 32px;
-  }
-  
+
   .timeline-item {
     flex: 0 0 250px;
     min-width: 250px;
   }
-  
+
+  .timeline-item__year {
+    font-size: 28px;
+  }
+
   .timeline-item__description {
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  .activity-item__text {
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  .community-support__view-all {
+    font-size: 16px;
+  }
+}
+
+/* ==================== DESKTOP (1024px+) ==================== */
+@media (min-width: 1024px) {
+  .community-support {
+    padding: 80px 40px;
+  }
+
+  .community-support__title {
+    margin-bottom: 50px;
+  }
+
+  .community-support__layout {
+    gap: var(--spacing-10);
+  }
+
+  .community-support__content {
+    flex: 0 0 auto;
+    max-width: 730px;
+  }
+
+  .community-support__image {
+    flex: 0 0 400px;
+    width: 400px;
+    height: 675px;
+  }
+
+  .community-support__timeline {
+    gap: 40px;
+    max-width: 730px;
+  }
+
+  .timeline-item {
+    flex: 0 0 280px;
+    min-width: 280px;
+  }
+
+  .timeline-item__year {
+    font-size: 30px;
+  }
+
+  .timeline-item__description {
+    height: 200px;
+  }
+}
+
+/* ==================== WIDE (1440px+) ==================== */
+@media (min-width: 1440px) {
+  .community-support {
+    padding: 120px 188px;
+  }
+
+  .community-support__title {
+    margin-bottom: 75px;
+  }
+
+  .community-support__layout {
+    gap: 85px;
+  }
+
+  .community-support__content {
+    flex: 0 0 730px;
+    max-width: 730px;
+  }
+
+  .community-support__image {
+    flex: 0 0 515px;
+    width: 515px;
+    height: 869px;
+  }
+
+  .community-support__timeline-box {
+    padding: 42px 42px 42px 0;
+  }
+
+  .community-support__timeline {
+    gap: 55px;
+  }
+
+  .timeline-item {
+    flex: 0 0 304px;
+    min-width: 304px;
+  }
+
+  .timeline-item__content {
+    gap: 24px;
+  }
+
+  .timeline-item__description {
+    height: 288px;
+  }
+
+  .timeline-item:last-child .timeline-item__description {
     height: auto;
   }
-}
 
-@media (max-width: 480px) {
-  .community-support__title {
-    font-size: 28px;
-    margin-bottom: 30px;
+  .activity-item {
+    gap: 25px;
   }
-  
-  .community-support__timeline-box {
-    padding: 24px 24px 24px 0;
-  }
-  
-  .timeline-item {
-    flex: 0 0 220px;
-    min-width: 220px;
-  }
-  
-  .timeline-item__year {
-    font-size: 24px;
-  }
-  
-  .timeline-item__description {
-    font-size: 14px;
-    line-height: 1.8;
-  }
-  
+
   .activity-item__text {
-    font-size: 14px;
-  }
-  
-  .community-support__view-all {
-    font-size: 14px;
+    line-height: 2;
   }
 }
 
+/* ==================== ULTRA (1920px+) ==================== */
+@media (min-width: 1920px) {
+  .community-support {
+    padding: 140px 220px;
+  }
 
+  .community-support__layout {
+    gap: 100px;
+  }
 
+  .community-support__content {
+    flex: 0 0 800px;
+    max-width: 800px;
+  }
+
+  .community-support__image {
+    flex: 0 0 550px;
+    width: 550px;
+    height: 920px;
+  }
+
+  .timeline-item {
+    flex: 0 0 340px;
+    min-width: 340px;
+  }
+}
