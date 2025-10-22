@@ -25,14 +25,6 @@ body {
 @media (min-width: 1025px) {
   .App {
     padding-left: 129px;
-    padding-top: 114px; /* Header height */
-  }
-}
-
-/* Mobile layout */
-@media (max-width: 1024px) {
-  .App {
-    padding-top: 60px; /* Mobile header height */
   }
 }
 
