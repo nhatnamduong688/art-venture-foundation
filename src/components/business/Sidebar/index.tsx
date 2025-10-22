@@ -24,7 +24,7 @@ const Sidebar: React.FC = () => {
       let foundSection = false;
       
       sections.forEach((section, index) => {
-        const element = document.querySelector(`.${section.id}`);
+        const element = document.querySelector(`.${section.id}`) as HTMLElement;
         if (element) {
           const rect = element.getBoundingClientRect();
           const elementTop = scrollY + rect.top;
@@ -41,7 +41,7 @@ const Sidebar: React.FC = () => {
       // If no section found (scrolled past all sections), stay at last section
       if (!foundSection && scrollY > 0) {
         // Check if we're past the last section
-        const lastSection = document.querySelector(`.${sections[sections.length - 1].id}`);
+        const lastSection = document.querySelector(`.${sections[sections.length - 1].id}`) as HTMLElement;
         if (lastSection) {
           const rect = lastSection.getBoundingClientRect();
           const lastSectionBottom = scrollY + rect.top + lastSection.offsetHeight;
