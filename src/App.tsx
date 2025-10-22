@@ -10,6 +10,7 @@ import {
   NewsEvents, 
   ContentBlock 
 } from './components/sections';
+import { ScrollToTop } from './components/common';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         showButton={true}
       />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
