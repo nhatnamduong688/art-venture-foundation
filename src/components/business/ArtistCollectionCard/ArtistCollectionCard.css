@@ -1,21 +1,22 @@
 /* Artist Collection Card - Figma Node 427:1643 */
+/* ==================== BASE STYLES (Mobile First) ==================== */
 .artist-collection-card {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  gap: 0;
   align-items: stretch;
   width: 100%;
-  max-width: 1194px;
-  height: 644px;
+  height: auto;
   position: relative;
 }
 
 /* ===== LEFT SIDE: Artist Info Panel ===== */
 .artist-collection-card__info {
-  flex: 0 0 276px;
-  width: 276px;
-  height: 644px;
+  flex: 1;
+  width: 100%;
+  height: auto;
   background: rgba(200, 147, 44, 0.1); /* Yellow tint 10% from Figma */
-  padding: 24px;
+  padding: 32px 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -29,8 +30,8 @@
 
 /* Avatar */
 .artist-collection-card__avatar {
-  width: 71px;
-  height: 71px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 4px;
@@ -54,7 +55,7 @@
 
 .artist-collection-card__name {
   color: #2E2E2E;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600; /* Semi Bold */
   line-height: 2; /* 200% */
   margin: 0;
@@ -62,7 +63,7 @@
 
 .artist-collection-card__count {
   color: #2E2E2E;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500; /* Medium */
   line-height: 2; /* 200% */
   margin: 0;
@@ -71,9 +72,9 @@
 /* Description */
 .artist-collection-card__description {
   color: #0D0D0D;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400; /* Regular */
-  line-height: 2; /* 200% */
+  line-height: 1.8; /* 180% */
   margin: 0;
   white-space: pre-wrap;
 }
@@ -81,8 +82,9 @@
 /* ===== RIGHT SIDE: Gallery Panel ===== */
 .artist-collection-card__gallery {
   flex: 1;
-  min-width: 0; /* Allow flexbox to shrink */
-  height: 644px;
+  width: 100%;
+  height: 400px;
+  min-height: 400px;
   background: #BF7D2C; /* Bronze/Gold from Figma */
   position: relative;
   overflow: hidden;
@@ -155,56 +157,26 @@
 }
 
 /* ===== Responsive Design ===== */
-@media (max-width: 1024px) {
+/* ==================== TABLET (768px+) ==================== */
+@media (min-width: 768px) {
   .artist-collection-card {
+    flex-direction: row;
+    gap: 20px;
     height: auto;
-    min-height: 644px;
+    min-height: 500px;
   }
 
   .artist-collection-card__info {
-    flex: 0 0 250px;
-    width: 250px;
+    flex: 0 0 220px;
+    width: 220px;
     height: auto;
     min-height: 500px;
+    padding: 28px 20px;
   }
 
-  .artist-collection-card__gallery {
-    height: auto;
-    min-height: 500px;
-  }
-}
-
-@media (max-width: 768px) {
-  .artist-collection-card {
-    flex-direction: column;
-    height: auto;
-    gap: 0;
-  }
-
-  .artist-collection-card__info {
-    flex: 1;
-    width: 100%;
-    height: auto;
-    min-height: auto;
-    padding: 32px 24px;
-  }
-
-  .artist-collection-card__gallery {
-    width: 100%;
-    height: 500px;
-    min-height: 500px;
-  }
-
-  .artist-collection-card__dots {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-@media (max-width: 480px) {
   .artist-collection-card__avatar {
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
   }
 
   .artist-collection-card__name {
@@ -221,8 +193,121 @@
   }
 
   .artist-collection-card__gallery {
-    height: 400px;
-    min-height: 400px;
+    width: calc(100% - 240px);
+    height: 500px;
+    min-height: 500px;
+  }
+
+  .artist-collection-card__dots {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* ==================== DESKTOP (1024px+) ==================== */
+@media (min-width: 1024px) {
+  .artist-collection-card {
+    min-height: 644px;
+  }
+
+  .artist-collection-card__info {
+    flex: 0 0 250px;
+    width: 250px;
+    min-height: 500px;
+    padding: 30px 22px;
+  }
+
+  .artist-collection-card__avatar {
+    width: 68px;
+    height: 68px;
+  }
+
+  .artist-collection-card__name {
+    font-size: 19px;
+  }
+
+  .artist-collection-card__count {
+    font-size: 14px;
+  }
+
+  .artist-collection-card__description {
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  .artist-collection-card__gallery {
+    width: calc(100% - 270px);
+    height: auto;
+    min-height: 500px;
+  }
+}
+
+/* ==================== WIDE (1440px+) ==================== */
+@media (min-width: 1440px) {
+  .artist-collection-card {
+    max-width: 1194px;
+    height: 644px;
+  }
+
+  .artist-collection-card__info {
+    flex: 0 0 276px;
+    width: 276px;
+    height: 644px;
+    padding: 24px;
+  }
+
+  .artist-collection-card__avatar {
+    width: 71px;
+    height: 71px;
+  }
+
+  .artist-collection-card__name {
+    font-size: 20px;
+  }
+
+  .artist-collection-card__count {
+    font-size: 14px;
+  }
+
+  .artist-collection-card__description {
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  .artist-collection-card__gallery {
+    width: 898px;
+    height: 644px;
+    min-height: 644px;
+  }
+}
+
+/* ==================== ULTRA (1920px+) ==================== */
+@media (min-width: 1920px) {
+  .artist-collection-card {
+    max-width: 1400px;
+    height: 720px;
+  }
+
+  .artist-collection-card__info {
+    flex: 0 0 300px;
+    width: 300px;
+    height: 720px;
+    padding: 32px;
+  }
+
+  .artist-collection-card__avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .artist-collection-card__name {
+    font-size: 22px;
+  }
+
+  .artist-collection-card__gallery {
+    width: 1080px;
+    height: 720px;
+    min-height: 720px;
   }
 }
 

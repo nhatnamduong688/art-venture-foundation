@@ -1,49 +1,46 @@
+/* ==================== BASE STYLES (Mobile First) ==================== */
 .news {
   background: white;
 }
 
 .news__title {
   font-family: 'Big Caslon', serif;
-  font-size: 60px;
+  font-size: 28px;
   font-weight: 500;
   line-height: normal;
   color: #6B2128;
-  margin: 0 0 75px 0;
+  margin: 0 0 var(--spacing-8) 0;
   white-space: pre-wrap;
 }
 
 .news__content {
   display: flex;
   flex-direction: column;
-  gap: 42px;
+  gap: var(--spacing-8);
 }
 
 .news__row {
   display: flex;
-  gap: 75px;
+  flex-direction: column;
+  gap: var(--spacing-8);
   width: 100%;
 }
 
-.news__row:last-child {
-  gap: 75px;
-}
-
 .news-item {
-  flex: 0 0 304px;
-  width: 304px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: var(--spacing-5);
 }
 
 .news-item__text {
   display: flex;
   flex-direction: column;
-  gap: 17px;
+  gap: var(--spacing-4);
 }
 
 .news-item__title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.5;
   color: #6B2128;
@@ -52,27 +49,12 @@
 }
 
 .news-item__description {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 2;
+  line-height: 1.8;
   color: #2E2E2E;
   margin: 0;
   white-space: pre-wrap;
-}
-
-.news-item:nth-child(1) .news-item__description {
-  /* First item has longer text */
-}
-
-.news-item:nth-child(2) .news-item__description,
-.news-item:nth-child(3) .news-item__description {
-  height: 141px;
-  overflow: hidden;
-}
-
-.news__row:last-child .news-item:first-child .news-item__description {
-  height: 104px;
-  overflow: hidden;
 }
 
 .news-item__link {
@@ -83,7 +65,7 @@
   border: none;
   padding: 0;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 2;
   color: #2E2E2E;
@@ -98,75 +80,111 @@
   flex-shrink: 0;
 }
 
-@media (max-width: 1200px) {
+/* ==================== TABLET (768px+) ==================== */
+@media (min-width: 768px) {
+  .news__title {
+    font-size: 36px;
+    margin-bottom: var(--spacing-10);
+  }
+  
+  .news__content {
+    gap: var(--spacing-8);
+  }
+  
   .news__row {
-    gap: 50px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--spacing-8);
   }
   
   .news-item {
-    flex: 1;
-    min-width: 250px;
+    flex: 0 0 calc(50% - var(--spacing-4));
+    min-width: 280px;
+    gap: var(--spacing-6);
+  }
+  
+  .news-item__text {
+    gap: 17px;
+  }
+  
+  .news-item__title {
+    font-size: 20px;
+  }
+  
+  .news-item__description {
+    font-size: 16px;
+    line-height: 2;
+  }
+  
+  .news-item__link {
+    font-size: 16px;
   }
 }
 
-@media (max-width: 1024px) {
+/* ==================== DESKTOP (1024px+) ==================== */
+@media (min-width: 1024px) {
   .news__title {
     font-size: 48px;
     margin-bottom: 50px;
   }
   
   .news__row {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 40px;
   }
   
   .news-item {
-    flex: 0 0 calc(50% - 20px);
-    min-width: 280px;
+    flex: 1;
+    min-width: 250px;
   }
   
-  .news-item__description {
-    height: auto !important;
+  .news-item:nth-child(2) .news-item__description,
+  .news-item:nth-child(3) .news-item__description {
+    height: 141px;
+    overflow: hidden;
+  }
+  
+  .news__row:last-child .news-item:first-child .news-item__description {
+    height: 104px;
+    overflow: hidden;
   }
 }
 
-@media (max-width: 768px) {
+/* ==================== WIDE (1440px+) ==================== */
+@media (min-width: 1440px) {
   .news__title {
-    font-size: 36px;
-    margin-bottom: 40px;
+    font-size: 60px;
+    margin-bottom: 75px;
   }
   
   .news__content {
-    gap: 32px;
+    gap: 42px;
   }
   
   .news__row {
-    flex-direction: column;
-    gap: 32px;
+    gap: 75px;
   }
   
   .news-item {
-    flex: none;
-    width: 100%;
+    flex: 0 0 304px;
+    width: 304px;
+    gap: 24px;
   }
 }
 
-@media (max-width: 480px) {
+/* ==================== ULTRA (1920px+) ==================== */
+@media (min-width: 1920px) {
   .news__title {
-    font-size: 28px;
+    font-size: 70px;
+    margin-bottom: 90px;
   }
   
-  .news-item__title {
-    font-size: 18px;
+  .news__row {
+    gap: 90px;
   }
   
-  .news-item__description {
-    font-size: 14px;
-    line-height: 1.8;
-  }
-  
-  .news-item__link {
-    font-size: 14px;
+  .news-item {
+    flex: 0 0 340px;
+    width: 340px;
   }
 }
-

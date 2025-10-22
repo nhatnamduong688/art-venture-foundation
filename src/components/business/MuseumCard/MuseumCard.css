@@ -1,22 +1,23 @@
+/* ==================== BASE STYLES (Mobile First) ==================== */
 .museum-card {
   position: relative;
   width: 100%;
   height: auto;
-  min-height: 1120px; /* Total height: 827px image + 293px bottom */
-  aspect-ratio: 1440 / 1120; /* Correct ratio for 1440px width */
+  min-height: 500px;
+  aspect-ratio: 9 / 16;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background-color: rgba(191, 140, 45, 0.1); /* Figma color: #bf8c2d with 10% opacity */
+  background-color: rgba(191, 140, 45, 0.1);
 }
 
-/* Component 1: Ảnh phía trên - 827px của 1120px total */
+/* Image section - top portion */
 .museum-card__image-section {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 73.8%; /* 827/1120 = 73.8% */
+  height: 65%;
   overflow: hidden;
   z-index: 1;
 }
@@ -24,43 +25,38 @@
 .museum-card__image {
   width: 100%;
   height: 100%;
-  /*object-fit: cover;*/
   object-position: center top;
-  /*filter: brightness(0.7);*/
 }
 
-/* Component 3: Removed - using museum-card background instead */
-
-/* Component 2: Content box ở giữa (overlay) */
+/* Content box overlay */
 .museum-card__content-box {
   position: absolute;
   top: 65%;
-  left: 13%;
-  transform: translateY(-50%);
-  width: min(638px, 44%);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 88%;
   height: auto;
-  max-height: 545px;
   background: #F2EFE7;
-  padding: 50px 60px;
+  padding: 24px 28px;
   z-index: 3;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
 .museum-card__title {
   font-family: 'Big Caslon', serif;
-  font-size: 80px;
+  font-size: 32px;
   font-weight: 500;
   line-height: normal;
   color: #6B2128;
-  margin: 0 0 25px 0;
+  margin: 0 0 12px 0;
 }
 
 .museum-card__description {
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 2;
+  line-height: 1.7;
   color: #2E2E2E;
-  margin: 0 0 25px 0;
+  margin: 0 0 12px 0;
 }
 
 .museum-card__button {
@@ -71,7 +67,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 2;
   color: #6B2128;
@@ -82,7 +78,7 @@
   opacity: 0.7;
 }
 
-/* Border đỏ phía dưới content box */
+/* Border at bottom of content box */
 .museum-card__border {
   position: absolute;
   bottom: 0;
@@ -92,148 +88,24 @@
   background: #6B2128;
 }
 
-/* Responsive Design */
-@media (max-width: 1440px) {
-  .museum-card {
-    /*min-height: 700px;*/
-  }
-  
-  .museum-card__content-box {
-    left: 8%;
-    width: min(550px, 48%);
-    padding: 40px 50px;
-  }
-  
-  .museum-card__title {
-    font-size: 70px;
-  }
-  
-  /* Responsive crop cho màn hình 1440px trở xuống */
-  .museum-card__gallery-interior {
-    --crop-top: 45%;     /* Giảm crop top một chút */
-    --crop-bottom: 20%;  /* Giảm crop bottom */
-    --crop-left: 0%;     /* Tắt horizontal crop cho màn hình nhỏ */
-    --crop-right: 0%;    /* Tắt horizontal crop cho màn hình nhỏ */
-  }
-}
-
-@media (max-width: 1024px) {
-  .museum-card {
-    min-height: 600px;
-    aspect-ratio: 1 / 1;
-  }
-  
-  .museum-card__image-section {
-    height: 70%;
-  }
-  
-  .museum-card__content-box {
-    width: min(500px, 50%);
-    padding: 35px 45px;
-    left: 5%;
-  }
-  
-  .museum-card__title {
-    font-size: 56px;
-  }
-  
-  /* Responsive crop cho tablet */
-  .museum-card__gallery-interior {
-    --crop-top: 35%;     /* Crop ít hơn cho tablet */
-    --crop-bottom: 15%;  /* Hiển thị nhiều hơn */
-  }
-}
-
-@media (max-width: 768px) {
-  .museum-card {
-    min-height: 550px;
-    aspect-ratio: 3 / 4;
-  }
-  
-  .museum-card__image-section {
-    height: 68%;
-  }
-  
-  .museum-card__content-box {
-    width: 85%;
-    padding: 28px 35px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .museum-card__title {
-    font-size: 44px;
-  }
-  
-  .museum-card__description {
-    font-size: 14px;
-    line-height: 1.8;
-  }
-  
-  /* Responsive crop cho mobile */
-  .museum-card__gallery-interior {
-    --crop-top: 25%;     /* Crop ít hơn cho mobile */
-    --crop-bottom: 10%;  /* Hiển thị nhiều hơn cho mobile */
-  }
-}
-
-@media (max-width: 480px) {
-  .museum-card {
-    min-height: 500px;
-    aspect-ratio: 9 / 16;
-  }
-  
-  .museum-card__image-section {
-    height: 65%;
-  }
-  
-  .museum-card__content-box {
-    width: 88%;
-    padding: 24px 28px;
-  }
-  
-  .museum-card__title {
-    font-size: 32px;
-    margin-bottom: 12px;
-  }
-  
-  .museum-card__description {
-    font-size: 13px;
-    line-height: 1.7;
-    margin-bottom: 12px;
-  }
-  
-  .museum-card__button {
-    font-size: 14px;
-  }
-  
-  /* Responsive crop cho small mobile */
-  .museum-card__gallery-interior {
-    --crop-top: 20%;     /* Crop tối thiểu cho small mobile */
-    --crop-bottom: 5%;   /* Hiển thị tối đa cho small mobile */
-  }
-}
-
 /* Gallery Interior integration - Manual Crop Control */
 .museum-card__gallery-interior {
   width: 100%;
   height: 100%;
   position: relative;
   
-  /* CSS Variables để manual control crop */
-  --crop-top: 20%;     /* Crop từ trên */
-  --crop-bottom: -10%;  /* Crop từ dưới */
-  /*--crop-left: 5%;     !* Crop nhẹ từ trái *!*/
-  /*--crop-right: -10%;    !* Crop nhẹ từ phải *!*/
+  /* CSS Variables for manual crop control */
+  --crop-top: 20%;
+  --crop-bottom: 5%;
   
-  /* Auto-calculate focus dựa trên crop values */
+  /* Auto-calculate focus based on crop values */
   --total-crop-y: calc(var(--crop-top) + var(--crop-bottom));
   --visible-area-y: calc(100% - var(--total-crop-y));
   --focus-y: calc(var(--crop-top) + var(--visible-area-y) / 2);
   
-  --total-crop-x: calc(var(--crop-left) + var(--crop-right));
+  --total-crop-x: calc(var(--crop-left, 0%) + var(--crop-right, 0%));
   --visible-area-x: calc(100% - var(--total-crop-x));
-  --focus-x: calc(var(--crop-left) + var(--visible-area-x) / 2);
+  --focus-x: calc(var(--crop-left, 0%) + var(--visible-area-x) / 2);
 }
 
 .museum-card__gallery-interior .gallery-interior {
@@ -249,15 +121,143 @@
 }
 
 .museum-card__gallery-interior .gallery-interior__image-container {
-  width: calc(100% + var(--crop-left) + var(--crop-right)); /* Tăng width để có thể crop horizontal */
-  height: calc(100% + var(--crop-top) + var(--crop-bottom)); /* Tăng height để có thể crop vertical */
-  top: calc(0% - var(--crop-top)); /* Đẩy lên để crop top */
-  left: calc(0% - var(--crop-left)); /* Đẩy trái để crop left */
+  width: calc(100% + var(--crop-left, 0%) + var(--crop-right, 0%));
+  height: calc(100% + var(--crop-top) + var(--crop-bottom));
+  top: calc(0% - var(--crop-top));
+  left: calc(0% - var(--crop-left, 0%));
 }
 
 .museum-card__gallery-interior .gallery-interior__image--figma-exact {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: var(--focus-x) var(--focus-y); /* Sử dụng cả horizontal và vertical focus */
+  object-position: var(--focus-x) var(--focus-y);
+}
+
+/* ==================== TABLET (768px+) ==================== */
+@media (min-width: 768px) {
+  .museum-card {
+    min-height: 550px;
+    aspect-ratio: 3 / 4;
+  }
+  
+  .museum-card__image-section {
+    height: 68%;
+  }
+  
+  .museum-card__content-box {
+    width: 85%;
+    padding: 28px 35px;
+  }
+  
+  .museum-card__title {
+    font-size: 44px;
+  }
+  
+  .museum-card__description {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  
+  /* Responsive crop for tablet */
+  .museum-card__gallery-interior {
+    --crop-top: 25%;
+    --crop-bottom: 10%;
+  }
+}
+
+/* ==================== DESKTOP (1024px+) ==================== */
+@media (min-width: 1024px) {
+  .museum-card {
+    min-height: 600px;
+    aspect-ratio: 1 / 1;
+  }
+  
+  .museum-card__image-section {
+    height: 70%;
+  }
+  
+  .museum-card__content-box {
+    width: min(500px, 50%);
+    padding: 35px 45px;
+    left: 5%;
+    transform: translateY(-50%);
+  }
+  
+  .museum-card__title {
+    font-size: 56px;
+  }
+  
+  .museum-card__description {
+    font-size: 16px;
+    line-height: 2;
+    margin: 0 0 25px 0;
+  }
+  
+  .museum-card__button {
+    font-size: 16px;
+  }
+  
+  /* Responsive crop for desktop */
+  .museum-card__gallery-interior {
+    --crop-top: 35%;
+    --crop-bottom: 15%;
+  }
+}
+
+/* ==================== WIDE (1440px+) ==================== */
+@media (min-width: 1440px) {
+  .museum-card {
+    min-height: 1120px;
+    aspect-ratio: 1440 / 1120;
+  }
+  
+  .museum-card__image-section {
+    height: 73.8%; /* 827/1120 = 73.8% */
+  }
+  
+  .museum-card__content-box {
+    top: 65%;
+    left: 8%;
+    width: min(550px, 48%);
+    max-height: 545px;
+    padding: 40px 50px;
+  }
+  
+  .museum-card__title {
+    font-size: 70px;
+    margin: 0 0 25px 0;
+  }
+  
+  /* Responsive crop for wide screens */
+  .museum-card__gallery-interior {
+    --crop-top: 45%;
+    --crop-bottom: 20%;
+    --crop-left: 0%;
+    --crop-right: 0%;
+  }
+}
+
+/* ==================== ULTRA (1920px+) ==================== */
+@media (min-width: 1920px) {
+  .museum-card {
+    min-height: 1200px;
+  }
+  
+  .museum-card__content-box {
+    left: 13%;
+    width: min(638px, 44%);
+    max-height: 545px;
+    padding: 50px 60px;
+  }
+  
+  .museum-card__title {
+    font-size: 80px;
+  }
+  
+  /* Original Figma crop values */
+  .museum-card__gallery-interior {
+    --crop-top: 20%;
+    --crop-bottom: -10%;
+  }
 }
