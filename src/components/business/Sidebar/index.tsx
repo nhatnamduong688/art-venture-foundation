@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Sidebar.css';
 
 // Define page sections with their actual class names
@@ -11,9 +12,16 @@ const sections = [
 ];
 
 const Sidebar: React.FC = () => {
+  const location = useLocation();
   const [activeSection, setActiveSection] = useState(0);
+  
+  // Only show progress tracker on homepage
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
+    // Only track scroll on homepage
+    if (!isHomePage) return;
+
     const handleScroll = () => {
       const windowHeight = window.innerHeight;
       const scrollY = window.scrollY;
@@ -58,7 +66,7 @@ const Sidebar: React.FC = () => {
     handleScroll(); // Calculate initial position
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHomePage]);
 
   return (
     <aside className="sidebar">
@@ -73,16 +81,18 @@ const Sidebar: React.FC = () => {
           </a>
         </div>
         
-        <div className="sidebar__progress">
-          <div className="sidebar__progress-track">
-            <div 
-              className="sidebar__progress-indicator"
-              style={{ 
-                top: `calc(${(activeSection / (sections.length - 1)) * 100}% - ${(activeSection / (sections.length - 1)) * 20}px)` 
-              }}
-            />
+        {isHomePage && (
+          <div className="sidebar__progress">
+            <div className="sidebar__progress-track">
+              <div 
+                className="sidebar__progress-indicator"
+                style={{ 
+                  top: `calc(${(activeSection / (sections.length - 1)) * 100}% - ${(activeSection / (sections.length - 1)) * 20}px)` 
+                }}
+              />
+            </div>
           </div>
-        </div>
+        )}
         
         <div className="sidebar__bottom">
           <button className="sidebar__language" aria-label="Change language">
