@@ -5,21 +5,36 @@ const Sidebar: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
+    let rafId: number | null = null;
+
     const handleScroll = () => {
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const scrollableHeight = documentHeight - windowHeight;
-      const scrolled = window.scrollY;
-      
-      // Calculate progress (0 to 100)
-      const progress = scrollableHeight > 0 ? (scrolled / scrollableHeight) * 100 : 0;
-      setScrollProgress(Math.min(Math.max(progress, 0), 100));
+      // Cancel previous animation frame
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+
+      // Use requestAnimationFrame for smooth updates
+      rafId = requestAnimationFrame(() => {
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const scrollableHeight = documentHeight - windowHeight;
+        const scrolled = window.scrollY;
+        
+        // Calculate progress (0 to 100)
+        const progress = scrollableHeight > 0 ? (scrolled / scrollableHeight) * 100 : 0;
+        setScrollProgress(Math.min(Math.max(progress, 0), 100));
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Calculate initial position
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, []);
 
   return (
