@@ -1,25 +1,27 @@
+/* ==================== BASE STYLES (Mobile First) ==================== */
 .artists-page {
   min-height: 100vh;
   background: #f8f8f8;
-  padding: 140px 0 120px 0;
+  padding: 100px 0 80px 0;
 }
 
 .artists-page__container {
-  max-width: 1252px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 188px;
+  padding: 0 var(--spacing-4);
 }
 
 .artists-page__header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 60px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-6);
+  margin-bottom: var(--spacing-10);
 }
 
 .artists-page__title {
   font-family: 'Big Caslon', serif;
-  font-size: 80px;
+  font-size: 36px;
   font-weight: 500;
   line-height: 1.21;
   color: #6B2128;
@@ -29,12 +31,12 @@
 .artists-page__search {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 18px 20px;
+  gap: var(--spacing-4);
+  padding: 14px 16px;
   background: #ffffff;
   border-radius: 30px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  width: 335px;
+  width: 100%;
 }
 
 .artists-page__search svg {
@@ -49,7 +51,7 @@
   border: none;
   outline: none;
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   color: #2E2E2E;
   background: transparent;
@@ -61,8 +63,8 @@
 
 .artists-page__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px 48px;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-5);
 }
 
 .artist-card {
@@ -102,7 +104,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 32px;
+  padding: var(--spacing-6);
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
 }
 
@@ -114,7 +116,7 @@
 
 .artist-card__name {
   font-family: 'Inter', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.5;
   color: #ffffff;
@@ -123,7 +125,7 @@
 
 .artist-card__count {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   line-height: 1.5;
   color: #ffffff;
@@ -131,91 +133,127 @@
   opacity: 0.9;
 }
 
-/* Responsive Design */
-@media (max-width: 1440px) {
+/* ==================== TABLET (768px+) ==================== */
+@media (min-width: 768px) {
   .artists-page__container {
-    padding: 0 100px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .artists-page__container {
-    padding: 0 60px;
-  }
-  
-  .artists-page__title {
-    font-size: 60px;
-  }
-  
-  .artists-page__header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
-    margin-bottom: 50px;
-  }
-  
-  .artists-page__search {
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  .artists-page__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px 32px;
-  }
-}
-
-@media (max-width: 768px) {
-  .artists-page {
-    padding: 100px 0 80px 0;
-  }
-  
-  .artists-page__container {
-    padding: 0 20px;
+    padding: 0 var(--spacing-10);
   }
   
   .artists-page__title {
     font-size: 48px;
   }
   
-  .artists-page__header {
-    margin-bottom: 40px;
+  .artists-page__search {
+    padding: 16px 18px;
+    max-width: 400px;
   }
   
-  .artists-page__search {
-    max-width: 100%;
+  .artists-page__search input {
+    font-size: 16px;
   }
   
   .artists-page__grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px 24px;
-  }
-}
-
-@media (max-width: 480px) {
-  .artists-page__title {
-    font-size: 36px;
-  }
-  
-  .artists-page__search {
-    padding: 14px 16px;
-  }
-  
-  .artists-page__search input {
-    font-size: 14px;
-  }
-  
-  .artists-page__grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    gap: var(--spacing-6);
   }
   
   .artist-card__name {
-    font-size: 18px;
+    font-size: 20px;
   }
   
   .artist-card__count {
-    font-size: 13px;
+    font-size: 14px;
+  }
+  
+  .artist-card__overlay {
+    padding: 32px;
+  }
+}
+
+/* ==================== DESKTOP (1024px+) ==================== */
+@media (min-width: 1024px) {
+  .artists-page {
+    padding: 120px 0 100px 0;
+  }
+  
+  .artists-page__container {
+    padding: 0 60px;
+  }
+  
+  .artists-page__header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-8);
+    margin-bottom: 50px;
+  }
+  
+  .artists-page__title {
+    font-size: 60px;
+  }
+  
+  .artists-page__search {
+    width: auto;
+    max-width: 400px;
+  }
+  
+  .artists-page__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+/* ==================== WIDE (1440px+) ==================== */
+@media (min-width: 1440px) {
+  .artists-page {
+    padding: 140px 0 120px 0;
+  }
+  
+  .artists-page__container {
+    max-width: 1252px;
+    padding: 0 100px;
+  }
+  
+  .artists-page__header {
+    margin-bottom: 60px;
+  }
+  
+  .artists-page__title {
+    font-size: 80px;
+  }
+  
+  .artists-page__search {
+    padding: 18px 20px;
+    width: 335px;
+  }
+  
+  .artists-page__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+}
+
+/* ==================== ULTRA (1920px+) ==================== */
+@media (min-width: 1920px) {
+  .artists-page {
+    padding: 160px 0 140px 0;
+  }
+  
+  .artists-page__container {
+    max-width: 1400px;
+    padding: 0 188px;
+  }
+  
+  .artists-page__title {
+    font-size: 90px;
+  }
+  
+  .artists-page__search {
+    width: 380px;
+  }
+  
+  .artists-page__grid {
+    gap: 56px;
   }
 }
 
