@@ -1,3 +1,4 @@
+/* ==================== BASE STYLES (Mobile First - 320px+) ==================== */
 .events-page {
   min-height: 100vh;
   background: #f8f8f8;
@@ -6,34 +7,34 @@
 .events-page__container {
   max-width: 1252px;
   margin: 0 auto;
-  padding: 140px 188px 120px 188px;
+  padding: 100px var(--spacing-5) 80px var(--spacing-5); /* 100px 20px 80px 20px */
 }
 
 .events-page__title {
   font-family: 'Big Caslon', serif;
-  font-size: 80px;
+  font-size: 36px; /* Mobile size */
   font-weight: 500;
   line-height: 1.21;
   color: #6B2128;
-  margin: 0 0 80px 0;
+  margin: 0 0 40px 0; /* Smaller margin on mobile */
 }
 
 .events-page__list {
   display: flex;
   flex-direction: column;
-  gap: 92px;
+  gap: 40px; /* Smaller gap on mobile */
 }
 
 /* Full Event Card - Horizontal Layout */
 .event-card-full {
   display: grid;
-  grid-template-columns: 516px 1fr;
-  gap: 48px;
+  grid-template-columns: 1fr; /* Stack on mobile */
+  gap: 24px; /* Smaller gap on mobile */
   align-items: flex-start;
   text-decoration: none;
   transition: transform 0.3s ease;
   background: #ffffff;
-  padding: 48px;
+  padding: 20px; /* Smaller padding on mobile */
   border-radius: 0;
 }
 
@@ -44,7 +45,7 @@
 
 .event-card-full__image {
   width: 100%;
-  aspect-ratio: 516 / 368;
+  aspect-ratio: 16 / 10; /* Mobile aspect ratio */
   overflow: hidden;
   background: #f0f0f0;
 }
@@ -64,13 +65,13 @@
 .event-card-full__content {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding-top: 8px;
+  gap: 16px; /* Smaller gap on mobile */
+  padding-top: 0; /* No extra padding on mobile */
 }
 
 .event-card-full__title {
   font-family: 'Big Caslon', serif;
-  font-size: 30px;
+  font-size: 22px; /* Mobile size */
   font-weight: 500;
   line-height: 1.4;
   color: #2E2E2E;
@@ -79,9 +80,9 @@
 
 .event-card-full__description {
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 14px; /* Mobile size */
   font-weight: 400;
-  line-height: 2;
+  line-height: 1.8; /* Tighter line height on mobile */
   color: #2e2e2e;
   margin: 0;
   flex: 1;
@@ -90,12 +91,12 @@
 .event-card-full__link {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px; /* Smaller gap on mobile */
   padding: 0;
   background: none;
   border: none;
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 14px; /* Mobile size */
   font-weight: 500;
   line-height: 2;
   color: #6B2128;
@@ -109,149 +110,190 @@
 }
 
 .event-card-full__link svg {
-  width: 24px;
-  height: 24px;
+  width: 20px; /* Smaller icon on mobile */
+  height: 20px;
   flex-shrink: 0;
 }
 
-/* ===== Responsive Design ===== */
-
-/* Extra Large Screens (>1920px) - 4K and Ultra-wide */
-@media (min-width: 1921px) {
+/* ==================== TABLET (768px+) ==================== */
+@media (min-width: 768px) {
   .events-page__container {
-    max-width: 1600px; /* Increased for 4K */
-    margin-left: 189px; /* Fixed margin: 129px sidebar + 60px gap */
-    margin-right: auto;
-    padding: 163px 80px 120px 0; /* Top padding from Figma, right padding */
+    padding: 100px var(--spacing-10) 80px var(--spacing-10); /* 40px horizontal */
   }
 
-  .events-page__title {
-    font-size: 96px; /* Larger for 4K */
-  }
-
-  .event-card-full {
-    grid-template-columns: 600px 1fr; /* Larger image */
-    gap: 56px; /* Increased gap */
-    padding: 40px; /* Increased padding */
-  }
-
-  .event-card-full__title {
-    font-size: 36px; /* Larger title */
-  }
-
-  .event-card-full__description {
-    font-size: 18px; /* Larger text */
-  }
-}
-
-/* Large Desktop (1441px - 1920px) */
-@media (min-width: 1441px) and (max-width: 1920px) {
-  .events-page__container {
-    max-width: 1400px; /* Increased from implicit */
-    margin-left: 189px; /* Fixed margin: 129px sidebar + 60px gap */
-    margin-right: auto;
-    padding: 163px 60px 120px 0; /* Top padding from Figma */
-  }
-
-  .events-page__title {
-    font-size: 88px; /* Slightly larger */
-  }
-
-  .event-card-full {
-    grid-template-columns: 550px 1fr; /* Larger image */
-    gap: 52px; /* Increased gap */
-    padding: 36px; /* Increased padding */
-  }
-
-  .event-card-full__title {
-    font-size: 34px; /* Larger title */
-  }
-
-  .event-card-full__description {
-    font-size: 17px; /* Slightly larger text */
-  }
-}
-
-/* Standard Desktop (1025px - 1440px) - Figma base */
-@media (max-width: 1440px) and (min-width: 1025px) {
-  .events-page__container {
-    padding: 140px 100px 120px 100px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .events-page__container {
-    padding: 120px 60px 100px 60px;
-  }
-  
-  .events-page__title {
-    font-size: 60px;
-    margin-bottom: 60px;
-  }
-  
-  .events-page__list {
-    gap: 60px;
-  }
-  
-  .event-card-full {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 32px;
-  }
-  
-  .event-card-full__image {
-    aspect-ratio: 16 / 10;
-  }
-}
-
-@media (max-width: 768px) {
-  .events-page__container {
-    padding: 100px 20px 80px 20px;
-  }
-  
   .events-page__title {
     font-size: 48px;
     margin-bottom: 40px;
   }
-  
-  .events-page__list {
-    gap: 40px;
-  }
-  
+
   .event-card-full {
     padding: 24px;
     gap: 24px;
   }
-  
+
+  .event-card-full__content {
+    gap: 20px;
+  }
+
   .event-card-full__title {
     font-size: 24px;
   }
-  
+
   .event-card-full__description {
     font-size: 15px;
-    line-height: 1.8;
+  }
+
+  .event-card-full__link {
+    gap: 14px;
+    font-size: 15px;
+  }
+
+  .event-card-full__link svg {
+    width: 22px;
+    height: 22px;
   }
 }
 
-@media (max-width: 480px) {
+/* ==================== DESKTOP (1024px+) ==================== */
+@media (min-width: 1024px) {
+  .events-page__container {
+    padding: 120px var(--spacing-15) 100px var(--spacing-15); /* 60px horizontal */
+  }
+
   .events-page__title {
-    font-size: 36px;
+    font-size: 60px;
+    margin-bottom: 60px;
   }
-  
+
+  .events-page__list {
+    gap: 60px;
+  }
+
   .event-card-full {
-    padding: 20px;
+    grid-template-columns: 1fr; /* Still stacked on 1024 */
+    gap: 32px;
+    padding: 32px;
   }
-  
+
+  .event-card-full__content {
+    gap: 24px;
+    padding-top: 0;
+  }
+
   .event-card-full__title {
-    font-size: 22px;
+    font-size: 28px;
   }
-  
+
   .event-card-full__description {
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 2;
   }
-  
+
   .event-card-full__link {
-    font-size: 14px;
+    gap: 16px;
+    font-size: 16px;
+  }
+
+  .event-card-full__link svg {
+    width: 24px;
+    height: 24px;
   }
 }
+
+/* ==================== WIDE (1440px+) - Figma Baseline ==================== */
+@media (min-width: 1440px) {
+  .events-page__container {
+    padding: 140px var(--spacing-47) 120px var(--spacing-47); /* 188px */
+  }
+
+  .events-page__title {
+    font-size: 80px; /* Figma size */
+    margin-bottom: 80px;
+  }
+
+  .events-page__list {
+    gap: 92px;
+  }
+
+  .event-card-full {
+    grid-template-columns: 516px 1fr; /* Side by side on wide */
+    gap: 48px;
+    padding: 48px;
+  }
+
+  .event-card-full__image {
+    aspect-ratio: 516 / 368; /* Figma aspect ratio */
+  }
+
+  .event-card-full__content {
+    padding-top: 8px;
+  }
+
+  .event-card-full__title {
+    font-size: 30px; /* Figma size */
+  }
+
+  .event-card-full__description {
+    font-size: 16px;
+  }
+
+  .event-card-full__link {
+    font-size: 16px;
+  }
+}
+
+/* ==================== ULTRA (1920px+) ==================== */
+@media (min-width: 1920px) {
+  .events-page__container {
+    max-width: 1400px;
+    margin-left: 189px; /* 129px sidebar + 60px gap */
+    margin-right: auto;
+    padding: 163px var(--spacing-15) 120px 0; /* 60px right */
+  }
+
+  .events-page__title {
+    font-size: 88px;
+  }
+
+  .event-card-full {
+    grid-template-columns: 550px 1fr;
+    gap: 52px;
+    padding: 36px;
+  }
+
+  .event-card-full__title {
+    font-size: 34px;
+  }
+
+  .event-card-full__description {
+    font-size: 17px;
+  }
+}
+
+/* ==================== 4K (2560px+) ==================== */
+@media (min-width: 2560px) {
+  .events-page__container {
+    max-width: 1600px;
+    padding-right: var(--spacing-20); /* 80px */
+  }
+
+  .events-page__title {
+    font-size: 96px;
+  }
+
+  .event-card-full {
+    grid-template-columns: 600px 1fr;
+    gap: 56px;
+    padding: 40px;
+  }
+
+  .event-card-full__title {
+    font-size: 36px;
+  }
+
+  .event-card-full__description {
+    font-size: 18px;
+  }
+}
+
 

@@ -1,3 +1,4 @@
+/* ==================== BASE STYLES (Mobile First - 320px+) ==================== */
 .event-detail-page {
   min-height: 100vh;
   background: #f8f8f8;
@@ -6,17 +7,17 @@
 .event-detail-container {
   max-width: 1064px;
   margin: 0 auto;
-  padding: 140px 188px 120px 188px;
+  padding: 100px var(--spacing-5) 80px var(--spacing-5); /* 100px 20px 80px 20px */
   position: relative;
 }
 
 /* Back Button */
 .event-detail-back {
   position: absolute;
-  top: 140px;
-  left: 188px;
-  width: 42px;
-  height: 42px;
+  top: 100px;
+  left: var(--spacing-5); /* 20px */
+  width: 32px; /* Mobile size */
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,40 +36,40 @@
 }
 
 .event-detail-back svg {
-  width: 24px;
-  height: 24px;
+  width: 18px; /* Mobile size */
+  height: 18px;
 }
 
 /* Header */
 .event-detail-header {
-  margin: 90px 0 40px 0;
+  margin: 70px 0 25px 0; /* Mobile margins */
 }
 
 .event-detail-title {
   font-family: 'Inter', sans-serif;
-  font-size: 30px;
+  font-size: 20px; /* Mobile size */
   font-weight: 600;
   line-height: 1.6;
   color: #2E2E2E;
-  margin: 0 0 20px 0;
-  max-width: 854px;
+  margin: 0 0 16px 0; /* Smaller margin on mobile */
+  max-width: 100%;
 }
 
 .event-detail-subtitle {
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 13px; /* Mobile size */
   font-weight: 400;
   line-height: 1.5;
   color: #666666;
   margin: 0;
-  max-width: 781px;
+  max-width: 100%;
 }
 
 /* Hero Image */
 .event-detail-hero {
   width: 100%;
-  height: 645px;
-  margin: 40px 0 60px 0;
+  height: 300px; /* Mobile height */
+  margin: 30px 0 40px 0; /* Mobile margins */
   overflow: hidden;
   background: #e0e0e0;
 }
@@ -89,15 +90,15 @@
 .event-detail-content {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  margin: 60px 0;
+  gap: 18px; /* Mobile gap */
+  margin: 30px 0; /* Mobile margin */
 }
 
 .event-detail-paragraph {
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 13px; /* Mobile size */
   font-weight: 400;
-  line-height: 2;
+  line-height: 1.7;
   color: #2e2e2e;
   margin: 0;
 }
@@ -105,8 +106,8 @@
 /* Content Image */
 .event-detail-image {
   width: 100%;
-  height: 782px;
-  margin: 60px 0;
+  height: 300px; /* Mobile height */
+  margin: 40px 0; /* Mobile margin */
   overflow: hidden;
   background: #e0e0e0;
 }
@@ -117,66 +118,14 @@
   object-fit: cover;
 }
 
-/* Responsive Design */
-@media (max-width: 1440px) {
+/* ==================== TABLET (768px+) ==================== */
+@media (min-width: 768px) {
   .event-detail-container {
-    padding: 140px 100px 120px 100px;
+    padding: 100px var(--spacing-10) 80px var(--spacing-10); /* 40px horizontal */
   }
 
   .event-detail-back {
-    left: 100px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .event-detail-container {
-    padding: 120px 60px 100px 60px;
-  }
-
-  .event-detail-back {
-    left: 60px;
-    top: 120px;
-  }
-
-  .event-detail-header {
-    margin: 80px 0 30px 0;
-  }
-
-  .event-detail-title {
-    font-size: 26px;
-  }
-
-  .event-detail-subtitle {
-    font-size: 15px;
-  }
-
-  .event-detail-hero {
-    height: 500px;
-  }
-
-  .event-detail-image {
-    height: 600px;
-  }
-
-  .event-detail-content {
-    gap: 25px;
-    margin: 50px 0;
-  }
-
-  .event-detail-paragraph {
-    font-size: 15px;
-    line-height: 1.9;
-  }
-}
-
-@media (max-width: 768px) {
-  .event-detail-container {
-    padding: 100px 20px 80px 20px;
-  }
-
-  .event-detail-back {
-    left: 20px;
-    top: 100px;
+    left: var(--spacing-10);
     width: 36px;
     height: 36px;
   }
@@ -192,6 +141,7 @@
 
   .event-detail-title {
     font-size: 22px;
+    margin-bottom: 18px;
   }
 
   .event-detail-subtitle {
@@ -219,41 +169,100 @@
   }
 }
 
-@media (max-width: 480px) {
+/* ==================== DESKTOP (1024px+) ==================== */
+@media (min-width: 1024px) {
+  .event-detail-container {
+    padding: 120px var(--spacing-15) 100px var(--spacing-15); /* 60px horizontal */
+  }
+
   .event-detail-back {
-    width: 32px;
-    height: 32px;
+    left: var(--spacing-15);
+    top: 120px;
+    width: 42px;
+    height: 42px;
   }
 
   .event-detail-back svg {
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .event-detail-header {
+    margin: 80px 0 30px 0;
   }
 
   .event-detail-title {
-    font-size: 20px;
+    font-size: 26px;
+    margin-bottom: 20px;
   }
 
   .event-detail-subtitle {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .event-detail-hero {
-    height: 300px;
+    height: 500px;
+    margin: 40px 0 60px 0;
   }
 
   .event-detail-image {
-    height: 300px;
+    height: 600px;
+    margin: 50px 0;
   }
 
   .event-detail-content {
-    gap: 18px;
-    margin: 30px 0;
+    gap: 25px;
+    margin: 50px 0;
   }
 
   .event-detail-paragraph {
-    font-size: 13px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.9;
+  }
+}
+
+/* ==================== WIDE (1440px+) - Figma Baseline ==================== */
+@media (min-width: 1440px) {
+  .event-detail-container {
+    padding: 140px var(--spacing-47) 120px var(--spacing-47); /* 188px */
+  }
+
+  .event-detail-back {
+    left: var(--spacing-47);
+    top: 140px;
+  }
+
+  .event-detail-header {
+    margin: 90px 0 40px 0;
+  }
+
+  .event-detail-title {
+    font-size: 30px; /* Figma size */
+    max-width: 854px; /* Figma max-width */
+  }
+
+  .event-detail-subtitle {
+    font-size: 16px; /* Figma size */
+    max-width: 781px; /* Figma max-width */
+  }
+
+  .event-detail-hero {
+    height: 645px; /* Figma height */
+  }
+
+  .event-detail-image {
+    height: 782px; /* Figma height */
+    margin: 60px 0;
+  }
+
+  .event-detail-content {
+    gap: 30px;
+    margin: 60px 0;
+  }
+
+  .event-detail-paragraph {
+    font-size: 16px; /* Figma size */
+    line-height: 2; /* Figma line-height */
   }
 }
 

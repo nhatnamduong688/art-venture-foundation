@@ -1,48 +1,53 @@
 /**
  * Organism Component - Footer Styles
+ * Mobile-First Responsive Pattern
  * Using design system tokens
  */
 
+/* ==================== BASE STYLES (Mobile First - 320px+) ==================== */
 .ds-footer {
   position: relative;
   background: var(--color-bg-white);
-  padding: var(--spacing-20) var(--spacing-48); /* 80px 192px */
-  margin-top: var(--spacing-20);
+  padding: var(--spacing-8) var(--spacing-4); /* 32px 16px mobile */
+  margin-top: var(--spacing-12); /* Smaller margin on mobile */
 }
 
 .ds-footer__container {
   max-width: 1440px;
   margin: 0 auto;
   display: flex;
+  flex-direction: column; /* Stack on mobile */
   justify-content: space-between;
   align-items: flex-start;
-  gap: var(--spacing-16);
+  gap: var(--spacing-8); /* Smaller gap on mobile */
 }
 
 .ds-footer__content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-12);
+  gap: var(--spacing-8); /* Smaller gap on mobile */
 }
 
 /* ===== Main Content ===== */
 .ds-footer__main {
   display: flex;
+  flex-direction: column; /* Stack on mobile */
   justify-content: space-between;
-  gap: var(--spacing-16);
+  gap: var(--spacing-8);
 }
 
 .ds-footer__info {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-6);
-  max-width: 400px;
+  gap: var(--spacing-4); /* Smaller gap on mobile */
+  max-width: none; /* Full width on mobile */
 }
 
 .ds-footer__title {
   color: var(--color-text-primary);
   margin: 0;
+  font-size: var(--text-body-lg);
 }
 
 .ds-footer__contact {
@@ -54,13 +59,15 @@
 .ds-footer__contact p {
   color: var(--color-text-secondary);
   margin: 0;
+  font-size: var(--text-body-sm);
 }
 
 /* ===== Social Links ===== */
 .ds-footer__social {
   display: flex;
-  gap: var(--spacing-4);
-  margin-top: var(--spacing-4);
+  gap: var(--spacing-3); /* Smaller gap on mobile */
+  margin-top: var(--spacing-3);
+  flex-wrap: wrap; /* Allow wrapping on mobile */
 }
 
 .ds-footer__social-link {
@@ -85,18 +92,21 @@
 /* ===== Links Section ===== */
 .ds-footer__links {
   display: flex;
-  gap: var(--spacing-16);
+  flex-direction: column; /* Stack on mobile */
+  gap: var(--spacing-6);
 }
 
 .ds-footer__section {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-4);
+  gap: var(--spacing-3); /* Smaller gap on mobile */
 }
 
 .ds-footer__section-title {
   color: var(--color-text-primary);
   margin: 0;
+  font-size: var(--text-body-md);
+  font-weight: var(--font-weight-semibold);
 }
 
 .ds-footer__section-content {
@@ -109,6 +119,7 @@
   color: var(--color-text-secondary);
   text-decoration: none;
   transition: color var(--transition-normal);
+  font-size: var(--text-body-sm);
 }
 
 .ds-footer__link:hover {
@@ -121,13 +132,14 @@
 
 /* ===== Bottom Section ===== */
 .ds-footer__bottom {
-  padding-top: var(--spacing-8);
+  padding-top: var(--spacing-6); /* Smaller padding on mobile */
   border-top: 1px solid var(--color-border-light);
 }
 
 .ds-footer__copyright {
   color: var(--color-text-tertiary);
   margin: 0;
+  font-size: var(--text-body-xs);
 }
 
 /* ===== Logo ===== */
@@ -135,62 +147,73 @@
   flex-shrink: 0;
   opacity: 0.05;
   pointer-events: none;
+  align-self: center; /* Center on mobile */
 }
 
 .ds-footer__logo-img {
-  width: 300px;
+  width: 120px; /* Smaller on mobile */
   height: auto;
   object-fit: contain;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 1024px) {
-  .ds-footer {
-    padding: var(--spacing-16) var(--spacing-12); /* 64px 48px */
-  }
-
-  .ds-footer__container {
-    gap: var(--spacing-12);
-  }
-
-  .ds-footer__main {
-    gap: var(--spacing-12);
-  }
-
-  .ds-footer__links {
-    gap: var(--spacing-12);
-  }
-
-  .ds-footer__logo-img {
-    width: 200px;
-  }
-}
-
-@media (max-width: 768px) {
+/* ==================== TABLET (768px+) ==================== */
+@media (min-width: 768px) {
   .ds-footer {
     padding: var(--spacing-12) var(--spacing-6); /* 48px 24px */
+    margin-top: var(--spacing-16);
   }
 
   .ds-footer__container {
-    flex-direction: column;
     gap: var(--spacing-8);
   }
 
+  .ds-footer__content {
+    gap: var(--spacing-12);
+  }
+
   .ds-footer__main {
-    flex-direction: column;
     gap: var(--spacing-8);
   }
 
   .ds-footer__info {
-    max-width: none;
+    gap: var(--spacing-6);
+  }
+
+  .ds-footer__title {
+    font-size: var(--text-body-xl);
+  }
+
+  .ds-footer__contact p {
+    font-size: var(--text-body-md);
+  }
+
+  .ds-footer__social {
+    gap: var(--spacing-4);
+    margin-top: var(--spacing-4);
   }
 
   .ds-footer__links {
     gap: var(--spacing-8);
   }
 
-  .ds-footer__logo {
-    align-self: center;
+  .ds-footer__section {
+    gap: var(--spacing-4);
+  }
+
+  .ds-footer__section-title {
+    font-size: var(--text-body-lg);
+  }
+
+  .ds-footer__link {
+    font-size: var(--text-body-md);
+  }
+
+  .ds-footer__bottom {
+    padding-top: var(--spacing-8);
+  }
+
+  .ds-footer__copyright {
+    font-size: var(--text-body-sm);
   }
 
   .ds-footer__logo-img {
@@ -198,18 +221,57 @@
   }
 }
 
-@media (max-width: 480px) {
+/* ==================== DESKTOP (1024px+) ==================== */
+@media (min-width: 1024px) {
   .ds-footer {
-    padding: var(--spacing-8) var(--spacing-4); /* 32px 16px */
+    padding: var(--spacing-16) var(--spacing-12); /* 64px 48px */
+    margin-top: var(--spacing-20);
+  }
+
+  .ds-footer__container {
+    flex-direction: row; /* Side by side on desktop */
+    gap: var(--spacing-16);
+  }
+
+  .ds-footer__content {
+    gap: var(--spacing-12);
+  }
+
+  .ds-footer__main {
+    flex-direction: row; /* Side by side on desktop */
+    gap: var(--spacing-12);
+  }
+
+  .ds-footer__info {
+    max-width: 400px; /* Limit width on desktop */
   }
 
   .ds-footer__links {
-    flex-direction: column;
-    gap: var(--spacing-6);
+    flex-direction: row; /* Side by side on desktop */
+    gap: var(--spacing-12);
+  }
+
+  .ds-footer__logo {
+    align-self: flex-start; /* Top align on desktop */
   }
 
   .ds-footer__logo-img {
-    width: 120px;
+    width: 200px;
+  }
+}
+
+/* ==================== WIDE (1440px+) ==================== */
+@media (min-width: 1440px) {
+  .ds-footer {
+    padding: var(--spacing-20) var(--spacing-48); /* 80px 192px */
+  }
+
+  .ds-footer__links {
+    gap: var(--spacing-16);
+  }
+
+  .ds-footer__logo-img {
+    width: 300px;
   }
 }
 

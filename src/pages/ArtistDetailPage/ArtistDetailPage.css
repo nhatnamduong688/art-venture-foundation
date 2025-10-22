@@ -1,3 +1,4 @@
+/* ==================== BASE STYLES (Mobile First - 320px+) ==================== */
 .artist-detail-page {
   min-height: 100vh;
   background: #f8f8f8;
@@ -6,17 +7,17 @@
 .artist-detail-container {
   max-width: 1252px;
   margin: 0 auto;
-  padding: 140px 188px 120px 188px;
+  padding: 100px var(--spacing-5) 80px var(--spacing-5); /* 100px 20px 80px 20px */
   position: relative;
 }
 
 /* Back Button */
 .artist-detail-back {
   position: absolute;
-  top: 140px;
-  left: 188px;
-  width: 42px;
-  height: 42px;
+  top: 100px;
+  left: var(--spacing-5); /* 20px */
+  width: 32px; /* Mobile size */
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,28 +36,28 @@
 }
 
 .artist-detail-back svg {
-  width: 24px;
-  height: 24px;
+  width: 18px; /* Mobile size */
+  height: 18px;
 }
 
 /* Main Layout */
 .artist-detail-main {
   display: grid;
-  grid-template-columns: 336px 1fr;
-  gap: 42px;
-  margin-top: 80px;
+  grid-template-columns: 1fr; /* Stack on mobile */
+  gap: 32px;
+  margin-top: 60px;
 }
 
 /* Left Side */
 .artist-detail-left {
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 32px; /* Smaller gap on mobile */
 }
 
 .artist-portrait {
-  width: 336px;
-  height: 315px;
+  width: 100%; /* Full width on mobile */
+  height: 300px; /* Mobile height */
   overflow: hidden;
   background: #e0e0e0;
 }
@@ -70,13 +71,13 @@
 
 .artist-quote {
   background: #f4f3f1;
-  padding: 48px 28px;
+  padding: 24px var(--spacing-4); /* 24px 16px */
   border-radius: 0;
 }
 
 .artist-quote__mark {
   font-family: 'Big Caslon', serif;
-  font-size: 42px;
+  font-size: 36px; /* Smaller on mobile */
   color: #6B2128;
   margin-bottom: 12px;
   line-height: 1;
@@ -84,7 +85,7 @@
 
 .artist-quote__text {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 12px; /* Mobile size */
   font-weight: 400;
   line-height: 1.8;
   color: #2e2e2e;
@@ -95,12 +96,12 @@
 .artist-detail-right {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px; /* Smaller gap on mobile */
 }
 
 .artist-name {
   font-family: 'Big Caslon', serif;
-  font-size: 36px;
+  font-size: 24px; /* Mobile size */
   font-weight: 500;
   line-height: 1.2;
   color: #6B2128;
@@ -109,7 +110,7 @@
 
 .artist-bio {
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 14px; /* Mobile size */
   font-weight: 400;
   line-height: 1.6;
   color: #2e2e2e;
@@ -118,8 +119,8 @@
 
 .artist-info-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  grid-template-columns: 1fr; /* Single column on mobile */
+  gap: 12px;
   margin: 8px 0;
 }
 
@@ -140,7 +141,7 @@
 .artist-details {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px; /* Smaller gap on mobile */
   margin: 16px 0;
 }
 
@@ -152,7 +153,7 @@
 
 .artist-detail-title {
   font-family: 'Inter', sans-serif;
-  font-size: 18px;
+  font-size: 16px; /* Mobile size */
   font-weight: 600;
   color: #2E2E2E;
   margin: 0;
@@ -173,20 +174,23 @@
   gap: 8px;
   margin: 24px 0 0 0;
   border-bottom: 1px solid #e0e0e0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .artist-tab {
-  padding: 12px 24px;
+  padding: 8px 12px; /* Mobile size */
   background: transparent;
   border: none;
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 12px; /* Mobile size */
   font-weight: 500;
   color: #666666;
   cursor: pointer;
   transition: all 0.2s ease;
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
+  white-space: nowrap;
 }
 
 .artist-tab:hover {
@@ -203,8 +207,8 @@
 .artist-tab-content {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  padding: 32px 0;
+  gap: 24px; /* Smaller gap on mobile */
+  padding: 24px 0; /* Smaller padding on mobile */
 }
 
 .artist-content-section {
@@ -215,7 +219,7 @@
 
 .artist-content-title {
   font-family: 'Inter', sans-serif;
-  font-size: 18px;
+  font-size: 16px; /* Mobile size */
   font-weight: 600;
   color: #2E2E2E;
   margin: 0;
@@ -256,64 +260,25 @@
   color: #6B2128;
 }
 
-/* Responsive Design */
-@media (max-width: 1440px) {
+/* ==================== TABLET (768px+) ==================== */
+@media (min-width: 768px) {
   .artist-detail-container {
-    padding: 140px 100px 120px 100px;
+    padding: 100px var(--spacing-10) 80px var(--spacing-10); /* 40px horizontal */
   }
 
   .artist-detail-back {
-    left: 100px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .artist-detail-container {
-    padding: 120px 60px 100px 60px;
-  }
-
-  .artist-detail-back {
-    left: 60px;
-    top: 120px;
-  }
-
-  .artist-detail-main {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .artist-portrait {
-    width: 100%;
-    height: 400px;
-  }
-
-  .artist-info-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .artist-detail-container {
-    padding: 100px 20px 80px 20px;
-  }
-
-  .artist-detail-back {
-    left: 20px;
-    top: 100px;
+    left: var(--spacing-10);
     width: 36px;
     height: 36px;
   }
 
+  .artist-detail-back svg {
+    width: 20px;
+    height: 20px;
+  }
+
   .artist-detail-main {
     margin-top: 60px;
-  }
-
-  .artist-name {
-    font-size: 28px;
-  }
-
-  .artist-bio {
-    font-size: 14px;
   }
 
   .artist-portrait {
@@ -321,7 +286,7 @@
   }
 
   .artist-quote {
-    padding: 32px 20px;
+    padding: 32px var(--spacing-5); /* 20px */
   }
 
   .artist-quote__mark {
@@ -332,51 +297,146 @@
     font-size: 13px;
   }
 
+  .artist-name {
+    font-size: 28px;
+  }
+
+  .artist-info-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+  }
+
   .artist-tabs {
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
   }
 
   .artist-tab {
-    white-space: nowrap;
     padding: 10px 16px;
     font-size: 13px;
   }
 }
 
-@media (max-width: 480px) {
-  .artist-name {
-    font-size: 24px;
+/* ==================== DESKTOP (1024px+) ==================== */
+@media (min-width: 1024px) {
+  .artist-detail-container {
+    padding: 120px var(--spacing-15) 100px var(--spacing-15); /* 60px horizontal */
   }
 
-  .artist-info-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+  .artist-detail-back {
+    left: var(--spacing-15);
+    top: 120px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .artist-detail-back svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .artist-detail-main {
+    grid-template-columns: 1fr; /* Still stacked on 1024px */
+    gap: 32px;
+    margin-top: 80px;
   }
 
   .artist-portrait {
-    height: 300px;
+    width: 100%;
+    height: 400px;
   }
 
   .artist-quote {
-    padding: 24px 16px;
+    padding: 40px 24px;
+  }
+
+  .artist-quote__mark {
+    font-size: 42px;
   }
 
   .artist-quote__text {
-    font-size: 12px;
+    font-size: 14px;
+  }
+
+  .artist-name {
+    font-size: 32px;
+  }
+
+  .artist-bio {
+    font-size: 16px;
+  }
+
+  .artist-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .artist-tabs {
+    overflow-x: visible;
   }
 
   .artist-tab {
-    padding: 8px 12px;
-    font-size: 12px;
+    padding: 12px 24px;
+    font-size: 14px;
   }
 
-  .artist-detail-title {
-    font-size: 16px;
+  .artist-tab-content {
+    gap: 32px;
+    padding: 32px 0;
   }
 
   .artist-content-title {
-    font-size: 16px;
+    font-size: 18px;
+  }
+
+  .artist-detail-title {
+    font-size: 18px;
+  }
+
+  .artist-details {
+    gap: 20px;
   }
 }
 
+/* ==================== WIDE (1440px+) - Figma Baseline ==================== */
+@media (min-width: 1440px) {
+  .artist-detail-container {
+    padding: 140px var(--spacing-47) 120px var(--spacing-47); /* 188px */
+  }
+
+  .artist-detail-back {
+    left: var(--spacing-47);
+    top: 140px;
+  }
+
+  .artist-detail-main {
+    grid-template-columns: 336px 1fr; /* Side by side on wide */
+    gap: 42px;
+  }
+
+  .artist-portrait {
+    width: 336px; /* Fixed width */
+    height: 315px; /* Figma height */
+  }
+
+  .artist-left {
+    gap: 48px;
+  }
+
+  .artist-quote {
+    padding: 48px 28px;
+  }
+
+  .artist-name {
+    font-size: 36px; /* Figma size */
+  }
+
+  .artist-bio {
+    font-size: 16px;
+  }
+
+  .artist-info-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on wide */
+  }
+
+  .artist-detail-right {
+    gap: 24px;
+  }
+}

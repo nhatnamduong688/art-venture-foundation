@@ -1,8 +1,7 @@
-/* Modal Demo Page */
-
+/* ==================== BASE STYLES (Mobile First - 320px+) ==================== */
 .modal-demo {
   min-height: 100vh;
-  padding: var(--spacing-12) var(--spacing-8);
+  padding: var(--spacing-8) var(--spacing-5); /* 32px 20px mobile */
   background: var(--color-bg-main);
 }
 
@@ -15,39 +14,40 @@
   text-align: center;
   margin-bottom: var(--spacing-4);
   color: var(--color-burgundy);
+  font-size: var(--text-3xl); /* Mobile size */
 }
 
 .modal-demo__subtitle {
   text-align: center;
-  margin-bottom: var(--spacing-12);
+  margin-bottom: var(--spacing-8); /* Smaller on mobile */
   color: var(--color-text-secondary);
 }
 
 .modal-demo__section {
-  margin-bottom: var(--spacing-12);
+  margin-bottom: var(--spacing-8); /* Smaller on mobile */
 }
 
 .modal-demo__section-title {
-  margin-bottom: var(--spacing-6);
+  margin-bottom: var(--spacing-4); /* Smaller on mobile */
   color: var(--color-text-primary);
-  padding-bottom: var(--spacing-4);
+  padding-bottom: var(--spacing-3); /* Smaller on mobile */
   border-bottom: 2px solid var(--color-burgundy);
 }
 
 .modal-demo__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-6);
+  grid-template-columns: 1fr; /* Single column on mobile */
+  gap: var(--spacing-4); /* Smaller gap on mobile */
 }
 
 .modal-demo__card {
   background: white;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: var(--spacing-6);
+  padding: var(--spacing-5); /* Smaller padding on mobile */
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-4);
+  gap: var(--spacing-3); /* Smaller gap on mobile */
   transition: all var(--transition-normal);
 }
 
@@ -66,18 +66,51 @@
   margin-top: auto;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ==================== TABLET (768px+) ==================== */
+@media (min-width: 768px) {
   .modal-demo {
-    padding: var(--spacing-8) var(--spacing-5);
-  }
-
-  .modal-demo__grid {
-    grid-template-columns: 1fr;
+    padding: var(--spacing-12) var(--spacing-8); /* 48px 32px */
   }
 
   .modal-demo__title {
-    font-size: var(--text-3xl);
+    font-size: var(--text-4xl); /* Larger on tablet */
+  }
+
+  .modal-demo__subtitle {
+    margin-bottom: var(--spacing-12);
+  }
+
+  .modal-demo__section {
+    margin-bottom: var(--spacing-12);
+  }
+
+  .modal-demo__section-title {
+    margin-bottom: var(--spacing-6);
+    padding-bottom: var(--spacing-4);
+  }
+
+  .modal-demo__grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto-fit on tablet+ */
+    gap: var(--spacing-6);
+  }
+
+  .modal-demo__card {
+    padding: var(--spacing-6);
+    gap: var(--spacing-4);
+  }
+}
+
+/* ==================== DESKTOP (1024px+) ==================== */
+@media (min-width: 1024px) {
+  .modal-demo {
+    padding: var(--spacing-16) var(--spacing-10); /* 64px 40px */
+  }
+}
+
+/* ==================== WIDE (1440px+) ==================== */
+@media (min-width: 1440px) {
+  .modal-demo {
+    padding: var(--spacing-20) var(--spacing-12); /* 80px 48px */
   }
 }
 
