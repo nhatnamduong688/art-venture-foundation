@@ -7,6 +7,7 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header, Footer } from './design-system/organisms';
 import { Sidebar } from './components/business';
+import ScrollToTop from './components/common/ScrollToTop/ScrollToTop';
 import './App.css';
 
 // Loading component
@@ -68,6 +69,7 @@ const AppRouter: React.FC = () => {
       <div className="App">
         <Sidebar />
         <Header />
+        <ScrollToTop />
         
         <Suspense fallback={<LoadingFallback />}>
           <Routes>

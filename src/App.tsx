@@ -10,7 +10,7 @@ import {
   NewsEvents, 
   ContentBlock 
 } from './components/sections';
-import { ScrollToTop } from './components/common';
+import ScrollToTop from './components/common/ScrollToTop/ScrollToTop';
 
 function App() {
   return (
