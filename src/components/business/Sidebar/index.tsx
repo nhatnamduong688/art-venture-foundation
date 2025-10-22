@@ -1,72 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import './Sidebar.css';
 
-// Define page sections with their actual class names
-const sections = [
-  { id: 'museum-card', label: 'Hero' },
-  { id: 'av-news', label: 'News' },
-  { id: 'art-collection', label: 'Collection' },
-  { id: 'community-support', label: 'Community' },
-  { id: 'news-events', label: 'Events' },
-];
-
 const Sidebar: React.FC = () => {
-  const location = useLocation();
-  const [activeSection, setActiveSection] = useState(0);
-  
-  // Only show progress tracker on homepage
-  const isHomePage = location.pathname === '/';
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    // Only track scroll on homepage
-    if (!isHomePage) return;
-
     const handleScroll = () => {
       const windowHeight = window.innerHeight;
-      const scrollY = window.scrollY;
-      const triggerPoint = scrollY + windowHeight / 2; // Middle of viewport
-
-      // Find which section is currently in view
-      let currentSection = 0;
-      let foundSection = false;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollableHeight = documentHeight - windowHeight;
+      const scrolled = window.scrollY;
       
-      sections.forEach((section, index) => {
-        const element = document.querySelector(`.${section.id}`) as HTMLElement;
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const elementTop = scrollY + rect.top;
-          const elementBottom = elementTop + element.offsetHeight;
-          
-          // Check if trigger point is within this section
-          if (triggerPoint >= elementTop && triggerPoint < elementBottom) {
-            currentSection = index;
-            foundSection = true;
-          }
-        }
-      });
-
-      // If no section found (scrolled past all sections), stay at last section
-      if (!foundSection && scrollY > 0) {
-        // Check if we're past the last section
-        const lastSection = document.querySelector(`.${sections[sections.length - 1].id}`) as HTMLElement;
-        if (lastSection) {
-          const rect = lastSection.getBoundingClientRect();
-          const lastSectionBottom = scrollY + rect.top + lastSection.offsetHeight;
-          if (triggerPoint >= lastSectionBottom) {
-            currentSection = sections.length - 1;
-          }
-        }
-      }
-
-      setActiveSection(currentSection);
+      // Calculate progress (0 to 100)
+      const progress = scrollableHeight > 0 ? (scrolled / scrollableHeight) * 100 : 0;
+      setScrollProgress(Math.min(Math.max(progress, 0), 100));
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Calculate initial position
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isHomePage]);
+  }, []);
 
   return (
     <aside className="sidebar">
@@ -81,18 +35,18 @@ const Sidebar: React.FC = () => {
           </a>
         </div>
         
-        {isHomePage && (
-          <div className="sidebar__progress">
-            <div className="sidebar__progress-track">
-              <div 
-                className="sidebar__progress-indicator"
-                style={{ 
-                  top: `calc(${(activeSection / (sections.length - 1)) * 100}% - ${(activeSection / (sections.length - 1)) * 20}px)` 
-                }}
-              />
-            </div>
+        <div className="sidebar__progress">
+          <div className="sidebar__progress-track">
+            <div 
+              className="sidebar__progress-indicator"
+              style={{ 
+                // Position bar based on scroll progress (0-100%)
+                // Subtract half of bar height (20px) to keep it centered at progress point
+                top: `calc(${scrollProgress}% - 20px)` 
+              }}
+            />
           </div>
-        )}
+        </div>
         
         <div className="sidebar__bottom">
           <button className="sidebar__language" aria-label="Change language">
