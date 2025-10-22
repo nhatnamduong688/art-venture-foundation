@@ -1,32 +1,33 @@
+/* ==================== BASE STYLES (Mobile First) ==================== */
 .art-collection {
-  background: rgba(191, 140, 45, 0.1); /* Figma color: #bf8c2d with 10% opacity */
-  padding: 120px 188px; /* Match Figma padding */
-  overflow-x: hidden; /* Prevent horizontal scroll on page */
+  background: rgba(191, 140, 45, 0.1);
+  padding: var(--spacing-8) var(--spacing-4);
+  overflow-x: hidden;
 }
 
 .art-collection__header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 100px; /* Increased space before grid */
+  flex-direction: column;
+  gap: var(--spacing-6);
+  margin-bottom: var(--spacing-10);
 }
 
 .art-collection__text {
-  max-width: 663px;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-10); /* 40px */
+  gap: var(--spacing-6);
 }
 
 .art-collection__navigation {
   display: flex;
-  gap: var(--spacing-6); /* 24px */
+  gap: var(--spacing-4);
   align-items: center;
+  align-self: flex-end;
 }
 
 .art-collection__nav-button {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(31.5px);
@@ -79,9 +80,9 @@
   background: #ffe6e6;
   border-radius: 0;
   overflow: hidden;
-  height: 577px;
-  width: 564px;
-  min-width: 564px;
+  height: 400px;
+  width: 320px;
+  min-width: 320px;
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -245,36 +246,14 @@
 }
 
 /* Responsive spacing */
-@media (max-width: 1024px) {
+/* ==================== TABLET (768px+) ==================== */
+@media (min-width: 768px) {
   .art-collection {
-    padding: 80px 40px; /* Reduced padding for tablet */
+    padding: 60px var(--spacing-10);
   }
   
   .art-collection__header {
-    flex-direction: column;
-    margin-bottom: 60px; /* Reduced space before grid */
-  }
-  
-  .art-collection__text {
-    gap: 30px; /* Reduced gap */
-  }
-  
-  .art-collection__navigation {
-    align-self: flex-end;
-  }
-}
-
-@media (max-width: 768px) {
-  .art-collection {
-    padding: 60px 20px; /* Reduced padding for mobile */
-  }
-  
-  .art-collection__header {
-    margin-bottom: 40px; /* Reduced space before grid */
-  }
-  
-  .art-collection__text {
-    gap: 24px; /* Reduced gap */
+    margin-bottom: 60px;
   }
   
   .artwork-card {
@@ -286,10 +265,6 @@
   .artwork-card__image {
     height: 600px;
     top: -60px;
-  }
-  
-  .art-collection__title {
-    font-size: 36px;
   }
   
   .artwork-card__header {
@@ -306,47 +281,66 @@
   }
 }
 
-@media (max-width: 480px) {
+/* ==================== DESKTOP (1024px+) ==================== */
+@media (min-width: 1024px) {
+  .art-collection {
+    padding: 80px 40px;
+  }
+  
+  .art-collection__header {
+    flex-direction: row;
+    margin-bottom: 80px;
+  }
+  
+  .art-collection__text {
+    gap: var(--spacing-8);
+  }
+  
+  .art-collection__navigation {
+    align-self: flex-start;
+  }
+  
   .artwork-card {
-    width: 320px;
-    min-width: 320px;
-    height: 400px;
+    width: 564px;
+    min-width: 564px;
+    height: 577px;
   }
   
-  .artwork-card__image {
-    height: 500px;
-    top: -50px;
+  .art-collection__nav-button {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* ==================== WIDE (1440px+) ==================== */
+@media (min-width: 1440px) {
+  .art-collection {
+    padding: 120px 188px;
   }
   
-  .art-collection__title {
-    font-size: 28px;
+  .art-collection__header {
+    margin-bottom: 100px;
   }
   
-  .artwork-card__header {
-    padding: 16px 20px;
-    gap: 12px;
+  .art-collection__text {
+    gap: var(--spacing-10);
+  }
+}
+
+/* ==================== ULTRA (1920px+) ==================== */
+@media (min-width: 1920px) {
+  .art-collection {
+    padding: 140px 220px;
   }
   
-  .artwork-card__avatar {
-    width: 48px;
-    height: 48px;
+  .art-collection__header {
+    margin-bottom: 120px;
   }
   
-  .artwork-card__artist {
-    font-size: 14px;
-  }
-  
-  .artwork-card__text {
-    padding: 0 20px 20px 20px;
-  }
-  
-  .artwork-card__title {
-    font-size: 20px;
-  }
-  
-  .artwork-card__description {
-    font-size: 14px;
-    line-height: 1.8;
+  .artwork-card {
+    width: 600px;
+    min-width: 600px;
+    height: 620px;
   }
 }
 

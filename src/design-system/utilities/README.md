@@ -7,14 +7,14 @@ Reusable CSS utilities for responsive design following mobile-first approach.
 ### Import in your CSS files
 
 ```css
-@import '../design-system/utilities/responsive.css';
+@import "../design-system/utilities/responsive.css";
 ```
 
 Or import in your main `index.css`:
 
 ```css
-@import './design-system/tokens/breakpoints.css';
-@import './design-system/utilities/responsive.css';
+@import "./design-system/tokens/breakpoints.css";
+@import "./design-system/utilities/responsive.css";
 ```
 
 ## Available Utilities
@@ -57,13 +57,13 @@ Or import in your main `index.css`:
 
 ## Breakpoints
 
-| Name | Min Width | Max Width | Description |
-|------|-----------|-----------|-------------|
-| Mobile | 0 | 767px | Phone devices |
-| Tablet | 768px | 1023px | Tablet devices |
-| Desktop | 1024px | 1439px | Standard desktops |
-| Wide | 1440px | 1919px | Wide screens |
-| Ultra | 1920px | - | 4K/Ultra-wide |
+| Name    | Min Width | Max Width | Description       |
+| ------- | --------- | --------- | ----------------- |
+| Mobile  | 0         | 767px     | Phone devices     |
+| Tablet  | 768px     | 1023px    | Tablet devices    |
+| Desktop | 1024px    | 1439px    | Standard desktops |
+| Wide    | 1440px    | 1919px    | Wide screens      |
+| Ultra   | 1920px    | -         | 4K/Ultra-wide     |
 
 ## CSS Variables
 
@@ -197,4 +197,3 @@ Follow this pattern for consistent responsive styles:
   }
 }
 ```
-

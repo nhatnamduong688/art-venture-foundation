@@ -1,7 +1,9 @@
+/* ==================== BASE STYLES (Mobile First) ==================== */
 .hero {
   position: relative;
-  height: 827px;
-  min-height: 827px;
+  min-height: 500px;
+  height: 100vh;
+  max-height: 700px;
   display: flex;
   align-items: flex-start;
   overflow: hidden;
@@ -9,20 +11,20 @@
 
 .hero__container {
   position: absolute;
-  left: calc(8.333% + 69px); /* 189px from left edge */
-  top: 481px; /* From Figma: 595px - 114px header */
+  left: var(--spacing-4);
+  right: var(--spacing-4);
+  bottom: var(--spacing-8);
   z-index: 2;
-  width: 638px;
-  max-width: calc(100% - 200px);
+  width: auto;
 }
 
 .hero__content {
   background: var(--color-bg-main);
   border-bottom: 1px solid var(--color-burgundy);
-  padding: var(--spacing-12) var(--spacing-16); /* 48px 64px */
+  padding: var(--spacing-6) var(--spacing-8);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-6); /* 24px */
+  gap: var(--spacing-4);
   border-radius: inherit;
 }
 
@@ -34,7 +36,6 @@
 .hero__description {
   /* Typography component handles all styling */
   margin: 0;
-  height: 169px;
 }
 
 .hero__background {
@@ -62,31 +63,69 @@
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
 }
 
-@media (max-width: 768px) {
+/* ==================== TABLET (768px+) ==================== */
+@media (min-width: 768px) {
   .hero {
     min-height: 600px;
+    max-height: 800px;
   }
   
   .hero__container {
-    padding: 0 20px;
-  }
-  
-  .hero__title {
-    font-size: 48px;
+    left: var(--spacing-10);
+    right: auto;
+    bottom: var(--spacing-12);
+    max-width: 500px;
   }
   
   .hero__content {
-    max-width: 100%;
+    padding: var(--spacing-8) var(--spacing-10);
+    gap: var(--spacing-5);
   }
 }
 
-@media (max-width: 480px) {
-  .hero__title {
-    font-size: 32px;
+/* ==================== DESKTOP (1024px+) ==================== */
+@media (min-width: 1024px) {
+  .hero {
+    height: 827px;
+    min-height: 827px;
+    max-height: none;
+  }
+  
+  .hero__container {
+    left: calc(8.333% + 69px); /* 189px from left edge */
+    top: 481px; /* From Figma: 595px - 114px header */
+    bottom: auto;
+    width: 638px;
+    max-width: calc(100% - 200px);
+  }
+  
+  .hero__content {
+    padding: var(--spacing-12) var(--spacing-16); /* 48px 64px */
+    gap: var(--spacing-6); /* 24px */
   }
   
   .hero__description {
-    font-size: 14px;
+    height: 169px;
+  }
+}
+
+/* ==================== WIDE (1440px+) ==================== */
+@media (min-width: 1440px) {
+  .hero__container {
+    left: 189px;
+  }
+}
+
+/* ==================== ULTRA (1920px+) ==================== */
+@media (min-width: 1920px) {
+  .hero {
+    height: 900px;
+    min-height: 900px;
+  }
+  
+  .hero__container {
+    left: 220px;
+    width: 700px;
   }
 }
 
