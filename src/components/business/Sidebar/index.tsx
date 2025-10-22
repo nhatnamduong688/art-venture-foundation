@@ -21,6 +21,7 @@ const Sidebar: React.FC = () => {
 
       // Find which section is currently in view
       let currentSection = 0;
+      let foundSection = false;
       
       sections.forEach((section, index) => {
         const element = document.querySelector(`.${section.id}`);
@@ -32,9 +33,23 @@ const Sidebar: React.FC = () => {
           // Check if trigger point is within this section
           if (triggerPoint >= elementTop && triggerPoint < elementBottom) {
             currentSection = index;
+            foundSection = true;
           }
         }
       });
+
+      // If no section found (scrolled past all sections), stay at last section
+      if (!foundSection && scrollY > 0) {
+        // Check if we're past the last section
+        const lastSection = document.querySelector(`.${sections[sections.length - 1].id}`);
+        if (lastSection) {
+          const rect = lastSection.getBoundingClientRect();
+          const lastSectionBottom = scrollY + rect.top + lastSection.offsetHeight;
+          if (triggerPoint >= lastSectionBottom) {
+            currentSection = sections.length - 1;
+          }
+        }
+      }
 
       setActiveSection(currentSection);
     };
