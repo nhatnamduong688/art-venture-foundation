@@ -60,18 +60,18 @@
   background: #e6e5e4;
   border-radius: 5px;
   position: relative;
-  overflow: hidden;
 }
 
-.sidebar__progress-bar {
+.sidebar__progress-indicator {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
   background: #6B2128;
-  border-radius: 5px;
-  transition: height 0.3s ease;
-  min-height: 0;
+  border-radius: 50%;
+  transition: top 0.4s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .sidebar__bottom {

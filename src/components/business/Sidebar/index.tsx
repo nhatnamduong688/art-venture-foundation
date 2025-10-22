@@ -61,9 +61,9 @@ const Sidebar: React.FC = () => {
         <div className="sidebar__progress">
           <div className="sidebar__progress-track">
             <div 
-              className="sidebar__progress-bar"
+              className="sidebar__progress-indicator"
               style={{ 
-                height: `${((activeSection + 1) / sections.length) * 100}%` 
+                top: `${(activeSection / (sections.length - 1)) * 100}%` 
               }}
             />
           </div>
