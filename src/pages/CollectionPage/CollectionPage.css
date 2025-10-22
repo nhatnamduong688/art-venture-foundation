@@ -1,3 +1,4 @@
+/* ==================== BASE STYLES (Mobile First) ==================== */
 .collection-page {
   min-height: 100vh;
   background: #ffffff;
@@ -5,33 +6,33 @@
 
 /* Hero Section */
 .collection-page__hero {
-  padding: 140px 188px 60px 188px;
+  padding: 100px var(--spacing-4) 30px var(--spacing-4);
   background: #ffffff;
 }
 
 .collection-page__hero-content {
-  max-width: 1064px;
+  max-width: 100%;
 }
 
 .collection-page__title {
   font-family: 'Big Caslon', serif;
-  font-size: 80px;
+  font-size: 36px;
   font-weight: 500;
   line-height: 1.21;
   color: #6B2128;
-  margin: 0 0 50px 0;
+  margin: 0 0 30px 0;
 }
 
 .collection-page__featured {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  margin-top: 60px;
+  gap: var(--spacing-6);
+  margin-top: var(--spacing-8);
 }
 
 .collection-page__section-title {
   font-family: 'Inter', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.5;
   color: #6B2128;
@@ -40,30 +41,38 @@
 
 /* Content Section */
 .collection-page__content {
-  padding: 80px 188px 120px 188px;
+  padding: 40px var(--spacing-4) 80px var(--spacing-4);
 }
 
 .collection-page__filters {
-  margin-bottom: 60px;
+  margin-bottom: var(--spacing-10);
 }
 
 .collection-page__filter-tabs {
   display: flex;
-  gap: 16px;
-  margin-top: 24px;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-6);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.collection-page__filter-tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .filter-tab {
-  padding: 12px 24px;
+  padding: 10px 20px;
   background: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   color: #2E2E2E;
   cursor: pointer;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .filter-tab:hover {
@@ -80,10 +89,10 @@
 /* Masonry Grid */
 .collection-page__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  grid-auto-rows: 300px;
-  margin-bottom: 60px;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-5);
+  grid-auto-rows: 200px;
+  margin-bottom: var(--spacing-10);
 }
 
 .artwork-card-grid {
@@ -99,17 +108,9 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* Grid sizes for masonry effect */
-.artwork-card-grid--large {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-.artwork-card-grid--medium {
-  grid-column: span 1;
-  grid-row: span 2;
-}
-
+/* Grid sizes - all equal on mobile */
+.artwork-card-grid--large,
+.artwork-card-grid--medium,
 .artwork-card-grid--small {
   grid-column: span 1;
   grid-row: span 1;
@@ -132,7 +133,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 20px;
+  padding: var(--spacing-5);
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -145,7 +146,7 @@
 .artwork-card-grid__info {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--spacing-3);
 }
 
 .artwork-card-grid__artist {
@@ -176,8 +177,42 @@
   align-items: center;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
+/* ==================== TABLET (768px+) ==================== */
+@media (min-width: 768px) {
+  .collection-page__hero {
+    padding: 100px var(--spacing-10) 30px var(--spacing-10);
+  }
+  
+  .collection-page__content {
+    padding: 40px var(--spacing-10) 80px var(--spacing-10);
+  }
+  
+  .collection-page__title {
+    font-size: 48px;
+  }
+  
+  .collection-page__section-title {
+    font-size: 20px;
+  }
+  
+  .collection-page__filter-tabs {
+    overflow-x: visible;
+  }
+  
+  .filter-tab {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+  
+  .collection-page__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-6);
+    grid-auto-rows: 250px;
+  }
+}
+
+/* ==================== DESKTOP (1024px+) ==================== */
+@media (min-width: 1024px) {
   .collection-page__hero {
     padding: 120px 60px 40px 60px;
   }
@@ -191,75 +226,85 @@
   }
   
   .collection-page__featured {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    gap: var(--spacing-10);
   }
   
   .collection-page__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-}
-
-@media (max-width: 768px) {
-  .collection-page__hero {
-    padding: 100px 20px 30px 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-6);
+    grid-auto-rows: 300px;
   }
   
-  .collection-page__content {
-    padding: 40px 20px 80px 20px;
+  /* Grid sizes for masonry effect */
+  .artwork-card-grid--large {
+    grid-column: span 2;
+    grid-row: span 2;
   }
   
-  .collection-page__title {
-    font-size: 48px;
-    margin-bottom: 30px;
+  .artwork-card-grid--medium {
+    grid-column: span 1;
+    grid-row: span 2;
   }
   
-  .collection-page__featured {
-    gap: 24px;
-  }
-  
-  .collection-page__filter-tabs {
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  
-  .collection-page__filter-tabs::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .filter-tab {
-    white-space: nowrap;
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-  
-  .collection-page__grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    grid-auto-rows: 250px;
-  }
-  
-  .artwork-card-grid--large,
-  .artwork-card-grid--medium,
   .artwork-card-grid--small {
     grid-column: span 1;
     grid-row: span 1;
   }
 }
 
-@media (max-width: 480px) {
-  .collection-page__title {
-    font-size: 36px;
+/* ==================== WIDE (1440px+) ==================== */
+@media (min-width: 1440px) {
+  .collection-page__hero {
+    padding: 140px 188px 60px 188px;
   }
   
-  .collection-page__section-title {
-    font-size: 18px;
+  .collection-page__hero-content {
+    max-width: 1064px;
+  }
+  
+  .collection-page__title {
+    font-size: 80px;
+    margin-bottom: 50px;
+  }
+  
+  .collection-page__featured {
+    margin-top: 60px;
+  }
+  
+  .collection-page__content {
+    padding: 80px 188px 120px 188px;
+  }
+  
+  .collection-page__filters {
+    margin-bottom: 60px;
   }
   
   .collection-page__grid {
-    grid-auto-rows: 200px;
+    gap: 32px;
+    margin-bottom: 60px;
   }
 }
 
+/* ==================== ULTRA (1920px+) ==================== */
+@media (min-width: 1920px) {
+  .collection-page__hero {
+    padding: 160px 220px 80px 220px;
+  }
+  
+  .collection-page__hero-content {
+    max-width: 1200px;
+  }
+  
+  .collection-page__title {
+    font-size: 90px;
+  }
+  
+  .collection-page__content {
+    padding: 100px 220px 140px 220px;
+  }
+  
+  .collection-page__grid {
+    gap: 40px;
+    grid-auto-rows: 350px;
+  }
+}

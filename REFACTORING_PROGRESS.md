@@ -181,13 +181,13 @@ All refactored components follow this structure:
 
 ## 📊 Statistics
 
-| Metric                       | Count                      |
-| ---------------------------- | -------------------------- |
-| **Refactored Components**    | 10 components (6+4)        |
-| **Lines Refactored**         | ~1500+ lines               |
-| **Breakpoints Standardized** | 5 (768, 1024, 1440, 1920)  |
-| **Utility Classes Created**  | 15+                        |
-| **CSS Variables Added**      | 30+                        |
+| Metric                       | Count                     |
+| ---------------------------- | ------------------------- |
+| **Refactored Components**    | 10 components (6+4)       |
+| **Lines Refactored**         | ~1500+ lines              |
+| **Breakpoints Standardized** | 5 (768, 1024, 1440, 1920) |
+| **Utility Classes Created**  | 15+                       |
+| **CSS Variables Added**      | 30+                       |
 
 ---
 
