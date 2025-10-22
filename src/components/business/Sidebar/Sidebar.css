@@ -70,7 +70,7 @@
   width: 100%;
   background: #6B2128;
   border-radius: 5px;
-  transition: height 0.1s ease-out;
+  transition: height 0.3s ease;
   min-height: 0;
 }
 

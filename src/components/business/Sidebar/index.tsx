@@ -1,19 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import './Sidebar.css';
 
+// Define page sections with their actual class names
+const sections = [
+  { id: 'museum-card', label: 'Hero' },
+  { id: 'av-news', label: 'News' },
+  { id: 'art-collection', label: 'Collection' },
+  { id: 'community-support', label: 'Community' },
+  { id: 'news-events', label: 'Events' },
+];
+
 const Sidebar: React.FC = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight - windowHeight;
-      const scrolled = window.scrollY;
-      const progress = (scrolled / documentHeight) * 100;
-      setScrollProgress(Math.min(progress, 100));
+      const scrollY = window.scrollY;
+      const triggerPoint = scrollY + windowHeight / 2; // Middle of viewport
+
+      // Find which section is currently in view
+      let currentSection = 0;
+      
+      sections.forEach((section, index) => {
+        const element = document.querySelector(`.${section.id}`);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const elementTop = scrollY + rect.top;
+          const elementBottom = elementTop + element.offsetHeight;
+          
+          // Check if trigger point is within this section
+          if (triggerPoint >= elementTop && triggerPoint < elementBottom) {
+            currentSection = index;
+          }
+        }
+      });
+
+      setActiveSection(currentSection);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Calculate initial position
 
     return () => window.removeEventListener('scroll', handleScroll);
@@ -36,7 +62,9 @@ const Sidebar: React.FC = () => {
           <div className="sidebar__progress-track">
             <div 
               className="sidebar__progress-bar"
-              style={{ height: `${scrollProgress}%` }}
+              style={{ 
+                height: `${((activeSection + 1) / sections.length) * 100}%` 
+              }}
             />
           </div>
         </div>
