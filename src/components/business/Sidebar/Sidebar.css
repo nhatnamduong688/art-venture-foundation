@@ -64,8 +64,8 @@
 
 .sidebar__progress-indicator {
   position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 0;
+  top: 0;
   width: 3px;
   height: 40px;
   background: #6B2128;

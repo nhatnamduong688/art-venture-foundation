@@ -63,7 +63,7 @@ const Sidebar: React.FC = () => {
             <div 
               className="sidebar__progress-indicator"
               style={{ 
-                top: `${(activeSection / (sections.length - 1)) * 100}%` 
+                top: `calc(${(activeSection / (sections.length - 1)) * 100}% - ${(activeSection / (sections.length - 1)) * 20}px)` 
               }}
             />
           </div>
