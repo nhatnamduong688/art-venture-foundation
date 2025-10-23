@@ -9,7 +9,7 @@
   position: relative;
   width: 100%;
   height: 60px; /* Mobile height */
-  background: var(--color-bg-header); /* rgba(242, 239, 231, 0.95) */
+  background: #F2F1EB; /* Figma spec background color */
   border-bottom: 1px solid var(--color-border-light);
 }
 
@@ -45,7 +45,7 @@
   align-items: center;
   justify-content: center;
   height: 60px; /* Mobile height */
-  padding: var(--spacing-3);
+  padding: 10px; /* Figma spec */
   text-decoration: none;
   color: var(--color-text-primary);
   position: relative;
@@ -54,9 +54,7 @@
   min-width: fit-content;
 }
 
-.ds-header__nav-item:hover {
-  color: var(--color-burgundy);
-}
+/* No color change on hover - text color stays default */
 
 .ds-header__nav-text {
   font-family: var(--font-body);
@@ -75,30 +73,35 @@
 
 .ds-header__nav-underline {
   position: absolute;
-  bottom: var(--spacing-3);
+  bottom: 27px; /* Adjusted for 114px header height to maintain ~16-17px distance from text */
   left: 50%;
   transform: translateX(-50%);
   width: 16px;
   height: 4px;
-  background: var(--color-burgundy);
-  border-radius: var(--radius-md);
+  background: #732231; /* Figma default/hover color */
+  border-radius: 6px; /* Figma spec */
   opacity: 0;
-  transition: all var(--transition-normal);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition for all properties */
+  will-change: opacity, width, background-color; /* Optimize animation performance */
 }
 
+/* Active state: show underline with 70px width and burgundy color */
 .ds-header__nav-item--active .ds-header__nav-underline {
   opacity: 1;
-  width: 70px;
+  width: 70px; /* Figma active state width */
+  background: #6B2128; /* Figma active color */
 }
 
+/* Hover state: underline grows from 16px to full width */
 .ds-header__nav-item:hover .ds-header__nav-underline {
-  opacity: 0.5;
-  width: 40px;
+  opacity: 1; /* Visible on hover */
+  width: 100%; /* Expand to full width on hover */
+  max-width: 200px; /* Limit max width */
 }
 
 /* ===== Actions ===== */
 .ds-header__actions {
-  display: flex;
+  display: none; /* Hidden as per requirement */
   align-items: center;
   gap: var(--spacing-3); /* 12px mobile */
   margin-left: auto;
@@ -196,7 +199,7 @@
 /* ==================== DESKTOP (1024px+) ==================== */
 @media (min-width: 1024px) {
   .ds-header {
-    height: var(--layout-header-height); /* 114px */
+    height: 114px; /* Figma page spec */
   }
 
   .ds-header__container {
@@ -209,7 +212,7 @@
   }
 
   .ds-header__nav-item {
-    height: var(--layout-header-height);
+    height: 114px; /* Match header height */
     min-width: unset;
   }
 
@@ -237,15 +240,15 @@
 /* ==================== WIDE (1440px+) ==================== */
 @media (min-width: 1440px) {
   .ds-header__container {
-    padding: 0 var(--spacing-16); /* 64px */
+    padding: 0 60px 0 32px; /* Figma spec: 60px left, 32px right (asymmetric) */
   }
 
   .ds-header__nav {
-    gap: var(--spacing-6); /* 24px */
+    gap: var(--spacing-6); /* 24px - Figma spec */
   }
 
   .ds-header__nav-text {
-    font-size: var(--text-body-md);
+    font-size: var(--text-body-md); /* 16px - Figma spec */
   }
 
   .ds-header__actions {

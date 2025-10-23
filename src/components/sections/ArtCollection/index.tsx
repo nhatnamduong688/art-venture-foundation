@@ -122,41 +122,23 @@ const ArtCollection: React.FC = () => {
 
   return (
     <section className="art-collection section">
+
       <div className="container">
-        <div className="art-collection__header">
-          <div className="art-collection__text">
-            <Typography variant="display-lg" as="h2" className="art-collection__title">
-              Art & Venture Art Collection
-            </Typography>
-            <Typography variant="body-md" className="art-collection__description">
-              Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor.
-            </Typography>
-            <Button variant="primary" size="md" rightIcon={<Icon name="arrow-right" size="lg" />}>
-              VIEW ALL
-            </Button>
-          </div>
-          <div className="art-collection__navigation">
-            <button
-              className="art-collection__nav-button"
-              onClick={() => scroll('left')}
-              aria-label="Previous"
-            >
-              <Icon name="chevron-left" size="lg" />
-            </button>
-            <button
-              className="art-collection__nav-button"
-              onClick={() => scroll('right')}
-              aria-label="Next"
-            >
-              <Icon name="chevron-right" size="lg" />
-            </button>
-          </div>
+        {/* Title and Description above header */}
+        <div className="art-collection__intro">
+          <Typography variant="display-lg" as="h2" className="art-collection__title">
+            Art & Venture Art Collection
+          </Typography>
+          <Typography variant="body-md" className="art-collection__description">
+            {/*Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor.*/}
+          </Typography>
         </div>
-        
+
+        {/* Slider */}
         <div className="art-collection__grid" ref={scrollContainerRef}>
           {artworks.map((artwork) => (
-            <div 
-              key={artwork.id} 
+            <div
+              key={artwork.id}
               className="artwork-card"
               onClick={() => handleArtworkClick(artwork)}
               style={{ cursor: 'pointer' }}
@@ -199,6 +181,31 @@ const ArtCollection: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* Figma spec: VIEW ALL + Navigation buttons */}
+        <div className="art-collection__footer">
+          <Button variant="primary" size="md" rightIcon={<Icon name="arrow-right" size="lg" />}>
+            VIEW ALL
+          </Button>
+
+          <div className="art-collection__navigation">
+            <button
+              className="art-collection__nav-button"
+              onClick={() => scroll('left')}
+              aria-label="Previous"
+            >
+              <Icon name="chevron-left" size="lg" />
+            </button>
+            <button
+              className="art-collection__nav-button"
+              onClick={() => scroll('right')}
+              aria-label="Next"
+            >
+              <Icon name="chevron-right" size="lg" />
+            </button>
+          </div>
+        </div>
+
       </div>
 
       {/* Dark Modal for Artwork Details */}

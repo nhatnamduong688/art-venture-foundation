@@ -5,17 +5,41 @@
   overflow-x: hidden;
 }
 
-.art-collection__header {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-6);
-  margin-bottom: var(--spacing-10);
+/* Remove container padding for Art Collection */
+.art-collection .container {
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.art-collection__text {
+/* Intro section: Title + Description */
+.art-collection__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 33px; /* Figma spec */
+  margin-bottom: var(--spacing-6);
+  /* No padding-top here - section padding handles it */
+}
+
+.art-collection__title {
+  color: #732231; /* Figma spec burgundy color */
+  font-family: 'Big Caslon', 'Playfair Display', serif; /* Figma spec font */
+  font-size: 60px; /* Figma spec */
+  font-weight: 500; /* Medium */
+  line-height: normal; /* Figma spec */
+  margin: 0;
+}
+
+.art-collection__description {
+  margin: 0;
+}
+
+/* Footer section: VIEW ALL + Navigation (Figma spec) */
+.art-collection__footer {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-6);
+  align-items: flex-start;
+  margin-top: var(--spacing-10);
 }
 
 .art-collection__navigation {
@@ -73,7 +97,7 @@
 }
 
 .art-collection__grid::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
+  /*display: none; !* Chrome, Safari and Opera *!*/
 }
 
 .artwork-card {
@@ -287,13 +311,15 @@
     padding: 80px 40px;
   }
   
-  .art-collection__header {
-    flex-direction: row;
-    margin-bottom: 80px;
+  .art-collection__intro {
+    margin-bottom: 40px;
   }
   
-  .art-collection__text {
-    gap: var(--spacing-8);
+  .art-collection__footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
   }
   
   .art-collection__navigation {
@@ -314,16 +340,27 @@
 
 /* ==================== WIDE (1440px+) ==================== */
 @media (min-width: 1440px) {
+
+  .artwork-card {
+    width: 600px;
+    min-width: 600px;
+    height: 577px;
+  }
+
   .art-collection {
-    padding: 120px 188px;
+    padding: 84px 59px; /* Figma spec: 84px top/bottom, 59px left/right */
   }
   
-  .art-collection__header {
-    margin-bottom: 100px;
+  .art-collection__intro {
+    margin-bottom: 22px;
   }
   
-  .art-collection__text {
-    gap: var(--spacing-10);
+  .art-collection__footer {
+    margin-top: 16px;
+  }
+
+  .artwork-card__image {
+    top: 0;
   }
 }
 
@@ -333,8 +370,12 @@
     padding: 140px 220px;
   }
   
-  .art-collection__header {
-    margin-bottom: 120px;
+  .art-collection__intro {
+    margin-bottom: 30px;
+  }
+  
+  .art-collection__footer {
+    margin-top: 20px;
   }
   
   .artwork-card {
