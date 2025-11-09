@@ -251,11 +251,12 @@
 /* ==================== WIDE (1440px+) ==================== */
 @media (min-width: 1440px) {
   .community-support {
-    padding: 0 187px 116px 187px;
+    padding: 0 0 116px 187px; /* No padding-right, image flush to right edge */
   }
 
   .community-support .container {
     max-width: none; /* Remove container width limit */
+    padding-right: 0; /* Remove container padding-right for flush right edge */
   }
 
   .community-support__title {
@@ -278,13 +279,17 @@
   }
 
   .community-support__image-wrapper {
-    flex: 0 0 515px;
-    max-width: 515px;
-    margin-top: 94px; /* Align with left column's title */
+    flex: 1; /* Take remaining space to push to right edge */
+    max-width: none;
+    margin-top: 0; /* Flush to top, no margin */
+    display: flex;
+    justify-content: flex-end; /* Align image to right */
   }
 
   .community-support__image {
-    width: 515px;
+    width: 100%; /* Fill wrapper to reach right edge */
+    max-width: 515px;
+    min-width: 515px;
     height: 869px;
   }
 
