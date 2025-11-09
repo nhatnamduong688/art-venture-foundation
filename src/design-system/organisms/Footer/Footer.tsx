@@ -116,7 +116,7 @@ export const Footer: React.FC = () => {
 
         <div className="ds-footer__logo">
           <img
-            src="https://www.figma.com/api/mcp/asset/7dcf134e-e95d-463c-9945-9c957c64b181"
+            src="/images/logo/av-logo.jpg"
             alt="AV Foundation"
             className="ds-footer__logo-img"
           />
