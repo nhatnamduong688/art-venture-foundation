@@ -42,6 +42,15 @@
   margin-top: var(--spacing-10);
 }
 
+/* VIEW ALL button hover effect */
+.art-collection__footer .ds-button__icon {
+  transition: transform 0.3s ease;
+}
+
+.art-collection__footer button:hover .ds-button__icon {
+  transform: translateX(12px);
+}
+
 .art-collection__navigation {
   display: flex;
   gap: var(--spacing-4);
