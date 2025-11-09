@@ -296,6 +296,7 @@
 @media (min-width: 1440px) {
   .news-events {
     padding: 120px 0 120px 188px;
+    background: #F2EFE7;
   }
 
   .news-events .container {

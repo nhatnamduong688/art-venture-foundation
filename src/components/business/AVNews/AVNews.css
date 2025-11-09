@@ -151,6 +151,7 @@
 @media (min-width: 1440px) {
   .av-news {
     padding: 120px 188px !important;
+    background: #F2EFE7;
   }
   
   .av-news .container {
