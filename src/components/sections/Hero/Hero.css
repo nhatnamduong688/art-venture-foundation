@@ -119,8 +119,8 @@
 /* ==================== ULTRA (1920px+) ==================== */
 @media (min-width: 1920px) {
   .hero {
-    height: 900px;
-    min-height: 900px;
+    height: 827px;  /* Match Figma design - same as desktop */
+    min-height: 827px;
   }
   
   .hero__container {

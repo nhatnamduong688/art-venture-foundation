@@ -28,12 +28,30 @@ const Hero: React.FC = () => {
         </div>
       </div>
       <div className="hero__background">
-        <img
-          src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-          alt="Museum gallery with classical sculptures"
-          className="hero__bg-image"
-          loading="lazy"
-        />
+        <picture>
+          {/* Large screens 2200px+ */}
+          <source
+            media="(min-width: 2200px)"
+            srcSet="/images/hero/2200/hero-2200.jpg"
+          />
+          {/* Wide screens 1920px - 2199px */}
+          <source
+            media="(min-width: 1920px)"
+            srcSet="/images/hero/1920/hero-1920.jpg"
+          />
+          {/* Desktop 1440px - 1919px */}
+          <source
+            media="(min-width: 1440px)"
+            srcSet="/images/hero/1440/hero-1440.jpg"
+          />
+          {/* Default fallback for smaller screens */}
+          <img
+            src="/images/hero/1440/hero-1440.jpg"
+            alt="Museum gallery interior with classical sculptures and elegant architecture"
+            className="hero__bg-image"
+            loading="eager"
+          />
+        </picture>
         <div className="hero__overlay"></div>
       </div>
     </section>

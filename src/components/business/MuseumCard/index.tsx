@@ -26,11 +26,30 @@ const MuseumCard: React.FC<MuseumCardProps> = ({
         {useGalleryInterior ? (
           <GalleryInterior className="museum-card__gallery-interior" />
         ) : (
-          <img 
-            src={imageUrl} 
-            alt="Museum interior" 
-            className="museum-card__image"
-          />
+          <picture>
+            {/* Large screens 2200px+ */}
+            <source
+              media="(min-width: 2200px)"
+              srcSet="/images/hero/2200/hero-2200.jpg"
+            />
+            {/* Wide screens 1920px - 2199px */}
+            <source
+              media="(min-width: 1920px)"
+              srcSet="/images/hero/1920/hero-1920.jpg"
+            />
+            {/* Desktop 1440px - 1919px */}
+            <source
+              media="(min-width: 1440px)"
+              srcSet="/images/hero/1440/hero-1440.jpg"
+            />
+            {/* Default fallback */}
+            <img 
+              src="/images/hero/1440/hero-1440.jpg"
+              alt="Museum gallery interior with classical sculptures and elegant architecture"
+              className="museum-card__image"
+              loading="eager"
+            />
+          </picture>
         )}
       </div>
 
