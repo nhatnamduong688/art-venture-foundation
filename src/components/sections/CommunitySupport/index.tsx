@@ -39,12 +39,13 @@ const CommunitySupport: React.FC = () => {
       <div className="container">
         <div className="community-support__layout">
           {/* Left side: Title + Timeline content */}
-          <div className="community-support__content">
-            <Typography variant="display-lg" as="h2" className="community-support__title">
-              Community support
-            </Typography>
+          <div className="community-support__content-wrapper">
+            <div className="community-support__content">
+              <Typography variant="display-lg" as="h2" className="community-support__title">
+                Community support
+              </Typography>
 
-            <div className="community-support__timeline-box">
+              <div className="community-support__timeline-box">
               <div className="community-support__timeline">
                 {timelineItems.map((item) => (
                   <div key={item.year} className="timeline-item">
@@ -71,23 +72,26 @@ const CommunitySupport: React.FC = () => {
               </div>
             </div>
 
-            <Button
-              variant="primary"
-              size="md"
-              rightIcon={<Icon name="arrow-right" size="lg" />}
-              className="community-support__view-all"
-            >
-              VIEW ALL
-            </Button>
+              <Button
+                variant="primary"
+                size="md"
+                rightIcon={<Icon name="arrow-right" size="lg" />}
+                className="community-support__view-all"
+              >
+                VIEW ALL
+              </Button>
+            </div>
           </div>
 
           {/* Right side: Decorative sculpture image */}
-          <div className="community-support__image" data-node-id="145:2253">
-            <img 
-              src="/images/community-support/sculpture.png"
-              alt="Classical sculpture with decorative elements"
-              className="community-support__image-content"
-            />
+          <div className="community-support__image-wrapper">
+            <div className="community-support__image" data-node-id="145:2253">
+              <img 
+                src="/images/community-support/sculpture.png"
+                alt="Classical sculpture with decorative elements"
+                className="community-support__image-content"
+              />
+            </div>
           </div>
         </div>
       </div>
