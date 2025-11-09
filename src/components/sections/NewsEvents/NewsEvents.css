@@ -327,6 +327,7 @@
   .news-card {
     flex: 0 0 737px;
     min-width: 737px;
+    background: #F2EFE7;
   }
 
   .news-card__image {
