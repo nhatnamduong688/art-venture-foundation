@@ -90,6 +90,7 @@
 }
 
 .news-card__title {
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.5;
@@ -117,6 +118,11 @@
   font-weight: 500;
   line-height: 2;
   color: #6B2128;
+}
+
+.news-events__view-all:hover {
+  background: none !important;
+  transform: none !important;
 }
 
 .news-events__view-all .ds-button__icon {
@@ -208,7 +214,7 @@
   }
 
   .news-card__title {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .news-events__view-all {
@@ -319,6 +325,10 @@
 
   .news-card__content {
     gap: 24px;
+  }
+
+  .news-card__title {
+    font-size: 30px;
   }
 
   .news-events__footer {

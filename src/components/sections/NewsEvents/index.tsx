@@ -22,7 +22,7 @@ const NewsEvents: React.FC = () => {
 
   // Base event data - will be repeated for scroll effect
   const baseEvent = {
-    title: "Gallery exhibition of A&V Foundation Mid 2025",
+    title: "Triển lãm Jackson Pollock tại Bảo tàng Picasso Paris",
     description: "Lorem ipsum dolor sit amet consectetur. Massa auctor justo lorem dictumst. Pharetra tincidunt dictumst sollicitudin ac. Cras purus non sed mus lorem dictumst. Tempor ac accumsan dui orci sit nibh tempor vulputate lorem. Tellus morbi amet felis lorem nisl at a lacus. Proin sed arcu enim dignissim. Gravida sed suscipit gravida sed arcu. Vitae tortor nulla vel fringilla. Eget dolor urna.",
     image: "/images/events/event-1.jpg"
   };
