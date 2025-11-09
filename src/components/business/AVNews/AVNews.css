@@ -65,7 +65,7 @@
   line-height: 2;
   color: #2E2E2E;
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .news-item__link:hover {
@@ -74,6 +74,46 @@
 
 .news-item__link svg {
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.news-item__link:hover svg {
+  transform: translateX(8px);
+}
+
+/* VIEW ALL BUTTON */
+.av-news__footer {
+  margin-top: 0; /* Will be set per breakpoint */
+}
+
+.av-news__view-all {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2;
+  color: #6B2128;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.av-news__view-all:hover {
+  opacity: 0.8;
+}
+
+.av-news__view-all svg {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.av-news__view-all:hover svg {
+  transform: translateX(12px);
 }
 
 /* ==================== TABLET (768px+) ==================== */
@@ -189,6 +229,14 @@
   .news-item__description {
     font-size: 16px;
     line-height: 2; /* Figma: leading-[2] */
+  }
+  
+  .av-news__footer {
+    margin-top: 75px; /* Figma: gap between grid and footer */
+  }
+  
+  .news-item__link {
+    font-size: 16px; /* Figma spec */
   }
   
   /* Figma exact heights */

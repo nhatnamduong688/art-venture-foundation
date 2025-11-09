@@ -11,8 +11,8 @@ const AVNews: React.FC = () => {
   const newsItems: NewsItem[] = [
     {
       id: 1,
-      title: "Lorem ipsum dolor sit amet",
-      description: "Lorem ipsum dolor sit amet consectetur. Ullamcorper risus neque mus at lectus. Diam tristique convallis egestas sed arcu. Urna metus natoque velit arcu lobortis nulla molestie nisi augue. Eu blandit commodo augue placerat at."
+      title: "Harvard Museum of Arts - Bộ sưu tập của Maurice Wertheim, Khóa 1906",
+      description: "Maurice Wertheim (1886–1950), tốt nghiệp Đại học Harvard khóa 1906, là một nhà đầu tư ngân hàng đến từ New York. Ông bắt đầu sưu tập bộ tác phẩm nghệ thuật nổi tiếng của mình vào những năm 1930, với các kiệt tác của những danh họa như Edgar Degas, Claude Monet, Pierre-Auguste Renoir, cũng như các nghệ sĩ đương đại thời đó như Aristide Maillol, Henri Matisse và Pablo Picasso."
     },
     {
       id: 2,
@@ -48,13 +48,21 @@ const AVNews: React.FC = () => {
                 <p className="news-item__description">{item.description}</p>
               </div>
               <button className="news-item__link">
-                <span>DETAIL</span>
+                <span>XEM CHI TIẾT</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </button>
             </div>
           ))}
+        </div>
+        <div className="av-news__footer">
+          <button className="av-news__view-all">
+            <span>VIEW ALL</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
         </div>
       </div>
     </section>
