@@ -74,14 +74,6 @@ const NewsEvents: React.FC = () => {
                       {item.description}
                     </Typography>
                   </div>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    rightIcon={<Icon name="arrow-right" size="md" />}
-                    className="news-card__link"
-                  >
-                    DETAIL
-                  </Button>
                 </div>
               </Card>
             ))}
