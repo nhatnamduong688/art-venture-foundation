@@ -1,19 +1,19 @@
 /**
  * Home Page
  * Main landing page with all sections
- * Using Hero component with responsive images (accurate Figma implementation)
+ * Using HeroWithContent component with overlapping layout (magazine-style)
  */
 
 import React from 'react';
 import { AVNews } from '../../components/business';
-import { Hero, ArtCollection, CommunitySupport, NewsEvents } from '../../components/sections';
+import { HeroWithContent, ArtCollection, CommunitySupport, NewsEvents } from '../../components/sections';
 import { Footer } from '../../design-system/organisms';
 
 const HomePage: React.FC = () => {
   return (
     <>
-      {/* Hero Section - Responsive images, Design System, Matches Figma exactly */}
-      <Hero />
+      {/* Hero Section - Overlapping content box between hero and sections */}
+      <HeroWithContent />
       
       {/* A&V News Section */}
       <AVNews />
