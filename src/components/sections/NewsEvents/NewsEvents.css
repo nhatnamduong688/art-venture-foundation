@@ -129,6 +129,11 @@
   transition: transform 0.3s ease !important;
 }
 
+.news-events__view-all .ds-icon {
+  width: 24px !important;
+  height: 24px !important;
+}
+
 .news-events__view-all:hover .ds-button__icon {
   transform: translateX(12px) !important;
 }
@@ -333,7 +338,8 @@
 
   .news-events__footer {
     max-width: 1064px;
-    padding-right: 0;
+    padding-left: 188px;
+    padding-right: 188px;
   }
 
   .news-events__spacer {
