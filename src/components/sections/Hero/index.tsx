@@ -48,9 +48,9 @@ const Hero: React.FC = () => {
           <img
             src="/images/hero/1440/hero-1440.jpg"
             alt="Museum gallery interior with classical sculptures and elegant architecture"
-            className="hero__bg-image"
+          className="hero__bg-image"
             loading="eager"
-          />
+        />
         </picture>
         <div className="hero__overlay"></div>
       </div>

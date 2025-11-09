@@ -46,9 +46,9 @@ const MuseumCard: React.FC<MuseumCardProps> = ({
             <img 
               src="/images/hero/1440/hero-1440.jpg"
               alt="Museum gallery interior with classical sculptures and elegant architecture"
-              className="museum-card__image"
+            className="museum-card__image"
               loading="eager"
-            />
+          />
           </picture>
         )}
       </div>

@@ -57,7 +57,8 @@ const ArtCollection: React.FC = () => {
     setSelectedArtwork(null);
   };
 
-  const artworks: Artwork[] = [
+  // Base artworks - 2 images available locally
+  const baseArtworks: Artwork[] = [
     {
       id: 1,
       title: "A Village in the fog",
@@ -67,7 +68,7 @@ const ArtCollection: React.FC = () => {
       phone: "0908111111",
       description: "Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien.",
       expandedContent: "Lorem ipsum dolor sit amet consectetur. Vitae sed iaculis urna posuere. Elit aliquam diam nulla id massa volutpat molestie vitae. Ipsum at mauris ornare dui. Tortor tincidunt at amet dictum. Maecenas a faucibus suscipit dignissim amet ac interdum.",
-      image: "https://www.figma.com/api/mcp/asset/05c08f23-ee99-49b0-8395-cb4a12168a66",
+      image: "/images/art-collection/village-in-fog.jpg",
       socialLinks: {
         facebook: "#",
         instagram: "#"
@@ -82,42 +83,20 @@ const ArtCollection: React.FC = () => {
       phone: "0908222222",
       description: "Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien.",
       expandedContent: "Lorem ipsum dolor sit amet consectetur. Vitae sed iaculis urna posuere. Elit aliquam diam nulla id massa volutpat molestie vitae. Ipsum at mauris ornare dui. Tortor tincidunt at amet dictum.",
-      image: "https://www.figma.com/api/mcp/asset/840776cc-c612-4915-bd81-f72315101480",
-      socialLinks: {
-        facebook: "#",
-        instagram: "#"
-      }
-    },
-    {
-      id: 3,
-      title: "The body",
-      artist: "VINH NGHI ARTIST",
-      artistAvatar: "https://i.pravatar.cc/150?img=8",
-      email: "vinhnghi@gmail.com",
-      phone: "0908333333",
-      description: "Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien.",
-      expandedContent: "Lorem ipsum dolor sit amet consectetur. Vitae sed iaculis urna posuere. Elit aliquam diam nulla id massa volutpat molestie vitae. Ipsum at mauris ornare dui.",
-      image: "https://www.figma.com/api/mcp/asset/ef2da4c7-8bfd-482c-b2ef-8b8559ed4895",
-      socialLinks: {
-        facebook: "#",
-        instagram: "#"
-      }
-    },
-    {
-      id: 4,
-      title: "The Portrait",
-      artist: "ANH THY ARTIST",
-      artistAvatar: "https://i.pravatar.cc/150?img=10",
-      email: "anhthy@gmail.com",
-      phone: "0908444444",
-      description: "Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien.",
-      expandedContent: "Lorem ipsum dolor sit amet consectetur. Vitae sed iaculis urna posuere. Elit aliquam diam nulla id massa volutpat molestie vitae.",
-      image: "https://www.figma.com/api/mcp/asset/27944a8c-727a-4bd6-a4bc-8eac10788c59",
+      image: "/images/art-collection/road-in-rain.jpg",
       socialLinks: {
         facebook: "#",
         instagram: "#"
       }
     }
+  ];
+
+  // Repeat the 2 images to create scrollable list (2 images x 4 times = 8 cards)
+  const artworks: Artwork[] = [
+    ...baseArtworks,
+    ...baseArtworks.map(art => ({ ...art, id: art.id + 2 })),
+    ...baseArtworks.map(art => ({ ...art, id: art.id + 4 })),
+    ...baseArtworks.map(art => ({ ...art, id: art.id + 6 }))
   ];
 
   return (
