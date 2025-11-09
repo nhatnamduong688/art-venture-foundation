@@ -37,13 +37,13 @@ const CommunitySupport: React.FC = () => {
   return (
     <section className="community-support section">
       <div className="container">
-        <Typography variant="display-lg" as="h2" className="community-support__title">
-          Community support
-        </Typography>
-
         <div className="community-support__layout">
-          {/* Left side: Timeline content */}
+          {/* Left side: Title + Timeline content */}
           <div className="community-support__content">
+            <Typography variant="display-lg" as="h2" className="community-support__title">
+              Community support
+            </Typography>
+
             <div className="community-support__timeline-box">
               <div className="community-support__timeline">
                 {timelineItems.map((item) => (
