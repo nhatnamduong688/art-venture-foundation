@@ -228,6 +228,7 @@
   line-height: 2;
   margin: 0;
   flex: 1;
+  color: white !important;
 }
 
 .artwork-card__icon {
@@ -261,6 +262,7 @@
   font-weight: 700;
   line-height: 2;
   margin: 0 0 8px 0;
+  color: white !important;
 }
 
 .artwork-card__description {
@@ -269,6 +271,7 @@
   line-height: 2;
   margin: 0;
   white-space: pre-wrap;
+  color: white !important;
 }
 
 /* Responsive spacing */
