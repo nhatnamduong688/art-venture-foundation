@@ -210,6 +210,7 @@
 
   .community-support__layout {
     gap: var(--spacing-10);
+    align-items: flex-start;
   }
 
   .community-support__content {
@@ -221,6 +222,7 @@
     flex: 0 0 400px;
     width: 400px;
     height: 675px;
+    margin-top: -110px; /* Align with title top: -(title height 60px + margin-bottom 50px) */
   }
 
   .community-support__timeline {
@@ -254,6 +256,7 @@
 
   .community-support__layout {
     gap: 85px;
+    align-items: flex-start;
   }
 
   .community-support__content {
@@ -265,6 +268,7 @@
     flex: 0 0 515px;
     width: 515px;
     height: 869px;
+    margin-top: -135px; /* Align with title top: -(title height 60px + margin-bottom 75px) */
   }
 
   .community-support__timeline-box {
@@ -320,6 +324,7 @@
     flex: 0 0 550px;
     width: 550px;
     height: 920px;
+    margin-top: -135px; /* Align with title top: -(title height 60px + margin-bottom 75px) */
   }
 
   .timeline-item {
