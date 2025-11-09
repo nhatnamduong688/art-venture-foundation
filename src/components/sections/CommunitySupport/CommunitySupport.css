@@ -254,6 +254,10 @@
     padding: 0 187px 116px 187px;
   }
 
+  .community-support .container {
+    max-width: none; /* Remove container width limit */
+  }
+
   .community-support__title {
     margin-top: 94px;
     margin-bottom: 75px;
