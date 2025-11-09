@@ -66,8 +66,6 @@ const HeroWithContent: React.FC<HeroWithContentProps> = ({
               </svg>
             </div>
           </button>
-          {/* Border đỏ phía dưới */}
-          <div className="hero-with-content__border"></div>
         </div>
       </div>
 

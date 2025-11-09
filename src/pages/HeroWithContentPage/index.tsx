@@ -18,12 +18,12 @@ const HeroWithContentPage: React.FC = () => {
       
       {/* You can add more sections below here */}
       <div className="hero-with-content-page__info">
-        <h3>📌 Component Structure:</h3>
-        <ul>
-          <li>✅ Hero background with responsive images (1440px, 1920px, 2200px)</li>
-          <li>✅ Content box overlay (title, description, button, border)</li>
-          <li>✅ Empty space below for additional content</li>
-        </ul>
+        {/*<h3>📌 Component Structure:</h3>*/}
+        {/*<ul>*/}
+        {/*  <li>✅ Hero background with responsive images (1440px, 1920px, 2200px)</li>*/}
+        {/*  <li>✅ Content box overlay (title, description, button, border)</li>*/}
+        {/*  <li>✅ Empty space below for additional content</li>*/}
+        {/*</ul>*/}
       </div>
     </div>
   );
