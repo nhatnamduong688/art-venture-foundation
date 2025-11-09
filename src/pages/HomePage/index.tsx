@@ -15,17 +15,17 @@ const HomePage: React.FC = () => {
       {/* Hero Section - Overlapping content box between hero and sections */}
       <HeroWithContent />
       
-      {/* A&V News Section */}
-      <AVNews />
-      
       {/* Art Collection Section */}
       <ArtCollection />
       
       {/* Community Support Section */}
       <CommunitySupport />
       
-      {/* News & Events Section */}
+      {/* A&V Foundation Events Section */}
       <NewsEvents />
+      
+      {/* A&V News Section */}
+      <AVNews />
       
       {/* Footer */}
       <Footer />
