@@ -43,7 +43,7 @@ const Sidebar: React.FC = () => {
         <div className="sidebar__top">
           <a href="/" className="sidebar__logo" aria-label="Home">
             <img 
-              src="/images/logo/av-logo.jpg" 
+              src="/images/logo/av-logo.svg" 
               alt="AV Foundation" 
               className="sidebar__logo-img"
             />

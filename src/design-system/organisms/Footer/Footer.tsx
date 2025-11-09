@@ -116,7 +116,7 @@ export const Footer: React.FC = () => {
 
         <div className="ds-footer__logo">
           <img
-            src="/images/logo/av-logo.jpg"
+            src="/images/logo/av-logo.svg"
             alt="AV Foundation"
             className="ds-footer__logo-img"
           />
