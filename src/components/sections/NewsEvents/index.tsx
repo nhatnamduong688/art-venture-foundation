@@ -20,20 +20,18 @@ interface NewsItem {
 const NewsEvents: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const newsItems: NewsItem[] = [
-    {
-      id: 1,
-      title: "Gallery exhibition of A&V Foundation Mid 2025",
-      description: "Lorem ipsum dolor sit amet consectetur. Massa auctor justo lorem dictumst. Pharetra tincidunt dictumst sollicitudin ac. Cras purus non sed mus lorem dictumst. Tempor ac accumsan dui orci sit nibh tempor vulputate lorem. Tellus morbi amet felis lorem nisl at a lacus. Proin sed arcu enim dignissim. Gravida sed suscipit gravida sed arcu. Vitae tortor nulla vel fringilla. Eget dolor urna.",
-      image: "https://www.figma.com/api/mcp/asset/50f46b7d-54e6-4097-882a-ca9bf49ff6e8"
-    },
-    {
-      id: 2,
-      title: "Gallery exhibition of A&V Foundation 2025",
-      description: "Lorem ipsum dolor sit amet consectetur. Sagittis suspendisse placerat fermentum quam suspendisse. Maecenas non nibh in at. Aliquam vitae aliquam et tellus mattis tincidunt nam ut pharetra. Amet pellentesque morbi ornare tortor interdum. Urna lorem pharetra eget gravida.",
-      image: "https://www.figma.com/api/mcp/asset/313b7350-9354-4a66-9d6e-a98b8e1f2ff6"
-    }
-  ];
+  // Base event data - will be repeated for scroll effect
+  const baseEvent = {
+    title: "Gallery exhibition of A&V Foundation Mid 2025",
+    description: "Lorem ipsum dolor sit amet consectetur. Massa auctor justo lorem dictumst. Pharetra tincidunt dictumst sollicitudin ac. Cras purus non sed mus lorem dictumst. Tempor ac accumsan dui orci sit nibh tempor vulputate lorem. Tellus morbi amet felis lorem nisl at a lacus. Proin sed arcu enim dignissim. Gravida sed suscipit gravida sed arcu. Vitae tortor nulla vel fringilla. Eget dolor urna.",
+    image: "/images/events/event-1.jpg"
+  };
+
+  // Repeat the event 6 times for horizontal scroll
+  const newsItems: NewsItem[] = Array.from({ length: 6 }, (_, index) => ({
+    id: index + 1,
+    ...baseEvent
+  }));
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
