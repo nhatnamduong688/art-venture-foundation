@@ -130,7 +130,7 @@
 }
 
 .news-events__view-all:hover .ds-button__icon {
-  transform: translateX(8px) !important;
+  transform: translateX(12px) !important;
 }
 
 .news-events__navigation {
