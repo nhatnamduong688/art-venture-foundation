@@ -1,7 +1,7 @@
 /* ==================== BASE STYLES (Mobile First) ==================== */
 .community-support {
   background: #F4F3F1;
-  padding: var(--spacing-10) var(--spacing-4);
+  padding: var(--spacing-10) var(--spacing-4) 0 var(--spacing-4);
 }
 
 .community-support__title {
@@ -142,7 +142,7 @@
 /* ==================== TABLET (768px+) ==================== */
 @media (min-width: 768px) {
   .community-support {
-    padding: 60px var(--spacing-10);
+    padding: 60px var(--spacing-10) 0 var(--spacing-10);
   }
 
   .community-support__title {
@@ -201,7 +201,7 @@
 /* ==================== DESKTOP (1024px+) ==================== */
 @media (min-width: 1024px) {
   .community-support {
-    padding: 80px 40px;
+    padding: 80px 40px 0 40px;
   }
 
   .community-support__title {
@@ -247,7 +247,7 @@
 /* ==================== WIDE (1440px+) ==================== */
 @media (min-width: 1440px) {
   .community-support {
-    padding: 120px 188px;
+    padding: 120px 188px 0 188px;
   }
 
   .community-support__title {
@@ -308,7 +308,7 @@
 /* ==================== ULTRA (1920px+) ==================== */
 @media (min-width: 1920px) {
   .community-support {
-    padding: 140px 220px;
+    padding: 140px 220px 0 220px;
   }
 
   .community-support__layout {
