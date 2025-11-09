@@ -372,22 +372,24 @@
   }
 
   .art-collection {
-    padding: 84px 59px; /* Figma spec: 84px top/bottom, 59px left/right */
+    padding: 84px 0 84px 188px; /* Consistent 188px left padding */
   }
   
   .art-collection__grid {
-    margin-left: -59px;
-    margin-right: -59px;
-    padding-left: 59px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
     padding-right: 0; /* Flush to right edge */
   }
   
   .art-collection__intro {
     margin-bottom: 22px;
+    padding-right: 188px;
   }
   
   .art-collection__footer {
     margin-top: 16px;
+    padding-right: 188px;
   }
 
   .artwork-card__image {

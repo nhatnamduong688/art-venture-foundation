@@ -251,7 +251,7 @@
 /* ==================== WIDE (1440px+) ==================== */
 @media (min-width: 1440px) {
   .community-support {
-    padding: 0 0 116px 187px; /* No padding-right, image flush to right edge */
+    padding: 0 0 116px 188px; /* 188px left padding for consistency */
   }
 
   .community-support .container {
