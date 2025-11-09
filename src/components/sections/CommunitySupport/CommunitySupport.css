@@ -251,13 +251,13 @@
   }
 
   .community-support__title {
-    margin-top: 94px;
     margin-bottom: 75px;
   }
 
   .community-support__layout {
     gap: 94px;
     align-items: flex-start;
+    padding-top: 94px; /* Left side content starts 94px from top */
   }
 
   .community-support__content {
@@ -269,7 +269,7 @@
     flex: 0 0 515px;
     width: 515px;
     height: 869px;
-    margin-top: -135px; /* Align with title top: -(title height 60px + margin-bottom 75px) */
+    margin-top: -229px; /* Pull up to align with title top: -(padding-top 94px + title height 60px + margin-bottom 75px) */
   }
 
   .community-support__timeline-box {
