@@ -338,8 +338,8 @@
 
   .news-events__footer {
     max-width: 1064px;
-    padding-left: 188px;
-    padding-right: 188px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .news-events__spacer {
