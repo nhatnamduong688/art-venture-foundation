@@ -4,6 +4,7 @@
  */
 
 export { default as Hero } from './Hero';
+export { default as HeroWithContent } from './HeroWithContent';
 export { default as About } from './About';
 export { default as ArtCollection } from './ArtCollection';
 export { default as NewsEvents } from './NewsEvents';

@@ -1,0 +1,36 @@
+.hero-with-content-page {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.hero-with-content-page__info {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  background: #f9f9f9;
+}
+
+.hero-with-content-page__info h3 {
+  font-family: 'Big Caslon', serif;
+  font-size: 28px;
+  color: #6B2128;
+  margin-bottom: 20px;
+}
+
+.hero-with-content-page__info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.hero-with-content-page__info li {
+  font-size: 16px;
+  line-height: 2;
+  color: #2E2E2E;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.hero-with-content-page__info li:last-child {
+  border-bottom: none;
+}
+
