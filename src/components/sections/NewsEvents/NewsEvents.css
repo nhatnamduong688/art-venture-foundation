@@ -313,6 +313,7 @@
 
   .news-events__content {
     gap: 16px;
+    background: #F2EFE7;
   }
 
   .news-events__grid {
