@@ -84,7 +84,7 @@ const CommunitySupport: React.FC = () => {
           {/* Right side: Decorative sculpture image */}
           <div className="community-support__image" data-node-id="145:2253">
             <img 
-              src="https://www.figma.com/api/mcp/asset/095c8c88-addd-493c-a59a-92eaf0a36253"
+              src="/images/community-support/sculpture.png"
               alt="Classical sculpture with decorative elements"
               className="community-support__image-content"
             />
