@@ -167,13 +167,28 @@
   .av-news__grid {
     grid-template-columns: repeat(3, 304px);
     grid-template-rows: repeat(2, auto);
-    gap: 75px 75px;
+    gap: 42px 75px; /* Figma: row gap 42px, column gap 75px */
     justify-content: flex-start;
   }
   
   .news-item {
     width: 304px;
     max-width: none;
+    gap: 24px; /* Figma: gap between content and link */
+  }
+  
+  .news-item__content {
+    gap: 17px; /* Figma: gap between title and description */
+  }
+  
+  .news-item__title {
+    font-size: 20px;
+    line-height: 1.5; /* Figma: leading-[1.5] */
+  }
+  
+  .news-item__description {
+    font-size: 16px;
+    line-height: 2; /* Figma: leading-[2] */
   }
   
   /* Figma exact heights */
