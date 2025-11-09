@@ -184,16 +184,28 @@
 /* ==================== TABLET (768px+) ==================== */
 @media (min-width: 768px) {
   .news-events {
-    padding: 60px var(--spacing-10);
+    padding: 60px 0 60px var(--spacing-10);
+  }
+
+  .news-events .container {
+    max-width: none;
+    padding-right: 0;
   }
 
   .news-events__title {
     font-size: 36px;
     margin-bottom: var(--spacing-12);
+    padding-right: var(--spacing-10);
   }
 
   .news-events__grid {
     gap: var(--spacing-8);
+    margin-right: 0;
+    padding-right: 0;
+  }
+  
+  .news-events__footer {
+    padding-right: 0;
   }
 
   .news-events__spacer {
@@ -238,12 +250,23 @@
 /* ==================== DESKTOP (1024px+) ==================== */
 @media (min-width: 1024px) {
   .news-events {
-    padding: 80px 60px;
+    padding: 80px 0 80px 60px;
+  }
+
+  .news-events .container {
+    max-width: none;
+    padding-right: 0;
   }
 
   .news-events__title {
     font-size: 48px;
     margin-bottom: 60px;
+    padding-right: 60px;
+  }
+
+  .news-events__grid {
+    margin-right: 0;
+    padding-right: 0;
   }
 
   .news-card {
@@ -256,6 +279,7 @@
     align-items: center;
     justify-content: space-between;
     max-width: 100%;
+    padding-right: 0;
   }
 
   .news-events__navigation {
@@ -281,12 +305,18 @@
 /* ==================== WIDE (1440px+) ==================== */
 @media (min-width: 1440px) {
   .news-events {
-    padding: 120px 188px;
+    padding: 120px 0 120px 188px;
+  }
+
+  .news-events .container {
+    max-width: none;
+    padding-right: 0;
   }
 
   .news-events__title {
     font-size: 60px;
     margin-bottom: 75px;
+    padding-right: 188px;
   }
 
   .news-events__content {
@@ -295,6 +325,8 @@
 
   .news-events__grid {
     gap: 32px;
+    margin-right: 0;
+    padding-right: 0;
   }
 
   .news-card {
@@ -317,6 +349,7 @@
 
   .news-events__footer {
     max-width: 1064px;
+    padding-right: 0;
   }
 
   .news-events__spacer {
@@ -328,12 +361,23 @@
 /* ==================== ULTRA (1920px+) ==================== */
 @media (min-width: 1920px) {
   .news-events {
-    padding: 140px 220px;
+    padding: 140px 0 140px 220px;
+  }
+
+  .news-events .container {
+    max-width: none;
+    padding-right: 0;
   }
 
   .news-events__title {
     font-size: 70px;
     margin-bottom: 90px;
+    padding-right: 220px;
+  }
+
+  .news-events__grid {
+    margin-right: 0;
+    padding-right: 0;
   }
 
   .news-card {
@@ -343,6 +387,7 @@
 
   .news-events__footer {
     max-width: 1200px;
+    padding-right: 0;
   }
 
   .news-events__spacer {
