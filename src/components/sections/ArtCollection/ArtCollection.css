@@ -94,6 +94,11 @@
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
+  /* Full width - break out of container */
+  margin-left: calc(-1 * var(--spacing-4));
+  margin-right: calc(-1 * var(--spacing-4));
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
 }
 
 .art-collection__grid::-webkit-scrollbar {
@@ -281,6 +286,13 @@
     padding: 60px var(--spacing-10);
   }
   
+  .art-collection__grid {
+    margin-left: calc(-1 * var(--spacing-10));
+    margin-right: calc(-1 * var(--spacing-10));
+    padding-left: var(--spacing-10);
+    padding-right: var(--spacing-10);
+  }
+  
   .art-collection__header {
     margin-bottom: 60px;
   }
@@ -314,6 +326,13 @@
 @media (min-width: 1024px) {
   .art-collection {
     padding: 80px 40px;
+  }
+  
+  .art-collection__grid {
+    margin-left: -40px;
+    margin-right: -40px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
   
   .art-collection__intro {
@@ -356,6 +375,13 @@
     padding: 84px 59px; /* Figma spec: 84px top/bottom, 59px left/right */
   }
   
+  .art-collection__grid {
+    margin-left: -59px;
+    margin-right: -59px;
+    padding-left: 59px;
+    padding-right: 59px;
+  }
+  
   .art-collection__intro {
     margin-bottom: 22px;
   }
@@ -373,6 +399,13 @@
 @media (min-width: 1920px) {
   .art-collection {
     padding: 140px 220px;
+  }
+  
+  .art-collection__grid {
+    margin-left: -220px;
+    margin-right: -220px;
+    padding-left: 220px;
+    padding-right: 220px;
   }
   
   .art-collection__intro {
