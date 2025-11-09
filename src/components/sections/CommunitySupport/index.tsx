@@ -71,15 +71,6 @@ const CommunitySupport: React.FC = () => {
                 ))}
               </div>
             </div>
-
-              <Button
-                variant="primary"
-                size="md"
-                rightIcon={<Icon name="arrow-right" size="lg" />}
-                className="community-support__view-all"
-              >
-                VIEW ALL
-              </Button>
             </div>
           </div>
 
