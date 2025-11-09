@@ -47,6 +47,12 @@
   transition: transform 0.3s ease;
 }
 
+.art-collection__footer button:hover {
+  background: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
 .art-collection__footer button:hover .ds-button__icon {
   transform: translateX(12px);
 }
