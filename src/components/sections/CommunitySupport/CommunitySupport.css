@@ -247,7 +247,7 @@
 /* ==================== WIDE (1440px+) ==================== */
 @media (min-width: 1440px) {
   .community-support {
-    padding: 0 188px 116px 188px;
+    padding: 0 187px 116px 187px;
   }
 
   .community-support__title {
@@ -255,7 +255,7 @@
   }
 
   .community-support__layout {
-    gap: 85px;
+    gap: 94px;
     align-items: flex-start;
   }
 
