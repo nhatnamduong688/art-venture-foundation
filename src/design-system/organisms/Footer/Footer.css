@@ -264,10 +264,10 @@
 @media (min-width: 1440px) {
   .ds-footer {
     background: rgba(200, 147, 44, 0.1); /* Figma: beige/gold tint */
-    padding: 36px 0 36px 188px; /* Top 36px, Right 0 (flush), Bottom 36px, Left 188px */
+    padding: 0 0 0 188px; /* No top/bottom padding, logo flush. Left 188px for content */
     min-height: 628px; /* Figma spec: to contain full logo */
     position: relative;
-    overflow: visible; /* Allow watermark to extend */
+    overflow: hidden; /* Contain logo within footer bounds */
   }
 
   .ds-footer__container {
@@ -280,7 +280,8 @@
     position: relative;
     z-index: 1; /* Above watermark */
     width: 100%;
-    padding-right: 188px; /* Add padding to container for spacing from logo */
+    padding: 36px 188px 36px 0; /* Top/Bottom 36px for content, Right 188px spacing */
+    min-height: 628px; /* Match footer height */
   }
 
   .ds-footer__content {
