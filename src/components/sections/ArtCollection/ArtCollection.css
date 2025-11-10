@@ -98,8 +98,8 @@
 }
 
 .art-collection__nav-button:hover {
-  color: #6B2128; /* Burgundy red on hover */
-  background: rgba(255, 255, 255, 0.95);
+  background: #6B2128; /* Burgundy red background on hover */
+  color: #FFFFFF; /* White icon on hover for contrast */
   transform: scale(1.05);
 }
 
