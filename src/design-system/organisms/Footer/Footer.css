@@ -287,10 +287,10 @@
   .ds-footer__content {
     flex: 0 0 auto; /* Don't grow, natural width */
     max-width: 800px; /* Limit content width */
-    /*gap: 100px; !* Reduced gap to fit in 628px height *!*/
+    justify-content: space-between; /* Distribute children evenly */
     position: relative;
     z-index: 1; /* Above watermark */
-    /*padding-bottom: 36px; !* Figma: 36px from bottom edge *!*/
+    padding-bottom: 36px; /* Figma: 36px from bottom edge */
   }
 
   .ds-footer__main {
