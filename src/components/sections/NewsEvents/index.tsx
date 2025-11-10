@@ -23,7 +23,7 @@ const NewsEvents: React.FC = () => {
   // Base event data - will be repeated for scroll effect
   const baseEvent = {
     title: "Triển lãm Jackson Pollock tại Bảo tàng Picasso Paris",
-    description: "Lorem ipsum dolor sit amet consectetur. Massa auctor justo lorem dictumst. Pharetra tincidunt dictumst sollicitudin ac. Cras purus non sed mus lorem dictumst. Tempor ac accumsan dui orci sit nibh tempor vulputate lorem. Tellus morbi amet felis lorem nisl at a lacus. Proin sed arcu enim dignissim. Gravida sed suscipit gravida sed arcu. Vitae tortor nulla vel fringilla. Eget dolor urna.",
+      description: "Lorem ipsum dolor sit amet consectetur. Massa auctor justo lorem dictumst. Pharetra tincidunt dictumst sollicitudin ac. Cras purus non sed mus lorem dictumst. Tempor ac accumsan dui orci sit nibh tempor vulputate lorem. Tellus morbi amet felis lorem nisl at a lacus. Proin sed arcu enim dignissim. Gravida sed suscipit gravida sed arcu. Vitae tortor nulla vel fringilla. Eget dolor urna.",
     image: "/images/events/event-1.jpg"
   };
 
@@ -66,9 +66,9 @@ const NewsEvents: React.FC = () => {
                   className="news-card__image"
                 />
                 <div className="news-card__content">
-                  <Typography variant="h3" as="h3" className="news-card__title">
-                    {item.title}
-                  </Typography>
+                    <Typography variant="h3" as="h3" className="news-card__title">
+                      {item.title}
+                    </Typography>
                 </div>
               </Card>
             ))}

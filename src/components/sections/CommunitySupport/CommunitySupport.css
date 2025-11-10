@@ -256,12 +256,14 @@
 
   .community-support .container {
     max-width: none; /* Remove container width limit */
+    padding-left: 0 !important; /* Force remove container padding-left */
     padding-right: 0; /* Remove container padding-right for flush right edge */
   }
 
   .community-support__title {
     margin-top: 94px;
     margin-bottom: 42px;
+    color: #732231; /* Burgundy red for consistency */
   }
 
   .community-support__layout {

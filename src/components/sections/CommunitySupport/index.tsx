@@ -36,11 +36,11 @@ const CommunitySupport: React.FC = () => {
           {/* Left side: Title + Timeline content */}
           <div className="community-support__content-wrapper">
             <div className="community-support__content">
-              <Typography variant="display-lg" as="h2" className="community-support__title">
-                Community support
-              </Typography>
+        <Typography variant="display-lg" as="h2" className="community-support__title">
+          Community support
+        </Typography>
 
-              <div className="community-support__timeline-box">
+            <div className="community-support__timeline-box">
               <div className="community-support__timeline">
                 {timelineItems.map((item) => (
                   <div key={item.year} className="timeline-item">
@@ -53,15 +53,15 @@ const CommunitySupport: React.FC = () => {
                       </Typography>
 
                       {item.activities.length > 0 && (
-                        <div className="timeline-item__activities">
-                          {item.activities.map((activity, activityIndex) => (
-                            <div key={activityIndex} className="activity-item">
-                              <Typography variant="body-sm" weight="medium" className="activity-item__text">
-                                {activity}
-                              </Typography>
-                            </div>
-                          ))}
-                        </div>
+                      <div className="timeline-item__activities">
+                        {item.activities.map((activity, activityIndex) => (
+                          <div key={activityIndex} className="activity-item">
+                            <Typography variant="body-sm" weight="medium" className="activity-item__text">
+                              {activity}
+                            </Typography>
+                          </div>
+                        ))}
+                      </div>
                       )}
                     </div>
                   </div>
@@ -73,12 +73,12 @@ const CommunitySupport: React.FC = () => {
 
           {/* Right side: Decorative sculpture image */}
           <div className="community-support__image-wrapper">
-            <div className="community-support__image" data-node-id="145:2253">
-              <img 
+          <div className="community-support__image" data-node-id="145:2253">
+            <img 
                 src="/images/community-support/sculpture.png"
-                alt="Classical sculpture with decorative elements"
-                className="community-support__image-content"
-              />
+              alt="Classical sculpture with decorative elements"
+              className="community-support__image-content"
+            />
             </div>
           </div>
         </div>
