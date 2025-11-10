@@ -265,8 +265,11 @@
   .ds-footer {
     background: rgba(200, 147, 44, 0.1); /* Figma: beige/gold tint */
     padding: 36px 188px; /* Figma exact specs */
+    min-height: 628px; /* Figma spec: to contain full logo */
     position: relative;
-    overflow: hidden; /* Contain watermark */
+    overflow: visible; /* Allow watermark to extend */
+    display: flex;
+    align-items: center; /* Center content vertically */
   }
 
   .ds-footer__container {
@@ -380,10 +383,10 @@
 
   .ds-footer__logo {
     position: absolute;
-    right: -50px; /* Extend slightly beyond for visual effect */
+    right: 50px; /* Position inside footer for visibility */
     top: 50%; /* Center vertically */
     transform: translateY(-50%);
-    opacity: 0.3; /* Temporarily HIGH to see it clearly - will adjust per user request */
+    opacity: 1; /* MAX opacity for testing - clearly visible */
     pointer-events: none;
     z-index: 0; /* Behind all content */
   }
