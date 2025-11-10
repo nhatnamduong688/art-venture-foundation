@@ -1,17 +1,17 @@
-# News Page Images
+# A&V News Page Images
 
-This folder contains images for news articles on the News page (`/news`).
+This folder contains images for the A&V News page (`/av-news` route).
 
 ## Current Structure
 
-The News page has **7 news articles** displayed in a list format.
+The A&V News page (NewsPage component) has **7 news articles** displayed in a vertical list format.
 
 ## Image Requirements
 
 ### Recommended Specs:
 - **Format**: JPG or WebP
-- **Dimensions**: ~600-800px width (horizontal/landscape orientation)
-- **Aspect Ratio**: 16:9 or similar (for consistent display)
+- **Dimensions**: ~400-600px width (smaller than events)
+- **Aspect Ratio**: Square or slightly wide
 - **Quality**: 80-90% for good balance
 - **File naming**: `news-1.jpg`, `news-2.jpg`, etc.
 
@@ -24,7 +24,10 @@ The News page has **7 news articles** displayed in a list format.
 ## Current Status
 
 📁 Folder created and ready for images!
-⏳ Waiting for 7 news images...
+⏳ Waiting for A&V News images...
 
-**Note:** You can upload all 7 images, or fewer if you want to repeat some images. If you have more than 7, we can add more articles to the list.
+**Note:** You can upload all 7 images, or fewer if you want to repeat some images. These are different from the Events images.
 
+## Route Clarification
+- `/news` → EventsPage (A&V Foundation Events) ✅ Done
+- `/av-news` → NewsPage (A&V News) ⏳ This folder
