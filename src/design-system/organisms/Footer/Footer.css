@@ -263,15 +263,128 @@
 /* ==================== WIDE (1440px+) ==================== */
 @media (min-width: 1440px) {
   .ds-footer {
-    padding: var(--spacing-20) var(--spacing-48); /* 80px 192px */
+    background: rgba(200, 147, 44, 0.1); /* Figma: beige/gold tint */
+    padding: 36px 188px; /* Figma exact specs */
   }
 
-  .ds-footer__links {
-    gap: var(--spacing-16);
+  .ds-footer__container {
+    max-width: none; /* Full width with padding */
+    gap: 227px; /* Figma: gap between content and logo */
+  }
+
+  .ds-footer__content {
+    flex: 1;
+    gap: 227px; /* Figma: gap from main to bottom */
+  }
+
+  .ds-footer__main {
+    gap: 56px; /* Figma: gap between sections */
+  }
+
+  .ds-footer__info {
+    max-width: 737px; /* Figma spec */
+    gap: 13px; /* Figma: title to contact gap */
+  }
+
+  .ds-footer__title {
+    font-size: 18px; /* Figma */
+    font-weight: 500;
+    line-height: 1.5;
+    color: #2E2E2E;
+  }
+
+  .ds-footer__contact {
+    gap: 0; /* Line-height handles spacing */
+    padding-bottom: 3px; /* Figma spec */
+  }
+
+  .ds-footer__contact p {
+    font-size: 16px; /* Figma */
+    line-height: 2; /* Figma */
+    color: #2E2E2E;
+  }
+
+  .ds-footer__email-link {
+    color: #2E2E2E;
+    text-decoration: underline;
+    text-underline-position: from-font;
+  }
+
+  .ds-footer__email-link:hover {
+    color: #6B2128;
+  }
+
+  .ds-footer__social {
+    gap: 24px; /* Figma spec */
+    margin-top: 0; /* Already handled by parent gap */
+  }
+
+  .ds-footer__social-link {
+    width: 16px;
+    height: 16px;
+    background: transparent; /* No background circle */
+    border-radius: 0;
+  }
+
+  .ds-footer__social-link:hover {
+    background: transparent;
+    opacity: 0.7;
+    transform: none;
+  }
+
+  .ds-footer__section {
+    gap: 21px; /* Figma: title to content gap */
+  }
+
+  .ds-footer__section-title {
+    font-size: 18px; /* Figma */
+    font-weight: 500;
+    line-height: 1.5;
+    color: #2E2E2E;
+  }
+
+  .ds-footer__section-content {
+    gap: 0; /* Line-height handles spacing */
+    padding-bottom: 3px; /* Figma spec */
+  }
+
+  .ds-footer__link {
+    font-size: 16px; /* Figma */
+    line-height: 2;
+    color: #2E2E2E;
+    text-decoration: underline; /* Figma: all links underlined */
+    text-underline-position: from-font;
+    text-transform: lowercase; /* Figma: all lowercase */
+  }
+
+  .ds-footer__link:hover {
+    color: #6B2128;
+  }
+
+  .ds-footer__bottom {
+    border-top: none; /* No border in Figma */
+    padding-top: 0; /* Handled by parent gap */
+  }
+
+  .ds-footer__copyright {
+    font-size: 16px; /* Figma */
+    line-height: 2;
+    color: #2E2E2E;
+  }
+
+  .ds-footer__logo {
+    position: absolute;
+    right: -174px; /* Figma: left: 720px from 1440px width */
+    top: -28px; /* Figma spec */
+    opacity: 0.02; /* Figma spec */
+    pointer-events: none;
   }
 
   .ds-footer__logo-img {
-    width: 300px;
+    width: 914px; /* Figma spec */
+    height: 914px;
+    object-fit: cover;
+    object-position: 50% 50%;
   }
 }
 

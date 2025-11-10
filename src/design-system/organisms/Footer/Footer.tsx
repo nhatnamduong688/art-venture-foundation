@@ -17,17 +17,17 @@ export const Footer: React.FC = () => {
           <div className="ds-footer__main">
             <div className="ds-footer__info">
               <Typography variant="h4" as="h3" className="ds-footer__title">
-                Art & Venture Foundation
+                Arts & Venture Foundation (AVF)
               </Typography>
               <div className="ds-footer__contact">
                 <Typography variant="body-sm" as="p">
-                  15 Nguyễn Thị Minh Khai, Phường Đa Kao, Tp. HCM
+                  A: 5/F Building 112 Tu Hoa, Tay Ho, Hanoi
                 </Typography>
                 <Typography variant="body-sm" as="p">
-                  T: 028 8293 2343
+                  A: 25/F D' Le Roi Soleil, 59 Xuan Dieu, Tay Ho, Hanoi
                 </Typography>
                 <Typography variant="body-sm" as="p">
-                  E: ArtVenture@gmail.com
+                  E: <a href="mailto:info@avfoundation.com.vn" className="ds-footer__email-link">info@avfoundation.com.vn</a>
                 </Typography>
               </div>
               <div className="ds-footer__social">
@@ -57,6 +57,15 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                 >
                   <Icon name="twitter" size="md" />
+                </a>
+                <a
+                  href="https://tiktok.com"
+                  className="ds-footer__social-link"
+                  aria-label="TikTok"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon name="tiktok" size="md" />
                 </a>
               </div>
             </div>
@@ -116,7 +125,7 @@ export const Footer: React.FC = () => {
 
         <div className="ds-footer__logo">
           <img
-            src="/images/logo/av-logo.svg"
+            src="/images/footer/av-logo-watermark.svg"
             alt="AV Foundation"
             className="ds-footer__logo-img"
           />
