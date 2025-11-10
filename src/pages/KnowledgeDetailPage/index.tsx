@@ -26,10 +26,10 @@ const KnowledgeDetailPage: React.FC = () => {
   const knowledgeData: Record<string, KnowledgeData> = {
     museums: {
       id: 'museums',
-      icon: '🏛️',
+      icon: '/images/knowledge/icons/museums.svg',
       title: 'Arts Museums at Vietnam',
       description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed. Cum nec morbi posuere in hendrerit semper a ac massa. Blandit enim eu mauris lacus accumsan. Sit integer magna purus tincidunt in ipsum. Egestas nam nec suscipit dignissim tincidunt ac. Consequat volutpat odio tortor a nulla volutpat vehicula quis pharetra. Orci cursus consectetur vitae sit pulvinar tellus. Amet tortor.',
-      image: 'https://images.unsplash.com/photo-1566127444032-b726a4cb9754?w=1200',
+      image: '/images/knowledge/heroes/museums.jpg',
       tabs: ['Vietnam', 'World'],
       items: [
         {
@@ -48,10 +48,76 @@ const KnowledgeDetailPage: React.FC = () => {
     },
     schools: {
       id: 'schools',
-      icon: '🎓',
+      icon: '/images/knowledge/icons/schools.svg',
       title: 'Art Schools',
       description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed. Cum nec morbi posuere in hendrerit semper a ac massa. Blandit enim eu mauris lacus accumsan. Sit integer magna purus tincidunt in ipsum.',
-      image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=1200',
+      image: '/images/knowledge/heroes/schools.jpg',
+      tabs: ['Vietnam', 'World'],
+      items: [
+        {
+          title: 'Lorem ipsum dolor sit amet consectetur',
+          description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed.'
+        },
+        {
+          title: 'Lorem ipsum dolor sit amet consectetur',
+          description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed.'
+        },
+        {
+          title: 'Lorem ipsum dolor sit amet consectetur',
+          description: 'Lorem ipsum dolor sit amet consectetur. Duis pretium sollicitudin etiam montes diam quam morbi.'
+        }
+      ]
+    },
+    books: {
+      id: 'books',
+      icon: '/images/knowledge/icons/books.svg',
+      title: 'Art Books',
+      description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed. Cum nec morbi posuere in hendrerit semper a ac massa. Blandit enim eu mauris lacus accumsan. Sit integer magna purus tincidunt in ipsum.',
+      image: '/images/knowledge/heroes/books.jpg',
+      tabs: ['Vietnam', 'World'],
+      items: [
+        {
+          title: 'Lorem ipsum dolor sit amet consectetur',
+          description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed.'
+        },
+        {
+          title: 'Lorem ipsum dolor sit amet consectetur',
+          description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed.'
+        },
+        {
+          title: 'Lorem ipsum dolor sit amet consectetur',
+          description: 'Lorem ipsum dolor sit amet consectetur. Duis pretium sollicitudin etiam montes diam quam morbi.'
+        }
+      ]
+    },
+    magazines: {
+      id: 'magazines',
+      icon: '/images/knowledge/icons/magazines.svg',
+      title: 'Art Magazines',
+      description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed. Cum nec morbi posuere in hendrerit semper a ac massa. Blandit enim eu mauris lacus accumsan. Sit integer magna purus tincidunt in ipsum.',
+      image: '/images/knowledge/heroes/magazines.jpg',
+      tabs: ['Vietnam', 'World'],
+      items: [
+        {
+          title: 'Lorem ipsum dolor sit amet consectetur',
+          description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed.'
+        },
+        {
+          title: 'Lorem ipsum dolor sit amet consectetur',
+          description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed.'
+        },
+        {
+          title: 'Lorem ipsum dolor sit amet consectetur',
+          description: 'Lorem ipsum dolor sit amet consectetur. Duis pretium sollicitudin etiam montes diam quam morbi.'
+        }
+      ]
+    },
+    spaces: {
+      id: 'spaces',
+      icon: '/images/knowledge/icons/spaces.svg',
+      title: 'Art Spaces & Galleries',
+      description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed. Cum nec morbi posuere in hendrerit semper a ac massa. Blandit enim eu mauris lacus accumsan. Sit integer magna purus tincidunt in ipsum.',
+      image: '/images/knowledge/heroes/spaces.jpg',
       tabs: ['Vietnam', 'World'],
       items: [
         {
@@ -84,7 +150,9 @@ const KnowledgeDetailPage: React.FC = () => {
 
         {/* Header */}
         <div className="knowledge-detail-header">
-          <div className="knowledge-detail-icon">{data.icon}</div>
+          <div className="knowledge-detail-icon">
+            <img src={data.icon} alt={data.title} />
+          </div>
           
           <div className="knowledge-detail-tabs">
             {data.tabs.map((tab, index) => (
