@@ -9,7 +9,7 @@
   position: relative;
   background: var(--color-bg-white);
   padding: var(--spacing-8) var(--spacing-4); /* 32px 16px mobile */
-  margin-top: var(--spacing-12); /* Smaller margin on mobile */
+  /*margin-top: var(--spacing-12); !* Smaller margin on mobile *!*/
 }
 
 .ds-footer__container {
@@ -99,7 +99,7 @@
 .ds-footer__section {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-3); /* Smaller gap on mobile */
+  /*gap: var(--spacing-3); !* Smaller gap on mobile *!*/
 }
 
 .ds-footer__section-title {
@@ -112,7 +112,7 @@
 .ds-footer__section-content {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2);
+  /*gap: var(--spacing-2);*/
 }
 
 .ds-footer__link {
@@ -197,7 +197,7 @@
   }
 
   .ds-footer__section {
-    gap: var(--spacing-4);
+    /*gap: var(--spacing-4);*/
   }
 
   .ds-footer__section-title {
@@ -287,10 +287,10 @@
   .ds-footer__content {
     flex: 0 0 auto; /* Don't grow, natural width */
     max-width: 800px; /* Limit content width */
-    gap: 100px; /* Reduced gap to fit in 628px height */
+    /*gap: 100px; !* Reduced gap to fit in 628px height *!*/
     position: relative;
     z-index: 1; /* Above watermark */
-    padding-bottom: 36px; /* Figma: 36px from bottom edge */
+    /*padding-bottom: 36px; !* Figma: 36px from bottom edge *!*/
   }
 
   .ds-footer__main {
@@ -306,7 +306,7 @@
   .ds-footer__links {
     display: flex;
     flex-direction: column; /* Stack links sections vertically */
-    gap: 56px; /* Figma: vertical gap between link sections */
+    gap: 21px; /* Figma: vertical gap between link sections */
   }
 
   .ds-footer__title {
@@ -356,7 +356,7 @@
   }
 
   .ds-footer__section {
-    gap: 21px; /* Figma: title to content gap */
+    /*gap: 21px; !* Figma: title to content gap *!*/
   }
 
   .ds-footer__section-title {
