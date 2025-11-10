@@ -163,9 +163,12 @@ const ArtCollection: React.FC = () => {
 
         {/* Figma spec: VIEW ALL + Navigation buttons */}
         <div className="art-collection__footer">
-          <Button variant="primary" size="md" rightIcon={<Icon name="arrow-right" size="lg" />}>
-            VIEW ALL
-          </Button>
+          <button className="art-collection__view-all">
+            <span>VIEW ALL</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
 
           <div className="art-collection__navigation">
             <button

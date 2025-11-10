@@ -42,18 +42,34 @@
   margin-top: var(--spacing-10);
 }
 
-/* VIEW ALL button hover effect */
-.art-collection__footer .ds-button__icon {
+/* VIEW ALL button - clean style like NewsEvents */
+.art-collection__view-all {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2;
+  color: #6B2128;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.art-collection__view-all:hover {
+  opacity: 0.8;
+}
+
+.art-collection__view-all svg {
+  flex-shrink: 0;
   transition: transform 0.3s ease;
 }
 
-.art-collection__footer button:hover {
-  background: none !important;
-  transform: none !important;
-  box-shadow: none !important;
-}
-
-.art-collection__footer button:hover .ds-button__icon {
+.art-collection__view-all:hover svg {
   transform: translateX(12px);
 }
 
