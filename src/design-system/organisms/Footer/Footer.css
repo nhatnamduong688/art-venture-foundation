@@ -392,6 +392,7 @@
     font-size: 16px; /* Figma */
     line-height: 2;
     color: #2E2E2E;
+    margin-bottom: 36px; /* Figma: 36px from bottom edge */
   }
 
   .ds-footer__logo {
