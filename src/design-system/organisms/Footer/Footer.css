@@ -290,6 +290,7 @@
     gap: 100px; /* Reduced gap to fit in 628px height */
     position: relative;
     z-index: 1; /* Above watermark */
+    padding-bottom: 36px; /* Figma: 36px from bottom edge */
   }
 
   .ds-footer__main {
@@ -392,7 +393,6 @@
     font-size: 16px; /* Figma */
     line-height: 2;
     color: #2E2E2E;
-    margin-bottom: 36px; /* Figma: 36px from bottom edge */
   }
 
   .ds-footer__logo {
