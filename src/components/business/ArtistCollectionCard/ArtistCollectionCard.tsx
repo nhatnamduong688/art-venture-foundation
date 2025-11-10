@@ -15,22 +15,24 @@ export interface ArtworkImage {
   id: number;
   url: string;
   alt: string;
+  artist: ArtistInfo; // Each artwork has its own artist info
 }
 
 export interface ArtistCollectionCardProps {
-  artist: ArtistInfo;
-  artworks: ArtworkImage[];
+  artworks: ArtworkImage[]; // Array of artworks, each with artist info
   onDetailClick?: () => void;
   className?: string;
 }
 
 const ArtistCollectionCard: React.FC<ArtistCollectionCardProps> = ({
-  artist,
   artworks,
   onDetailClick,
   className = ''
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Get current artist info based on current slide
+  const currentArtist = artworks[currentSlide]?.artist;
 
   // Auto-advance slider every 5 seconds
   React.useEffect(() => {
@@ -46,14 +48,14 @@ const ArtistCollectionCard: React.FC<ArtistCollectionCardProps> = ({
       className={`artist-collection-card ${className}`}
       data-node-id="427:1643"
     >
-      {/* Left: Artist Info Panel */}
+      {/* Left: Artist Info Panel - Changes with slider */}
       <div className="artist-collection-card__info">
         <div className="artist-collection-card__header">
           {/* Avatar */}
           <div className="artist-collection-card__avatar">
             <img 
-              src={artist.avatar} 
-              alt={artist.name}
+              src={currentArtist?.avatar} 
+              alt={currentArtist?.name}
             />
           </div>
           
@@ -64,14 +66,14 @@ const ArtistCollectionCard: React.FC<ArtistCollectionCardProps> = ({
               weight="semibold"
               className="artist-collection-card__name"
             >
-              {artist.name}
+              {currentArtist?.name}
             </Typography>
             <Typography 
               variant="body-sm" 
               weight="medium"
               className="artist-collection-card__count"
             >
-              {artist.artworkCount} Tác phẩm
+              {currentArtist?.artworkCount} Tác phẩm
             </Typography>
           </div>
         </div>
@@ -81,7 +83,7 @@ const ArtistCollectionCard: React.FC<ArtistCollectionCardProps> = ({
           variant="body-md"
           className="artist-collection-card__description"
         >
-          {artist.description}
+          {currentArtist?.description}
         </Typography>
       </div>
 

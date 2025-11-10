@@ -18,29 +18,40 @@ const CollectionPage: React.FC = () => {
   const [activeMainTab, setActiveMainTab] = useState<'new' | 'key'>('new');
   const [activeFilter, setActiveFilter] = useState<string>('all');
 
-  // Artist data for ArtistCollectionCard
-  const artistInfo: ArtistInfo = {
-    name: "Đào Hải Phong",
-    avatar: "https://www.figma.com/api/mcp/asset/1b7bd1fe-54e5-430d-b9c5-ed72937f1f51",
-    artworkCount: 23,
-    description: "Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed."
-  };
-
+  // Artist data for ArtistCollectionCard - each artwork has its own artist
   const artistArtworks: ArtworkImage[] = [
     {
       id: 1,
       url: "/images/collection/new-creation/artwork-1.jpg",
-      alt: "Artwork by Đào Hải Phong - Image 1"
+      alt: "Artwork by Đào Hải Phong",
+      artist: {
+        name: "Đào Hải Phong",
+        avatar: "/images/collection/artists/dao-hai-phong.png",
+        artworkCount: 23,
+        description: "Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed."
+      }
     },
     {
       id: 2,
       url: "/images/collection/new-creation/artwork-2.jpg",
-      alt: "Artwork by Đào Hải Phong - Image 2"
+      alt: "Artwork by Nguyễn Phan Chánh",
+      artist: {
+        name: "Nguyễn Phan Chánh",
+        avatar: "/images/collection/artists/nguyen-phan-chanh.png",
+        artworkCount: 14,
+        description: "Lorem ipsum dolor sit amet consectetur. Tristique quis diam viverra duis pellentesque scelerisque sit tellus proin. Ac gravida senectus condimentum."
+      }
     },
     {
       id: 3,
       url: "/images/collection/new-creation/artwork-3.jpg",
-      alt: "Artwork by Đào Hải Phong - Image 3"
+      alt: "Artwork by Nguyễn Tư Nghiêm",
+      artist: {
+        name: "Nguyễn Tư Nghiêm",
+        avatar: "/images/collection/artists/nguyen-tu-nghiem.png",
+        artworkCount: 56,
+        description: "Lorem ipsum dolor sit amet consectetur. Hac tincidunt semper scelerisque eu cras eget urna. Aliquet scelerisque eu non pellentesque tellus nibh in non. Tempus vitae at elementum nunc mattis pharetra eget a. Nisl massa."
+      }
     }
   ];
 
@@ -135,7 +146,6 @@ const CollectionPage: React.FC = () => {
             
             {/* Figma Design Artist Collection Card */}
             <ArtistCollectionCard
-              artist={artistInfo}
               artworks={artistArtworks}
               onDetailClick={() => console.log('Detail clicked')}
             />
