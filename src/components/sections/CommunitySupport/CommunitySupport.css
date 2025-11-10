@@ -294,7 +294,7 @@
   }
 
   .community-support__timeline-box {
-    padding: 42px 42px 42px 0;
+    padding: 42px 42px 42px 0; /* No left padding */
   }
 
   .community-support__timeline {

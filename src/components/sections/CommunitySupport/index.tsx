@@ -18,19 +18,14 @@ interface TimelineItem {
 const CommunitySupport: React.FC = () => {
   const timelineItems: TimelineItem[] = [
     {
-      year: "2024",
-      description: "Lorem ipsum dolor sit amet consectetur. Viverra magna sed adipiscing eu scelerisque malesuada. Dignissim porttitor ac ut mauris. Tincidunt sed at quam vel id molestie cras in. Quis cursus cursus in fusce etiam sagittis non convallis. Tortor libero posuere sit velit et magnis consectetur. Mauris sed ultricies donec a adipiscing elit nisl vel.",
-      activities: [
-        "Art exhibition Ho Chi Minh CIty",
-        "Give a scholarship"
-      ]
+      year: "Giải thưởng Victor Tardieu",
+      description: 'Ra đời trong bối cảnh kỷ niệm một thế kỷ truyền thống của Trường Mỹ thuật Đông Dương – Trường Đại học Mỹ thuật Việt Nam, Giải thưởng Victor Tardieu mang trong mình tinh thần "Trăm năm hội tụ, khai mở tương lai". Giải thưởng được đặt theo tên Victor Tardieu – họa sĩ người Pháp, đồng thời là hiệu trưởng đầu tiên của Trường Mỹ thuật Đông Dương, người đã đặt nền móng cho nền giáo dục mỹ thuật hiện đại tại Việt Nam.',
+      activities: []
     },
     {
-      year: "2025",
-      description: "Lorem ipsum dolor sit amet consectetur. Ullamcorper risus neque mus at lectus. Diam tristique convallis egestas sed arcu.",
-      activities: [
-        "Give a scholarship"
-      ]
+      year: "Giải thưởng Con đường Thiên Lý",
+      description: 'Cuộc thi Giải thưởng Con Đường Thiên Lý (Mandarine Road Prize) chính thức được phát động! "Giải thưởng Con đường Thiên Lý" (Prix de la route Mandarine) được tổ chức hàng năm với mục tiêu tôn vinh hai sinh viên Việt Nam chuyên ngành mỹ thuật, giúp họ bước những bước đầu tiên vào thị trường nghệ thuật quốc tế thông qua một buổi triển lãm tại Paris.',
+      activities: []
     }
   ];
 
@@ -57,15 +52,17 @@ const CommunitySupport: React.FC = () => {
                         {item.description}
                       </Typography>
 
-                      <div className="timeline-item__activities">
-                        {item.activities.map((activity, activityIndex) => (
-                          <div key={activityIndex} className="activity-item">
-                            <Typography variant="body-sm" weight="medium" className="activity-item__text">
-                              {activity}
-                            </Typography>
-                          </div>
-                        ))}
-                      </div>
+                      {item.activities.length > 0 && (
+                        <div className="timeline-item__activities">
+                          {item.activities.map((activity, activityIndex) => (
+                            <div key={activityIndex} className="activity-item">
+                              <Typography variant="body-sm" weight="medium" className="activity-item__text">
+                                {activity}
+                              </Typography>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
