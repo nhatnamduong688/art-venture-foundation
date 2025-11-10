@@ -98,6 +98,7 @@
 }
 
 .art-collection__nav-button:hover {
+  color: #6B2128; /* Burgundy red on hover */
   background: rgba(255, 255, 255, 0.95);
   transform: scale(1.05);
 }
