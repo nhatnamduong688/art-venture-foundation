@@ -392,8 +392,8 @@
   }
 
   .ds-footer__logo-img {
-    width: 600px; /* Large watermark */
-    height: auto;
+    width: auto;
+    height: 628px; /* Match footer height exactly - logo natural size */
     object-fit: contain;
   }
 }
