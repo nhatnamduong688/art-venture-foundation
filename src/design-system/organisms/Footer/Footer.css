@@ -380,16 +380,16 @@
 
   .ds-footer__logo {
     position: absolute;
-    right: -100px; /* Extend slightly beyond footer for visual effect */
+    right: -50px; /* Extend slightly beyond for visual effect */
     top: 50%; /* Center vertically */
     transform: translateY(-50%);
-    opacity: 0.02; /* Figma spec: very subtle watermark */
+    opacity: 0.3; /* Temporarily HIGH to see it clearly - will adjust per user request */
     pointer-events: none;
     z-index: 0; /* Behind all content */
   }
 
   .ds-footer__logo-img {
-    width: 700px; /* Large watermark */
+    width: 600px; /* Large watermark */
     height: auto;
     object-fit: contain;
   }
