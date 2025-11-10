@@ -29,17 +29,17 @@ const CollectionPage: React.FC = () => {
   const artistArtworks: ArtworkImage[] = [
     {
       id: 1,
-      url: "https://www.figma.com/api/mcp/asset/4f38b31f-7444-40e8-823e-5664eafe8c72",
+      url: "/images/collection/new-creation/artwork-1.jpg",
       alt: "Artwork by Đào Hải Phong - Image 1"
     },
     {
       id: 2,
-      url: "https://www.figma.com/api/mcp/asset/05c08f23-ee99-49b0-8395-cb4a12168a66",
+      url: "/images/collection/new-creation/artwork-2.jpg",
       alt: "Artwork by Đào Hải Phong - Image 2"
     },
     {
       id: 3,
-      url: "https://www.figma.com/api/mcp/asset/840776cc-c612-4915-bd81-f72315101480",
+      url: "/images/collection/new-creation/artwork-3.jpg",
       alt: "Artwork by Đào Hải Phong - Image 3"
     }
   ];
