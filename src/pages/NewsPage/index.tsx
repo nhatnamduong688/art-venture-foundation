@@ -17,51 +17,51 @@ const NewsPage: React.FC = () => {
   const newsArticles: NewsArticle[] = [
     {
       id: 1,
-      title: "Lorem ipsum dolor sit amet consectetur",
+      title: "Gallery exhibition of A&V Foundation Mid 2025",
       description: "Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien.",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+      image: "/images/news/news-1.jpg",
       date: "15/10/2025"
     },
     {
       id: 2,
-      title: "Lorem ipsum dolor sit amet consectetur",
+      title: "Gallery exhibition of A&V Foundation Late 2024",
       description: "Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien.",
-      image: "https://www.figma.com/api/mcp/asset/05c08f23-ee99-49b0-8395-cb4a12168a66",
+      image: "/images/news/news-2.jpg",
       date: "15/10/2025"
     },
     {
       id: 3,
-      title: "Lorem ipsum dolor sit amet consectetur",
+      title: "Gallery exhibition of A&V Foundation Late 2023",
       description: "Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien.",
-      image: "https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?w=400",
+      image: "/images/news/news-3.jpg",
       date: "15/10/2025"
     },
     {
       id: 4,
-      title: "Lorem ipsum dolor sit amet consectetur",
+      title: "Gallery exhibition of A&V Foundation Mid 2023",
       description: "Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien.",
-      image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400",
+      image: "/images/news/news-1.jpg",
       date: "16/10/2025"
     },
     {
       id: 5,
-      title: "Lorem ipsum dolor sit amet consectetur",
+      title: "Gallery exhibition of A&V Foundation Early 2023",
       description: "Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien.",
-      image: "https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?w=400",
+      image: "/images/news/news-2.jpg",
       date: "16/10/2025"
     },
     {
       id: 6,
-      title: "Lorem ipsum dolor sit amet consectetur",
+      title: "Gallery exhibition of A&V Foundation Late 2022",
       description: "Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien.",
-      image: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=400",
+      image: "/images/news/news-3.jpg",
       date: "16/10/2025"
     },
     {
       id: 7,
-      title: "Lorem ipsum dolor sit amet consectetur",
+      title: "Gallery exhibition of A&V Foundation Mid 2022",
       description: "Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien.",
-      image: "https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=400",
+      image: "/images/news/news-1.jpg",
       date: "16/10/2025"
     }
   ];
