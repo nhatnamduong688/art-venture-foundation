@@ -11,8 +11,8 @@ const NewsDetailPage: React.FC = () => {
     id: id || '1',
     title: "Lorem ipsum dolor sit amet consectetur",
     subtitle: "Lorem ipsum dolor sit amet consectetur. Urna mauris amet ipsum risus pharetra mi nam turpis. Urna convallis cras nibh ullamcorper mi amet. Dolor sit sed accumsan et scelerisque sed quis.",
-    heroImage: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200",
-    contentImage: "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=800",
+    heroImage: "/images/news-detail/hero-1.jpg",
+    contentImage: "/images/news-detail/content-1.jpg",
     content: [
       "Lorem ipsum dolor sit amet consectetur. Massa turpis ullamcorper eget elementum feugiat sit quam dolor. Mauris in convallis interdum facilisis platea sapien. Scelerisque porttitor iaculis in mauris elementum eu vulputate. Viverra neque sit ridiculus orci amet quisque sodales sapien sollicitudin.",
       "Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed. Cum nec morbi posuere in hendrerit semper a ac massa. Blandit enim eu mauris lacus accumsan. Sit integer magna purus tincidunt in ipsum. Egestas nam nec suscipit dignissim tincidunt ac. Consequat volutpat odio tortor a nulla volutpat vehicula quis pharetra. Orci cursus consectetur vitae sit pulvinar tellus. Amet tortor.",
