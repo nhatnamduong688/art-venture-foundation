@@ -287,7 +287,8 @@
   }
 
   .ds-footer__main {
-    gap: 56px; /* Figma: gap between sections */
+    flex-direction: column; /* Stack vertically */
+    gap: 56px; /* Figma: gap between info and links sections */
   }
 
   .ds-footer__info {
