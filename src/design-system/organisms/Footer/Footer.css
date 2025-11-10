@@ -268,19 +268,23 @@
     min-height: 628px; /* Figma spec: to contain full logo */
     position: relative;
     overflow: visible; /* Allow watermark to extend */
-    display: flex;
-    align-items: center; /* Center content vertically */
   }
 
   .ds-footer__container {
     max-width: none; /* Full width with padding */
-    gap: 227px; /* Figma: gap between content and logo */
+    display: flex;
+    flex-direction: row; /* Horizontal: content left, logo right */
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 100px; /* Space between content and logo */
     position: relative;
     z-index: 1; /* Above watermark */
+    width: 100%;
   }
 
   .ds-footer__content {
-    flex: 1;
+    flex: 0 0 auto; /* Don't grow, natural width */
+    max-width: 800px; /* Limit content width */
     gap: 227px; /* Figma: gap from main to bottom */
     position: relative;
     z-index: 1; /* Above watermark */
@@ -294,6 +298,12 @@
   .ds-footer__info {
     max-width: 737px; /* Figma spec */
     gap: 13px; /* Figma: title to contact gap */
+  }
+
+  .ds-footer__links {
+    display: flex;
+    flex-direction: column; /* Stack links sections vertically */
+    gap: 56px; /* Figma: vertical gap between link sections */
   }
 
   .ds-footer__title {
@@ -383,19 +393,18 @@
   }
 
   .ds-footer__logo {
-    position: absolute;
-    right: 50px; /* Position inside footer for visibility */
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%);
-    opacity: 1; /* MAX opacity for testing - clearly visible */
+    flex: 0 0 auto; /* Don't shrink */
+    position: relative; /* Change from absolute to relative */
+    opacity: 1; /* Figma spec: subtle watermark */
     pointer-events: none;
-    z-index: 0; /* Behind all content */
+    z-index: 0; /* Behind content */
   }
 
   .ds-footer__logo-img {
     width: auto;
     height: 628px; /* Match footer height exactly - logo natural size */
     object-fit: contain;
+    display: block;
   }
 }
 
