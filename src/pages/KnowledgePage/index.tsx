@@ -23,10 +23,10 @@ const KnowledgePage: React.FC = () => {
   const categories: KnowledgeCategory[] = [
     {
       id: 'museums',
-      iconImage: 'https://www.figma.com/api/mcp/asset/1b48eeca-fcf2-45ee-9802-7086dca83698',
+      iconImage: '/images/knowledge/icons/museums.svg',
       title: 'Arts Museums',
       description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed. Cum nec morbi posuere in hendrerit semper a ac massa. Blandit enim eu mauris lacus accumsan.',
-      heroImage: 'https://www.figma.com/api/mcp/asset/6663a454-8d88-4953-a432-e529f5bd3da7',
+      heroImage: '/images/knowledge/heroes/museums.jpg',
       items: [
         {
           title: 'Lorem ipsum dolor sit amet consectetur',
@@ -44,10 +44,10 @@ const KnowledgePage: React.FC = () => {
     },
     {
       id: 'schools',
-      iconImage: 'https://www.figma.com/api/mcp/asset/a384b0d5-95c7-47fe-aec3-97efbdd51cc6',
+      iconImage: '/images/knowledge/icons/schools.svg',
       title: 'Art Schools',
       description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed. Cum nec morbi posuere in hendrerit semper a ac massa. Blandit enim eu mauris lacus accumsan. Sit integer magna purus tincidunt in ipsum.',
-      heroImage: 'https://www.figma.com/api/mcp/asset/328cf02a-f11a-4671-b3fc-816f10287aa5',
+      heroImage: '/images/knowledge/heroes/schools.jpg',
       items: [
         {
           title: 'Lorem ipsum dolor sit amet consectetur',
@@ -65,10 +65,10 @@ const KnowledgePage: React.FC = () => {
     },
     {
       id: 'books',
-      iconImage: 'https://www.figma.com/api/mcp/asset/4707f37d-787d-4103-9dfd-761c45aa16e9',
+      iconImage: '/images/knowledge/icons/books.svg',
       title: 'Art Books',
       description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed. Cum nec morbi posuere in hendrerit semper a ac massa. Blandit enim eu mauris lacus accumsan. Sit integer magna purus tincidunt in ipsum.',
-      heroImage: 'https://www.figma.com/api/mcp/asset/281789cf-5f1b-43ba-b8fe-1b07f852b24a',
+      heroImage: '/images/knowledge/heroes/books.jpg',
       items: [
         {
           title: 'Lorem ipsum dolor sit amet consectetur',
@@ -86,10 +86,10 @@ const KnowledgePage: React.FC = () => {
     },
     {
       id: 'magazines',
-      iconImage: 'https://www.figma.com/api/mcp/asset/1ffea390-c544-4321-99d6-9bc45fcae8d4',
+      iconImage: '/images/knowledge/icons/magazines.svg',
       title: 'Art Magazines',
       description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed. Cum nec morbi posuere in hendrerit semper a ac massa. Blandit enim eu mauris lacus accumsan. Sit integer magna purus tincidunt in ipsum.',
-      heroImage: 'https://www.figma.com/api/mcp/asset/32d88e15-40ba-4760-9f8f-1df75786bcb6',
+      heroImage: '/images/knowledge/heroes/magazines.jpg',
       items: [
         {
           title: 'Lorem ipsum dolor sit amet consectetur',
@@ -107,10 +107,10 @@ const KnowledgePage: React.FC = () => {
     },
     {
       id: 'spaces',
-      iconImage: 'https://www.figma.com/api/mcp/asset/eaf2996d-4bad-49df-909c-a458505f0451',
+      iconImage: '/images/knowledge/icons/spaces.svg',
       title: 'Art Spaces & Galleries',
       description: 'Lorem ipsum dolor sit amet consectetur. Pellentesque viverra adipiscing vel dignissim elementum sed. Cum nec morbi posuere in hendrerit semper a ac massa. Blandit enim eu mauris lacus accumsan. Sit integer magna purus tincidunt in ipsum.',
-      heroImage: 'https://www.figma.com/api/mcp/asset/b0de7d39-6b61-4203-9524-4125a9a9f645',
+      heroImage: '/images/knowledge/heroes/spaces.jpg',
       items: [
         {
           title: 'Lorem ipsum dolor sit amet consectetur',
