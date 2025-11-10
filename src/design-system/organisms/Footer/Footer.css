@@ -264,7 +264,7 @@
 @media (min-width: 1440px) {
   .ds-footer {
     background: rgba(200, 147, 44, 0.1); /* Figma: beige/gold tint */
-    padding: 36px 188px; /* Figma exact specs */
+    padding: 36px 188px 36px 188px; /* Figma: 36px all around, 188px sides */
     min-height: 628px; /* Figma spec: to contain full logo */
     position: relative;
     overflow: visible; /* Allow watermark to extend */
