@@ -285,12 +285,12 @@
   }
 
   .ds-footer__content {
-    flex: 0 0 auto; /* Don't grow, natural width */
+    flex: 1; /* Grow to fill container height */
     max-width: 800px; /* Limit content width */
     justify-content: space-between; /* Distribute children evenly */
     position: relative;
     z-index: 1; /* Above watermark */
-    padding-bottom: 36px; /* Figma: 36px from bottom edge */
+    height: 100%; /* Fill full container height for space-between to work */
   }
 
   .ds-footer__main {
