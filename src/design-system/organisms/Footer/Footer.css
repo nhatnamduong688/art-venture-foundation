@@ -396,9 +396,10 @@
 
   .ds-footer__logo {
     flex: 0 0 auto; /* Don't shrink */
-    position: absolute; /* Position absolutely to right edge */
+    position: absolute; /* Position absolutely to edges */
     right: 0; /* Flush to right edge */
-    top: 0; /* Align to top */
+    top: 0; /* Flush to top edge */
+    bottom: 0; /* Flush to bottom edge */
     opacity: 1; /* User set to 1 for visibility */
     pointer-events: none;
     z-index: 0; /* Behind content */
@@ -406,7 +407,7 @@
 
   .ds-footer__logo-img {
     width: auto;
-    height: 628px; /* Match footer height exactly - logo natural size */
+    height: 100%; /* Full height from top to bottom */
     object-fit: contain;
     display: block;
   }
