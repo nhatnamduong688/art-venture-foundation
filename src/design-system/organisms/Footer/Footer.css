@@ -310,6 +310,7 @@
   }
 
   .ds-footer__title {
+    font-family: 'Big Caslon', 'Playfair Display', serif; /* Serif font for title */
     font-size: 18px; /* Figma */
     font-weight: 500;
     line-height: 1.5;
