@@ -1,0 +1,30 @@
+# News Page Images
+
+This folder contains images for news articles on the News page (`/news`).
+
+## Current Structure
+
+The News page has **7 news articles** displayed in a list format.
+
+## Image Requirements
+
+### Recommended Specs:
+- **Format**: JPG or WebP
+- **Dimensions**: ~600-800px width (horizontal/landscape orientation)
+- **Aspect Ratio**: 16:9 or similar (for consistent display)
+- **Quality**: 80-90% for good balance
+- **File naming**: `news-1.jpg`, `news-2.jpg`, etc.
+
+## How to Add Images
+
+1. Export 7 news article images from Figma
+2. Save them to this folder with names `news-1.jpg` through `news-7.jpg`
+3. I'll update the NewsPage component to reference these local paths
+
+## Current Status
+
+📁 Folder created and ready for images!
+⏳ Waiting for 7 news images...
+
+**Note:** You can upload all 7 images, or fewer if you want to repeat some images. If you have more than 7, we can add more articles to the list.
+
