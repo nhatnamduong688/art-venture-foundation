@@ -8,7 +8,7 @@
 .ds-footer {
   position: relative;
   background: var(--color-bg-white);
-  padding: var(--spacing-8) var(--spacing-4); /* 32px 16px mobile */
+  padding: var(--spacing-8) var(--container-padding-right) var(--spacing-8) var(--container-padding-left); /* Using dynamic padding variables */
   /*margin-top: var(--spacing-12); !* Smaller margin on mobile *!*/
 }
 
@@ -159,7 +159,7 @@
 /* ==================== TABLET (768px+) ==================== */
 @media (min-width: 768px) {
   .ds-footer {
-    padding: var(--spacing-12) var(--spacing-6); /* 48px 24px */
+    padding: var(--spacing-12) var(--container-padding-right) var(--spacing-12) var(--container-padding-left); /* Using dynamic padding variables */
     margin-top: var(--spacing-16);
   }
 
@@ -224,7 +224,7 @@
 /* ==================== DESKTOP (1024px+) ==================== */
 @media (min-width: 1024px) {
   .ds-footer {
-    padding: var(--spacing-16) var(--spacing-12); /* 64px 48px */
+    padding: var(--spacing-16) var(--container-padding-right) var(--spacing-16) var(--container-padding-left); /* Using dynamic padding variables */
     margin-top: var(--spacing-20);
   }
 
@@ -264,7 +264,7 @@
 @media (min-width: 1440px) {
   .ds-footer {
     background: rgba(200, 147, 44, 0.1); /* Figma: beige/gold tint */
-    padding: 0 0 0 188px; /* No top/bottom padding, logo flush. Left 188px for content */
+    padding: 0 0 0 var(--container-padding-left); /* Using dynamic padding variable */
     height: 628px; /* Figma spec: EXACT height to match logo */
     position: relative;
     overflow: hidden; /* Contain logo within footer bounds */
@@ -281,7 +281,7 @@
     position: relative;
     z-index: 1; /* Above watermark */
     width: 100%;
-    padding: 36px 188px 36px 0; /* Top/Bottom 36px for content, Right 188px spacing */
+    padding: 36px var(--container-padding-right) 36px 0; /* Using dynamic padding variable for right */
     height: 628px; /* Exact height to match footer and logo */
   }
 
@@ -413,6 +413,61 @@
     height: 100%; /* Full height from top to bottom */
     object-fit: contain;
     display: block;
+  }
+}
+
+/* ==================== ULTRA (1920px+) ==================== */
+@media (min-width: 1920px) {
+  .ds-footer {
+    padding: 0 0 0 var(--container-padding-left); /* 131px at 1920px */
+  }
+
+  .ds-footer__container {
+    padding: 36px var(--container-padding-right) 36px 0; /* 131px right at 1920px */
+  }
+}
+
+/* ==================== EXTRA LARGE (2200px+) ==================== */
+@media (min-width: 2200px) {
+  .ds-footer {
+    padding: 0 0 0 var(--container-padding-left); /* 171px at 2200px */
+  }
+
+  .ds-footer__container {
+    padding: 36px var(--container-padding-right) 36px 0; /* 171px right at 2200px */
+  }
+}
+
+/* ==================== SUPER LARGE (2560px+) - QHD/2K ==================== */
+@media (min-width: 2560px) {
+  .ds-footer {
+    padding: 0 0 0 var(--container-padding-left); /* 220px at 2560px */
+  }
+
+  .ds-footer__container {
+    padding: 40px var(--container-padding-right) 40px 0; /* 220px right at 2560px */
+  }
+}
+
+/* ==================== ULTRA WIDE (3440px+) ==================== */
+@media (min-width: 3440px) {
+  .ds-footer {
+    padding: 0 0 0 var(--container-padding-left); /* 300px at 3440px */
+  }
+
+  .ds-footer__container {
+    padding: 48px var(--container-padding-right) 48px 0; /* 300px right at 3440px */
+  }
+}
+
+/* ==================== 4K (3840px+) ==================== */
+@media (min-width: 3840px) {
+  .ds-footer {
+    padding: 0 0 0 var(--container-padding-left); /* 350px at 3840px */
+  }
+
+  .ds-footer__container {
+    padding: 56px var(--container-padding-right) 56px 0; /* 350px right at 3840px */
   }
 }
 
