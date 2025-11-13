@@ -72,13 +72,6 @@ const NewsEvents: React.FC = () => {
                     <Typography variant="body-md" className="news-card__description">
                       {item.description}
                     </Typography>
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      className="news-card__details-button"
-                    >
-                      Details
-                    </Button>
                 </div>
               </Card>
             ))}

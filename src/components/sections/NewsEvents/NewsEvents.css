@@ -114,17 +114,12 @@
   font-weight: 400;
   line-height: 200%; /* 32px */
   color: #2E2E2E;
-  margin: 0 0 24px 0; /* 24px gap between description and button */
+  margin: 0; /* No bottom margin needed */
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.news-card__details-button {
-  align-self: flex-start;
-  margin: 0;
 }
 
 .news-events__footer {
@@ -260,7 +255,6 @@
   .news-card__description {
     font-size: 16px;
     line-height: 200%;
-    margin-bottom: 24px; /* Keep consistent 24px gap */
   }
 
   .news-events__view-all {
@@ -395,7 +389,6 @@
   .news-card__description {
     font-size: 16px;
     line-height: 200%;
-    margin-bottom: 24px; /* Keep consistent 24px gap */
   }
 
   .news-events__footer {
@@ -455,7 +448,6 @@
   .news-card__description {
     font-size: 16px;
     line-height: 200%;
-    margin-bottom: 24px; /* Keep consistent 24px gap */
   }
 
   .news-events__footer {
@@ -503,7 +495,6 @@
   .news-card__description {
     font-size: 16px;
     line-height: 200%;
-    margin-bottom: 24px; /* Keep consistent 24px gap */
   }
 
   .news-events__footer {
