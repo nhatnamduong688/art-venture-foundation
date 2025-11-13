@@ -16,11 +16,11 @@
 .ds-header__container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start; /* Left align */
   height: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 var(--spacing-4); /* 16px mobile */
+  max-width: none; /* Full width */
+  margin: 0;
+  padding: 0 var(--container-padding-right) 0 var(--container-padding-left); /* Using design system variables */
   box-sizing: border-box;
 }
 
@@ -175,7 +175,7 @@
   }
 
   .ds-header__container {
-    padding: 0 var(--spacing-5); /* 20px */
+    padding: 0 var(--container-padding-right) 0 var(--container-padding-left); /* Using design system variables */
   }
 
   .ds-header__nav {
@@ -203,7 +203,7 @@
   }
 
   .ds-header__container {
-    padding: 0 var(--spacing-10); /* 40px */
+    padding: 0 var(--container-padding-right) 0 var(--container-padding-left); /* Using design system variables */
   }
 
   .ds-header__nav {
@@ -240,7 +240,7 @@
 /* ==================== WIDE (1440px+) ==================== */
 @media (min-width: 1440px) {
   .ds-header__container {
-    padding: 0 60px 0 32px; /* Figma spec: 60px left, 32px right (asymmetric) */
+    padding: 0 var(--container-padding-right) 0 var(--container-padding-left); /* Using design system variables for consistent alignment */
   }
 
   .ds-header__nav {

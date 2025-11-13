@@ -357,13 +357,13 @@
 /* ==================== DESKTOP (1024px+) ==================== */
 @media (min-width: 1024px) {
   .art-collection {
-    padding: 80px 40px;
+    padding: 80px var(--container-padding-right) 80px var(--container-padding-left);
   }
   
   .art-collection__grid {
-    margin-left: -40px;
-    margin-right: -40px;
-    padding-left: 40px;
+    margin-left: calc(-1 * var(--container-padding-left));
+    margin-right: calc(-1 * var(--container-padding-right));
+    padding-left: var(--container-padding-left);
     padding-right: 0; /* Flush to right edge */
   }
   
@@ -404,7 +404,7 @@
   }
 
   .art-collection {
-    padding: 84px 0 84px 188px; /* Consistent 188px left padding */
+    padding: 84px 0 84px var(--container-padding-left); /* Using dynamic padding */
   }
   
   .art-collection__grid {
@@ -416,12 +416,12 @@
   
   .art-collection__intro {
     margin-bottom: 22px;
-    padding-right: 188px;
+    padding-right: var(--container-padding-left);
   }
   
   .art-collection__footer {
     margin-top: 16px;
-    padding-right: 188px;
+    padding-right: var(--container-padding-left);
   }
 
   .artwork-card__image {
@@ -432,13 +432,13 @@
 /* ==================== ULTRA (1920px+) ==================== */
 @media (min-width: 1920px) {
   .art-collection {
-    padding: 140px 220px;
+    padding: 140px var(--container-padding-right) 140px var(--container-padding-left);
   }
   
   .art-collection__grid {
-    margin-left: -220px;
-    margin-right: -220px;
-    padding-left: 220px;
+    margin-left: calc(-1 * var(--container-padding-left));
+    margin-right: calc(-1 * var(--container-padding-right));
+    padding-left: var(--container-padding-left);
     padding-right: 0; /* Flush to right edge */
   }
   
@@ -457,5 +457,41 @@
   }
 }
 
-
+/* ==================== EXTRA LARGE (2200px+) ==================== */
+@media (min-width: 2200px) {
+  .art-collection {
+    padding: 140px 0; /* No side padding */
+    overflow-x: visible !important; /* Allow break-out */
+  }
+  
+  .art-collection__intro {
+    padding-left: var(--container-padding-left); /* 171px */
+    padding-right: var(--container-padding-left);
+  }
+  
+  .art-collection__footer {
+    padding-left: var(--container-padding-left); /* 171px */
+    padding-right: var(--container-padding-left);
+  }
+  
+  .art-collection__grid {
+    /* Full width from edge to edge */
+    width: 100vw;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+  
+  .artwork-card {
+    width: 700px;
+    min-width: 700px;
+    height: 680px;
+  }
+}
 

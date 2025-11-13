@@ -44,9 +44,9 @@
 .hero-with-content__content-box {
   position: absolute;
   top: 595px; /* From Figma: y position */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 88%;
+  left: var(--container-padding-left); /* Aligned with header menu */
+  right: var(--container-padding-right); /* Aligned with header padding */
+  width: auto; /* Let left/right control width */
   max-width: 638px;
   background: #F2EFE7;
   padding: 24px 28px;
@@ -117,7 +117,10 @@
   }
   
   .hero-with-content__content-box {
-    width: 85%;
+    left: var(--container-padding-left); /* Aligned with header menu */
+    right: var(--container-padding-right);
+    width: auto;
+    max-width: 600px;
     padding: 28px 35px;
   }
   
@@ -144,8 +147,8 @@
   
   .hero-with-content__content-box {
     top: 595px; /* Figma: y=595px from top */
-    left: 8%;
-    transform: translateX(0);
+    left: var(--container-padding-left); /* Aligned with header menu */
+    right: auto; /* Remove right constraint on desktop */
     width: 550px;
     max-width: 48%;
     padding: 35px 45px;
@@ -174,7 +177,8 @@
 @media (min-width: 1440px) {
   .hero-with-content__content-box {
     top: 595px; /* Figma: y=595px (from 114px header + 481px in frame) */
-    left: 189px; /* Figma: x=189px */
+    left: var(--container-padding-left); /* Aligned with header menu - dynamic */
+    right: auto; /* Remove right constraint on wide */
     width: 638px;
     max-height: 600px;
     padding: 50px 60px; /* Figma: 50px top/bottom, 60px left/right */
@@ -199,7 +203,8 @@
   
   .hero-with-content__content-box {
     top: 595px;
-    left: 220px;
+    left: var(--container-padding-left); /* Aligned with header menu - dynamic */
+    right: auto; /* Remove right constraint on ultra */
     width: 700px;
     padding: 50px 60px;
   }
@@ -217,7 +222,8 @@
 @media (min-width: 2200px) {
   .hero-with-content__content-box {
     top: 595px;
-    left: 280px;
+    left: var(--container-padding-left); /* Aligned with header menu - dynamic */
+    right: auto; /* Remove right constraint on extra large */
     width: 750px;
   }
   

@@ -42,5 +42,74 @@
   --font-size-responsive-xl: clamp(1.5rem, 3vw, 2rem);
   --font-size-responsive-2xl: clamp(2rem, 4vw, 3rem);
   --font-size-responsive-3xl: clamp(2.5rem, 5vw, 4rem);
+
+  /* ==================== CONTAINER PADDING (for alignment) ==================== */
+  /* Mobile first - default values */
+  --container-padding-left: 16px;   /* Mobile default */
+  --container-padding-right: 16px;  /* Mobile default */
+}
+
+/* ==================== TABLET (768px+) ==================== */
+@media (min-width: 768px) {
+  :root {
+    --container-padding-left: 20px;
+    --container-padding-right: 20px;
+  }
+}
+
+/* ==================== DESKTOP (1024px+) ==================== */
+@media (min-width: 1024px) {
+  :root {
+    --container-padding-left: 40px;
+    --container-padding-right: 40px;
+  }
+}
+
+/* ==================== WIDE (1440px+) ==================== */
+@media (min-width: 1440px) {
+  :root {
+    --container-padding-left: 41px;   /* Figma spec: 1440px padding */
+    --container-padding-right: 60px;  /* Figma spec: asymmetric padding */
+  }
+}
+
+/* ==================== ULTRA (1920px+) ==================== */
+@media (min-width: 1920px) {
+  :root {
+    --container-padding-left: 131px;   /* Ultra wide screen padding */
+    --container-padding-right: 131px;  /* Ultra wide screen padding */
+  }
+}
+
+/* ==================== EXTRA LARGE (2200px+) ==================== */
+@media (min-width: 2200px) {
+  :root {
+    --container-padding-left: 171px;   /* Extra large screen padding */
+    --container-padding-right: 171px;  /* Extra large screen padding */
+  }
+}
+
+/* ==================== SUPER LARGE (2560px+) - QHD/2K ==================== */
+@media (min-width: 2560px) {
+  :root {
+    --container-padding-left: 220px;   /* Super large screen padding */
+    --container-padding-right: 220px;  /* Super large screen padding */
+  }
+}
+
+/* ==================== ULTRA WIDE (3440px+) ==================== */
+@media (min-width: 3440px) {
+  :root {
+    --container-padding-left: 300px;   /* Ultra wide screen padding */
+    --container-padding-right: 300px;  /* Ultra wide screen padding */
+  }
+}
+
+/* ==================== 4K (3840px+) ==================== */
+@media (min-width: 3840px) {
+  :root {
+    --container-padding-left: 350px;   /* 4K screen padding */
+    --container-padding-right: 350px;  /* 4K screen padding */
+  }
 }
 

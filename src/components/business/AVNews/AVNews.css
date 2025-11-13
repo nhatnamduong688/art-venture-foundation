@@ -4,6 +4,15 @@
   padding: var(--spacing-10) var(--spacing-4);
 }
 
+/* Remove container default padding/margin */
+.av-news .container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+}
+
 .av-news__title {
   font-family: 'Big Caslon', serif;
   font-size: 28px;
@@ -158,7 +167,7 @@
 /* ==================== DESKTOP (1024px+) ==================== */
 @media (min-width: 1024px) {
   .av-news {
-    padding: 80px 40px;
+    padding: 80px var(--container-padding-right) 80px var(--container-padding-left);
   }
   
   .av-news__title {
@@ -190,7 +199,7 @@
 /* ==================== WIDE (1440px+) ==================== */
 @media (min-width: 1440px) {
   .av-news {
-    padding: 120px 188px !important;
+    padding: 120px var(--container-padding-right) 120px var(--container-padding-left) !important;
     background: #F2EFE7;
   }
   
@@ -205,14 +214,14 @@
   }
   
   .av-news__grid {
-    grid-template-columns: repeat(3, 304px);
+    grid-template-columns: repeat(3, 317px);
     grid-template-rows: repeat(2, auto);
     gap: 42px 75px; /* Figma: row gap 42px, column gap 75px */
     justify-content: flex-start;
   }
   
   .news-item {
-    width: 304px;
+    width: 317px;
     max-width: none;
     gap: 24px; /* Figma: gap between content and link */
   }
@@ -249,7 +258,7 @@
 /* ==================== ULTRA (1920px+) ==================== */
 @media (min-width: 1920px) {
   .av-news {
-    padding: 140px 220px;
+    padding: 140px var(--container-padding-right) 140px var(--container-padding-left);
   }
   
   .av-news__title {
@@ -258,11 +267,96 @@
   }
   
   .av-news__grid {
-    grid-template-columns: repeat(3, 340px);
+    grid-template-columns: repeat(3, 417px);
     gap: 90px 90px;
   }
   
   .news-item {
-    width: 340px;
+    width: 417px;
+  }
+}
+
+/* ==================== EXTRA LARGE (2200px+) ==================== */
+@media (min-width: 2200px) {
+  .av-news {
+    padding: 140px var(--container-padding-right) 140px var(--container-padding-left);
+  }
+  
+  .av-news__title {
+    font-size: 80px;
+    margin-bottom: 100px;
+  }
+  
+  .av-news__grid {
+    grid-template-columns: repeat(3, 483px);
+    gap: 42px 75px; /* row gap 42px, column gap 75px */
+  }
+  
+  .news-item {
+    width: 483px !important;
+    max-width: 483px !important;
+  }
+}
+
+/* ==================== SUPER LARGE (2560px+) - QHD/2K ==================== */
+@media (min-width: 2560px) {
+  .av-news {
+    padding: 160px var(--container-padding-right) 160px var(--container-padding-left);
+  }
+  
+  .av-news__title {
+    font-size: 90px;
+  }
+  
+  .av-news__grid {
+    grid-template-columns: repeat(3, 580px);
+    gap: 120px 120px;
+  }
+  
+  .news-item {
+    width: 580px !important;
+    max-width: 580px !important;
+  }
+}
+
+/* ==================== ULTRA WIDE (3440px+) ==================== */
+@media (min-width: 3440px) {
+  .av-news {
+    padding: 180px var(--container-padding-right) 180px var(--container-padding-left);
+  }
+  
+  .av-news__title {
+    font-size: 100px;
+  }
+  
+  .av-news__grid {
+    grid-template-columns: repeat(3, 750px);
+    gap: 140px 140px;
+  }
+  
+  .news-item {
+    width: 750px !important;
+    max-width: 750px !important;
+  }
+}
+
+/* ==================== 4K (3840px+) ==================== */
+@media (min-width: 3840px) {
+  .av-news {
+    padding: 200px var(--container-padding-right) 200px var(--container-padding-left);
+  }
+  
+  .av-news__title {
+    font-size: 110px;
+  }
+  
+  .av-news__grid {
+    grid-template-columns: repeat(3, 850px);
+    gap: 160px 160px;
+  }
+  
+  .news-item {
+    width: 850px !important;
+    max-width: 850px !important;
   }
 }

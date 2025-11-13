@@ -201,7 +201,7 @@
 /* ==================== DESKTOP (1024px+) ==================== */
 @media (min-width: 1024px) {
   .community-support {
-    padding: 0 40px 80px 40px;
+    padding: 0 var(--container-padding-right) 80px var(--container-padding-left);
   }
 
   .community-support__title {
@@ -251,7 +251,7 @@
 /* ==================== WIDE (1440px+) ==================== */
 @media (min-width: 1440px) {
   .community-support {
-    padding: 0 0 116px 188px; /* 188px left padding for consistency */
+    padding: 0 0 116px var(--container-padding-left); /* Using dynamic padding */
   }
 
   .community-support .container {
@@ -332,7 +332,7 @@
 /* ==================== ULTRA (1920px+) ==================== */
 @media (min-width: 1920px) {
   .community-support {
-    padding: 0 220px 140px 220px;
+    padding: 0 var(--container-padding-right) 140px var(--container-padding-left);
   }
 
   .community-support__layout {
