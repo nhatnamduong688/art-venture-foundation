@@ -69,6 +69,9 @@ const NewsEvents: React.FC = () => {
                     <Typography variant="h3" as="h3" className="news-card__title">
                       {item.title}
                     </Typography>
+                    <Typography variant="body-md" className="news-card__description">
+                      {item.description}
+                    </Typography>
                 </div>
               </Card>
             ))}
