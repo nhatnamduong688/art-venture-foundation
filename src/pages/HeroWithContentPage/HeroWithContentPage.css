@@ -1,6 +1,7 @@
 .hero-with-content-page {
   width: 100%;
   min-height: 100vh;
+  background: #F2EFE7;
 }
 
 .hero-with-content-page__info {
