@@ -142,7 +142,11 @@
 /* ==================== TABLET (768px+) ==================== */
 @media (min-width: 768px) {
   .community-support {
-    padding: 0 var(--spacing-10) 60px var(--spacing-10);
+    padding: 40px var(--spacing-10) 60px var(--spacing-10);
+  }
+  
+  .community-support .container {
+    padding-left: 0;
   }
 
   .community-support__title {
@@ -201,7 +205,11 @@
 /* ==================== DESKTOP (1024px+) ==================== */
 @media (min-width: 1024px) {
   .community-support {
-    padding: 0 var(--container-padding-right) 80px var(--container-padding-left);
+    padding: 40px var(--container-padding-right) 80px var(--container-padding-left);
+  }
+  
+  .community-support .container {
+    padding-left: 0;
   }
 
   .community-support__title {

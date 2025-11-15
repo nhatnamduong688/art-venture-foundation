@@ -6,8 +6,8 @@
 
 /* Remove container default padding/margin */
 .av-news .container {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  padding-left: 0;
+  padding-right: 0;
   margin-left: 0;
   margin-right: 0;
   max-width: none;
@@ -131,6 +131,10 @@
     padding: 60px var(--spacing-10);
   }
   
+  .av-news .container {
+    padding-left: 20px;
+  }
+  
   .av-news__title {
     font-size: 40px;
     margin-bottom: var(--spacing-10);
@@ -167,7 +171,11 @@
 /* ==================== DESKTOP (1024px+) ==================== */
 @media (min-width: 1024px) {
   .av-news {
-    padding: 80px var(--container-padding-right) 80px var(--container-padding-left);
+    padding: 80px var(--container-padding-right) 80px 40px;
+  }
+  
+  .av-news .container {
+    padding-left: 40px;
   }
   
   .av-news__title {

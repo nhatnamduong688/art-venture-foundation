@@ -281,6 +281,7 @@
   .news-events .container {
     max-width: none;
     padding-right: 0;
+    padding-left: 0;
   }
 
   .news-events__title {
