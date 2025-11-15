@@ -461,7 +461,15 @@
 @media (min-width: 2200px) {
   .art-collection {
     padding: 140px 0; /* No side padding */
+    margin-left: 0;
+    margin-right: 0;
     overflow-x: visible !important; /* Allow break-out */
+  }
+  
+  .art-collection .container {
+    max-width: none; /* Remove max-width constraint */
+    margin-left: 0;
+    margin-right: 0;
   }
   
   .art-collection__intro {
@@ -470,28 +478,38 @@
   }
   
   .art-collection__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     padding-left: var(--container-padding-left); /* 171px */
     padding-right: var(--container-padding-left);
+    margin-top: 22px; /* Distance from cards to footer */
+  }
+  
+  .art-collection__navigation {
+    display: flex; /* Ensure visible */
+    position: relative;
+    z-index: 10; /* Above grid */
   }
   
   .art-collection__grid {
-    /* Full width from edge to edge */
-    width: 100vw;
-    margin-left: 0;
-    margin-right: 0;
+    width: 100%;
+    min-height: 577px; /* Match card height */
+    margin: 0;
     padding-left: 0;
     padding-right: 0;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
   }
   
   .artwork-card {
-    width: 700px;
-    min-width: 700px;
-    height: 680px;
+    width: 564px;
+    min-width: 564px;
+    height: 577px;
+  }
+  
+  /* Enhanced zoom effect for large screens - more noticeable */
+  .artwork-card:hover .artwork-card__image {
+    transform: scale(1.15); /* Increased from 1.1 to 1.15 for better visibility */
   }
 }
 

@@ -75,6 +75,7 @@ const AppRouter: React.FC = () => {
         
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
+
             {/* Main Routes */}
             <Route path="/" element={<HomePage />} />
             <Route path="/collection" element={<CollectionPage />} />
