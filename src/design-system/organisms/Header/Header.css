@@ -203,7 +203,7 @@
   }
 
   .ds-header__container {
-    padding: 0 var(--container-padding-right) 0 var(--container-padding-left); /* Using design system variables */
+    padding: 0 60px 0 60px;
   }
 
   .ds-header__nav {
@@ -240,7 +240,7 @@
 /* ==================== WIDE (1440px+) ==================== */
 @media (min-width: 1440px) {
   .ds-header__container {
-    padding: 0 var(--container-padding-right) 0 var(--container-padding-left); /* Using design system variables for consistent alignment */
+    padding: 0 60px 0 60px;
   }
 
   .ds-header__nav {
@@ -253,6 +253,20 @@
 
   .ds-header__actions {
     gap: var(--spacing-6); /* 24px */
+  }
+}
+
+/* ==================== ULTRA (1920px+) ==================== */
+@media (min-width: 1920px) {
+  .ds-header__container {
+    padding: 0 60px 0 60px;
+  }
+}
+
+/* ==================== EXTRA LARGE (2200px+) ==================== */
+@media (min-width: 2200px) {
+  .ds-header__container {
+    padding: 0 60px 0 60px;
   }
 }
 

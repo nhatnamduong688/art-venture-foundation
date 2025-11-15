@@ -9,6 +9,9 @@
 .art-collection .container {
   padding-left: 0;
   padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none; /* Remove max-width constraint */
 }
 
 /* Intro section: Title + Description */
@@ -404,7 +407,7 @@
   }
 
   .art-collection {
-    padding: 84px 0 84px var(--container-padding-left); /* Using dynamic padding */
+    padding: 84px 0 84px 41px; /* Fixed 41px left padding */
   }
   
   .art-collection__grid {
@@ -415,12 +418,14 @@
   }
   
   .art-collection__intro {
+    margin-left: 0;
     margin-bottom: 22px;
-    padding-right: var(--container-padding-left);
+    padding-right: var(--container-padding-right);
   }
   
   .art-collection__footer {
     margin-top: 16px;
+    margin-left: 0;
     padding-right: var(--container-padding-left);
   }
 
@@ -432,7 +437,7 @@
 /* ==================== ULTRA (1920px+) ==================== */
 @media (min-width: 1920px) {
   .art-collection {
-    padding: 140px var(--container-padding-right) 140px var(--container-padding-left);
+    padding: 140px 0 140px 131px; /* 131px left spacing */
   }
   
   .art-collection__grid {
@@ -443,24 +448,28 @@
   }
   
   .art-collection__intro {
+    margin-left: 0;
     margin-bottom: 30px;
+    padding-right: var(--container-padding-right);
   }
   
   .art-collection__footer {
     margin-top: 20px;
+    margin-left: 0;
+    padding-right: var(--container-padding-right);
   }
   
   .artwork-card {
-    width: 600px;
-    min-width: 600px;
-    height: 620px;
+    width: 564px;
+    min-width: 564px;
+    height: 577px;
   }
 }
 
 /* ==================== EXTRA LARGE (2200px+) ==================== */
 @media (min-width: 2200px) {
   .art-collection {
-    padding: 140px 0; /* No side padding */
+    padding: 140px 0 140px 171px; /* 171px left spacing */
     margin-left: 0;
     margin-right: 0;
     overflow-x: visible !important; /* Allow break-out */
@@ -473,8 +482,8 @@
   }
   
   .art-collection__intro {
-    padding-left: var(--container-padding-left); /* 171px */
-    padding-right: var(--container-padding-left);
+    margin-left: 0;
+    padding-right: var(--container-padding-right);
   }
   
   .art-collection__footer {
@@ -482,8 +491,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-left: var(--container-padding-left); /* 171px */
-    padding-right: var(--container-padding-left);
+    margin-left: 0;
+    padding-right: var(--container-padding-right);
     margin-top: 22px; /* Distance from cards to footer */
   }
   
@@ -494,9 +503,13 @@
   }
   
   .art-collection__grid {
-    width: 100%;
+    /* Full width breakout - edge to edge */
+    width: 100vw;
     min-height: 577px; /* Match card height */
-    margin: 0;
+    position: relative;
+    left: -171px; /* Offset section's padding-left */
+    margin-left: 0;
+    margin-right: 0;
     padding-left: 0;
     padding-right: 0;
   }
