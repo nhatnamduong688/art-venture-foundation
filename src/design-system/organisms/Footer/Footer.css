@@ -224,13 +224,18 @@
 /* ==================== DESKTOP (1024px+) ==================== */
 @media (min-width: 1024px) {
   .ds-footer {
+    background: rgba(200, 147, 44, 0.1); /* Beige/gold tint background */
     padding: var(--spacing-16) var(--container-padding-right) var(--spacing-16) var(--container-padding-left); /* Using dynamic padding variables */
-    margin-top: var(--spacing-20);
+    margin-top: 0; /* No margin-top */
+    position: relative; /* For absolute positioned logo */
+    overflow: hidden; /* Contain logo within footer bounds */
   }
 
   .ds-footer__container {
     flex-direction: row; /* Side by side on desktop */
     gap: var(--spacing-16);
+    position: relative;
+    z-index: 1; /* Above logo watermark */
   }
 
   .ds-footer__content {
@@ -252,11 +257,21 @@
   }
 
   .ds-footer__logo {
-    align-self: flex-start; /* Top align on desktop */
+    flex: 0 0 auto; /* Don't shrink */
+    position: absolute; /* Position absolutely to edges */
+    right: 0; /* Flush to right edge */
+    top: 0; /* Flush to top edge */
+    bottom: 0; /* Flush to bottom edge */
+    opacity: 1; /* Make logo visible */
+    pointer-events: none;
+    z-index: 0; /* Behind content */
   }
 
   .ds-footer__logo-img {
-    width: 200px;
+    width: auto;
+    height: 100%; /* Full height from top to bottom */
+    object-fit: contain;
+    display: block;
   }
 }
 
