@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArtistCollectionCard } from '../../components/business';
 import type { ArtistInfo, ArtworkImage } from '../../components/business';
+import { artworksAPI, getImageUrl } from '../../api/artworks';
+import type { Artwork as ApiArtwork } from '../../api/artworks';
 import './CollectionPage.css';
 
 interface Artwork {
-  id: number;
+  id: string;
   title: string;
   artist: string;
-  artistAvatar: string;
-  image: string;
+  artistAvatar: string | null;
+  image: string | null;
   category: string;
   size: 'large' | 'medium' | 'small';
 }
@@ -17,8 +19,55 @@ interface Artwork {
 const CollectionPage: React.FC = () => {
   const [activeMainTab, setActiveMainTab] = useState<'new' | 'key'>('new');
   const [activeFilter, setActiveFilter] = useState<string>('all');
+  const [artworks, setArtworks] = useState<Artwork[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalItems, setTotalItems] = useState<number>(0);
+  const limit = 22;
 
-  // Artist data for ArtistCollectionCard - each artwork has its own artist
+  // Fetch artworks from API
+  useEffect(() => {
+    const fetchArtworks = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        
+        const response = await artworksAPI.getAll(currentPage, limit);
+        
+        if (response.success && response.data) {
+          // Transform API data to local format
+          const transformedArtworks: Artwork[] = response.data.data.map((artwork: ApiArtwork, index: number) => {
+            // Assign size based on index pattern for grid layout
+            const sizes: ('large' | 'medium' | 'small')[] = ['large', 'medium', 'medium', 'small', 'medium', 'medium'];
+            const size = sizes[index % sizes.length];
+            
+            return {
+              id: artwork.id,
+              title: artwork.title,
+              artist: artwork.artist.fullName,
+              artistAvatar: getImageUrl(artwork.artist.image),
+              image: getImageUrl(artwork.image),
+              category: 'all', // Backend doesn't have category yet, default to 'all'
+              size: size
+            };
+          });
+          
+          setArtworks(transformedArtworks);
+          setTotalItems(response.data.meta.total);
+        }
+      } catch (err: any) {
+        console.error('Error fetching artworks:', err);
+        setError(err.message || 'Failed to load artworks');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArtworks();
+  }, [currentPage]);
+
+  // Artist data for ArtistCollectionCard - Keep mock data for now since we need specific artist collections
   const artistArtworks: ArtworkImage[] = [
     {
       id: 1,
@@ -55,85 +104,19 @@ const CollectionPage: React.FC = () => {
     }
   ];
 
-  const artworks: Artwork[] = [
-    {
-      id: 1,
-      title: "Village Landscape",
-      artist: "Đào Hải Phong",
-      artistAvatar: "/images/collection/artists/dao-hai-phong.png",
-      image: "/images/collection/key-works/artwork-1.png",
-      category: "nature",
-      size: "large"
-    },
-    {
-      id: 2,
-      title: "Golden Clock",
-      artist: "Nguyễn Phan Chánh",
-      artistAvatar: "/images/collection/artists/nguyen-phan-chanh.png",
-      image: "/images/collection/key-works/artwork-2.png",
-      category: "sculpture",
-      size: "medium"
-    },
-    {
-      id: 3,
-      title: "Portrait Study",
-      artist: "Nguyễn Tư Nghiêm",
-      artistAvatar: "/images/collection/artists/nguyen-tu-nghiem.png",
-      image: "/images/collection/key-works/artwork-3.png",
-      category: "people",
-      size: "medium"
-    },
-    {
-      id: 4,
-      title: "Abstract Portrait",
-      artist: "Đào Hải Phong",
-      artistAvatar: "/images/collection/artists/dao-hai-phong.png",
-      image: "/images/collection/key-works/artwork-4.png",
-      category: "people",
-      size: "small"
-    },
-    {
-      id: 5,
-      title: "White Sculpture",
-      artist: "Nguyễn Phan Chánh",
-      artistAvatar: "/images/collection/artists/nguyen-phan-chanh.png",
-      image: "/images/collection/key-works/artwork-5.png",
-      category: "sculpture",
-      size: "medium"
-    },
-    {
-      id: 6,
-      title: "Countryside Scene",
-      artist: "Nguyễn Tư Nghiêm",
-      artistAvatar: "/images/collection/artists/nguyen-tu-nghiem.png",
-      image: "/images/collection/key-works/artwork-6.png",
-      category: "nature",
-      size: "medium"
-    },
-    {
-      id: 7,
-      title: "Lady Portrait",
-      artist: "Đào Hải Phong",
-      artistAvatar: "/images/collection/artists/dao-hai-phong.png",
-      image: "/images/collection/key-works/artwork-2.png",
-      category: "people",
-      size: "medium"
-    },
-    {
-      id: 8,
-      title: "Bronze Sculpture",
-      artist: "Nguyễn Phan Chánh",
-      artistAvatar: "/images/collection/artists/nguyen-phan-chanh.png",
-      image: "/images/collection/key-works/artwork-3.png",
-      category: "sculpture",
-      size: "medium"
-    }
-  ];
-
   const filteredArtworks = artworks.filter(artwork => {
     if (activeFilter === 'all') return true;
     return artwork.category === activeFilter;
   });
+
+  // Handle load more
+  const handleLoadMore = () => {
+    if (currentPage * limit < totalItems) {
+      setCurrentPage(prev => prev + 1);
+    }
+  };
+
+  const hasMore = currentPage * limit < totalItems;
 
   return (
     <div className="collection-page">
@@ -185,38 +168,104 @@ const CollectionPage: React.FC = () => {
           </div>
         </div>
         
-        <div className="collection-page__grid">
-          {filteredArtworks.map((artwork) => (
-            <Link 
-              key={artwork.id} 
-              to={`/collection/${artwork.id}`}
-              className={`artwork-card-grid artwork-card-grid--${artwork.size}`}
-            >
-              <div className="artwork-card-grid__image">
-                <img src={artwork.image} alt={artwork.title} />
-              </div>
-              <div className="artwork-card-grid__overlay">
-                <div className="artwork-card-grid__info">
-                  <div className="artwork-card-grid__artist">
-                    <img src={artwork.artistAvatar} alt={artwork.artist} />
-                  </div>
-                  <span className="artwork-card-grid__artist-name">{artwork.artist}</span>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+        {/* Loading State */}
+        {loading && artworks.length === 0 && (
+          <div style={{ textAlign: 'center', padding: '60px 20px', color: 'var(--color-burgundy)' }}>
+            <p>Loading artworks...</p>
+          </div>
+        )}
         
-        <div className="collection-page__load-more">
-          <button className="btn btn-burgundy">
-            VIEW ALL
-            <div className="btn-arrow">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+        {/* Error State */}
+        {error && (
+          <div style={{ textAlign: 'center', padding: '60px 20px', color: '#d32f2f' }}>
+            <p>Error: {error}</p>
+            <button 
+              onClick={() => window.location.reload()} 
+              style={{ marginTop: '20px', padding: '10px 20px', cursor: 'pointer' }}
+            >
+              Retry
+            </button>
+          </div>
+        )}
+        
+        {/* Artworks Grid */}
+        {!loading && !error && artworks.length > 0 && (
+          <>
+            <div className="collection-page__grid">
+              {filteredArtworks.map((artwork) => (
+                <Link 
+                  key={artwork.id} 
+                  to={`/collection/${artwork.id}`}
+                  className={`artwork-card-grid artwork-card-grid--${artwork.size}`}
+                >
+                  <div className="artwork-card-grid__image">
+                    {artwork.image ? (
+                      <img src={artwork.image} alt={artwork.title} />
+                    ) : (
+                      <div style={{ 
+                        width: '100%', 
+                        height: '100%', 
+                        background: '#e0e0e0', 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        justifyContent: 'center',
+                        color: '#999'
+                      }}>
+                        No Image
+                      </div>
+                    )}
+                  </div>
+                  <div className="artwork-card-grid__overlay">
+                    <div className="artwork-card-grid__info">
+                      <div className="artwork-card-grid__artist">
+                        {artwork.artistAvatar ? (
+                          <img src={artwork.artistAvatar} alt={artwork.artist} />
+                        ) : (
+                          <div style={{ 
+                            width: '100%', 
+                            height: '100%', 
+                            background: '#ccc', 
+                            borderRadius: '50%' 
+                          }} />
+                        )}
+                      </div>
+                      <span className="artwork-card-grid__artist-name">{artwork.artist}</span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
             </div>
-          </button>
-        </div>
+            
+            {/* Load More / Pagination Info */}
+            <div className="collection-page__load-more">
+              {hasMore ? (
+                <button 
+                  className="btn btn-burgundy" 
+                  onClick={handleLoadMore}
+                  disabled={loading}
+                >
+                  {loading ? 'LOADING...' : 'VIEW MORE'}
+                  <div className="btn-arrow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </button>
+              ) : (
+                <p style={{ textAlign: 'center', color: 'var(--color-burgundy)', padding: '20px' }}>
+                  Showing all {totalItems} artworks
+                </p>
+              )}
+            </div>
+          </>
+        )}
+        
+        {/* Empty State */}
+        {!loading && !error && artworks.length === 0 && (
+          <div style={{ textAlign: 'center', padding: '60px 20px', color: 'var(--color-burgundy)' }}>
+            <p>No artworks found.</p>
+          </div>
+        )}
       </div>
     </div>
   );
