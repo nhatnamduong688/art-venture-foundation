@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArtistCollectionCard } from '../../components/business';
 import type { ArtistInfo, ArtworkImage } from '../../components/business';
 import { LoadingSpinner, SkeletonGrid } from '../../components/common/LoadingSpinner';
+import { ImageLoader } from '../../components/common/ImageLoader';
 import { artworksAPI, getImageUrl } from '../../api/artworks';
 import type { Artwork as ApiArtwork } from '../../api/artworks';
 import './CollectionPage.css';
@@ -207,7 +208,11 @@ const CollectionPage: React.FC = () => {
                 >
                   <div className="artwork-card-grid__image">
                     {artwork.image ? (
-                      <img src={artwork.image} alt={artwork.title} />
+                      <ImageLoader
+                        src={artwork.image}
+                        alt={artwork.title}
+                        aspectRatio={4 / 3}
+                      />
                     ) : (
                       <div style={{ 
                         width: '100%', 
