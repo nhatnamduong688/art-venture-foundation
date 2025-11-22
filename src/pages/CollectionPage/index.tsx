@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArtistCollectionCard } from '../../components/business';
 import type { ArtistInfo, ArtworkImage } from '../../components/business';
+import { LoadingSpinner, SkeletonGrid } from '../../components/common/LoadingSpinner';
 import { artworksAPI, getImageUrl } from '../../api/artworks';
 import type { Artwork as ApiArtwork } from '../../api/artworks';
 import './CollectionPage.css';
@@ -168,11 +169,17 @@ const CollectionPage: React.FC = () => {
           </div>
         </div>
         
-        {/* Loading State */}
+        {/* Loading State - Initial Load */}
         {loading && artworks.length === 0 && (
-          <div style={{ textAlign: 'center', padding: '60px 20px', color: 'var(--color-burgundy)' }}>
-            <p>Loading artworks...</p>
-          </div>
+          <SkeletonGrid count={8} />
+        )}
+        
+        {/* Loading State - Load More */}
+        {loading && artworks.length > 0 && (
+          <LoadingSpinner 
+            text="Loading more artworks..." 
+            subtext="Fetching from backend API"
+          />
         )}
         
         {/* Error State */}
