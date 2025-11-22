@@ -98,10 +98,21 @@
   overflow: hidden;
   position: relative;
   transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 .skeleton-card:hover {
   transform: scale(1.02);
+}
+
+/* Skeleton card in grid (for "load more" inline skeletons) */
+.collection-page__grid .skeleton-card {
+  /* Inherit grid item styling */
+  cursor: default;
+}
+
+.collection-page__grid .skeleton-card:hover {
+  transform: none; /* Disable hover effect in grid */
 }
 
 .skeleton-card::before {

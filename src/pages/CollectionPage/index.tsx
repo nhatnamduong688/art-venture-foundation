@@ -196,17 +196,9 @@ const CollectionPage: React.FC = () => {
           </div>
         </div>
         
-        {/* Loading State - Initial Load */}
+        {/* Loading State - Initial Load Only */}
         {loading && artworks.length === 0 && (
-          <SkeletonGrid count={8} />
-        )}
-        
-        {/* Loading State - Load More */}
-        {loading && artworks.length > 0 && (
-          <LoadingSpinner 
-            text="Loading more artworks..." 
-            subtext="Fetching from backend API"
-          />
+          <SkeletonGrid count={limit} />
         )}
         
         {/* Error State */}
@@ -222,8 +214,8 @@ const CollectionPage: React.FC = () => {
           </div>
         )}
         
-        {/* Artworks Grid */}
-        {!loading && !error && artworks.length > 0 && (
+        {/* Artworks Grid - Always show if we have artworks */}
+        {!error && artworks.length > 0 && (
           <>
             <div className="collection-page__grid">
               {filteredArtworks.map((artwork) => (
@@ -279,6 +271,26 @@ const CollectionPage: React.FC = () => {
                   </div>
                 </Link>
               ))}
+              
+              {/* Loading More - Show skeleton cards at bottom */}
+              {loading && artworks.length > 0 && (
+                <>
+                  {Array.from({ length: Math.min(limit, totalItems - artworks.length) }).map((_, index) => {
+                    const colors = ['#8B7355', '#C89B4F', '#B8735C', '#7A8B7F', '#9B8FA5', '#6B7F8C', '#4A6FA5', '#E67E73', '#E8E4DF'];
+                    const backgroundColor = colors[index % colors.length];
+                    
+                    return (
+                      <div 
+                        key={`loading-skeleton-${index}`}
+                        className="artwork-card-grid artwork-card-grid--medium skeleton-card"
+                        style={{ backgroundColor }}
+                      >
+                        <div className="skeleton-image"></div>
+                      </div>
+                    );
+                  })}
+                </>
+              )}
             </div>
             
             {/* Load More / Pagination Info */}
@@ -298,17 +310,13 @@ const CollectionPage: React.FC = () => {
                     onClick={handleLoadMore}
                     disabled={loading}
                   >
-                    {loading ? (
-                      <LoadingSpinner text="Loading more artworks..." />
-                    ) : (
-                      <>
-                        VIEW MORE
-                        <div className="btn-arrow">
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                        </div>
-                      </>
+                    {loading ? 'LOADING...' : 'VIEW MORE'}
+                    {!loading && (
+                      <div className="btn-arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
                     )}
                   </button>
                 </>
