@@ -22,11 +22,12 @@ export const env = {
   isTest: getEnvVar('MODE') === 'test',
 
   // API Configuration
-  apiUrl: getEnvVar('VITE_API_URL', 'http://av-foundation-backend-dev.us-east-1.elasticbeanstalk.com'),
+  // apiUrl: getEnvVar('VITE_API_URL', 'http://av-foundation-backend-dev.us-east-1.elasticbeanstalk.com'),
+  apiUrl: getEnvVar('VITE_API_URL', 'https://d3te863nebxng5.cloudfront.net'),
   apiTimeout: parseInt(getEnvVar('VITE_API_TIMEOUT', '10000'), 10),
   
   // Image base URL (same as API URL for this project)
-  imageBaseUrl: getEnvVar('VITE_IMAGE_BASE_URL', 'http://av-foundation-backend-dev.us-east-1.elasticbeanstalk.com'),
+  imageBaseUrl: getEnvVar('VITE_IMAGE_BASE_URL', 'https://d3te863nebxng5.cloudfront.net/'),
 
   // Feature Flags
   features: {

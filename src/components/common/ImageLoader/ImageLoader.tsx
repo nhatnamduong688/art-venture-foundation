@@ -7,6 +7,9 @@ interface ImageLoaderProps {
   className?: string;
   aspectRatio?: number; // width/height (e.g., 4/3 = 1.333)
   blurSrc?: string; // Optional tiny blur placeholder
+  backgroundColor?: string; // Optional dominant/fallback color (Phase 1)
+  showSpinner?: boolean; // Show loading spinner (default: false for artistic look)
+  transitionDuration?: number; // Fade transition duration in ms (default: 500)
   onLoad?: () => void;
   onError?: () => void;
 }
@@ -17,6 +20,9 @@ export const ImageLoader: React.FC<ImageLoaderProps> = ({
   className = '',
   aspectRatio = 4 / 3,
   blurSrc,
+  backgroundColor = '#e8e4df', // Warm neutral default for art
+  showSpinner = false, // Default false for cleaner artistic look
+  transitionDuration = 500,
   onLoad,
   onError,
 }) => {
@@ -69,10 +75,28 @@ export const ImageLoader: React.FC<ImageLoaderProps> = ({
     <div
       ref={containerRef}
       className={`image-loader ${className}`}
-      style={{ paddingBottom }}
+      style={{ 
+        paddingBottom,
+        backgroundColor: !isLoaded ? backgroundColor : 'transparent',
+        transition: `background-color ${transitionDuration}ms ease-out`
+      }}
     >
-      {/* Placeholder shimmer */}
-      {!isLoaded && !isError && <div className="image-loader__placeholder" />}
+      {/* Dominant color background - shows instantly */}
+      {!isLoaded && !isError && (
+        <div 
+          className="image-loader__color-bg"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor,
+            transition: `opacity ${transitionDuration}ms ease-out`,
+            opacity: isLoaded ? 0 : 1
+          }}
+        />
+      )}
 
       {/* Blur placeholder (if provided) */}
       {blurSrc && !isLoaded && (
@@ -84,8 +108,8 @@ export const ImageLoader: React.FC<ImageLoaderProps> = ({
         />
       )}
 
-      {/* Loading spinner */}
-      {!isLoaded && !isError && isInView && (
+      {/* Loading spinner - only if enabled */}
+      {showSpinner && !isLoaded && !isError && isInView && (
         <div className={`image-loader__spinner ${isLoaded ? 'hidden' : ''}`} />
       )}
 
@@ -96,6 +120,9 @@ export const ImageLoader: React.FC<ImageLoaderProps> = ({
           src={src}
           alt={alt}
           className={`image-loader__img ${isLoaded ? 'loaded' : ''}`}
+          style={{
+            transition: `opacity ${transitionDuration}ms ease-in`
+          }}
           onLoad={handleLoad}
           onError={handleError}
           loading="lazy"

@@ -6,6 +6,7 @@ import { LoadingSpinner, SkeletonGrid } from '../../components/common/LoadingSpi
 import { ImageLoader } from '../../components/common/ImageLoader';
 import { artworksAPI, getImageUrl } from '../../api/artworks';
 import type { Artwork as ApiArtwork } from '../../api/artworks';
+import { getArtworkColor } from '../../utils/artworkColors';
 import './CollectionPage.css';
 
 interface Artwork {
@@ -212,6 +213,13 @@ const CollectionPage: React.FC = () => {
                         src={artwork.image}
                         alt={artwork.title}
                         aspectRatio={4 / 3}
+                        backgroundColor={getArtworkColor(
+                          artwork.id,
+                          artwork.artist,
+                          artwork.category
+                        )}
+                        showSpinner={false}
+                        transitionDuration={600}
                       />
                     ) : (
                       <div style={{ 
