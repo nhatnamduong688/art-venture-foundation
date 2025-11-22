@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Footer } from '../../design-system/organisms';
 import './ArtistsPage.css';
 
 interface Artist {
@@ -106,6 +107,8 @@ const ArtistsPage: React.FC = () => {
           ))}
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 };

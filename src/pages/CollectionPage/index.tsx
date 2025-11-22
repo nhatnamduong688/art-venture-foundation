@@ -7,6 +7,7 @@ import { ImageLoader } from '../../components/common/ImageLoader';
 import { artworksAPI, getImageUrl } from '../../api/artworks';
 import type { Artwork as ApiArtwork } from '../../api/artworks';
 import { getArtworkColor } from '../../utils/artworkColors';
+import { Footer } from '../../design-system/organisms';
 import './CollectionPage.css';
 
 interface Artwork {
@@ -354,6 +355,8 @@ const CollectionPage: React.FC = () => {
           </div>
         )}
       </div>
+      
+      <Footer />
     </div>
   );
 };
