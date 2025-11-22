@@ -4,6 +4,11 @@
   background: #F2EFE7;
 }
 
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Hero Section */
 .collection-page__hero {
   padding: 100px var(--spacing-4) 30px var(--spacing-4);

@@ -19,6 +19,9 @@ interface Artwork {
   size: 'large' | 'medium' | 'small';
 }
 
+// Cache for fetched artwork pages
+const artworkCache = new Map<number, Artwork[]>();
+
 const CollectionPage: React.FC = () => {
   const [activeMainTab, setActiveMainTab] = useState<'new' | 'key'>('new');
   const [activeFilter, setActiveFilter] = useState<string>('all');
@@ -30,10 +33,23 @@ const CollectionPage: React.FC = () => {
   const [isLoadingMore, setIsLoadingMore] = useState<boolean>(false);
   const limit = 22;
 
-  // Fetch artworks from API
+  // Fetch artworks from API (with cache)
   useEffect(() => {
     const fetchArtworks = async () => {
       try {
+        // Check cache first
+        if (artworkCache.has(currentPage)) {
+          console.log(`📦 Cache hit for page ${currentPage}`);
+          const cachedArtworks = artworkCache.get(currentPage)!;
+          
+          setArtworks(prevArtworks => 
+            currentPage === 1 ? cachedArtworks : [...prevArtworks, ...cachedArtworks]
+          );
+          
+          // Don't set loading states if using cache
+          return;
+        }
+        
         // Only set loading on initial load (page 1)
         if (currentPage === 1) {
           setLoading(true);
@@ -42,6 +58,7 @@ const CollectionPage: React.FC = () => {
         }
         setError(null);
         
+        console.log(`🌐 API fetch for page ${currentPage}`);
         const response = await artworksAPI.getAll(currentPage, limit);
         
         if (response.success && response.data) {
@@ -63,6 +80,10 @@ const CollectionPage: React.FC = () => {
               size: size
             };
           });
+          
+          // Cache the transformed artworks for this page
+          artworkCache.set(currentPage, transformedArtworks);
+          console.log(`💾 Cached page ${currentPage} (${transformedArtworks.length} items)`);
           
           // Append new artworks to existing ones (for "Load More")
           // Replace all artworks on page 1 (initial load or refresh)
@@ -125,7 +146,19 @@ const CollectionPage: React.FC = () => {
     return artwork.category === activeFilter;
   });
 
-  // Infinite scroll: Load more when user scrolls near bottom
+  // Throttle helper function (prevents excessive calls)
+  const throttle = (func: Function, delay: number) => {
+    let lastCall = 0;
+    return (...args: any[]) => {
+      const now = Date.now();
+      if (now - lastCall >= delay) {
+        lastCall = now;
+        func(...args);
+      }
+    };
+  };
+
+  // Infinite scroll: Load more when user scrolls near bottom (throttled for smooth performance)
   useEffect(() => {
     const handleScroll = () => {
       // Check if user is near bottom of page (500px threshold)
@@ -136,12 +169,16 @@ const CollectionPage: React.FC = () => {
       const canLoadMore = !loading && !isLoadingMore && hasMore && !error;
       
       if (scrollPosition >= bottomPosition && canLoadMore) {
+        console.log(`⬇️ Near bottom! Loading page ${currentPage + 1}...`);
         setCurrentPage(prev => prev + 1);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Throttle scroll event to fire at most once every 200ms (smooth performance)
+    const throttledScroll = throttle(handleScroll, 200);
+
+    window.addEventListener('scroll', throttledScroll);
+    return () => window.removeEventListener('scroll', throttledScroll);
   }, [currentPage, totalItems, loading, isLoadingMore, error, limit]);
 
   const hasMore = currentPage * limit < totalItems;
