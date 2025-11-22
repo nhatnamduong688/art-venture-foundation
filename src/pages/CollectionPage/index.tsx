@@ -27,13 +27,19 @@ const CollectionPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalItems, setTotalItems] = useState<number>(0);
+  const [isLoadingMore, setIsLoadingMore] = useState<boolean>(false);
   const limit = 22;
 
   // Fetch artworks from API
   useEffect(() => {
     const fetchArtworks = async () => {
       try {
-        setLoading(true);
+        // Only set loading on initial load (page 1)
+        if (currentPage === 1) {
+          setLoading(true);
+        } else {
+          setIsLoadingMore(true);
+        }
         setError(null);
         
         const response = await artworksAPI.getAll(currentPage, limit);
@@ -70,6 +76,7 @@ const CollectionPage: React.FC = () => {
         setError(err.message || 'Failed to load artworks');
       } finally {
         setLoading(false);
+        setIsLoadingMore(false);
       }
     };
 
@@ -118,31 +125,24 @@ const CollectionPage: React.FC = () => {
     return artwork.category === activeFilter;
   });
 
-  // Handle load more
-  const handleLoadMore = () => {
-    if (currentPage * limit < totalItems) {
-      // Store current scroll position to calculate where new items appear
-      const currentArtworksCount = artworks.length;
+  // Infinite scroll: Load more when user scrolls near bottom
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if user is near bottom of page (500px threshold)
+      const scrollPosition = window.innerHeight + window.scrollY;
+      const bottomPosition = document.documentElement.scrollHeight - 500;
       
-      setCurrentPage(prev => prev + 1);
+      const hasMore = currentPage * limit < totalItems;
+      const canLoadMore = !loading && !isLoadingMore && hasMore && !error;
       
-      // Smooth scroll to new items after they load
-      // Wait for next render cycle
-      setTimeout(() => {
-        // Find the first new artwork card
-        const artworkCards = document.querySelectorAll('.artwork-card-grid');
-        const firstNewCard = artworkCards[currentArtworksCount];
-        
-        if (firstNewCard) {
-          // Scroll to show new items with some offset
-          firstNewCard.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center' 
-          });
-        }
-      }, 800); // Wait for data to load and render
-    }
-  };
+      if (scrollPosition >= bottomPosition && canLoadMore) {
+        setCurrentPage(prev => prev + 1);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [currentPage, totalItems, loading, isLoadingMore, error, limit]);
 
   const hasMore = currentPage * limit < totalItems;
 
@@ -272,8 +272,8 @@ const CollectionPage: React.FC = () => {
                 </Link>
               ))}
               
-              {/* Loading More - Show skeleton cards at bottom */}
-              {loading && artworks.length > 0 && (
+              {/* Loading More - Show skeleton cards at bottom (Infinite Scroll) */}
+              {isLoadingMore && hasMore && (
                 <>
                   {Array.from({ length: Math.min(limit, totalItems - artworks.length) }).map((_, index) => {
                     const colors = ['#8B7355', '#C89B4F', '#B8735C', '#7A8B7F', '#9B8FA5', '#6B7F8C', '#4A6FA5', '#E67E73', '#E8E4DF'];
@@ -282,7 +282,7 @@ const CollectionPage: React.FC = () => {
                     return (
                       <div 
                         key={`loading-skeleton-${index}`}
-                        className="artwork-card-grid artwork-card-grid--medium skeleton-card"
+                        className="artwork-card-grid artwork-card-grid--small skeleton-card"
                         style={{ backgroundColor }}
                       >
                         <div className="skeleton-image"></div>
@@ -292,46 +292,21 @@ const CollectionPage: React.FC = () => {
                 </>
               )}
             </div>
+
             
-            {/* Load More / Pagination Info */}
-            <div className="collection-page__load-more">
-              {hasMore ? (
-                <>
-                  <p style={{ 
-                    textAlign: 'center', 
-                    color: 'var(--color-text-secondary)', 
-                    marginBottom: '20px',
-                    fontSize: '14px'
-                  }}>
-                    Showing {artworks.length} of {totalItems} artworks
-                  </p>
-                  <button 
-                    className="btn btn-burgundy" 
-                    onClick={handleLoadMore}
-                    disabled={loading}
-                  >
-                    {loading ? 'LOADING...' : 'VIEW MORE'}
-                    {!loading && (
-                      <div className="btn-arrow">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                      </div>
-                    )}
-                  </button>
-                </>
-              ) : (
-                <p style={{ 
-                  textAlign: 'center', 
-                  color: 'var(--color-burgundy)', 
-                  padding: '20px', 
-                  fontSize: '16px', 
-                  fontWeight: '500' 
-                }}>
-                  ✨ Showing all {totalItems} artworks
-                </p>
-              )}
-            </div>
+            {/* End of List Indicator - Only show when all loaded */}
+            {!hasMore && artworks.length > 0 && (
+              <div style={{ 
+                textAlign: 'center', 
+                padding: '60px 20px',
+                color: 'var(--color-text-secondary)',
+                fontSize: '14px',
+                borderTop: '1px solid var(--color-border)',
+                marginTop: '40px'
+              }}>
+                ✨ You've reached the end
+              </div>
+            )}
           </>
         )}
         
