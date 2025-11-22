@@ -57,8 +57,14 @@ export const getImageUrl = (imagePath: string | null): string | null => {
     return imagePath;
   }
   
-  // If it's a relative path (like /api/public/file/xxx), prepend the base URL
-  return `${env.imageBaseUrl}${imagePath}`;
+  // Use URL API to properly handle slashes and construct full URL
+  // This prevents double slashes like: https://domain.com//api/file/...
+  try {
+    return new URL(imagePath, env.imageBaseUrl).href;
+  } catch (error) {
+    console.error('Invalid image URL:', { imagePath, baseUrl: env.imageBaseUrl }, error);
+    return null;
+  }
 };
 
 export const artworksAPI = {
