@@ -42,8 +42,10 @@ const CollectionPage: React.FC = () => {
           // Transform API data to local format
           const transformedArtworks: Artwork[] = response.data.data.map((artwork: ApiArtwork, index: number) => {
             // Assign size based on index pattern for grid layout
+            // Use global index (across all pages) for size pattern
+            const globalIndex = (currentPage - 1) * limit + index;
             const sizes: ('large' | 'medium' | 'small')[] = ['large', 'medium', 'medium', 'small', 'medium', 'medium'];
-            const size = sizes[index % sizes.length];
+            const size = sizes[globalIndex % sizes.length];
             
             return {
               id: artwork.id,
@@ -56,7 +58,11 @@ const CollectionPage: React.FC = () => {
             };
           });
           
-          setArtworks(transformedArtworks);
+          // Append new artworks to existing ones (for "Load More")
+          // Replace all artworks on page 1 (initial load or refresh)
+          setArtworks(prevArtworks => 
+            currentPage === 1 ? transformedArtworks : [...prevArtworks, ...transformedArtworks]
+          );
           setTotalItems(response.data.meta.total);
         }
       } catch (err: any) {
@@ -115,7 +121,26 @@ const CollectionPage: React.FC = () => {
   // Handle load more
   const handleLoadMore = () => {
     if (currentPage * limit < totalItems) {
+      // Store current scroll position to calculate where new items appear
+      const currentArtworksCount = artworks.length;
+      
       setCurrentPage(prev => prev + 1);
+      
+      // Smooth scroll to new items after they load
+      // Wait for next render cycle
+      setTimeout(() => {
+        // Find the first new artwork card
+        const artworkCards = document.querySelectorAll('.artwork-card-grid');
+        const firstNewCard = artworkCards[currentArtworksCount];
+        
+        if (firstNewCard) {
+          // Scroll to show new items with some offset
+          firstNewCard.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+        }
+      }, 800); // Wait for data to load and render
     }
   };
 
@@ -259,21 +284,43 @@ const CollectionPage: React.FC = () => {
             {/* Load More / Pagination Info */}
             <div className="collection-page__load-more">
               {hasMore ? (
-                <button 
-                  className="btn btn-burgundy" 
-                  onClick={handleLoadMore}
-                  disabled={loading}
-                >
-                  {loading ? 'LOADING...' : 'VIEW MORE'}
-                  <div className="btn-arrow">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                </button>
+                <>
+                  <p style={{ 
+                    textAlign: 'center', 
+                    color: 'var(--color-text-secondary)', 
+                    marginBottom: '20px',
+                    fontSize: '14px'
+                  }}>
+                    Showing {artworks.length} of {totalItems} artworks
+                  </p>
+                  <button 
+                    className="btn btn-burgundy" 
+                    onClick={handleLoadMore}
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <LoadingSpinner text="Loading more artworks..." />
+                    ) : (
+                      <>
+                        VIEW MORE
+                        <div className="btn-arrow">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </div>
+                      </>
+                    )}
+                  </button>
+                </>
               ) : (
-                <p style={{ textAlign: 'center', color: 'var(--color-burgundy)', padding: '20px' }}>
-                  Showing all {totalItems} artworks
+                <p style={{ 
+                  textAlign: 'center', 
+                  color: 'var(--color-burgundy)', 
+                  padding: '20px', 
+                  fontSize: '16px', 
+                  fontWeight: '500' 
+                }}>
+                  ✨ Showing all {totalItems} artworks
                 </p>
               )}
             </div>
