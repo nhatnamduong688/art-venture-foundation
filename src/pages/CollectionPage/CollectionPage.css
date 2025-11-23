@@ -91,12 +91,10 @@ html {
   color: #ffffff;
 }
 
-/* Masonry Grid */
+/* Masonry Grid - 2 Column Layout */
 .collection-page__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-5);
-  grid-auto-rows: 200px;
+  column-count: 1;
+  column-gap: 24px;
   margin-bottom: var(--spacing-10);
   animation: fadeInGrid 0.5s ease-in-out;
 }
@@ -115,9 +113,13 @@ html {
 .artwork-card-grid {
   position: relative;
   overflow: hidden;
-  background: #f5f5f5;
+  background: transparent;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  break-inside: avoid;
+  margin-bottom: 24px;
+  display: inline-block;
+  width: 100%;
 }
 
 .artwork-card-grid:hover {
@@ -135,14 +137,17 @@ html {
 
 .artwork-card-grid__image {
   width: 100%;
-  height: 100%;
+  height: auto;
+  line-height: 0; /* Remove extra space below image */
+  background: transparent;
 }
 
 .artwork-card-grid__image img {
   width: 100%;
-  height: 100%;
-  object-fit: contain; /* Changed from cover - shows full artwork */
+  height: auto;
+  object-fit: cover; /* Fill width, maintain aspect ratio */
   display: block;
+  vertical-align: middle;
 }
 
 .artwork-card-grid__overlay {
@@ -222,9 +227,8 @@ html {
   }
   
   .collection-page__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-6);
-    grid-auto-rows: 250px;
+    column-count: 2;
+    column-gap: 24px;
   }
 }
 
@@ -247,25 +251,8 @@ html {
   }
   
   .collection-page__grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-6);
-    grid-auto-rows: 300px;
-  }
-  
-  /* Grid sizes for masonry effect */
-  .artwork-card-grid--large {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-  
-  .artwork-card-grid--medium {
-    grid-column: span 1;
-    grid-row: span 2;
-  }
-  
-  .artwork-card-grid--small {
-    grid-column: span 1;
-    grid-row: span 1;
+    column-count: 2;
+    column-gap: 24px;
   }
 }
 
@@ -297,7 +284,8 @@ html {
   }
   
   .collection-page__grid {
-    gap: 32px;
+    column-count: 2;
+    column-gap: 24px;
     margin-bottom: 60px;
   }
 }
@@ -321,7 +309,7 @@ html {
   }
   
   .collection-page__grid {
-    gap: 40px;
-    grid-auto-rows: 350px;
+    column-count: 2;
+    column-gap: 24px;
   }
 }

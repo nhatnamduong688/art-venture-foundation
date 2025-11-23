@@ -143,6 +143,10 @@ const CollectionPage: React.FC = () => {
   ];
 
   const filteredArtworks = artworks.filter(artwork => {
+    // Filter out artworks without images
+    if (!artwork.image) return false;
+    
+    // Filter by category
     if (activeFilter === 'all') return true;
     return artwork.category === activeFilter;
   });
@@ -264,22 +268,15 @@ const CollectionPage: React.FC = () => {
                 >
                   <div className="artwork-card-grid__image">
                     {artwork.image ? (
-                      <ImageLoader
-                        src={artwork.image}
+                      <img 
+                        src={artwork.image} 
                         alt={artwork.title}
-                        aspectRatio={4 / 3}
-                        backgroundColor={getArtworkColor(
-                          artwork.id,
-                          artwork.artist,
-                          artwork.category
-                        )}
-                        showSpinner={false}
-                        transitionDuration={600}
+                        loading="lazy"
                       />
                     ) : (
                       <div style={{ 
                         width: '100%', 
-                        height: '100%', 
+                        minHeight: '200px',
                         background: '#e0e0e0', 
                         display: 'flex', 
                         alignItems: 'center', 
