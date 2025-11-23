@@ -60,8 +60,8 @@
 /* ==================== DESKTOP (1024px+) ==================== */
 @media (min-width: 1024px) {
   :root {
-    --container-padding-left: 40px;
-    --container-padding-right: 40px;
+    --container-padding-left: 80px; /* ✅ Increased for better spacing */
+    --container-padding-right: 80px; /* ✅ Increased for better spacing */
   }
 }
 

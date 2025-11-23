@@ -143,12 +143,12 @@ const ArtistDetailPage: React.FC = () => {
               )}
             </div>
             
-            {artist.artistStatement && (
-              <div className="artist-quote">
-                <div className="artist-quote__mark">"</div>
-                <p className="artist-quote__text">{artist.artistStatement}</p>
-              </div>
-            )}
+            <div className="artist-quote">
+              <div className="artist-quote__mark">"</div>
+              <p className="artist-quote__text">
+                {artist.artistStatement || "Nghệ thuật là ngôn ngữ của tâm hồn, là cách tôi kể những câu chuyện về văn hóa và con người qua từng tác phẩm."}
+              </p>
+            </div>
           </div>
 
           {/* Right: Info */}
