@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header, Footer } from './design-system/organisms';
 import { Sidebar } from './components/business';
 import ScrollToTop from './components/common/ScrollToTop/ScrollToTop';
+import ScrollToTopOnNavigate from './components/common/ScrollToTopOnNavigate';
 import './App.css';
 
 // Loading component
@@ -72,6 +73,7 @@ const AppRouter: React.FC = () => {
         <Sidebar />
         <Header />
         <ScrollToTop />
+        <ScrollToTopOnNavigate />
         
         <Suspense fallback={<LoadingFallback />}>
           <Routes>

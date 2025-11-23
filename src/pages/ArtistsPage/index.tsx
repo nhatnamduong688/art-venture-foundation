@@ -1,72 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Footer } from '../../design-system/organisms';
+import { artistsAPI, Artist, getArtistImageUrl } from '../../api/artists';
 import './ArtistsPage.css';
-
-interface Artist {
-  id: number;
-  name: string;
-  artworkCount: number;
-  image: string;
-}
 
 const ArtistsPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [artists, setArtists] = useState<Artist[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalItems, setTotalItems] = useState<number>(0);
+  const limit = 24;
 
-  const artists: Artist[] = [
-    {
-      id: 1,
-      name: "Đào Hải Phong",
-      artworkCount: 23,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=460&fit=crop"
-    },
-    {
-      id: 2,
-      name: "Nguyễn Phan Chánh",
-      artworkCount: 56,
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=460&fit=crop"
-    },
-    {
-      id: 3,
-      name: "Lê Minh Đức",
-      artworkCount: 34,
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=460&fit=crop"
-    },
-    {
-      id: 4,
-      name: "Lê Phổ",
-      artworkCount: 67,
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=460&fit=crop"
-    },
-    {
-      id: 5,
-      name: "Nguyễn Tư Nghiêm",
-      artworkCount: 45,
-      image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=460&fit=crop"
-    },
-    {
-      id: 6,
-      name: "Nguyễn Gia Trí",
-      artworkCount: 78,
-      image: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&h=460&fit=crop"
-    },
-    {
-      id: 7,
-      name: "Bùi Xuân Phái",
-      artworkCount: 123,
-      image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&h=460&fit=crop"
-    },
-    {
-      id: 8,
-      name: "Nguyễn Sáng",
-      artworkCount: 89,
-      image: "https://images.unsplash.com/photo-1513956589380-bad6acb9b9d4?w=400&h=460&fit=crop"
-    }
-  ];
+  // Fetch artists from API
+  useEffect(() => {
+    const fetchArtists = async () => {
+      try {
+        setLoading(true);
+        setError(null);
 
-  const filteredArtists = artists.filter(artist =>
-    artist.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+        let response;
+        if (searchTerm.trim()) {
+          // Search mode
+          response = await artistsAPI.search(searchTerm, currentPage, limit);
+        } else {
+          // Normal list mode
+          response = await artistsAPI.getAll(currentPage, limit);
+        }
+
+        if (response.success && response.data) {
+          setArtists(response.data.data);
+          setTotalItems(response.data.meta.total);
+        }
+      } catch (err: any) {
+        console.error('Error fetching artists:', err);
+        setError(err.message || 'Failed to load artists');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArtists();
+  }, [currentPage, searchTerm]);
+
+  // Handle search with debounce
+  const handleSearchChange = (value: string) => {
+    setSearchTerm(value);
+    setCurrentPage(1); // Reset to first page on search
+  };
+
+  const filteredArtists = artists;
 
   return (
     <div className="artists-page">
@@ -82,30 +66,79 @@ const ArtistsPage: React.FC = () => {
               type="text" 
               placeholder="Tìm kiếm"
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => handleSearchChange(e.target.value)}
             />
           </div>
         </div>
-        
-        <div className="artists-page__grid">
-          {filteredArtists.map((artist) => (
-            <Link 
-              key={artist.id} 
-              to={`/artists/${artist.id}`}
-              className="artist-card"
-            >
-              <div className="artist-card__image">
-                <img src={artist.image} alt={artist.name} />
-              </div>
-              <div className="artist-card__overlay">
-                <div className="artist-card__info">
-                  <h3 className="artist-card__name">{artist.name}</h3>
-                  <p className="artist-card__count">{artist.artworkCount} Tác phẩm</p>
+
+        {/* Loading State with Skeleton */}
+        {loading && (
+          <div className="artists-page__grid">
+            {Array.from({ length: 12 }).map((_, index) => (
+              <div key={index} className="artist-card skeleton">
+                <div className="artist-card__image skeleton-pulse"></div>
+                <div className="artist-card__overlay skeleton-overlay">
+                  <div className="skeleton-text"></div>
+                  <div className="skeleton-text-small"></div>
                 </div>
               </div>
-            </Link>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
+
+        {/* Error State */}
+        {error && !loading && (
+          <div className="artists-page__error">
+            <p>{error}</p>
+            <button onClick={() => window.location.reload()}>Thử lại</button>
+          </div>
+        )}
+
+        {/* Empty State */}
+        {!loading && !error && filteredArtists.length === 0 && (
+          <div className="artists-page__empty">
+            <p>Không tìm thấy nghệ sĩ nào{searchTerm ? ` với từ khóa "${searchTerm}"` : ''}.</p>
+          </div>
+        )}
+        
+        {/* Artists Grid */}
+        {!loading && !error && filteredArtists.length > 0 && (
+          <div className="artists-page__grid">
+            {filteredArtists.map((artist) => (
+              <Link 
+                key={artist.id} 
+                to={`/artists/${artist.id}`}
+                className="artist-card"
+              >
+                <div className="artist-card__image">
+                  {artist.portraitImage ? (
+                    <img 
+                      src={getArtistImageUrl(artist.portraitImage)!} 
+                      alt={artist.fullName} 
+                    />
+                  ) : (
+                    <div className="artist-card__placeholder">
+                      {artist.fullName.charAt(0).toUpperCase()}
+                    </div>
+                  )}
+                </div>
+                <div className="artist-card__overlay">
+                  <div className="artist-card__info">
+                    <h3 className="artist-card__name">{artist.fullName}</h3>
+                    <p className="artist-card__count">{artist.artworksCount} Tác phẩm</p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
+
+        {/* Pagination Info */}
+        {!loading && !error && totalItems > 0 && (
+          <div className="artists-page__pagination">
+            <p>Hiển thị {artists.length} / {totalItems} nghệ sĩ</p>
+          </div>
+        )}
       </div>
       
       <Footer />

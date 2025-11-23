@@ -4,6 +4,126 @@
   background: #F2EFE7;
 }
 
+/* Loading & Error States */
+.artist-detail-error {
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* Skeleton Loading Styles */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #e0e0e0 0%,
+    #f0f0f0 50%,
+    #e0e0e0 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Skeleton Variants */
+.skeleton-title {
+  height: 32px;
+  width: 60%;
+  margin-bottom: 16px;
+}
+
+.skeleton-text {
+  height: 16px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.skeleton-section-title {
+  height: 20px;
+  width: 40%;
+  margin-bottom: 12px;
+}
+
+.skeleton-info-item {
+  height: 48px;
+  border-radius: 4px;
+}
+
+.skeleton-tab {
+  height: 36px;
+  width: 80px;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+/* Portrait skeleton uses existing .artist-portrait styles */
+.artist-portrait.skeleton {
+  background: linear-gradient(
+    90deg,
+    #e0e0e0 0%,
+    #f0f0f0 50%,
+    #e0e0e0 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+/* Back button skeleton */
+.artist-detail-back.skeleton {
+  background: linear-gradient(
+    90deg,
+    #e0e0e0 0%,
+    #f0f0f0 50%,
+    #e0e0e0 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+.artist-detail-error h2 {
+  font-family: 'Big Caslon', serif;
+  font-size: 28px;
+  color: #6B2128;
+  margin: 0 0 12px 0;
+}
+
+.artist-detail-error p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #666666;
+  margin: 0 0 24px 0;
+}
+
+.artist-detail-error-button {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #6B2128;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.artist-detail-error-button:hover {
+  background: #8B3138;
+  transform: translateY(-2px);
+}
+
 .artist-detail-container {
   max-width: 1252px;
   margin: 0 auto;
@@ -57,7 +177,7 @@
 
 .artist-portrait {
   width: 100%; /* Full width on mobile */
-  height: 300px; /* Mobile height */
+  height: 600px; /* Increased mobile height */
   overflow: hidden;
   background: #e0e0e0;
 }
@@ -67,6 +187,21 @@
   height: 100%;
   object-fit: cover;
   filter: grayscale(100%);
+}
+
+/* Placeholder for missing portrait */
+.artist-portrait-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6B2128 0%, #8B3138 100%);
+  font-family: 'Big Caslon', serif;
+  font-size: 80px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
 }
 
 .artist-quote {
@@ -97,6 +232,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px; /* Smaller gap on mobile */
+  min-height: 600px; /* Minimum height to prevent layout shift */
 }
 
 .artist-name {
@@ -282,7 +418,7 @@
   }
 
   .artist-portrait {
-    height: 350px;
+    height: 450px;
   }
 
   .artist-quote {
@@ -341,7 +477,7 @@
 
   .artist-portrait {
     width: 100%;
-    height: 400px;
+    height: 500px;
   }
 
   .artist-quote {
@@ -413,7 +549,11 @@
 
   .artist-portrait {
     width: 336px; /* Fixed width */
-    height: 315px; /* Figma height */
+    height: 450px; /* Increased height for better proportion */
+  }
+
+  .artist-portrait-placeholder {
+    font-size: 120px; /* Larger on desktop */
   }
 
   .artist-left {
@@ -438,5 +578,6 @@
 
   .artist-detail-right {
     gap: 24px;
+    min-height: 800px; /* Larger min-height on desktop to match portrait */
   }
 }

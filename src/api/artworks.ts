@@ -6,8 +6,8 @@
 import { apiClient } from './client';
 import { env } from '../config/env';
 
-// Artist interface based on backend response
-export interface Artist {
+// Artist interface for artwork (simplified version used in artwork response)
+export interface ArtworkArtist {
   id: string;
   fullName: string;
   artistCode: string;
@@ -28,7 +28,7 @@ export interface Artwork {
   dateCreated: string;
   belongsToAVCollection: boolean;
   avArtCollectionId: string | null;
-  artist: Artist;
+  artist: ArtworkArtist;
 }
 
 // Meta information for pagination
