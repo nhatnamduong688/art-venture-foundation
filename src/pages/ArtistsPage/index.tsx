@@ -11,6 +11,7 @@ const ArtistsPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalItems, setTotalItems] = useState<number>(0);
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
   const limit = 24;
 
   // Fetch artists from API
@@ -48,6 +49,12 @@ const ArtistsPage: React.FC = () => {
   const handleSearchChange = (value: string) => {
     setSearchTerm(value);
     setCurrentPage(1); // Reset to first page on search
+    setLoadedImages(new Set()); // Reset loaded images on search
+  };
+
+  // Handle image load
+  const handleImageLoad = (artistId: string) => {
+    setLoadedImages(prev => new Set(prev).add(artistId));
   };
 
   const filteredArtists = artists;
@@ -115,6 +122,9 @@ const ArtistsPage: React.FC = () => {
                     <img 
                       src={getArtistImageUrl(artist.portraitImage)!} 
                       alt={artist.fullName} 
+                      className={loadedImages.has(artist.id) ? 'loaded' : 'loading'}
+                      onLoad={() => handleImageLoad(artist.id)}
+                      loading="lazy"
                     />
                   ) : (
                     <div className="artist-card__placeholder">
@@ -125,7 +135,9 @@ const ArtistsPage: React.FC = () => {
                 <div className="artist-card__overlay">
                   <div className="artist-card__info">
                     <h3 className="artist-card__name">{artist.fullName}</h3>
+                    <div className="artist-card__badge">
                     <p className="artist-card__count">{artist.artworksCount} Tác phẩm</p>
+                    </div>
                   </div>
                 </div>
               </Link>

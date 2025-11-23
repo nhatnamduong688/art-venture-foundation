@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { ArtistCollectionCard } from '../../components/business';
 import type { ArtistInfo, ArtworkImage } from '../../components/business';
@@ -8,6 +8,7 @@ import { artworksAPI, getImageUrl } from '../../api/artworks';
 import type { Artwork as ApiArtwork } from '../../api/artworks';
 import { getArtworkColor } from '../../utils/artworkColors';
 import { Footer } from '../../design-system/organisms';
+import { calculateRowSpan, getColumnWidth, debounce } from './utils/gridCalculations';
 import './CollectionPage.css';
 
 interface Artwork {
@@ -16,6 +17,8 @@ interface Artwork {
   artist: string;
   artistAvatar: string | null;
   image: string | null;
+  imageWidth: number | null;   // For grid row span calculation
+  imageHeight: number | null;  // For grid row span calculation
   category: string;
   size: 'large' | 'medium' | 'small';
 }
@@ -32,6 +35,8 @@ const CollectionPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalItems, setTotalItems] = useState<number>(0);
   const [isLoadingMore, setIsLoadingMore] = useState<boolean>(false);
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+  const [columnWidth, setColumnWidth] = useState<number>(getColumnWidth(window.innerWidth));
   const limit = 22;
 
   // Fetch artworks from API (with cache)
@@ -77,6 +82,8 @@ const CollectionPage: React.FC = () => {
               artist: artwork.artist.fullName,
               artistAvatar: getImageUrl(artwork.artist.image),
               image: getImageUrl(artwork.image),
+              imageWidth: artwork.imageWidth,   // Pass through from API
+              imageHeight: artwork.imageHeight, // Pass through from API
               category: 'all', // Backend doesn't have category yet, default to 'all'
               size: size
             };
@@ -142,6 +149,21 @@ const CollectionPage: React.FC = () => {
     }
   ];
 
+  // Handle image load
+  const handleImageLoad = (artworkId: string) => {
+    setLoadedImages(prev => new Set(prev).add(artworkId));
+  };
+
+  // Update column width on window resize (debounced)
+  useEffect(() => {
+    const handleResize = debounce(() => {
+      setColumnWidth(getColumnWidth(window.innerWidth));
+    }, 150);
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const filteredArtworks = artworks.filter(artwork => {
     // Filter out artworks without images
     if (!artwork.image) return false;
@@ -150,6 +172,13 @@ const CollectionPage: React.FC = () => {
     if (activeFilter === 'all') return true;
     return artwork.category === activeFilter;
   });
+
+  // Memoize row spans AFTER filtering
+  const artworkRowSpans = useMemo(() => {
+    return filteredArtworks.map(artwork => 
+      calculateRowSpan(artwork.imageWidth, artwork.imageHeight, columnWidth)
+    );
+  }, [filteredArtworks, columnWidth]);
 
   // Throttle helper function (prevents excessive calls)
   const throttle = (func: Function, delay: number) => {
@@ -260,52 +289,81 @@ const CollectionPage: React.FC = () => {
         {!error && artworks.length > 0 && (
           <>
             <div className="collection-page__grid">
-              {filteredArtworks.map((artwork) => (
-                <Link 
-                  key={artwork.id} 
-                  to={`/collection/${artwork.id}`}
-                  className={`artwork-card-grid artwork-card-grid--${artwork.size}`}
-                >
-                  <div className="artwork-card-grid__image">
-                    {artwork.image ? (
-                      <img 
-                        src={artwork.image} 
-                        alt={artwork.title}
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div style={{ 
-                        width: '100%', 
-                        minHeight: '200px',
-                        background: '#e0e0e0', 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        justifyContent: 'center',
-                        color: '#999'
-                      }}>
-                        No Image
-                      </div>
-                    )}
-                  </div>
-                  <div className="artwork-card-grid__overlay">
-                    <div className="artwork-card-grid__info">
-                      <div className="artwork-card-grid__artist">
-                        {artwork.artistAvatar ? (
-                          <img src={artwork.artistAvatar} alt={artwork.artist} />
-                        ) : (
-                          <div style={{ 
-                            width: '100%', 
-                            height: '100%', 
-                            background: '#ccc', 
-                            borderRadius: '50%' 
-                          }} />
-                        )}
-                      </div>
-                      <span className="artwork-card-grid__artist-name">{artwork.artist}</span>
+              {filteredArtworks.map((artwork, index) => {
+                // Use index directly since rowSpans are calculated from filteredArtworks
+                const rowSpan = artworkRowSpans[index] || 40; // fallback
+                
+                // Debug: Log first 3 items
+                if (index < 3) {
+                  console.log(`Artwork ${index}:`, {
+                    title: artwork.title,
+                    imageWidth: artwork.imageWidth,
+                    imageHeight: artwork.imageHeight,
+                    aspectRatio: artwork.imageHeight && artwork.imageWidth ? 
+                      (artwork.imageHeight / artwork.imageWidth).toFixed(2) : 'N/A',
+                    rowSpan,
+                    expectedHeight: rowSpan * 10, // Should match rendered height
+                    columnWidth
+                  });
+                }
+                
+                return (
+                  <Link 
+                    key={artwork.id} 
+                    to={`/collection/${artwork.id}`}
+                    className="artwork-card-grid"
+                    style={{ 
+                      gridRowEnd: `span ${rowSpan}`,
+                      opacity: loadedImages.has(artwork.id) ? 1 : 0.3,
+                      transition: 'opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease'
+                    }}
+                  >
+                    <div className="artwork-card-grid__image">
+                      {artwork.image ? (
+                        <img 
+                          src={artwork.image} 
+                          alt={artwork.title}
+                          className={loadedImages.has(artwork.id) ? 'loaded' : 'loading'}
+                          onLoad={() => handleImageLoad(artwork.id)}
+                          loading="lazy"
+                          // Help browser reserve space
+                          width={artwork.imageWidth || undefined}
+                          height={artwork.imageHeight || undefined}
+                        />
+                      ) : (
+                        <div style={{ 
+                          width: '100%', 
+                          minHeight: '200px',
+                          background: '#e0e0e0', 
+                          display: 'flex', 
+                          alignItems: 'center', 
+                          justifyContent: 'center',
+                          color: '#999'
+                        }}>
+                          No Image
+                        </div>
+                      )}
                     </div>
-                  </div>
-                </Link>
-              ))}
+                    <div className="artwork-card-grid__overlay">
+                      <div className="artwork-card-grid__info">
+                        <div className="artwork-card-grid__artist">
+                          {artwork.artistAvatar ? (
+                            <img src={artwork.artistAvatar} alt={artwork.artist} />
+                          ) : (
+                            <div style={{ 
+                              width: '100%', 
+                              height: '100%', 
+                              background: '#ccc', 
+                              borderRadius: '50%' 
+                            }} />
+                          )}
+                        </div>
+                        <span className="artwork-card-grid__artist-name">{artwork.artist}</span>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
               
               {/* Loading More - Show skeleton cards at bottom (Infinite Scroll) */}
               {isLoadingMore && hasMore && (

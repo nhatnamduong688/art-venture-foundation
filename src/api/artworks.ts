@@ -25,6 +25,8 @@ export interface Artwork {
   description: string | null;
   descriptionEn: string | null;
   image: string | null;
+  imageWidth: number | null;   // Image dimensions for masonry layout
+  imageHeight: number | null;  // Image dimensions for masonry layout
   dateCreated: string;
   belongsToAVCollection: boolean;
   avArtCollectionId: string | null;

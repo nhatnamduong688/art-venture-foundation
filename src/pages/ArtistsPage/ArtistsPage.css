@@ -137,6 +137,8 @@
 .artist-card__image {
   width: 100%;
   height: 100%;
+  position: relative;
+  background-color: #e0e0e0;
 }
 
 .artist-card__image img {
@@ -144,7 +146,16 @@
   height: 100%;
   object-fit: cover;
   filter: grayscale(100%);
-  transition: filter 0.3s ease;
+  transition: filter 0.3s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+
+.artist-card__image img.loading {
+  opacity: 0;
+}
+
+.artist-card__image img.loaded {
+  opacity: 1;
 }
 
 .artist-card:hover .artist-card__image img {
@@ -157,32 +168,42 @@
   left: 0;
   right: 0;
   padding: var(--spacing-6);
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 10.656%, rgba(0, 0, 0, 1) 100%);
+  height: 195px;
 }
 
 .artist-card__info {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .artist-card__name {
   font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 2;
   color: #ffffff;
   margin: 0;
+}
+
+.artist-card__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  background: #E4E4E4;
+  border-radius: 4px;
+  width: fit-content;
 }
 
 .artist-card__count {
   font-family: 'Inter', sans-serif;
   font-size: 13px;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #ffffff;
+  font-weight: 500;
+  line-height: 2;
+  color: #2E2E2E;
   margin: 0;
-  opacity: 0.9;
 }
 
 /* ==================== TABLET (768px+) ==================== */
@@ -218,7 +239,7 @@
   }
   
   .artist-card__overlay {
-    padding: 32px;
+    padding: 30px 32px;
   }
 }
 
@@ -250,7 +271,7 @@
   }
   
   .artists-page__grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 32px;
   }
 }
@@ -258,16 +279,16 @@
 /* ==================== WIDE (1440px+) ==================== */
 @media (min-width: 1440px) {
   .artists-page {
-    padding: 140px 0 120px 0;
+    padding: 163px 0 120px 0;
   }
   
   .artists-page__container {
-    max-width: 1252px;
-    padding: 0 100px;
+    max-width: 1440px;
+    padding: 0 188.5px;
   }
   
   .artists-page__header {
-    margin-bottom: 60px;
+    margin-bottom: 44px;
   }
   
   .artists-page__title {
@@ -277,11 +298,14 @@
   .artists-page__search {
     padding: 18px 20px;
     width: 335px;
+    background: #F9F8F2;
+    border-radius: 12px;
+    box-shadow: none;
   }
   
   .artists-page__grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 48px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 44px 16px;
   }
 }
 
@@ -292,7 +316,7 @@
   }
   
   .artists-page__container {
-    max-width: 1400px;
+    max-width: 1600px;
     padding: 0 188px;
   }
   
@@ -305,7 +329,8 @@
   }
   
   .artists-page__grid {
-    gap: 56px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px 20px;
   }
 }
 

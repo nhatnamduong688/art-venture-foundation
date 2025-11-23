@@ -10,6 +10,7 @@ const ArtistDetailPage: React.FC = () => {
   const [artist, setArtist] = useState<ArtistDetail | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [imageLoaded, setImageLoaded] = useState<boolean>(false);
 
   // Fetch artist detail from API
   useEffect(() => {
@@ -134,7 +135,10 @@ const ArtistDetailPage: React.FC = () => {
               {artist.portraitImage ? (
                 <img 
                   src={getArtistImageUrl(artist.portraitImage)!} 
-                  alt={artist.fullName} 
+                  alt={artist.fullName}
+                  className={imageLoaded ? 'loaded' : 'loading'}
+                  onLoad={() => setImageLoaded(true)}
+                  loading="eager"
                 />
               ) : (
                 <div className="artist-portrait-placeholder">
