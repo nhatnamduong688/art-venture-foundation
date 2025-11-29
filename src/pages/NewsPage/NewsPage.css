@@ -64,6 +64,10 @@
   color: #999999;
 }
 
+.news-page__search-button {
+  display: none; /* Hidden by default, search triggers on Enter */
+}
+
 .news-page__filter {
   width: 60px;
   height: 60px;
@@ -197,6 +201,126 @@
   color: #999999;
   white-space: nowrap;
   padding-top: 4px;
+}
+
+/* Image Placeholder */
+.news-item-row__image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e0e0e0;
+  color: #999999;
+}
+
+/* Loading State */
+.news-page__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  min-height: 300px;
+}
+
+.loading-spinner {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: #6B2128;
+  text-align: center;
+}
+
+/* Error State */
+.news-page__error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  min-height: 300px;
+  gap: 20px;
+}
+
+.news-page__error p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #d32f2f;
+  margin: 0;
+  text-align: center;
+}
+
+.news-page__retry-button {
+  padding: 12px 32px;
+  background: #6B2128;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.news-page__retry-button:hover {
+  background: #8b2931;
+}
+
+/* Empty State */
+.news-page__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  min-height: 300px;
+}
+
+.news-page__empty p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #999999;
+  margin: 0;
+  text-align: center;
+}
+
+/* Load More Section */
+.news-page__load-more {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.news-page__load-more-button {
+  padding: 16px 48px;
+  background: transparent;
+  color: #6B2128;
+  border: 2px solid #6B2128;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.news-page__load-more-button:hover:not(:disabled) {
+  background: #6B2128;
+  color: #ffffff;
+}
+
+.news-page__load-more-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Total Count */
+.news-page__total {
+  text-align: center;
+  padding: 40px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #999999;
 }
 
 /* ===== Responsive Design ===== */

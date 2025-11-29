@@ -6,4 +6,5 @@
 export * from './client';
 export * from './artworks';
 export * from './artists';
+export * from './news';
 
