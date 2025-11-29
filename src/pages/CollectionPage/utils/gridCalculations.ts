@@ -53,31 +53,66 @@ export function calculateRowSpan(
 
 /**
  * Get column width based on viewport width and breakpoints
+ * MUST MATCH CSS BREAKPOINTS IN CollectionPage.css
+ * 
+ * Mobile (< 768px):      padding = 16px each side (--spacing-4)
+ * Tablet (768-1023px):   padding = 40px each side (--spacing-10)
+ * Desktop (1024-1439px): padding = 60px each side
+ * Wide (1440-1919px):    padding = 188px each side
+ * Ultra (≥ 1920px):      padding = 220px each side
+ * 
+ * Note: max-width only applies to hero-content, NOT to grid!
+ * Grid always uses full viewport width minus padding.
  * 
  * @param viewportWidth - Current viewport width in pixels
  * @returns Width of a single grid column in pixels
  */
 export function getColumnWidth(viewportWidth: number): number {
-  const isMobile = viewportWidth < 768;
-  
-  if (isMobile) {
-    // Mobile: Full width minus padding
-    const mobilePadding = 40; // 20px each side (from --spacing-4)
-    return viewportWidth - mobilePadding;
+  // ===== MOBILE: < 768px =====
+  // CSS: padding: 40px var(--spacing-4) = 40px 16px
+  // Horizontal padding: 16px × 2 = 32px
+  // Columns: 1
+  if (viewportWidth < 768) {
+    const MOBILE_PADDING = 32; // 16px each side (--spacing-4)
+    return viewportWidth - MOBILE_PADDING;
   }
   
-  // Desktop: Calculate based on container and columns
-  // From CSS: max-width 1064px, padding 188px each side at 1440px+
-  const isWideScreen = viewportWidth >= 1440;
-  
-  if (isWideScreen) {
-    const containerWidth = 1064; // From CSS
-    return (containerWidth - GRID_CONFIG.COLUMN_GAP) / GRID_CONFIG.COLUMNS_DESKTOP;
+  // ===== TABLET: 768px - 1023px =====
+  // CSS: padding: 40px var(--spacing-10) = 40px 40px
+  // Horizontal padding: 40px × 2 = 80px
+  // Columns: 2
+  if (viewportWidth < 1024) {
+    const TABLET_PADDING = 80; // 40px each side (--spacing-10)
+    const availableWidth = viewportWidth - TABLET_PADDING;
+    return (availableWidth - GRID_CONFIG.COLUMN_GAP) / GRID_CONFIG.COLUMNS_DESKTOP;
   }
   
-  // Tablet/smaller desktop: dynamic calculation
-  const containerPadding = viewportWidth < 1024 ? 120 : 376; // Total horizontal padding
-  const availableWidth = viewportWidth - containerPadding;
+  // ===== DESKTOP: 1024px - 1439px =====
+  // CSS: padding: 60px 60px
+  // Horizontal padding: 60px × 2 = 120px
+  // Columns: 2
+  if (viewportWidth < 1440) {
+    const DESKTOP_PADDING = 120; // 60px each side
+    const availableWidth = viewportWidth - DESKTOP_PADDING;
+    return (availableWidth - GRID_CONFIG.COLUMN_GAP) / GRID_CONFIG.COLUMNS_DESKTOP;
+  }
+  
+  // ===== WIDE: 1440px - 1919px =====
+  // CSS: padding: 80px 188px
+  // Horizontal padding: 188px × 2 = 376px
+  // Columns: 2
+  if (viewportWidth < 1920) {
+    const WIDE_PADDING = 376; // 188px each side
+    const availableWidth = viewportWidth - WIDE_PADDING;
+    return (availableWidth - GRID_CONFIG.COLUMN_GAP) / GRID_CONFIG.COLUMNS_DESKTOP;
+  }
+  
+  // ===== ULTRA: >= 1920px =====
+  // CSS: padding: 100px 220px
+  // Horizontal padding: 220px × 2 = 440px
+  // Columns: 2
+  const ULTRA_PADDING = 440; // 220px each side
+  const availableWidth = viewportWidth - ULTRA_PADDING;
   return (availableWidth - GRID_CONFIG.COLUMN_GAP) / GRID_CONFIG.COLUMNS_DESKTOP;
 }
 
