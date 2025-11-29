@@ -11,7 +11,7 @@ export const GRID_CONFIG = {
   COLUMNS_MOBILE: 1,        // 1 column on mobile
   COLUMNS_DESKTOP: 2,       // 2 columns on desktop+
   MIN_ROWS: 20,             // Minimum rows (200px)
-  MAX_ROWS: 100,            // Maximum rows (1000px)
+  MAX_ROWS: 200,            // Maximum rows (2000px) - increased for tall portrait images
   DEFAULT_ROWS: 40,         // Default when no dimensions (400px)
 } as const;
 
