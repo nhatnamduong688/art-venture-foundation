@@ -43,8 +43,7 @@ export function calculateRowSpan(
   const totalHeight = displayHeight + GRID_CONFIG.VERTICAL_SPACING;
   
   // Calculate number of rows needed
-  // Add 1 extra row as safety buffer to prevent subpixel rendering issues and overlap
-  let rowSpan = Math.ceil(totalHeight / GRID_CONFIG.ROW_HEIGHT) + 1;
+  let rowSpan = Math.ceil(totalHeight / GRID_CONFIG.ROW_HEIGHT);
   
   // Cap min/max to prevent extreme sizes
   rowSpan = Math.max(GRID_CONFIG.MIN_ROWS, Math.min(GRID_CONFIG.MAX_ROWS, rowSpan));
